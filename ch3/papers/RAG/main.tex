@@ -1,0 +1,1525 @@
+% Body of paper at ch3/papers/RAG/main.tex
+% Standalone preamble stripped; \input from the chapter wrapper.
+\graphicspath{{ch3/papers/RAG/}}
+% Custom commands preserved from the original preamble:
+\providecommand{\fix}{\marginpar{FIX}}
+\providecommand{\new}{\marginpar{NEW}}
+
+
+\section{Introduction}
+
+Language models are known to exhibit systematic lexical frequency biases: their performance on linguistic evaluations correlates with how often the lexical items in the test examples appear in training data, leading to low-frequency items posing a persistent challenge \citep{wei-etal-2021-frequency,kim2022uncontrolled,diehl-martinez-etal-2024-mitigating}. While frequency does influence human performance in empirical tests of grammatical knowledge such as acceptability judgments \citep[i.a.]{kempen2005relationship,bader2010toward}, recent work \citep{christensen2024complexity} has shown evidence for robustness to lexical frequency in delineating the critical contrasts. What accounts for this gap between human robustness and model fragility?
+
+
+% Grammatical knowledge in language models is typically considered as operating over abstract structural representations that are independent statistical properties of individual lexical items, such as frequency in the training set. While frequency modulates performance in empirical tests of grammatical knowledge such as acceptability judgments\citep[i.a.]{kempen2005relationship,bader2010toward}, recent work \citep{christensen2024complexity} has shown evidence for robustness to lexical frequency in delineating the critical contrasts. What is the mechanism that underlies this robustness? 
+
+One possible answer comes from Complementary Learning Systems (CLS) theory 
+\citep{mcclelland1995there,davis2009complementary,kumaran2016learning}, which proposes that the brain employs two distinct memory systems: a hippocampal system that rapidly encodes and retrieves specific experiences, and a neocortical system that gradually extracts generalizable statistical patterns. When parametric knowledge is weak, as it is for rare items, episodic memory can compensate by directly retrieving relevant past encounters. This division of labor has also been proposed to be relevant to linguistic processing \citep{borensztajn2011episodic,duff2012hippocampus}, leading us to hypothesize that episodic retrieval may reflect the mechanism that underlies human robustness to lexical frequency in syntactic processing.
+
+% Complementary Learning Systems (CLS) theory proposes that hippocampal episodic memory rapidly encodes and retrieves specific experiences, while neocortical semantic memory gradually extracts generalizable patterns \citep{mcclelland1995there,davis2009complementary,kumaran2016learning}. Thus, episodic memory allows learners to retrieve and leverage past encounters when processing low-frequency patterns. 
+
+
+In this work, we computationally test this hypothesis by asking whether augmenting language models with an explicit retrieval mechanism helps close the lexical frequency gap in syntactic contrast evaluations. We adopt $k$-nearest-neighbor language models ($k$NN-LM; \citealt{khandelwal2020knnlm}) as our proxy for episodic memory: the non-parametric datastore caches training instances for direct retrieval at inference time (analogous to hippocampal episodic traces), while the underlying parametric network consolidates statistical patterns through training (analogous to neocortical learning). The original $k$NN-LM has already been shown to be particularly helpful for rare patterns \citep{khandelwal2020knnlm}, and recent work shows that the information available in the context can be used more flexibly than the same information stored parametrically \citep{lampinen2025latent,chan2022data}, both consistent with the CLS prediction. At the same time, a recent finding that $k$NN-LMs do \textit{not} improve prediction of low-frequency tokens in standard language modeling evaluation \citep{nishida2025long} makes it a non-trivial and empirically open question whether retrieval benefits extend to the domain of syntactic knowledge.
+
+
+We investigate this question through syntactic contrast tests across three different phenomena (subject-verb agreement, wh-questions, relative clauses) using frequency-stratified test items, under both child-realistic and large-scale pretraining. We further analyze what drives retrieval effectiveness by contrasting full versus semantics-only retrieval, by examining the role of structural similarity in retrieved instances, and by varying the configurations of retrieval (retrieval granularity, context window size, and number of retrieved neighbors). Our results reveal that retrieval augmentation consistently narrows the lexical frequency gap across all phenomena and both model scales, with greater gains for more syntactically complex phenomena. Nevertheless, the gap remains not fully closed. To this end, we analyze the limitations of the current modeling approach and posit preferential reweighting, improved representations and retrieval for structural information, and flexible configurations of storage and retrieval as promising future directions.
+
+% old version
+% We investigate this question through syntactic contrast tests targeting three different phenomena (subject-verb agreement, wh-questions, relative clauses) using frequency-stratified test items, under two different training data setups (child-realistic pretraining and large-scale pretraining). Then, we analyze the contribution of structural and semantic information towards the effectiveness of the retrieval mechanism. We additionally provide a more detailed characterization of effective retrieval across three dimensions: (1) the granularity of the stored/retrieved instances (tokens, phrases, or sequences), (2) the context window size, and (3) the number of retrieved instances. Our results reveal that a retrieval mechanism does provide compensatory benefits for test examples with low-frequency lexical items, but the compensation is insufficient to close the frequency gap fully. We furthermore find that both structural and semantic information contribute to compensation, but the impact of structural information is likely outsized. Finally, we find that optimal retrieval configurations (granularity, window size and number) vary dramatically across different syntactic phenomena.  Taken together, these findings serve as a proof-of-concept that episodic memory and retrieval can improve robustness to item-specific statistics in syntactic contrasts. However, the current implementation via $k$NN-LM likely requires several additional modeling efforts to further narrow the frequency gap: based on our analyses, we posit preferential reweighting, improved representations and retrieval for structural information, and flexible configurations of storage and retrieval as promising future directions.
+
+
+
+\section{Related Work}
+
+\noindent \textbf{Frequency effects on linguistic evaluation in language models.}
+Language models exhibit systematic frequency biases, where performance on linguistic evaluation often degrades when the test items contain low-frequency lexical items \citep{wei-etal-2021-frequency,kim2022uncontrolled}. In the context of syntactic contrasts, models perform worse on minimal pairs that contain low-frequency words, even when the underlying grammatical contrast is identical to high-frequency cases. \citet{diehl-martinez-etal-2024-mitigating} directly quantify this frequency bias in BLiMP (one of our syntactic test datasets) and propose a training-time intervention (Syntactic Smoothing) to reduce it, finding that substantial gaps persist even after mitigation. \citet{wettig-etal-2023-mask} has also examined how linguistic frequency distributions in pretraining data shape model behavior, finding that exposure patterns affect both learning speed and final performance. Together, these findings establish that lexical frequency creates differential strength in parametric representations, with low-frequency items learned far less robustly. Our work asks a related question from a different methodological angle: rather than reducing frequency bias through better training, can it be compensated for at inference time through retrieval?
+
+\noindent \textbf{Complementary Learning Systems theory.}
+Complementary Learning Systems (CLS) theory \citep{mcclelland1995there, kumaran2016learning} proposes that the human brain employs two specialized memory systems: a hippocampal system that rapidly encodes specific episodes, and a neocortical system that gradually extracts statistical regularities across experiences. This allows new information to be acquired quickly without disrupting slower cortical learning \citep{o1994hippocampal}, and computational implementations of CLS show that it enables both rapid memorization and gradual generalization \citep{schapiro2017complementary}. Critically for our purposes, \citet{eichenbaum2001hippocampus} argues that the hippocampus does not merely store episodes but actively supports flexible use of past experiences through retrieval, enabling inferences that parametric learning alone may fail to achieve. Applied to language models, this predicts that when parametric representations are weak (as for low-frequency items), episodic retrieval should provide compensatory benefits by making specific relevant experiences directly accessible.  \citet{lampinen2025latent} in particular demonstrates that language models fail to generalize certain types of knowledge learned parametrically (e.g., relation reversals) but succeed when the same information is available in context, suggesting that episodic retrieval enables more flexible use of past experiences than parametric consolidation. Similarly, studies of in-context learning show that Transformers can apply procedures to information presented in context that they cannot apply to parametrically-stored knowledge \citep{chan2022data}. Our work extends these insights to syntactic processing by testing whether retrieval enables more robust generalization across frequency bands than parametric-only inferences.
+
+\noindent \textbf{Retrieval-augmented language models.}  
+Retrieval-augmented methods enhance language models by supplementing external memory with information drawn from explicit memory at inference time. $k$NN-LMs \citep{khandelwal2020knnlm}, which we adopt in this work, interpolate the base model's next-token distribution with a distribution computed from nearest-neighbor contexts retrieved from a datastore of training instances. While prior work shows benefits for rare patterns and knowledge-intensive tasks \citep{borgeaud2022improving,kandpal2023large,mallen2023trust}, recent work finds that standard $k$NN-LMs do not improve prediction performance for low-frequency tokens in language modeling evaluation \citep{nishida2025long}, leaving open questions about retrieval benefits for linguistic processing.
+
+
+\section{Method}
+\label{sec:method}
+
+We first show that frequency gaps in tests of grammatical knowledge exist in vanilla language models (``base models''), and then test whether $k$NN-LMs help close these gaps. To this end, we use targeted syntactic contrast datasets where we divide the test instances based on the frequency of the content words they contain. We describe the details of the models, datasets, evaluation tasks and the retrieval procedure below. 
+
+\subsection{Models and Training}
+
+\noindent \textbf{Base models.} We evaluate two decoder-only Transformer models that vary in parameter size and training data scale: (1) GPT-2 XL (1.5B parameters), pretrained on large-scale web text \citep{radford2019language}, and (2) GPT-2 Small (124M parameters) pretrained on child-directed speech corpora with 50M words selected from the BabyLM Challenge \citep{hu2024findings}. Both use a standard autoregressive objective and serve as parametric-only baselines. Further details are provided in Appendix~\ref{app:model_dataset}.
+
+
+\noindent \textbf{$k$NN language models.} Following \citet{khandelwal2020knnlm}, we augment base models with a datastore $\mathcal{D}$ caching training instances. For each token $x_t$, we store key-value pairs: $(\bm{f}_\theta(\bm{x}_{<t}), x_t)$, where $\bm{f}_\theta(\bm{x}_{<t})$ is the final feedforward layer activation encoding context preceding $x_t$. At inference time, we:
+\vspace{-0.2cm}
+\begin{enumerate}[itemsep=0.1pt, parsep=0pt]
+    \item Compute the query: $\bm{q}_t = \bm{f}_\theta(\bm{x}_{<t})$
+    \item Retrieve $k$ nearest neighbors via squared L2 distance
+    \item Compute the $k$NN probability: $p_{\text{kNN}}(x_t|\bm{x}_{<t}) \propto \sum_{(\bm{k},v) \in \mathcal{N}} \mathbbm{1}_{x_t=v} \exp(-d(\bm{k},\bm{q}_t)/\tau)$
+    \item Interpolate: $p(x_t|\bm{x}_{<t}) = \lambda p_{\text{kNN}} + (1-\lambda) p_{\text{LM}}$
+\end{enumerate}
+
+\noindent We fix $\lambda=0.25$ and vary $k \in \{1, 16, 1024\}$, using FAISS \citep{johnson2019billion} for retrieval.
+
+
+\subsection{Evaluation Task}
+
+\textbf{Syntactic contrasts.} We evaluate sensitivity to three syntactic phenomena: Subject-Verb agreement (SV), Wh-questions (Wh), and Relative Clauses (RC). We collect examples in these categories from BLiMP \citep{warstadt2020blimp}, Zorro \citep{huebner2021babyberta}, and Big-Bench \citep{srivastava2023beyond}, filtering examples containing out-of-vocabulary items for each model. Each test item is a minimal pair with one grammatical and one ungrammatical sentence, where models must assign a higher probability to the grammatical sentence. 
+
+
+\noindent \textbf{Frequency stratification.} To test our hypothesis regarding lexical frequency, we further divided the evaluation data based on mean frequency across all the content words in the sentences (\textit{high-frequency} ($f > 10^4$) versus \textit{low-frequency} ($f < 10^3$)).
+
+
+\begin{wraptable}{r}{0.48\textwidth}
+\vspace{-5pt}
+\caption{Syntactic contrast accuracy and perplexity (PPL) for baseline and kNN-LM models ($k=1$, $\tau=3$, sequence-level retrieval). kNN augmentation improves accuracy across all phenomena and both pretraining scales, with relative clauses showing the largest gains. Perplexity reductions are larger for the large-scale model. Bold indicates improvement over baseline.}
+\vspace{8pt}
+\label{tab:general_effects}
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{} & \multicolumn{2}{c}{\textbf{Child-realistic}} & 
+\multicolumn{2}{c}{\textbf{Large-scale}} \\
+ & baseline & kNN & baseline & kNN \\
+\midrule
+\textbf{PPL.} $\downarrow$      & 14.88 & \textbf{14.53} & 13.68 & \textbf{12.08} \\
+\textbf{SV} $\uparrow$   & 0.76  & \textbf{0.79}  & 0.84  & \textbf{0.89} \\
+\textbf{Wh} $\uparrow$   & 0.77  & \textbf{0.81}  & 0.81  & \textbf{0.83} \\
+\textbf{RC} $\uparrow$   & 0.68  & \textbf{0.76}  & 0.65  & \textbf{0.80} \\
+\bottomrule
+\end{tabular}
+\vspace{-5pt}
+\end{wraptable}
+
+
+\subsection{Retrieval Procedure}
+\label{subsec:datastores}
+
+We construct three datastore variants to disentangle the contributions of structural and semantic information: (1) \textit{Full Retrieval}: standard contextualized embeddings encoding both semantic and syntactic information; (2) \textit{Semantics-only (averaged)}: position-averaged contextualized embeddings from (1);\footnote{In practice, averaging contextualized embeddings may not fully scrub syntactic information; we return to this issue later. See also the discussion in Appendix~\ref{app:struc_simi}.} and (3) \textit{Semantics-only (uncontextualized)}: summed GloVe \citep{pennington2014glove} and fastText \citep{bojanowski2017enriching} embeddings, capturing lexical semantics without structural information. We additionally vary three retrieval configuration parameters: granularity of retrieved instances (token, phrase, or sequence), context window size ($\tau$), and number of retrieved neighbors ($k$), to characterize what retrieval configurations are most effective across syntactic phenomena.
+
+
+
+
+
+
+\section[Results]{Results\footnote{Note for all tables in this section: Baseline models use parametric knowledge only; kNN models are retrieval-augmented. Abbreviations: SV (subject-verb agreement), Wh (wh-questions), RC (relative clauses), PPL (perplexity). }}
+
+
+\begin{wraptable}{r}{0.52\textwidth}
+\caption{Frequency-stratified syntactic contrast accuracy. kNN-LM ($k=1$, $\tau=3$,sequence-level retrieval) narrows the performance gap across all phenomena and both pretraining scales but does not fully close it. Bold indicates improvement over baseline.}
+\vspace{8pt}
+\label{tab:frequency_effects}
+\centering
+\small
+\begin{tabular}{llcccc}
+\toprule
+& & \multicolumn{2}{c}{\textbf{Child-realistic}} & 
+\multicolumn{2}{c}{\textbf{Large-scale}} \\
+& & baseline & kNN & baseline & kNN \\
+\midrule
+\multirow{2}{*}{\textbf{SV}} & high & 0.91 & \textbf{0.93} & 0.96 & 0.95 \\
+& low & 0.60 & \textbf{0.64} & 0.71 & \textbf{0.82} \\
+\multirow{2}{*}{\textbf{Wh}} & high & 0.92 & \textbf{0.94} & 0.93 & 0.93 \\
+& low & 0.61 & \textbf{0.67} & 0.69 & \textbf{0.72} \\
+\multirow{2}{*}{\textbf{RC}} & high & 0.88 & \textbf{0.90} & 0.89 & \textbf{0.94} \\
+& low & 0.48 & \textbf{0.61} & 0.41 & \textbf{0.66} \\
+\bottomrule
+\end{tabular}
+\end{wraptable}
+
+
+\subsection{Retrieval Benefits Syntactic Contrasts}
+We begin by investigating the general effectiveness of retrieval augmentation on syntactic contrasts. Table~\ref{tab:general_effects} shows that $k$NN augmentation improves performance across all three syntactic phenomena and both pretraining scales, as well as replicating previously reported perplexity improvements \citep{khandelwal2020knnlm}. Relative clauses benefit the most from retrieval augmentation across both model scales, while gains for wh-questions and subject-verb agreement are more modest. This pattern holds consistently regardless of pretraining scale, though perplexity reductions are larger for the large-scale model. The disproportionate benefit for relative clauses suggests that retrieval is most helpful where parametric representations are weakest, which motivates us to analyze the performance gains stratified by frequency.
+
+
+\subsection{Frequency Gap is Narrowed but not Fully Closed}
+\label{sec:frequency_effects}
+
+Next, we examine whether retrieval helps close the lexical frequency gap. Table~\ref{tab:frequency_effects} confirms the existence of frequency gaps in both baseline models across three syntactic phenomena, with performance on low-frequency items consistently lower than on high-frequency items. With retrieval augmentation, low-frequency items benefit more than high-frequency ones across all phenomena and both model scales. This pattern is the most pronounced for relative clauses. %%In contrast, high-frequency items show minimal or no improvement with retrieval. 
+Nevertheless, this compensation is not sufficient to eliminate the frequency gap: low-frequency items still systematically yield lower accuracy than high-frequency items across all tested phenomena and both model scales, even after retrieval augmentation. %The frequency-based performance gap thus persists, though to a reduced extent, after retrieval intervention.
+
+
+
+\section{Analysis}
+\subsection{Importance of Structural vs. Semantic Information}
+\label{sec:multidimensional_binding}
+
+
+We proceed to investigate which aspects of the retrieved information drive the observed benefits by examining (1) the effect of semantics-only retrieval, and (2) the effect of retrieving structurally similar instances.
+
+
+\noindent \textbf{Semantics-only retrieval is mostly ineffective.} 
+Figure~\ref{fig:vector} shows that semantics-only retrieval (both summed uncontextualized embeddings and averaged contextualized embeddings: see Section~\ref{subsec:datastores}) performs at or substantially \textit{below} baseline across most conditions. This shows that semantically similar but structurally irrelevant examples may actively mislead syntactic judgments. One partial exception is GPT2-Averaged, where phrase- and sequence-level retrieval does lead to gains over the baseline for low-frequency items for RCs, although performance on high-frequency items degrades by a large margin. There are two possible, non-mutually exclusive interpretations for this: (1) semantic information does sometimes yield benefits, as discussed in the next paragraph; or (2) that averaging of contextualized embeddings does not totally remove structural information.
+
+
+
+
+% \begin{table*}[tp]
+% \centering
+% \small
+% \caption{Performance on syntactic contrasts using semantics-only retrieval strategies  compared to full retrieval ($k=1$, $\tau=3$) across pretraining scales. Bold indicates highest syntactic contrast performance under the same frequency and pretraining scale. \textit{Child-R.} and \textit{Large-S.} refer to child-realistic and large-scale pretraining scales respectively.}
+% \vspace{8pt}
+% \label{tab:datastore_comparison}
+% \setlength{\tabcolsep}{8pt}
+% \renewcommand{\arraystretch}{1.1}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{lllccccccccccccc}
+% \toprule
+% & & & \multirow{2}{*}{\textbf{Baseline}} 
+% & \multicolumn{3}{c}{\textbf{FastText}} 
+% & \multicolumn{3}{c}{\textbf{GloVe}} 
+% & \multicolumn{3}{c}{\textbf{GPT2-Averaged}} 
+% & \multicolumn{3}{c}{\textbf{GPT2-Context}} \\
+% \cmidrule(lr){5-7} \cmidrule(lr){8-10} 
+% \cmidrule(lr){11-13} \cmidrule(lr){14-16}
+% & & & 
+% & token & phrase & seq. 
+% & token & phrase & seq. 
+% & token & phrase & seq. 
+% & token & phrase & seq. \\
+% \midrule
+% \multirow{6}{*}{\textbf{Child-R.}}
+% & \multirow{2}{*}{\textbf{SV}}
+% & high & 0.91 
+%        & 0.85 & 0.82 & 0.84 
+%        & 0.81 & 0.79 & 0.80 
+%        & 0.87 & 0.90 & 0.88 
+%        & 0.96 & 0.92 & \textbf{0.93} \\
+% & & low  & 0.60 
+%        & 0.53 & 0.52 & 0.55 
+%        & 0.50 & 0.49 & 0.50 
+%        & 0.56 & 0.61 & 0.60 
+%        & 0.69 & 0.63 & \textbf{0.64} \\
+% & \multirow{2}{*}{\textbf{Wh}}
+% & high & 0.92 
+%        & 0.85 & 0.84 & 0.84 
+%        & 0.82 & 0.80 & 0.81 
+%        & 0.87 & 0.89 & 0.89 
+%        & 0.90 & \textbf{0.95} & 0.94 \\
+% & & low  & 0.61 
+%        & 0.51 & 0.50 & 0.53 
+%        & 0.47 & 0.49 & 0.47 
+%        & 0.55 & 0.60 & 0.58 
+%        & 0.66 & 0.62 & \textbf{0.67} \\
+% & \multirow{2}{*}{\textbf{RC}}
+% & high & 0.88 
+%        & 0.79 & 0.77 & 0.78 
+%        & 0.76 & 0.74 & 0.75 
+%        & 0.80 & 0.84 & 0.82 
+%        & 0.82 & 0.88 & \textbf{0.90} \\
+% & & low  & 0.48 
+%        & 0.42 & 0.45 & 0.46 
+%        & 0.46 & 0.49 & 0.44 
+%        & 0.51 & 0.56 & 0.54 
+%        & 0.49 & 0.59 & \textbf{0.61} \\
+% \midrule
+% \multirow{6}{*}{\textbf{Large-S.}}
+% & \multirow{2}{*}{\textbf{SV}}
+% & high & \textbf{0.96} 
+%        & 0.90 & 0.88 & 0.89 
+%        & 0.88 & 0.86 & 0.87 
+%        & 0.88 & \textbf{0.96} & 0.87 
+%        & 0.93 & \textbf{0.96} & 0.95 \\
+% & & low  & 0.71 
+%        & 0.61 & 0.60 & 0.63 
+%        & 0.58 & 0.56 & 0.59 
+%        & 0.59 & 0.69 & 0.57 
+%        & 0.71 & 0.74 & \textbf{0.82} \\
+% & \multirow{2}{*}{\textbf{Wh}}
+% & high & \textbf{0.93} 
+%        & 0.87 & 0.88 & 0.87 
+%        & 0.84 & 0.83 & 0.84 
+%        & 0.86 & 0.72 & 0.85 
+%        & 0.88 & 0.91 & \textbf{0.93} \\
+% & & low  & 0.69 
+%        & 0.54 & 0.56 & 0.57 
+%        & 0.50 & 0.51 & 0.53 
+%        & 0.54 & 0.64 & 0.52 
+%        & 0.70 & 0.71 & \textbf{0.72} \\
+% & \multirow{2}{*}{\textbf{RC}}
+% & high & 0.89 
+%        & 0.81 & 0.77 & 0.80 
+%        & 0.80 & 0.76 & 0.78 
+%        & 0.72 & 0.61 & 0.69 
+%        & 0.89 & 0.90 & \textbf{0.94} \\
+% & & low  & 0.41 
+%        & 0.31 & 0.43 & 0.47 
+%        & 0.51 & 0.54 & 0.39 
+%        & 0.82 & 0.60 & 0.55 
+%        & 0.65 & 0.65 & \textbf{0.66} \\
+% \bottomrule
+% \end{tabular}%
+% }
+% \end{table*}
+
+
+% seq level
+\begin{figure*}[ht]
+    \centering
+    % ----------------- Child-realistic  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_SV_seq.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_Wh_seq.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_RC_seq.pdf}
+    \end{minipage}
+    
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- GPT2  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_SV_seq.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_Wh_seq.pdf}
+        (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_RC_seq.pdf}
+        (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    \caption{Performance on syntactic contrasts using semantics-only retrieval strategies  compared to full retrieval ($k=1$, $\tau=3$) of the child-realistic (top row) and large-scale (bottom row) models. Blue bars indicate high-frequency items and orange bars low-frequency items. We report the sequence-level retrieval given that it yields the best test performance.
+    }
+    \label{fig:context_effects_seq}
+\end{figure*}
+
+
+
+% phrase level
+\begin{figure*}[ht]
+    \centering
+    % ----------------- Child-realistic  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_SV_phrase.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_Wh_phrase.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_RC_phrase.pdf}
+    \end{minipage}
+    
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- GPT2  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_SV_phrase.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_Wh_phrase.pdf}
+        (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_RC_phrase.pdf}
+        (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    \caption{Performance on syntactic contrasts using semantics-only retrieval strategies  compared to full retrieval ($k=1$, $\tau=3$) of the child-realistic (top row) and large-scale (bottom row) models. Blue bars indicate high-frequency items and orange bars low-frequency items. We report the phrase-level retrieval here.
+    }
+    \label{fig:context_effects_phrase}
+\end{figure*}
+
+
+% vector choices
+\begin{figure*}[ht]
+    \centering
+    % ----------------- Child-realistic  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_SV_token.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_Wh_token.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Child-R_RC_token.pdf}
+    \end{minipage}
+    
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- GPT2  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_SV_token.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_Wh_token.pdf}
+        (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/vector/Large-S_RC_token.pdf}
+        (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    \caption{Performance on syntactic contrasts using semantics-only retrieval strategies  compared to full retrieval ($k=1$, $\tau=3$) of the child-realistic (top row) and large-scale (bottom row) models. Blue bars indicate high-frequency items and orange bars low-frequency items. We report the token-level retrieval here.
+    }
+    \label{fig:structural_overlap_with_struc}
+\end{figure*}
+
+
+
+
+
+
+\noindent \textbf{Structural information is critical; semantic information benefit is comparatively minor.} 
+
+Figure~\ref{fig:datastore} examines retrieval benefits in two aspects: whether the datastore contains structurally matching examples (\emph{with} vs.\ \emph{without}), and whether retrieval ranks them by embedding similarity or at random (\emph{+r}).\footnote{See Appendix~\ref{app:struc_simi} for our structural-similarity metric and its validation.} 
+
+
+Across all phenomena and both scales, the \emph{w/+r} 
+bars consistently exceed the \emph{w/o+r} bars, with the largest gaps on relative clauses in low-frequency items. Embedding-similarity ranking yields smaller additional gains, more pronounced for low-frequency items. These results indicate that effective episodic retrieval for syntactic contrasts requires representations that encode \emph{structural} information; semantic information plays a comparatively minor role.
+
+% ------------------- END OF version showing on COLM submission
+%Next, we investigate whether structural information is critical for retrieval benefits by examining the actual retrieved sequences and dividing the results by examples for which items with high structural similarity\footnote{See Supplementary Materials for our metric of structural similarity and its validation.} were retrieved and examples for which they were not. In general, when the retrieved sequences contain structurally overlapping examples (columns ``with'', Table~\ref{tab:structural_overlap_with_struc}), the benefits are greater compared to when the retrieved sentences do not contain such examples (columns ``without'', Table~\ref{tab:structural_overlap_with_struc}), again highlighting the importance of structural information. Still, even in cases where structurally overlapping examples are not retrieved, some minor gains are observed, suggesting that some benefits do derive from semantic information. 
+
+
+
+
+% \begin{table*}[t]
+% \centering
+% \small
+% \caption{Performance when retrieved sequences contain target syntactic structures (with) versus when they do not (without) ($k=1$, $\tau=3$, sequence-level). We also experiment with retrieval strategy (embedding similarity vs.\ random). Random retrieval baselines isolate the contribution of structural match from semantic ranking. ``w/o'' and ``w/'' refer to non-structural and structural datastores; ``r'' denotes random retrieval.}
+% \vspace{6pt}
+% \label{tab:oracle_retrieval}
+
+% \setlength{\tabcolsep}{3.5pt}   % tighter columns
+% \renewcommand{\arraystretch}{1.05}
+
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{llcccccccccccc}
+% \toprule
+% & 
+% & \multicolumn{6}{c}{\textbf{Child-realistic}} 
+% & \multicolumn{6}{c}{\textbf{Large-scale}} \\
+% \cmidrule(lr){3-8} \cmidrule(lr){9-14}
+
+% &
+% & \%struc & base 
+% & w/o+r & w/o 
+% & w/+r  & w/
+% & \%struc & base 
+% & w/o+r & w/o
+% & w/+r  & w/ \\
+% \midrule
+
+% \multirow{2}{*}{\textbf{SV}}
+% & high 
+% & 0.79 & 0.91 & 0.86 & 0.91 & 0.89 & 0.93
+% & 0.98 & 0.96 & 0.92 & 0.96 & 0.94 & 0.95 \\
+% & low  
+% & 0.79 & 0.60 & 0.59 & 0.61 & 0.60 & 0.67
+% & 0.95 & 0.71 & 0.69 & 0.74 & 0.75 & 0.86 \\
+
+% \multirow{2}{*}{\textbf{Wh}}
+% & high 
+% & 0.58 & 0.92 & 0.83 & 0.91 & 0.89 & 0.95
+% & 0.76 & 0.93 & 0.87 & 0.85 & 0.88 & 0.94 \\
+% & low  
+% & 0.69 & 0.61 & 0.58 & 0.62 & 0.65 & 0.70
+% & 0.83 & 0.69 & 0.65 & 0.70 & 0.71 & 0.73 \\
+
+% \multirow{2}{*}{\textbf{RC}}
+% & high 
+% & 0.12 & 0.88 & 0.82 & 0.83 & 0.87 & 0.92
+% & 0.80 & 0.89 & 0.86 & 0.92 & 0.93 & 0.95 \\
+% & low  
+% & 0.16 & 0.48 & 0.44 & 0.57 & 0.61 & 0.64
+% & 0.78 & 0.41 & 0.37 & 0.59 & 0.63 & 0.68 \\
+
+% \bottomrule
+% \end{tabular}%
+% }
+% \end{table*}
+
+
+\begin{figure*}[ht]
+    \centering
+    % ----------------- First row: Child-realistic -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Child_SV.pdf}
+        % (a) Subject-Verb Agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Child_Wh.pdf}
+        % (b) Wh questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Child_RC.pdf}
+        % (c) Relative clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- Second row: Large-scale GPT-2 XL -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Large_SV.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Large_Wh.pdf}
+        (b) Wh questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/datastore/Large_RC.pdf}
+        (c) Relative clauses
+    \end{minipage}
+
+    \caption{Performance when retrieved sequences contain target syntactic structures (with) versus when they do not (without). Top row: child-scale model; bottom row: large-scale model 
+    ($k=1$, $\tau=3$, sequence-level). Within each panel, the $x$-axis 
+    shows three conditions: \textbf{base} (no retrieval), 
+    \textbf{w/o+r $\rightarrow$ w/o} (retrieval from a non-structural datastore, 
+    random vs.\ embedding-similarity), and \textbf{w/+r $\rightarrow$ w/} 
+    (retrieval from a structural datastore, random vs.\ embedding-similarity). 
+    Solid bars denote random retrieval (\textbf{+r}); hatched segments denote 
+    the additional gain from embedding-similarity retrieval over random. Blue 
+    and orange bars correspond to high- and low-frequency items, respectively. 
+    Random retrieval baselines isolate the contribution of structural match in 
+    the datastore from semantic ranking by the retriever.}
+
+    \label{fig:datastore}
+\end{figure*}
+
+
+
+
+
+\subsection{Effects of Retrieval Configuration}
+
+% Granularity Figure 
+
+\begin{figure*}[ht]
+    \centering
+    % ----------------- First row: Child-realistic -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Child-realistic_SV.pdf}
+        % (a) Subject-Verb Agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Child-realistic_Wh.pdf}
+        % (b) Wh questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Child-realistic_RCs.pdf}
+        % (c) Relative clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- Second row: Large-scale GPT-2 XL -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf}
+        (b) Wh questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf}
+        (c) Relative clauses
+    \end{minipage}
+
+    \caption{Performance across retrieval granularities (token, phrase, sequence) in child-realistic (top row) and large-scale (bottom row) models ($k=1$, $\tau=3$). Blue bars indicate high-frequency items and orange bars low-frequency items. Optimal granularity varies by phenomenon and frequency: sequence-level retrieval generally performs best for low-frequency items in wh-questions and relative clauses, while patterns for subject-verb agreement vary by model scale.}
+
+    \label{fig:granularity}
+\end{figure*}
+
+
+We next analyze whether and how retrieval effectiveness is modulated by three configuration parameters: retrieval granularity (token, phrase, or sequence), number of neighbors ($k$), and context window size ($\tau$). 
+% A general observation is that, across these three configuration parameters, no single setting yields optimal performance across all syntactic phenomena and frequency strata. 
+
+
+\noindent \textbf{Effects of retrieval granularity.}
+Figure~\ref{fig:granularity} shows that optimal granularity varies by syntactic phenomenon and frequency strata. Sequence-level retrieval yields the best performance for low-frequency Wh and RC across both models, suggesting that phenomena with longer-range dependencies benefit from retrieval of longer contexts. For low-frequency SV, phrase-level retrieval performs best in the child-realistic model, while sequence-level dominates in the large-scale model, demonstrating an interaction with model capacity.
+
+
+
+\noindent \textbf{Effects of context window size.} 
+Figure~\ref{fig:context_effects_tau} shows that larger context windows ($\tau=10$) generally yield stronger performance for structurally complex phenomena such as relative clauses. Subject-verb agreement (SV) remains comparatively stable across window sizes, while Wh-questions show intermediate sensitivity to context size. 
+These patterns suggest that longer-range dependencies require broader context to be resolved, whereas simpler dependencies are less sensitive to window size.
+
+
+\begin{figure*}[ht]
+    \centering
+    % ----------------- Child-realistic  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_child-realistic_SV_Clause.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_child-realistic_Wh_Clause.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_child-realistic_RCs_Clause.pdf}
+    \end{minipage}
+    
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- GPT2  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_gpt2-xl_SV_Clause.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_gpt2-xl_Wh_Clause.pdf}
+        (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor16_gpt2-xl_RCs_Clause.pdf}
+        (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    \caption{Performance across different context windows of the child-realistic (top row) and large-scale (bottom row) models. Blue bars indicate high-frequency items and orange bars low-frequency items. We report the sequence-level retrieval given that it yields the best test performance. Overall, larger context windows ($\tau = 10$) tend to yield stronger performance, especially for structurally complex phenomena, whereas simpler dependencies are less sensitive to context size.
+    }
+    \label{fig:context_effects_tau}
+\end{figure*}
+
+
+% \begin{figure*}[ht]
+%     \centering
+%     % ----------------- Child-realistic  -----------------
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf}
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf}
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf}
+%     \end{minipage}
+    
+    
+%     \vspace{2mm} % small vertical space between rows
+
+%     % ----------------- GPT2  -----------------
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf}
+%         (a) Subject-Verb Agreement
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf}
+%         (b) Wh-questions
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{0.32\textwidth}
+%         \centering
+%         \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf}
+%         (c) Relative Clauses
+%     \end{minipage}
+    
+%     \vspace{2mm} % small vertical space between rows
+
+%     \caption{Performance across different context windows of the GPT-2 XL and child-realistic model. We report the sequence-level retrieval given that it yields the best test performance. Overall, larger context windows ($\tau = 10$) tend to yield stronger performance, especially for structurally complex phenomena, whereas simpler dependencies are less sensitive to context size.
+%     }
+%     \label{fig:context_effects}
+% \end{figure*}
+
+
+
+\noindent \textbf{Effects of number of retrieved instances.} 
+Figure~\ref{fig:neighbor_effects} shows that the number of retrieved instances has a non-monotonic effect on performance. Moving from $k=1$ to a moderate number ($k=16$) consistently improves performance across most conditions, indicating the benefit of aggregating evidence from multiple exemplars. However, further increasing the number of neighbors ($k=1024$) leads to performance degradation, likely due to noise from distant and less relevant neighbors. This pattern holds across models, granularities, and syntactic phenomena, suggesting the optimal choice lies at intermediate values of $k$. The effect is particularly pronounced for low-frequency conditions.
+
+
+% neighbor num Figure
+\begin{figure*}[ht]
+    \centering
+    % ----------------- Child-realistic  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_SV_Clause.pdf}
+        % (a) Subject-Verb Agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_Wh_Clause.pdf}
+        % (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_RCs_Clause.pdf}
+        % (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    % ----------------- GPT2  -----------------
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_SV_Clause.pdf}
+        (a) Subject-verb agreement
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf}
+        (b) Wh-questions
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_RCs_Clause.pdf}
+        (c) Relative Clauses
+    \end{minipage}
+    
+    \vspace{2mm} % small vertical space between rows
+
+    \caption{Performance across different numbers of retrieved neighbors of the child-realistic (top row) and large-scale (bottom row) models. Blue bars indicate high-frequency items and orange bars low-frequency items. We report the sequence-level retrieval given that it yields the best test performance. Performance exhibits a non-monotonic pattern: increasing the number of neighbors from $k=1$ to a moderate value ($k=16$) generally improves performance across phenomena and frequency bands, while further increasing to large values ($k=1024$) leads to degradation.}
+    \label{fig:neighbor_effects}
+\end{figure*}
+
+
+
+\noindent \textbf{No cross-phenomena optimal configuration.} 
+Across the three parameters (retrieval granularity, context window size, and number of retrieved instances), no single configuration consistently yields optimal performance across all syntactic phenomena and frequency strata. While sequence-level retrieval, larger context windows, and a moderate number of neighbors ($k=16$) provide the most robust overall performance, it does not uniformly dominate across all settings, particularly for simpler or high-frequency dependencies where more localized representations or smaller contexts can be competitive. These results suggest that effective retrieval is jointly modulated by dependency complexity, data frequency, and model capacity, and that optimal retrieval configurations are likely to be 
+phenomenon-dependent rather than universally fixed.
+
+% -augmented language models benefit from adaptive or task-dependent retrieval configurations rather than relying on a single fixed setup.
+
+
+
+
+
+\section{Discussion}
+
+We tested whether an episodic retrieval mechanism as implemented via $k$NN-LMs can help close the lexical frequency gap that language models exhibit in syntactic contrast tests. Our findings reveal that retrieval augmentation provides substantial compensatory benefits for low-frequency items, and that both structural and semantic information contribute to the gains, although the role of structural information is more critical. However, the compensation is insufficient: the frequency gap is narrowed but not fully closed. In this section, we discuss which modeling considerations may help narrow this gap further in the future based on the limitations we observe in our analyses. Specifically, our analyses suggest that preferential reweighting of retrieved instances, improved representations and retrieval strategies for structural information, and an adaptive storage and retrieval mechanism that allow for flexible configurations of instances may be promising next steps.
+
+\noindent \textbf{Preferential reweighting.} 
+The hippocampus has been proposed to engage in preferential reweighting, where infrequent (but significant) instances are prioritized in storage as well as retrieval \citep{kumaran2016learning}. This kind of modulation is consistent with error-driven learning accounts \citep{chang2006dual,rescorla1972theory}, which predict that unexpected or surprising items receive stronger consolidation. Standard $k$NN-LM as implemented in this study retrieves instances by similarity alone, without modulating retrieval by the rarity or informativeness of stored instances. This leads to suboptimal retrieval of relevant examples especially for more difficult phenomena like RCs in the child-realistic regime (e.g., the low rate of \% structurally similar instances retrieved for RCs: Table~\ref{tab:structural_overlap_with_struc}), indicating that improving strategies for retrieval and storage to identify better retrieval targets could lead to closing the frequency gap further. Recent computational work similarly finds benefits from selective data weighting \citep{toneva2018empirical} and importance-based sampling \citep{xie2023doremi}, suggesting that incorporating reweighting strategies into the retrieval mechanism could amplify benefits in the low-frequency regime.
+
+
+\noindent \textbf{Better representations and retrieval strategies for structural information.} 
+Our analysis shows that structural information is critical for retrieval benefits we observe, which is in line with episodic accounts of syntactic processing that focus on the structural aspects of the retrieved content \citep{borensztajn2011episodic}. In light of this observation, we note two potential issues that may contribute to the persistent frequency gap. First, as discussed above, retrieval based on representation similarity is not always effective in identifying structurally relevant instances, particularly in child-realistic models. Second, even when relevant instances are retrieved, the structural signals encoded in the representations may be too weak to fully boostrap processing of low-frequency instances. Addressing the first issue may benefit from selective indexing strategies and constraint-based filtering strategies \citep{borgeaud2022improving, izacard2022few}, and the second may require expanding the datastore to maintain the full residual stream representations or exploring alternative pooling strategies in the datastore. %The systematic failure of semantic-only retrieval demonstrates that grammatical knowledge cannot be accessed through lexical similarity alone. Retrieving contexts with similar word meanings but different syntactic structures actively degrades performance, indicating that episodic traces must encode both \textit{what} words are present and \textit{how} they are arranged. 
+
+%However, current retrieval methods store all instances uniformly and retrieve solely based on similarity. Incorporating biases where instances providing disambiguation (e.g., mutual exclusivity \citep{markman1988children}, syntactic bootstrapping \citep{gleitman1990structural}) receive higher weights might lead to more robust and less frequency-sensitive grammatical knowledge. Recent advances in retrieval-augmented models \citep{borgeaud2022improving, izacard2022atlas} suggest promise for selective indexing strategies and constraint-based filtering mechanisms.
+
+
+
+\noindent \textbf{Flexible configurations of storage and retrieval.} 
+The absence of a universal retrieval configuration across different syntactic phenomena suggests that maximally effective episodic retrieval requires adaptive mechanisms that modulate granularity, context scope, and neighbor count.
+Indeed, human episodic memory has been proposed to support this kind of flexibility \citep{duff2012hippocampus} and adaptive retrieval mechanisms grounded in metacognitive monitoring have been discussed in memory theory \citep{nelson1990metamemory}. Current $k$NN-LM uses a fixed configuration across all inputs. Developing retrieval strategies that adapt their configuration to the structural demands of the input represents a promising direction for closing the remaining frequency gap.
+
+% \section{Limitation}
+% First, our evaluation is restricted to syntactic contrast tasks based on minimal pairs, which assess a narrow form of grammatical knowledge under controlled conditions. Whether 
+% similar frequency compensation patterns emerge in semantic tasks, production paradigms, or naturalistic processing remains an open question. Second, while $k$NN-LM provides a computationally tractable proxy for episodic memory, it instantiates only a subset of the properties attributed to hippocampal memory in CLS theory, most notably, it lacks preferential consolidation, adaptive retrieval, and online updating of the datastore. The 
+% degree to which our findings generalize to richer episodic memory implementations remains to be established.
+
+
+\section{Conclusion}
+
+We tested whether an episodic retrieval mechanism can help close the lexical frequency gap that language models exhibit in syntactic contrast evaluations. Using $k$NN-LMs as a computational proxy for hippocampal episodic memory, we find consistent compensatory benefits for low-frequency items across syntactic phenomena and model/data scales, with structural information playing a critical role in driving these benefits. However, the frequency gap remains not fully closed---test items with low frequency lexical items still systematically lead to lower performance even after retrieval augmentation. The limitations of the current implementation of episodic memory identified through our analyses lead to three concrete future directions for improvement: implementation of a preferential reweighting mechanism, stronger structural representations and retrieval strategies, and adaptive retrieval configurations rather than fixed. More broadly, these results offer proof-of-concept support for the CLS hypothesis that episodic memory contributes to the robustness of syntactic processing to lexical frequency effects, while identifying areas for improvement for future modeling work. %highlighting that realizing this contribution computationally requires going beyond passive similarity-based retrieval.
+ % but lack three critical properties: preferential consolidation that actively strengthens weak traces, constraint-guided encoding that biases retrieval toward disambiguation, and robust strategy-independent operation across configurations.
+
+%These findings demonstrate that instance storage is necessary but insufficient for sample-efficient syntactic learning. Complementary Learning Systems theory correctly identifies the architectural separation between fast instance-based and slow gradient-based learning, but the fast system requires active modulation mechanisms not present in passive similarity-based retrieval. The hippocampal-neocortical division provides the substrate for efficient learning, but the dynamics, for instance, what gets encoded most strongly, how retrieval interacts with parametric knowledge, and how memory organization supports generalization, determine whether that architecture achieves human-like sample efficiency.
+
+
+% \section{Ethics statement}
+% All data used in this study are already publicly available. We will open-source our codes once the paper is accepted. 
+
+
+% \section{Acknowledgments}
+% This project has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 945304 – Cofund AI4theSciences hosted by PSL University.
+
+
+
+
+
+
+\newpage
+
+
+
+
+\section{Appendix}
+
+
+\subsection{Pretrained models and datasets}
+\label{app:model_dataset}
+
+
+\noindent \textbf{Child-realistic pretraining data.} We constructed a dataset to approximate the language input a child receives during early development, drawing on child-directed speech from CHILDES \citep{macwhinney2000childes}, children's stories, and audiobook transcriptions. The complete dataset comprises 50.03M words, consistent with estimates of cumulative linguistic input by early childhood \citep{gilkerson2017mapping,frank2023bridging}. Table~\ref{tab:training_data} shows the distribution of constituent sub-datasets.
+
+\begin{table}[ht]
+\centering
+\small
+\vspace{8pt}
+\caption{Composition of child-realistic pretraining corpus combining child-directed
+speech, conversational dialogue, and children's books to approximate naturalistic
+language exposure during early childhood.}
+\label{tab:training_data}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dataset} & \textbf{Domain} & \textbf{\# words} & \textbf{Prop. (\%)} \\
+\midrule
+CHILDES & CDS      & 15M    & 30.0 \\
+SWBD    & Dialogue & 1.18M  & 2.4  \\
+CSTC    & Books    & 3.22M  & 6.4  \\
+OSub    & Dialogue & 31.28M & 61.2 \\
+\midrule
+\textbf{Total} & & \textbf{50.03M} & \textbf{100.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\noindent \textbf{Large-scale pretraining data.} For the large-scale condition, we use GPT-2 XL (1.5B parameters) pretrained on the WebText corpus \citep{radford2019language}, which contains approximately 40GB of text scraped from internet sources.
+
+\noindent \textbf{Model architectures and training.} Tables~\ref{tab:model_architecture} and ~\ref{tab:training_hyperparameters} summarize the architectural specifications for both models. The child-realistic model uses the GPT-2 Small architecture with 124M parameters, trained from scratch for 10 epochs, following the BabyLM Challenge setup \citep{hu2024findings}. The GPT-2 XL model uses the publicly available pretrained checkpoint from \citet{radford2019language}.
+
+\begin{table}[ht]
+\centering
+\small
+\vspace{8pt}
+\caption{Model architecture specifications. GPT-2 Small was trained from scratch
+on child-realistic data (50M words); GPT-2 XL uses the publicly released
+pretrained checkpoint from \citet{radford2019language} trained on WebText
+($\sim$40GB).}
+\label{tab:model_architecture}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Parameter} & \textbf{GPT-2 Small} & \textbf{GPT-2 XL} \\
+\midrule
+\# parameters       & 124M  & 1.5B  \\
+Transformer layers  & 12    & 48    \\
+Hidden size         & 768   & 1600  \\
+FFN size            & 3072  & 6400  \\
+Attention heads     & 12    & 25    \\
+Attention dropout   & 0.05  & 0.1   \\
+Embedding dimension & 768   & 1600  \\
+Vocabulary size     & 50257 & 50257 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\small
+\vspace{8pt}
+\caption{Training hyperparameters for GPT-2 Small on the child-realistic corpus, trained for 10 epochs using a standard autoregressive language modeling objective with cross-entropy loss.}
+\label{tab:training_hyperparameters}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Hyperparameter} & \textbf{Value} \\
+\midrule
+Max sequence length & 1024         \\
+Batch size          & 64           \\
+Training epochs     & 10           \\
+Learning rate       & 0.0001       \\
+LR scheduler        & inverse sqrt \\
+Warmup steps        & 10000        \\
+Optimizer           & Adam         \\
+Adam-$\beta_1$      & 0.9          \\
+Adam-$\beta_2$      & 0.98         \\
+Dropout             & 0.1          \\
+Weight decay        & 0.01         \\
+Gradient clipping   & 1.0          \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Evaluation set construction}
+\label{app:subset_selection}
+
+To ensure focused evaluation on syntactic phenomena relevant to our research questions, we selected subsets corresponding to our target phenomena from three evaluation benchmarks: BLiMP \citep{warstadt2020blimp}, Zorro \citep{huebner2021babyberta}, and BIG-Bench \citep{srivastava2023beyond} as discussed below.
+
+\subsubsection{Source benchmarks}
+
+\textbf{BLiMP.} The Benchmark of Linguistic Minimal Pairs for English \citep{warstadt2020blimp} consists of 67 sub-datasets, each containing 1,000 minimal pairs (67,000 pairs total) isolating specific contrasts in syntax, morphology, or semantics. The data is automatically generated according to linguist-crafted grammar templates, with 96.4\% aggregate human agreement with the labels. 
+
+\textbf{Zorro.} Zorro \citep{huebner2021babyberta} is a grammar test suite designed for models trained on child-directed language, consisting of 13 phenomena with multiple paradigms. Zorro contains approximately 1,000 minimal pairs per paradigm, with lexical items selected to be compatible with the smaller vocabularies of child-trained models. 
+
+\textbf{BIG-Bench.} The Beyond the Imitation Game Benchmark \citep{srivastava2023beyond} includes numerous linguistic evaluation tasks. We selected relevant subject-verb agreement and syntactic construction tasks from this benchmark.
+
+\subsubsection{Instance selection procedure}
+
+For each evaluation instance in the original datasets, we selected instances containing one or more of the following syntactic structures using spaCy \citep{honnibal2020spacy}.
+
+\textbf{Subject-Verb detection.} We applied spaCy's dependency parser to identify subject-verb relationships. Instances were flagged if they contained \texttt{nsubj} (nominal subject) or \texttt{nsubjpass} (passive nominal subject) dependencies linking a noun phrase to a finite verb.
+
+\textbf{Wh-Sentence detection.} We used part-of-speech (POS) tagging to identify wh-words (POS tags: \texttt{WDT}, \texttt{WP}, \texttt{WP\$}, \texttt{WRB}) at clause boundaries, following standard Penn Treebank conventions \citep{marcus1993building}. Instances containing interrogative or relative wh-elements were marked for inclusion.
+
+\textbf{Relative Clause detection.} We combined POS tagging with dependency parsing to identify relative clause structures. Specifically, we detected: (1) Relative pronouns (\texttt{WDT}, \texttt{WP}) or relativizers (\emph{that}, \emph{which}, \emph{who}); (2) Clausal complements with \texttt{relcl} (relative clause modifier) dependency relations; and (3) Appropriate structural embedding within a noun phrase.
+
+
+\subsection{Structural similarity analysis}
+\label{app:struc_simi}
+
+Structural similarity (used in the analysis in Section~\ref{sec:multidimensional_binding}) is defined as dependency arc overlap between retrieved and target sentences. We used spaCy's dependency parser \citep{honnibal2020spacy}, measuring the proportion of matching subject, object, and modifier relations. Table~\ref{tab:dependency_similarity} shows that full contextualized retrieval (GPT2-Context) maintains substantially higher structural similarity than uncontextualized embeddings (FastText, GloVe). Averaged contextualized embeddings (GPT2-Averaged) show intermediate structural preservation, consistent with our interpretation in Section~\ref{sec:multidimensional_binding} that averaging reduces but does not fully eliminate structural information. These structural similarity scores directly correspond to the performance patterns in Table~\ref{tab:datastore_comparison}: high structural similarity correlates with retrieval benefits, while low structural similarity leads to performance at or below baseline.
+
+\begin{table}[tp]
+\centering
+\small
+\vspace{8pt}
+\caption{Structural similarity between retrieved and target sentences measured by dependency arc overlap (GPT-2 XL, sequence-level, $k=1$). Values represent the proportion of target dependency relations matched by retrieved sentences.}
+\label{tab:dependency_similarity}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{llcccc}
+\toprule
+& \textbf{Freq} & \textbf{FastText} & \textbf{GloVe}
+& \textbf{GPT2-Avg} & \textbf{GPT2-Context} \\
+\midrule
+\multirow{2}{*}{SV}
+& high & 0.49 & 0.47 & 0.61 & 0.82 \\
+& low  & 0.45 & 0.42 & 0.58 & 0.78 \\
+\multirow{2}{*}{Wh}
+& high & 0.51 & 0.48 & 0.63 & 0.81 \\
+& low  & 0.47 & 0.44 & 0.59 & 0.79 \\
+\multirow{2}{*}{RCs}
+& high & 0.50 & 0.49 & 0.62 & 0.80 \\
+& low  & 0.46 & 0.43 & 0.60 & 0.78 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Full Retrieval Configuration Results}
+\label{app:retrieval_config}
+
+This section provides complete results across all retrieval configuration combinations discussed in Section~\ref{sec:frequency_effects}. We vary three parameters independently: number of retrieved neighbors ($k \in \{1, 16, 1024\}$), context window size ($\tau \in \{1, 3, 10\}$), and retrieval granularity (token, phrase, sequence). Table~\ref{tab:syntactic_granularity_with_k} reports accuracy for representative configurations ($\tau \in \{3, 10\}$, $k=16$) across both model scales, andFigures~\ref{fig:app_context_gpt2xl_k1}--\ref{fig:app_neighbor_child_tau3}
+provide complete visualizations across all parameter combinations.
+
+\noindent \textbf{Effects of context window size.}
+% compared with the baseline, any number of context window 
+
+Figures~\ref{fig:app_context_gpt2xl_k1}--\ref{fig:app_context_child_k1024}
+show the effect of context window size ($\tau \in \{1, 3, 10\}$) across granularities, phenomena, frequency bands, and both model scales. 
+The most pronounced pattern is that \textbf{sequence-level retrieval benefits most from larger context windows in structurally complex phenomena like relative clauses}. For example, in GPT-2 XL at $k=1$, sequence-level retrieval for low-frequency relative clauses shows clear improvements as $\tau$ increases from 1 to 10, while the corresponding high-frequency items remain largely stable (Figures~\ref{fig:app_context_gpt2xl_k1}f and~\ref{fig:app_context_gpt2xl_k1}i). By contrast, there is no consistent pattern on token- and phrase- level across syntactic phenomena. 
+
+%----old version------
+% For low-frequency items, larger context windows ($\tau=10$) generally yield stronger performance, with the benefit most pronounced for sequence-level retrieval and structurally complex phenomena (Wh and RCs). For example, in GPT-2 XL at $k=1$, sequence-level retrieval for low-frequency RCs improves, while high-frequency RCs show minimal change.
+% Token-level retrieval consistently benefits from larger context windows across all phenomena, as wider context provides richer representational signal for nearest-neighbor matching. Phrase- and sequence-level retrieval are comparatively more stable across window sizes, suggesting that longer retrieval units already capture sufficient structural context at smaller $\tau$. For subject-verb agreement, which involves shorter-range dependencies, context window size has the least impact, particularly for high-frequency items where parametric representations are already strong.
+
+
+
+% Comparing $k=1$ (Figures~\ref{fig:app_context_gpt2xl_k1} and
+% \ref{fig:app_context_child_k1}) against $k=1024$
+% (Figures~\ref{fig:app_context_gpt2xl_k1024} and
+% \ref{fig:app_context_child_k1024}) reveals an important interaction: at large $k$, the benefit of increasing context window size is substantially reduced or reversed for low-frequency items, particularly for RCs and Wh-questions. This suggests that larger context windows help select better individual neighbors, but this advantage is overwhelmed by noise when too many neighbors are retrieved. The child-realistic model (Figures~\ref{fig:app_context_child_k1} and \ref{fig:app_context_child_k1024}) shows qualitatively similar patterns to GPT-2 XL but with smaller absolute gains throughout, consistent with its weaker parametric base.
+
+\noindent \textbf{Effects of number of retrieved neighbors.}
+Figures~\ref{fig:app_neighbor_gpt2xl_tau1}--\ref{fig:app_neighbor_child_tau3}
+show the effect of varying $k \in \{1, 16, 1024\}$ across granularities, phenomena, and frequency bands. The non-monotonic pattern reported in the main text is robust across all configurations: moving from $k=1$ to $k=16$ consistently improves performance for low-frequency items, while increasing further to $k=1024$ leads to degradation. This pattern is most pronounced for sequence-level retrieval and structurally complex phenomena: for both GPT-2 XL and the child-realistic model, at $\tau=3$, sequence-level retrieval for low-frequency RCs peaks at $k=16$ compared to $k=1$ and $k=1024$. The degradation at $k=1024$ is most pronounced for sequence-level retrieval and for structurally complex phenomena.
+For simpler phenomena such as subject-verb agreement, and for high-frequency items more generally, both the gains at $k=16$ and the degradation at $k=1024$ are more modest.
+
+Comparing $\tau=1$(Figures~\ref{fig:app_neighbor_gpt2xl_tau1} and
+\ref{fig:app_neighbor_child_tau1}) against $\tau=3$
+(Figures~\ref{fig:app_neighbor_gpt2xl_tau3} and
+\ref{fig:app_neighbor_child_tau3}) shows that larger context windows amplify 
+the benefit of moderate aggregation: at $\tau=3$, moderate aggregation at $k=16$ provides stronger gains for sequence-level low-frequency items compared to $\tau=1$. The degradation at $k=1024$, however, remains close at $\tau=3$ as at $\tau=1$, confirming that over-retrieval noise cannot be mitigated by wider context alone. The child-realistic model exhibits the same non-monotonic pattern as GPT-2 XL but with a more pronounced drop at $k=1024$, particularly for low-frequency relative clauses and Wh-questions
+
+% consistent with its representations being more susceptible to retrieval noise.
+% Across both models, $k=16$ with $\tau=3$ and sequence-level retrieval provides the most robust across configuration.
+
+
+\begin{table*}[tp]
+\centering
+\small
+\vspace{8pt}
+\caption{Performance by retrieval granularity at $\tau \in \{3, 10\}$ with $k=16$ for child-realistic and GPT-2 XL models. Sequence-level retrieval consistently yields the strongest gains for low-frequency items in wh-questions and relative clauses across both model scales and context sizes.}
+\label{tab:syntactic_granularity_with_k}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccccccccc}
+\toprule
+& & & \multicolumn{4}{c}{\textbf{Child-realistic}}
+    & \multicolumn{4}{c}{\textbf{GPT-2 XL}} \\
+\cmidrule(lr){4-7} \cmidrule(lr){8-11}
+$\tau$ & Phen. & Freq
+  & baseline & token & phrase & seq.
+  & baseline & token & phrase & seq. \\
+\midrule
+\multirow{6}{*}{3}
+& \multirow{2}{*}{SV}
+  & high & 0.91 & 0.91 & 0.90 & 0.90
+         & 0.96 & 0.95 & 0.95 & 0.95 \\
+&& low  & 0.60 & 0.76 & 0.74 & 0.76
+         & 0.71 & 0.82 & 0.81 & 0.83 \\
+\cmidrule(lr){2-11}
+& \multirow{2}{*}{Wh}
+  & high & 0.92 & 0.89 & 0.88 & 0.88
+         & 0.93 & 0.93 & 0.93 & 0.93 \\
+&& low  & 0.61 & 0.67 & 0.69 & 0.70
+         & 0.69 & 0.72 & 0.73 & 0.74 \\
+\cmidrule(lr){2-11}
+& \multirow{2}{*}{RC}
+  & high & 0.88 & 0.89 & 0.88 & 0.89
+         & 0.89 & 0.94 & 0.94 & 0.95 \\
+&& low  & 0.48 & 0.60 & 0.62 & 0.65
+         & 0.41 & 0.66 & 0.69 & 0.70 \\
+\midrule
+\multirow{6}{*}{10}
+& \multirow{2}{*}{SV}
+  & high & 0.91 & 0.91 & 0.91 & 0.91
+         & 0.96 & 0.96 & 0.96 & 0.96 \\
+&& low  & 0.60 & 0.67 & 0.71 & 0.71
+         & 0.71 & 0.71 & 0.74 & 0.75 \\
+\cmidrule(lr){2-11}
+& \multirow{2}{*}{Wh}
+  & high & 0.92 & 0.89 & 0.89 & 0.89
+         & 0.93 & 0.93 & 0.93 & 0.93 \\
+&& low  & 0.61 & 0.65 & 0.69 & 0.69
+         & 0.69 & 0.72 & 0.73 & 0.73 \\
+\cmidrule(lr){2-11}
+& \multirow{2}{*}{RC}
+  & high & 0.88 & 0.84 & 0.86 & 0.85
+         & 0.89 & 0.89 & 0.90 & 0.90 \\
+&& low  & 0.48 & 0.37 & 0.65 & 0.68
+         & 0.41 & 0.41 & 0.68 & 0.71 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+
+
+% ===== FIGURE: Context window, GPT-2 XL, k=1 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of context window size ($\tau \in \{1,3,10\}$) for GPT-2 XL
+at $k=1$. Larger context windows benefit low-frequency items more than
+high-frequency items, particularly for sequence-level retrieval and
+structurally complex phenomena (Wh, RCs). Subject-verb agreement is less
+sensitive to context size.}
+\label{fig:app_context_gpt2xl_k1}
+\end{figure*}
+
+% ===== FIGURE: Context window, GPT-2 XL, k=1024 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf}
+    (h) RCs -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of context window size ($\tau \in \{1,3,10\}$) for GPT-2 XL
+at $k=1024$. Compared to $k=1$, performance degrades substantially for low-frequency items, most severely for sequence-level retrieval, confirming that over-retrieval introduces noise that context window size cannot compensate for.}
+\label{fig:app_context_gpt2xl_k1024}
+\end{figure*}
+
+% ===== FIGURE: Context window, Child-realistic, k=1 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of context window size ($\tau \in \{1,3,10\}$) for the
+child-realistic model at $k=1$. Patterns are qualitatively similar to GPT-2
+XL (Figure~\ref{fig:app_context_gpt2xl_k1}) but with smaller absolute gains,
+consistent with the smaller model's weaker parametric representations.}
+\label{fig:app_context_child_k1}
+\end{figure*}
+
+% ===== FIGURE: Context window, Child-realistic, k=1024 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of context window size ($\tau \in \{1,3,10\}$) for the
+child-realistic model at $k=1024$. Performance degradation at large $k$ is
+more pronounced than for GPT-2 XL, particularly for low-frequency RCs,
+suggesting the smaller model is more susceptible to retrieval noise.}
+\label{fig:app_context_child_k1024}
+\end{figure*}
+
+% ===== FIGURE: Neighbor count, GPT-2 XL, tau=1 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of number of retrieved neighbors ($k \in \{1,16,1024\}$) for
+GPT-2 XL at $\tau=1$. The non-monotonic pattern holds: $k=16$ outperforms
+both $k=1$ and $k=1024$ across most conditions, with degradation at large $k$
+most severe for sequence-level retrieval and low-frequency items.}
+\label{fig:app_neighbor_gpt2xl_tau1}
+\end{figure*}
+
+% ===== FIGURE: Neighbor count, GPT-2 XL, tau=3 =====
+\begin{figure*}[tp]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_gpt2-xl_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of number of retrieved neighbors ($k \in \{1,16,1024\}$) for
+GPT-2 XL at $\tau=3$. Results are consistent with $\tau=1$
+(Figure~\ref{fig:app_neighbor_gpt2xl_tau1}): $k=16$ provides the best balance
+between evidence aggregation and noise across phenomena and frequency bands.}
+\label{fig:app_neighbor_gpt2xl_tau3}
+\end{figure*}
+
+% ===== FIGURE: Neighbor count, Child-realistic, tau=1 =====
+\begin{figure*}[ht]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of number of retrieved neighbors ($k \in \{1,16,1024\}$) for
+the child-realistic model at $\tau=1$. The non-monotonic pattern holds across
+both model scales, with $k=16$ providing the best overall performance and
+$k=1024$ degrading most severely for low-frequency RCs.}
+\label{fig:app_neighbor_child_tau1}
+\end{figure*}
+
+% ===== FIGURE: Neighbor count, Child-realistic, tau=3 =====
+\begin{figure*}[ht]
+\centering
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_SV_token.pdf}
+    (a) SV -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_SV_Phrase.pdf}
+    (b) SV -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_SV_Clause.pdf}
+    (c) SV -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_Wh_token.pdf}
+    (d) Wh -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_Wh_Phrase.pdf}
+    (e) Wh -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_Wh_Clause.pdf}
+    (f) Wh -- sequence
+\end{minipage}
+\vspace{2mm}
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_RCs_token.pdf}
+    (g) RC -- token
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_RCs_Phrase.pdf}
+    (h) RC -- phrase
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/paper/neighbor/Context3_child-realistic_RCs_Clause.pdf}
+    (i) RC -- sequence
+\end{minipage}
+\caption{Effect of number of retrieved neighbors ($k \in \{1,16,1024\}$) for
+the child-realistic model at $\tau=3$. Consistent with all other configurations, $k=16$ provides the best balance between evidence aggregation and noise, with gains most pronounced for low-frequency RCs and Wh-questions.}
+\label{fig:app_neighbor_child_tau3}
+\end{figure*}
+

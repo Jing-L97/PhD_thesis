@@ -1,0 +1,32 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Part I — Benchmarking LLMs for mimicking child-caregiver language in interaction}{\reset@font\mtcSfont 53}{section*.72}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1}Introduction}{\reset@font\mtcSfont 53}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2}Related Work and novelty}{\reset@font\mtcSfont 54}{section.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3}Method}{\reset@font\mtcSfont 55}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1}Data}{\reset@font\mtcSSfont 55}{subsection.4.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2}Models}{\reset@font\mtcSSfont 55}{subsection.4.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.1}Fine-tuned model}{\reset@font\mtcSSSfont 55}{subsubsection.4.3.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3}Benchmarking}{\reset@font\mtcSSfont 56}{subsection.4.3.3}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Single-turn testing}{\reset@font\mtcPfont 56}{section*.74}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Multi-turn testing}{\reset@font\mtcPfont 56}{section*.75}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Zero vs. Few-shot settings}{\reset@font\mtcPfont 56}{section*.78}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4}Metrics}{\reset@font\mtcSSfont 57}{subsection.4.3.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4}Results and Discussion}{\reset@font\mtcSfont 59}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1}Single-turn testing}{\reset@font\mtcSSfont 59}{subsection.4.4.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Child-LLM}{\reset@font\mtcPfont 59}{section*.81}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Caregiver-LLM}{\reset@font\mtcPfont 59}{section*.82}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2}Multi-turn testing}{\reset@font\mtcSSfont 59}{subsection.4.4.2}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Child-LLM}{\reset@font\mtcPfont 59}{section*.83}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Caregiver-LLM}{\reset@font\mtcPfont 60}{section*.84}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5}Conclusion}{\reset@font\mtcSfont 61}{section.4.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6}Limitations}{\reset@font\mtcSfont 62}{section.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {7}Ethics statement}{\reset@font\mtcSfont 63}{section.4.7}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the caregiver}{\reset@font\mtcPfont 65}{section*.87}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the child}{\reset@font\mtcPfont 65}{section*.88}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the caregiver}{\reset@font\mtcPfont 65}{section*.89}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the child}{\reset@font\mtcPfont 65}{section*.90}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Part II — Which forms of caregiver feedback support grammar learning?}{\reset@font\mtcSfont 68}{section*.94}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8}Introduction}{\reset@font\mtcSfont 68}{section.4.8}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {9}Methods}{\reset@font\mtcSfont 69}{section.4.9}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {9.1}Evaluation}{\reset@font\mtcSSfont 70}{subsection.4.9.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {10}Results}{\reset@font\mtcSfont 72}{section.4.10}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {11}Discussion and Conclusions}{\reset@font\mtcSfont 73}{section.4.11}}
