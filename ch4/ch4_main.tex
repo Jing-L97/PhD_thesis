@@ -3,12 +3,29 @@
 
 \objectif{Two complementary studies of how language models capture child-caregiver interaction: first, a benchmark of how state-of-the-art LLMs simulate child-directed dialogue; second, a reinforcement-learning study isolating which forms of caregiver feedback support grammar acquisition in child-like LMs.}
 
-% --- Paper 1 -----------------------------------------------------------------
-\section*{Part I — Benchmarking LLMs for mimicking child-caregiver language in interaction}
-\addcontentsline{toc}{section}{Part I — Benchmarking LLMs for mimicking child-caregiver language in interaction}
-\input{ch4/papers/LLM_benchmark/main.tex}
+% Each included paper uses \section/\subsection/\subsubsection at the article
+% level. Inside this chapter we want them demoted by one level so the paper
+% appears as a single numbered section. \let is used in reverse order to avoid
+% cascading demotion.
+\newcommand{\demotesectioning}{%
+  \let\oldsection\section
+  \let\oldsubsection\subsection
+  \let\oldsubsubsection\subsubsection
+  \let\section\oldsubsection
+  \let\subsection\oldsubsubsection
+  \let\subsubsection\paragraph
+}
 
-% --- Paper 2 -----------------------------------------------------------------
-\section*{Part II — Which forms of caregiver feedback support grammar learning?}
-\addcontentsline{toc}{section}{Part II — Which forms of caregiver feedback support grammar learning?}
+% --- Section 4.1 -------------------------------------------------------------
+\section{Benchmarking LLMs for mimicking child-caregiver language in interaction}
+\begingroup
+\demotesectioning
+\input{ch4/papers/LLM_benchmark/main.tex}
+\endgroup
+
+% --- Section 4.2 -------------------------------------------------------------
+\section{Which forms of caregiver feedback support grammar learning?}
+\begingroup
+\demotesectioning
 \input{ch4/papers/RLHF/main.tex}
+\endgroup

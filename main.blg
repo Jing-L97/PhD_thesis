@@ -1,20 +1,20 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'main.blg'
-[35] biber-darwin:340> INFO - === Wed May 27, 2026, 18:59:22
-[44] Biber.pm:420> INFO - Reading 'main.bcf'
-[108] Biber.pm:994> INFO - Found 161 citekeys in bib section 0
-[115] Biber.pm:4463> INFO - Processing section 0
-[120] Biber.pm:4654> INFO - Looking for bibtex file 'mabiblio.bib' for section 0
-[189] bibtex.pm:1713> INFO - LaTeX decoding ...
-[1000] bibtex.pm:1519> INFO - Found BibTeX data source 'mabiblio.bib'
-[1688] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1688] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1688] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'fr-FR'
-[1688] Biber.pm:4289> INFO - No sort tailoring available for locale 'fr-FR'
-[1778] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1822] bbl.pm:779> INFO - Output to main.bbl
-[1822] Biber.pm:131> WARN - ISBN '978-0-521-43109-5 978-0-521-43725-7' in entry 'sokolov_changing_1994' is invalid - run biber with '--validate_datamodel' for details.
-[1822] Biber.pm:131> WARN - ISBN 'TODO' in entry 'martins-etal-2025-upon' is invalid - run biber with '--validate_datamodel' for details.
-[1822] Biber.pm:131> WARN - I didn't find a database entry for 'ueda_tissue_2020' (section 0)
-[1822] Biber.pm:131> WARN - I didn't find a database entry for 'thomas_microbubble_2013' (section 0)
-[1822] Biber.pm:133> INFO - WARNINGS: 4
+[31] biber-darwin:340> INFO - === Wed May 27, 2026, 19:20:19
+[38] Biber.pm:420> INFO - Reading 'main.bcf'
+[101] Biber.pm:994> INFO - Found 161 citekeys in bib section 0
+[107] Biber.pm:4463> INFO - Processing section 0
+[111] Biber.pm:4654> INFO - Looking for bibtex file 'mabiblio.bib' for section 0
+[175] bibtex.pm:1713> INFO - LaTeX decoding ...
+[911] bibtex.pm:1519> INFO - Found BibTeX data source 'mabiblio.bib'
+[1569] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1569] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1569] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'fr-FR'
+[1569] Biber.pm:4289> INFO - No sort tailoring available for locale 'fr-FR'
+[1655] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1697] bbl.pm:779> INFO - Output to main.bbl
+[1697] Biber.pm:131> WARN - ISBN '978-0-521-43109-5 978-0-521-43725-7' in entry 'sokolov_changing_1994' is invalid - run biber with '--validate_datamodel' for details.
+[1697] Biber.pm:131> WARN - ISBN 'TODO' in entry 'martins-etal-2025-upon' is invalid - run biber with '--validate_datamodel' for details.
+[1697] Biber.pm:131> WARN - I didn't find a database entry for 'ueda_tissue_2020' (section 0)
+[1697] Biber.pm:131> WARN - I didn't find a database entry for 'thomas_microbubble_2013' (section 0)
+[1697] Biber.pm:133> INFO - WARNINGS: 4
