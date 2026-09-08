@@ -2595,16 +2595,22 @@
     <bcf:citekey order="167" intorder="3">sokolov_changing_1994</bcf:citekey>
     <bcf:citekey order="168" intorder="1">whitehurst_what_1988</bcf:citekey>
     <bcf:citekey order="168" intorder="2">nikolaus_communicative_2023</bcf:citekey>
+    <bcf:citekey order="168" intorder="3">schoneberger2010three</bcf:citekey>
     <bcf:citekey order="169" intorder="1">clark_conversational_2020</bcf:citekey>
     <bcf:citekey order="169" intorder="2">demetras_feedback_1986</bcf:citekey>
     <bcf:citekey order="169" intorder="3">newport_mother_1977</bcf:citekey>
     <bcf:citekey order="169" intorder="4">saxton_prompt_2005</bcf:citekey>
+    <bcf:citekey order="169" intorder="5">nikolaus_communicative_2023a</bcf:citekey>
+    <bcf:citekey order="169" intorder="6">nikolaus_communicative_2022</bcf:citekey>
     <bcf:citekey order="170" intorder="1">hoff-ginsberg_topic_1987</bcf:citekey>
     <bcf:citekey order="170" intorder="2">che2018assessing</bcf:citekey>
     <bcf:citekey order="170" intorder="3">hirsh2015contribution</bcf:citekey>
+    <bcf:citekey order="170" intorder="4">agrawal_automatic_2024</bcf:citekey>
+    <bcf:citekey order="170" intorder="5">agrawal2026scaffolding</bcf:citekey>
     <bcf:citekey order="171" intorder="1">fusaroli_caregiver_2023</bcf:citekey>
     <bcf:citekey order="171" intorder="2">dale_unraveling_2006</bcf:citekey>
     <bcf:citekey order="171" intorder="3">fernandez_quantifying_2014</bcf:citekey>
+    <bcf:citekey order="171" intorder="4">misiek_development_2020</bcf:citekey>
     <bcf:citekey order="172" intorder="1">rivero2023relations</bcf:citekey>
     <bcf:citekey order="173" intorder="1">demetras_feedback_1986</bcf:citekey>
     <bcf:citekey order="173" intorder="2">hirsh-pasek_brown_1984</bcf:citekey>
@@ -2618,8 +2624,9 @@
     <bcf:citekey order="177" intorder="3">zhao-etal-2023-babystories</bcf:citekey>
     <bcf:citekey order="177" intorder="4">padovani2025dialogue</bcf:citekey>
     <bcf:citekey order="177" intorder="5">xu2025wanting</bcf:citekey>
-    <bcf:citekey order="178" intorder="1">ouyang_training_2022</bcf:citekey>
-    <bcf:citekey order="179" intorder="1">nikolaus_fourtassi_2026</bcf:citekey>
+    <bcf:citekey order="177" intorder="6">nikolaus_modeling_2021</bcf:citekey>
+    <bcf:citekey order="178" intorder="1">nikolaus_fourtassi_2026</bcf:citekey>
+    <bcf:citekey order="179" intorder="1">ouyang_training_2022</bcf:citekey>
     <bcf:citekey order="180" intorder="1">macwhinney2000childes</bcf:citekey>
     <bcf:citekey order="181" intorder="1">schulman_proximal_2017</bcf:citekey>
     <bcf:citekey order="182" intorder="1">warstadt2020blimp</bcf:citekey>
