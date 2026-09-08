@@ -6,44 +6,58 @@
 \providecommand{\new}{\marginpar{NEW}}
 
 
+
 \section{Introduction}
 
-Language models are known to exhibit systematic lexical frequency biases: their performance on linguistic evaluations correlates with how often the lexical items in the test examples appear in training data, leading to low-frequency items posing a persistent challenge \citep{wei-etal-2021-frequency,kim2022uncontrolled,diehl-martinez-etal-2024-mitigating}. While frequency does influence human performance in empirical tests of grammatical knowledge such as acceptability judgments \citep[i.a.]{kempen2005relationship,bader2010toward}, recent work \citep{christensen2024complexity} has shown evidence for robustness to lexical frequency in delineating the critical contrasts. What accounts for this gap between human robustness and model fragility?
+Language models are known to exhibit systematic lexical frequency biases: their performance on linguistic evaluations correlates with how often the lexical items in the test examples appear in training data, leading to low-frequency items posing a persistent challenge \citep{wei-etal-2021-frequency,kim2022uncontrolled,diehl-martinez-etal-2024-mitigating}. While frequency does influence human performance in empirical tests of grammatical knowledge such as acceptability judgments \citep[i.a.]{kempen2005relationship,bader2010toward,lau2017grammaticality}, recent work \citep{christensen2024complexity} has shown evidence for robustness to lexical frequency in delineating the critical contrasts. What accounts for this gap between human robustness and model fragility?
 
 
 One possible answer comes from Complementary Learning Systems (CLS) theory 
-\citep{mcclelland1995there,davis2009complementary,kumaran2016learning}, which proposes that the brain employs two distinct memory systems: a hippocampal system that rapidly encodes and retrieves specific experiences, and a neocortical system that gradually extracts generalizable statistical patterns. When parametric knowledge is weak, as it is for rare items, episodic memory can compensate by directly retrieving relevant past encounters. This division of labor has also been proposed to be relevant to linguistic processing \citep{borensztajn2011episodic,duff2012hippocampus}, leading us to hypothesize that episodic retrieval may reflect the mechanism that underlies human robustness to lexical frequency in syntactic processing.
+\citep{mcclelland1995there,kumaran2016learning}, which proposes that the brain employs two distinct memory systems: a hippocampal system that rapidly encodes and retrieves specific experiences, and a neocortical system that gradually extracts generalizable statistical patterns. When parametric knowledge is weak, as it is for rare items, episodic memory can compensate by directly retrieving relevant past encounters \citep{davis2009complementary}. This division of labor has also been proposed to be relevant to linguistic processing \citep{borensztajn2011episodic,duff2012hippocampus}, leading us to hypothesize that episodic retrieval may reflect the mechanism that underlies human robustness to lexical frequency in syntactic processing.
+
+ 
 
 
-In this work, we computationally test this hypothesis by asking whether augmenting language models with an explicit retrieval mechanism helps close the lexical frequency gap in syntactic contrast evaluations. We adopt $k$-nearest-neighbor language models ($k$NN-LM; \citealt{khandelwal2020knnlm}) as our proxy for episodic memory: the non-parametric datastore caches training instances for direct retrieval at inference time (analogous to hippocampal episodic traces), while the underlying parametric network consolidates statistical patterns through training (analogous to neocortical learning). The original $k$NN-LM has already been shown to be particularly helpful for rare patterns \citep{khandelwal2020knnlm}, and recent work shows that the information available in the context can be used more flexibly than the same information stored parametrically \citep{lampinen2025latent,chan2022data}, both consistent with the CLS prediction. At the same time, a recent finding that $k$NN-LMs do \textit{not} improve prediction of low-frequency tokens in standard language modeling evaluation \citep{nishida2025long} makes it a non-trivial and empirically open question whether retrieval benefits extend to the domain of syntactic knowledge.
+In this work, we computationally test this hypothesis by asking whether augmenting language models with an explicit retrieval mechanism helps close the lexical frequency gap in syntactic contrast evaluations. We adopt $k$-nearest-neighbor language models ($k$NN-LM; \citealt{khandelwal2020knnlm}) as our proxy for episodic memory: the non-parametric datastore caches training instances for direct retrieval at inference time (analogous to hippocampal episodic traces), while the underlying parametric network consolidates statistical patterns through training (analogous to neocortical learning). The original $k$NN-LM has already been shown to be particularly helpful for rare patterns \citep{mallen2023trust,kandpal2023large}, and recent work shows that the information available in the context can be used more flexibly than the same information stored parametrically \citep{lampinen2025latent,chan2022transformers}, both consistent with the CLS prediction. At the same time, a recent finding that $k$NN-LMs do \textit{not} improve prediction of low-frequency tokens in standard language modeling evaluation \citep{nishida2025long} makes it a non-trivial and empirically open question whether retrieval benefits extend to the domain of syntactic knowledge.
 
 
-We investigate this question through syntactic contrast tests across three different phenomena (subject-verb agreement, wh-questions, relative clauses) using frequency-stratified test items, under both child-realistic and large-scale pretraining. We further analyze what drives retrieval effectiveness by contrasting full versus semantics-only retrieval, by examining the role of structural similarity in retrieved instances, and by varying the configurations of retrieval (retrieval granularity, context window size, and number of retrieved neighbors). Our results reveal that retrieval augmentation consistently narrows the lexical frequency gap across all phenomena and both model scales, with greater gains for more syntactically complex phenomena. Nevertheless, the gap remains not fully closed. To this end, we analyze the limitations of the current modeling approach and posit preferential reweighting, improved representations and retrieval for structural information, and flexible configurations of storage and retrieval as promising future directions.
+We investigate this question through syntactic contrast tests across three different phenomena (subject-verb agreement, wh-questions, relative clauses) using frequency-stratified test items, under both child-realistic and large-scale pretraining. We further analyze what drives retrieval effectiveness by contrasting full versus semantics-only retrieval, by examining the role of structural similarity in retrieved instances, and by varying the configurations of retrieval (retrieval granularity, context window size, and number of retrieved neighbors). Our results show that retrieval augmentation consistently narrows the lexical frequency gap across all phenomena and both model scales, with greater gains for more syntactically complex phenomena. Nevertheless, the gap remains not fully closed. To this end, we analyze the limitations of the current modeling approach and posit preferential reweighting, improved representations and retrieval for structural information, and flexible configurations of storage and retrieval as promising future directions.
+
+
+
+
 
 
 \section{Related Work}
 
 \noindent \textbf{Frequency effects on linguistic evaluation in language models.}
-Language models exhibit systematic frequency biases, where performance on linguistic evaluation often degrades when the test items contain low-frequency lexical items \citep{wei-etal-2021-frequency,kim2022uncontrolled}. In the context of syntactic contrasts, models perform worse on minimal pairs that contain low-frequency words, even when the underlying grammatical contrast is identical to high-frequency cases. \citet{diehl-martinez-etal-2024-mitigating} directly quantify this frequency bias in BLiMP (one of our syntactic test datasets) and propose a training-time intervention (Syntactic Smoothing) to reduce it, finding that substantial gaps persist even after mitigation. \citet{wettig-etal-2023-mask} has also examined how linguistic frequency distributions in pretraining data shape model behavior, finding that exposure patterns affect both learning speed and final performance. Together, these findings establish that lexical frequency creates differential strength in parametric representations, with low-frequency items learned far less robustly. Our work asks a related question from a different methodological angle: rather than reducing frequency bias through better training, can it be compensated for at inference time through retrieval?
+Language models exhibit systematic frequency biases, where performance on linguistic evaluation often degrades when the test items contain low-frequency lexical items \citep{wei-etal-2021-frequency,kim2022uncontrolled}. In the context of syntactic contrasts, models perform worse on minimal pairs that contain low-frequency words, even when the underlying grammatical contrast is identical to high-frequency cases. \citet{diehl-martinez-etal-2024-mitigating} directly quantify this frequency bias in BLiMP (one of our syntactic test datasets) and propose a training-time intervention (Syntactic Smoothing) to reduce it, finding that substantial gaps persist even after mitigation. 
+
+
+\citet{wettig-etal-2023-mask} examine how the masking rate during training determines which co-occurring token pairs (measured via pointwise mutual information) are exposed to the model, shaping both convergence speed and final performance. Since pointwise mutual information is itself derived from corpus-level token frequencies, these findings are consistent with frequency distributions in pretraining data influencing model behavior, though this connection is inferential. More directly, \citet{kandpal2023large} show that language models struggle to acquire long-tail knowledge whose supporting documents are rare in the pretraining corpus, establishing a clear link between corpus frequency and what is learned.
+
+Together, these findings establish that (lexical) frequency creates differential strength in parametric representations, with low-frequency items learned far less robustly. Our work asks a related question from a different methodological angle: rather than reducing frequency bias through better training, can it be compensated for at inference time through retrieval?
 
 \noindent \textbf{Complementary Learning Systems theory.}
-Complementary Learning Systems (CLS) theory \citep{mcclelland1995there, kumaran2016learning} proposes that the human brain employs two specialized memory systems: a hippocampal system that rapidly encodes specific episodes, and a neocortical system that gradually extracts statistical regularities across experiences. This allows new information to be acquired quickly without disrupting slower cortical learning \citep{o1994hippocampal}, and computational implementations of CLS show that it enables both rapid memorization and gradual generalization \citep{schapiro2017complementary}. Critically for our purposes, \citet{eichenbaum2001hippocampus} argues that the hippocampus does not merely store episodes but actively supports flexible use of past experiences through retrieval, enabling inferences that parametric learning alone may fail to achieve. Applied to language models, this predicts that when parametric representations are weak (as for low-frequency items), episodic retrieval should provide compensatory benefits by making specific relevant experiences directly accessible.  \citet{lampinen2025latent} in particular demonstrates that language models fail to generalize certain types of knowledge learned parametrically (e.g., relation reversals) but succeed when the same information is available in context, suggesting that episodic retrieval enables more flexible use of past experiences than parametric consolidation. Similarly, studies of in-context learning show that Transformers can apply procedures to information presented in context that they cannot apply to parametrically-stored knowledge \citep{chan2022data}. Our work extends these insights to syntactic processing by testing whether retrieval enables more robust generalization across frequency bands than parametric-only inferences.
+Complementary Learning Systems (CLS) theory \citep{mcclelland1995there, kumaran2016learning} proposes that the human brain employs two specialized memory systems: a hippocampal system that rapidly encodes specific episodes, and a neocortical system that gradually extracts statistical regularities across experiences. This allows new information to be acquired quickly without disrupting slower cortical learning, and computational implementations of CLS show that it enables both rapid memorization and gradual generalization \citep{mcclelland1995there}. Critically for our purposes, \citet{eichenbaum2001hippocampus} argues that the hippocampus does not merely store episodes but actively supports flexible use of past experiences through retrieval, enabling inferences that parametric learning alone may fail to achieve. Applied to language models, this predicts that when parametric representations are weak (as for low-frequency items), episodic retrieval should provide compensatory benefits by making specific relevant experiences directly accessible.  \citet{lampinen2025latent} in particular demonstrates that language models fail to generalize certain types of knowledge learned parametrically (e.g., relation reversals) but succeed when the same information is available in context, suggesting that episodic retrieval enables more flexible use of past experiences than parametric consolidation. Similarly, studies of in-context learning show that Transformers can apply procedures to information presented in context that they cannot apply to parametrically-stored knowledge \citep{chan2022transformers}. Our work extends these insights to syntactic processing by testing whether retrieval enables more robust generalization across frequency bands than parametric-only inferences.
 
 \noindent \textbf{Retrieval-augmented language models.}  
-Retrieval-augmented methods enhance language models by supplementing external memory with information drawn from explicit memory at inference time. $k$NN-LMs \citep{khandelwal2020knnlm}, which we adopt in this work, interpolate the base model's next-token distribution with a distribution computed from nearest-neighbor contexts retrieved from a datastore of training instances. While prior work shows benefits for rare patterns and knowledge-intensive tasks \citep{borgeaud2022improving,kandpal2023large,mallen2023trust}, recent work finds that standard $k$NN-LMs do not improve prediction performance for low-frequency tokens in language modeling evaluation \citep{nishida2025long}, leaving open questions about retrieval benefits for linguistic processing.
+Retrieval-augmented methods enhance language models by supplementing parametric knowledge with information drawn from an explicit memory at inference time. $k$NN-LMs \citep{khandelwal2020knnlm}, which we adopt in this work, interpolate the base model's next-token distribution with a distribution computed from nearest-neighbor contexts retrieved from a datastore of training instances. While prior work shows benefits for rare patterns and knowledge-intensive tasks \citep{borgeaud2022improving,kandpal2023large,mallen2023trust}, recent work finds that standard $k$NN-LMs do not improve prediction performance for low-frequency tokens in language modeling evaluation \citep{nishida2025long}, leaving open questions about retrieval benefits for linguistic processing.
+
 
 
 \section{Method}
 \label{sec:method}
 
-We first show that frequency gaps in tests of grammatical knowledge exist in vanilla language models (``base models''), and then test whether $k$NN-LMs help close these gaps. To this end, we use targeted syntactic contrast datasets where we divide the test instances based on the frequency of the content words they contain. We describe the details of the models, datasets, evaluation tasks and the retrieval procedure below. 
+We first show that frequency gaps in tests of grammatical knowledge exist in vanilla language models (``base models''), and then test whether $k$NN-LMs help close these gaps. To this end, we use targeted syntactic contrast datasets where we divide test instances based on the frequency of the content words they contain. We describe the details of the models, datasets, evaluation tasks and the retrieval procedure below. 
 
 \subsection{Models and Training}
 
 \noindent \textbf{Base models.} We evaluate two decoder-only Transformer models that vary in parameter size and training data scale: (1) GPT-2 XL (1.5B parameters), pretrained on large-scale web text \citep{radford2019language}, and (2) GPT-2 Small (124M parameters) pretrained on child-directed speech corpora with 50M words selected from the BabyLM Challenge \citep{hu2024findings}. Both use a standard autoregressive objective and serve as parametric-only baselines. Further details are provided in Appendix~\ref{app:model_dataset}.
 
 
-\noindent \textbf{$k$NN language models.} Following \citet{khandelwal2020knnlm}, we augment base models with a datastore $\mathcal{D}$ caching training instances. For each token $x_t$, we store key-value pairs: $(\bm{f}_\theta(\bm{x}_{<t}), x_t)$, where $\bm{f}_\theta(\bm{x}_{<t})$ is the final feedforward layer activation encoding context preceding $x_t$. At inference time, we:
+\noindent \textbf{$k$NN language models.} Following \citet{khandelwal2020knnlm}, we augment base models with a datastore $\mathcal{D}$ containing context--target pairs. For each token $x_t$, we store the key-value pair: $(\bm{f}_\theta(\bm{x}_{<t}), x_t)$, where $\bm{f}_\theta(\bm{x}_{<t})$ is the layer-normalized contextual
+representation fed as input to the feed-forward sublayer of the final Transformer block. For GPT-2, this corresponds to the output of the final block's second layer-normalization module and the input to its MLP. At inference time, we:
 \vspace{-0.2cm}
 \begin{enumerate}[itemsep=0.1pt, parsep=0pt]
     \item Compute the query: $\bm{q}_t = \bm{f}_\theta(\bm{x}_{<t})$
@@ -52,21 +66,23 @@ We first show that frequency gaps in tests of grammatical knowledge exist in van
     \item Interpolate: $p(x_t|\bm{x}_{<t}) = \lambda p_{\text{kNN}} + (1-\lambda) p_{\text{LM}}$
 \end{enumerate}
 
-\noindent We fix $\lambda=0.25$ and vary $k \in \{1, 16, 1024\}$, using FAISS \citep{johnson2019billion} for retrieval.
+\noindent We fix $\lambda=0.25$ following \citet{khandelwal2020knnlm} and vary $k \in \{1, 16, 1024\}$, using FAISS \citep{johnson2019billion} for retrieval.
+
 
 
 \subsection{Evaluation Task}
 
-\textbf{Syntactic contrasts.} We evaluate sensitivity to three syntactic phenomena: Subject-Verb agreement (SV), Wh-questions (Wh), and Relative Clauses (RC). We collect examples in these categories from BLiMP \citep{warstadt2020blimp}, Zorro \citep{huebner2021babyberta}, and Big-Bench \citep{srivastava2023beyond}, filtering examples containing out-of-vocabulary items for each model. Each test item is a minimal pair with one grammatical and one ungrammatical sentence, where models must assign a higher probability to the grammatical sentence. 
+\textbf{Syntactic contrasts.} We evaluate sensitivity to three syntactic phenomena: Subject-Verb agreement (SV), Wh-questions (Wh), and Relative Clauses (RC). We collect examples in these categories from BLiMP \citep{warstadt2020blimp}, Zorro \citep{huebner2021babyberta}, and BIG-bench \citep{srivastava2023beyond}, filtering examples containing out-of-vocabulary items for each model. Each test item is a minimal pair with one grammatical and one ungrammatical sentence, where models must assign a higher probability to the grammatical sentence. 
 
 
-\noindent \textbf{Frequency stratification.} To test our hypothesis regarding lexical frequency, we further divided the evaluation data based on mean frequency across all the content words in the sentences (\textit{high-frequency} ($f > 10^4$) versus \textit{low-frequency} ($f < 10^3$)).
+\noindent \textbf{Frequency stratification.} To test our hypothesis regarding lexical frequency, we further divided the evaluation data based on mean frequency across all the content words in the sentences (\textit{high-frequency} ($f > 10^4$) versus \textit{low-frequency} ($f < 10^3$); everything in-between \textit{mid-frequency}). Our main hypothesis concerns the contrast between the high- and low-frequency bands; we report the mid-frequency band throughout to give a complete picture of how retrieval benefits scale with frequency.
 
+\noindent We emphasize that all frequency gap claims are scoped \emph{within} a single model/corpus: each gap and its narrowing under retrieval is measured against the same model's own baseline. Because the two pretraining corpora differ substantially in size and composition, the absolute frequency thresholds do not render items in the same band directly comparable across pretraining settings, and we therefore do not compare numerical trends across the two settings.
 
 \begin{wraptable}{r}{0.48\textwidth}
 \vspace{-5pt}
-\caption{Syntactic contrast accuracy and perplexity (PPL) for baseline and kNN-LM models ($k=1$, $\tau=3$, sequence-level retrieval). kNN augmentation improves accuracy across all phenomena and both pretraining scales, with relative clauses showing the largest gains. Perplexity reductions are larger for the large-scale model. Bold indicates improvement over baseline.}
-\vspace{8pt}
+\caption{Syntactic contrast accuracy and perplexity (PPL) for baseline and kNN-LM models ($k=16$, $\tau=3$, sequence-level retrieval). kNN augmentation improves accuracy across all phenomena and both pretraining scales, with relative clauses showing the largest gains. Perplexity reductions are larger for the large-scale model. Bold indicates improvement over baseline.}
+\vspace{6pt}
 \label{tab:general_effects}
 \centering
 \small
@@ -76,56 +92,83 @@ We first show that frequency gaps in tests of grammatical knowledge exist in van
 \multicolumn{2}{c}{\textbf{Large-scale}} \\
  & baseline & kNN & baseline & kNN \\
 \midrule
-\textbf{PPL.} $\downarrow$      & 14.88 & \textbf{14.53} & 13.68 & \textbf{12.08} \\
-\textbf{SV} $\uparrow$   & 0.76  & \textbf{0.79}  & 0.84  & \textbf{0.89} \\
-\textbf{Wh} $\uparrow$   & 0.77  & \textbf{0.81}  & 0.81  & \textbf{0.83} \\
-\textbf{RC} $\uparrow$   & 0.68  & \textbf{0.76}  & 0.65  & \textbf{0.80} \\
+\textbf{PPL.} $\downarrow$ & 14.88 & \textbf{14.30} & 13.68 & \textbf{11.60} \\
+\textbf{SV} $\uparrow$     & 0.76  & \textbf{0.82}  & 0.84  & \textbf{0.89} \\
+\textbf{Wh} $\uparrow$     & 0.77  & \textbf{0.81}  & 0.81  & \textbf{0.86} \\
+\textbf{RC} $\uparrow$     & 0.68  & \textbf{0.78}  & 0.65  & \textbf{0.84} \\
 \bottomrule
 \end{tabular}
 \vspace{-5pt}
 \end{wraptable}
 
-
 \subsection{Retrieval Procedure}
 \label{subsec:datastores}
 
-We construct three datastore variants to disentangle the contributions of structural and semantic information: (1) \textit{Full Retrieval}: standard contextualized embeddings encoding both semantic and syntactic information; (2) \textit{Semantics-only (averaged)}: position-averaged contextualized embeddings from (1);\footnote{In practice, averaging contextualized embeddings may not fully scrub syntactic information; we return to this issue later. See also the discussion in Appendix~\ref{app:struc_simi}.} and (3) \textit{Semantics-only (uncontextualized)}: summed GloVe \citep{pennington2014glove} and fastText \citep{bojanowski2017enriching} embeddings, capturing lexical semantics without structural information. We additionally vary three retrieval configuration parameters: granularity of retrieved instances (token, phrase, or sequence), context window size ($\tau$), and number of retrieved neighbors ($k$), to characterize what retrieval configurations are most effective across syntactic phenomena.
-
-\section[Results]{Results\footnote{Note for all tables in this section: Baseline models use parametric knowledge only; kNN models are retrieval-augmented. Abbreviations: SV (subject-verb agreement), Wh (wh-questions), RC (relative clauses), PPL (perplexity). }}
+We construct three datastore variants to disentangle the contributions of structural and semantic information: (1) \textit{Full Retrieval}: standard contextualized embeddings encoding both semantic and syntactic information; (2) \textit{Semantics-only (averaged)}: position-averaged contextualized embeddings from (1);\footnote{In practice, averaging contextualized embeddings may not fully scrub syntactic information; we return to this issue later.} and (3) \textit{Semantics-only (uncontextualized)}: summed GloVe \citep{pennington2014glove} and fastText \citep{bojanowski2017enriching} embeddings, capturing lexical semantics without structural information. We additionally vary three retrieval configuration parameters: granularity of retrieved instances (token, phrase, or sequence), context window size ($\tau$), and number of retrieved neighbors ($k$), to characterize which retrieval configurations are most effective across syntactic phenomena.
 
 
-\begin{wraptable}{r}{0.52\textwidth}
-\caption{Frequency-stratified syntactic contrast accuracy. kNN-LM ($k=1$, $\tau=3$,sequence-level retrieval) narrows the performance gap across all phenomena and both pretraining scales but does not fully close it. Bold indicates improvement over baseline.}
-\vspace{8pt}
-\label{tab:frequency_effects}
-\centering
-\small
-\begin{tabular}{llcccc}
-\toprule
-& & \multicolumn{2}{c}{\textbf{Child-realistic}} & 
-\multicolumn{2}{c}{\textbf{Large-scale}} \\
-& & baseline & kNN & baseline & kNN \\
-\midrule
-\multirow{2}{*}{\textbf{SV}} & high & 0.91 & \textbf{0.93} & 0.96 & 0.95 \\
-& low & 0.60 & \textbf{0.64} & 0.71 & \textbf{0.82} \\
-\multirow{2}{*}{\textbf{Wh}} & high & 0.92 & \textbf{0.94} & 0.93 & 0.93 \\
-& low & 0.61 & \textbf{0.67} & 0.69 & \textbf{0.72} \\
-\multirow{2}{*}{\textbf{RC}} & high & 0.88 & \textbf{0.90} & 0.89 & \textbf{0.94} \\
-& low & 0.48 & \textbf{0.61} & 0.41 & \textbf{0.66} \\
-\bottomrule
-\end{tabular}
-\end{wraptable}
+
+\section{Results}
 
 
 \subsection{Retrieval Benefits Syntactic Contrasts}
-We begin by investigating the general effectiveness of retrieval augmentation on syntactic contrasts. Table~\ref{tab:general_effects} shows that $k$NN augmentation improves performance across all three syntactic phenomena and both pretraining scales, as well as replicating previously reported perplexity improvements \citep{khandelwal2020knnlm}. Relative clauses benefit the most from retrieval augmentation across both model scales, while gains for wh-questions and subject-verb agreement are more modest. This pattern holds consistently regardless of pretraining scale, though perplexity reductions are larger for the large-scale model. The disproportionate benefit for relative clauses suggests that retrieval is most helpful where parametric representations are weakest, which motivates us to analyze the performance gains stratified by frequency.
+We begin by investigating the general effectiveness of retrieval augmentation on syntactic contrasts. Table~\ref{tab:general_effects}\footnote{Note for all tables in this section: Baseline models use parametric knowledge only; kNN models are retrieval-augmented. Abbreviations: SV (subject-verb agreement), Wh (wh-questions), RC (relative clauses), PPL (perplexity). We use $k=16$, $\tau=3$, and sequence-level retrieval (see Section~\ref{subsec:datastores}) as the representative configuration, since this setting yields general gains in low-frequency conditions. However, as discussed in Section~\ref{sec:retrieval_configuration}, there may exist alternative configurations that outperform this representative configuration for individual phenomena.} shows that $k$NN augmentation improves performance across all three syntactic phenomena and both pretraining scales, as well as replicating previously reported perplexity improvements \citep{khandelwal2020knnlm}. Relative clauses benefit the most from retrieval augmentation across both model scales. This pattern holds consistently regardless of pretraining scale, though perplexity reductions are larger for the large-scale model. The disproportionate benefit for relative clauses suggests that retrieval is most helpful where parametric representations are weakest, which motivates us to analyze the performance gains stratified by frequency.
 
 
 \subsection{Frequency Gap is Narrowed but not Fully Closed}
 \label{sec:frequency_effects}
 
-Next, we examine whether retrieval helps close the lexical frequency gap. Table~\ref{tab:frequency_effects} confirms the existence of frequency gaps in both baseline models across three syntactic phenomena, with performance on low-frequency items consistently lower than on high-frequency items. With retrieval augmentation, low-frequency items benefit more than high-frequency ones across all phenomena and both model scales. This pattern is the most pronounced for relative clauses. %%In contrast, high-frequency items show minimal or no improvement with retrieval. 
-Nevertheless, this compensation is not sufficient to eliminate the frequency gap: low-frequency items still systematically yield lower accuracy than high-frequency items across all tested phenomena and both model scales, even after retrieval augmentation. %The frequency-based performance gap thus persists, though to a reduced extent, after retrieval intervention.
+\begin{wraptable}{r}{0.55\textwidth}
+\centering
+\caption{Frequency-stratified syntactic contrast performance($k=16$, $\tau=3$; sequence-level retrieval). ER denotes error reduction,
+$\Delta\mathrm{acc}/(1-\mathrm{acc}_{\mathrm{base}})$. Bold indicates improvement over baseline.}
+\vspace{6pt}
+\label{tab:frequency_effects}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.96}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+& & \multicolumn{3}{c}{\textbf{Child-realistic}} &
+    \multicolumn{3}{c}{\textbf{Large-scale}} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+& & base & kNN & ER (\%) & base & kNN & ER (\%) \\
+\midrule
+\multirow{3}{*}{\textbf{SV}}
+& high & 0.91 & 0.90 & $-11.1$ & 0.96 & 0.95 & $-25.0$ \\
+& mid  & 0.82 & \textbf{0.83} & 5.6
+       & 0.90 & 0.89 & $-10.0$ \\
+& low  & 0.60 & \textbf{0.76} & 40.0
+       & 0.71 & \textbf{0.83} & 41.4 \\
+\midrule
+\multirow{3}{*}{\textbf{Wh}}
+& high & 0.92 & 0.88 & $-50.0$ & 0.93 & 0.93 & 0.0 \\
+& mid  & 0.83 & \textbf{0.86} & 17.6
+       & 0.90 & \textbf{0.91} & 10.0 \\
+& low  & 0.61 & \textbf{0.70} & 23.1
+       & 0.69 & \textbf{0.74} & 16.1 \\
+\midrule
+\multirow{3}{*}{\textbf{RC}}
+& high & 0.88 & \textbf{0.89} & 8.3
+       & 0.89 & \textbf{0.95} & 54.5 \\
+& mid  & 0.73 & \textbf{0.81} & 29.6
+       & 0.82 & \textbf{0.89} & 38.9 \\
+& low  & 0.48 & \textbf{0.65} & 32.7
+       & 0.41 & \textbf{0.70} & 49.2 \\
+\bottomrule
+\end{tabular}
+\end{wraptable}
+
+Next, we examine whether retrieval helps close the lexical frequency gap. Table~\ref{tab:frequency_effects} confirms the existence of frequency gaps in both baseline models across three syntactic phenomena, with performance on low-frequency items consistently lower than on high-frequency items, and mid-frequency items falling in between. With retrieval augmentation, the high--low performance gap narrows across all phenomena and both model scales. In terms of error reduction ($\Delta\text{acc}/(1-\text{acc}_{\text{base}})$), low-frequency items show substantial relative gains (e.g., $49.2\%$ for RCs in the large-scale model), though we note that this metric can be misleading near ceiling, where small absolute changes in already-high accuracy produce large negative percentages (e.g., child-realistic high-frequency Wh, $0.92 \rightarrow 0.88$, yields $-50\%$). Raw accuracies should be used to adjust the interpretations in such cases. 
+
+Statistical analysis supports the interpretation that narrowing is driven primarily by gains on low-frequency items. Bootstrapped $95\%$ confidence intervals on the per-frequency band performance delta (kNN $-$ baseline) confirm a robust separation: for the child-realistic model, low-frequency items show $\Delta = 0.140$ ($95\%$ CI $[0.115, 0.166]$) versus $\Delta = -0.013$ ($95\%$ CI $[-0.030, 0.004]$) for high-frequency items, with non-overlapping intervals (large-scale model shows the same pattern; see Appendix~\ref{app:stats}). 
+
+A mixed-effects logistic regression using treatment coding with high-frequency items and the baseline model as reference levels (\texttt{correct $\sim$ Frequency * ModelType + (1$\mid$item) + (1$\mid$phenomenon)}) further shows that the retrieval effect is significantly larger for low-frequency than for high-frequency items (Frequency [low] $\times$ ModelType [kNN] interaction: $\beta = 0.52$, $p < 0.001$. The effect of retrieval within the high-frequency band is not significant (ModelType [kNN]: $\beta = -0.04$, $p = 0.62$; Appendix~\ref{app:stats}). 
+
+Nevertheless, this compensation is not sufficient to eliminate the frequency gap: low-frequency items still yield lower accuracy than high-frequency items across all tested phenomena and both model scales, even after retrieval augmentation.
+
+
+
 
 
 
