@@ -1,42 +1,49 @@
 \babel@toc {french}{}\relax 
+\babel@toc {french}{}\relax 
 \addvspace {10\p@ }
-\contentsline {xchapter}{Remerciements}{i}{chapter*.1}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Résumé}{ii}{chapter*.2}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Abstract}{iii}{chapter*.3}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Introduction}{1}{chapter.1}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Calibrating child--model comparisons}{4}{chapter.2}%
-\contentsline {table}{\numberline {2.1}{\ignorespaces Alignment of developmental and model evaluation}}{7}{table.2.1}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Selected computational studies of developmental language learning}}{11}{table.2.2}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Selected studies of language development}}{12}{table.2.3}%
-\contentsline {table}{\numberline {2.4}{\ignorespaces Representative input resources for developmental modeling}}{20}{table.2.4}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{26}{chapter.3}%
-\contentsline {table}{\numberline {3.1}{\ignorespaces \textbf {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance.}}{40}{table.caption.58}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces \textbf {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales.}}{41}{table.caption.59}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces \textbf {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time.}}{42}{table.caption.60}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces \textbf {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability.}}{43}{table.caption.61}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Metric scores across different model settings presented in percentages (\%). Mean values are averaged across different months, followed by range across different models. We also reported the score of the 36th month. TTR: Type-token ratio, NWType: Non-word type rate, NWToken: Non-word token rate. CHILDES child production. Best scores for each setting are in \textbf {bold}.}}{44}{table.caption.62}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{Episodic memory and the lexical frequency gap}{46}{chapter.4}%
-\contentsline {table}{\numberline {4.1}{\ignorespaces Syntactic contrast accuracy and perplexity (PPL) for baseline and kNN-LM models ($k=16$, $\tau =3$, sequence-level retrieval). kNN augmentation improves accuracy across all phenomena and both pretraining scales, with relative clauses showing the largest gains. Perplexity reductions are larger for the large-scale model. Bold indicates improvement over baseline.}}{50}{table.caption.66}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Frequency-stratified syntactic contrast performance($k=16$, $\tau =3$; sequence-level retrieval). ER denotes error reduction, $\Delta \mathrm {acc}/(1-\mathrm {acc}_{\mathrm {base}})$. Bold indicates improvement over baseline.}}{51}{table.caption.67}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Composition of child-realistic pretraining corpus combining child-directed speech, conversational dialogue, and children's books to approximate naturalistic language exposure during early childhood. CDS = child-directed speech; SWBD = Switchboard; CSTC = Children's Stories Text Corpus; OSub = OpenSubtitles.}}{59}{table.caption.73}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Model architecture specifications. GPT-2 Small was trained from scratch on child-realistic data (50M words); GPT-2 XL uses the publicly released pretrained checkpoint from \citet {radford2019language} trained on WebText ($\sim $40GB).}}{59}{table.caption.74}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Training hyperparameters for GPT-2 Small on the child-realistic corpus, trained for 10 epochs using a standard autoregressive language modeling objective with cross-entropy loss.}}{60}{table.caption.75}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Bootstrapped $95\%$ confidence intervals on the per-frequency band accuracy delta (kNN $-$ baseline), $10{,}000$ resamples over test items ($k=16$, $\tau =3$, sequence-level).}}{61}{table.caption.76}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Mixed-effects logistic regression coefficients (\texttt {correct $\sim $ Frequency * ModelType + (1$\mid $item) + (1$\mid $phenomenon)}; $k=16$, $\tau =3$, sequence-level).}}{61}{table.caption.77}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Mean proportion of the 16 retrieved neighbors containing the target syntactic structure ($k=16$, $\tau =3$, sequence-level retrieval). Structural matches remain particularly sparse for relative clauses in the child-realistic setting.}}{62}{table.caption.78}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces $p$-values for structural-retrieval comparisons in the child-realistic and large-scale models ($k=16$, $\tau =3$, sequence-level retrieval).}}{62}{table.caption.79}%
-\addvspace {10\p@ }
-\contentsline {xchapter}{LLMs and caregiver feedback}{72}{chapter.5}%
-\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction.}}{87}{table.caption.108}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. }}{92}{table.caption.111}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical. }}{98}{table.caption.117}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales.}}{101}{table.caption.129}%
+\contentsline {xchapter}{Résumé}{i}{chapter*.1}%
+\babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {xchapter}{General Discussion}{105}{chapter.6}%
+\contentsline {xchapter}{Abstract}{ii}{chapter*.2}%
+\babel@toc {french}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {xchapter}{General Introduction}{1}{chapter.1}%
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {xchapter}{Calibrating child--model comparisons}{8}{chapter.2}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Alignment of developmental and model evaluation}}{11}{table.2.1}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Selected computational studies of developmental language learning}}{15}{table.2.2}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Selected studies of language development}}{16}{table.2.3}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Representative input resources for developmental modeling}}{24}{table.2.4}%
+\addvspace {10\p@ }
+\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{30}{chapter.3}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces \textbf {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance.}}{46}{table.caption.50}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces \textbf {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales.}}{47}{table.caption.51}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces \textbf {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time.}}{48}{table.caption.52}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces \textbf {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability.}}{49}{table.caption.53}%
+\addvspace {10\p@ }
+\contentsline {xchapter}{Episodic memory and the lexical frequency gap}{51}{chapter.4}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Syntactic contrast accuracy and perplexity (PPL) for baseline and kNN-LM models ($k=16$, $\tau =3$, sequence-level retrieval). kNN augmentation improves accuracy across all phenomena and both pretraining scales, with relative clauses showing the largest gains. Perplexity reductions are larger for the large-scale model. Bold indicates improvement over baseline.}}{57}{table.caption.57}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Frequency-stratified syntactic contrast performance($k=16$, $\tau =3$; sequence-level retrieval). ER denotes error reduction, $\Delta \mathrm {acc}/(1-\mathrm {acc}_{\mathrm {base}})$. Bold indicates improvement over baseline.}}{58}{table.caption.58}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Composition of child-realistic pretraining corpus combining child-directed speech, conversational dialogue, and children's books to approximate naturalistic language exposure during early childhood. CDS = child-directed speech; SWBD = Switchboard; CSTC = Children's Stories Text Corpus; OSub = OpenSubtitles.}}{66}{table.caption.64}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Model architecture specifications. GPT-2 Small was trained from scratch on child-realistic data (50M words); GPT-2 XL uses the publicly released pretrained checkpoint from \citet {radford2019language} trained on WebText ($\sim $40GB).}}{67}{table.caption.65}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Training hyperparameters for GPT-2 Small on the child-realistic corpus, trained for 10 epochs using a standard autoregressive language modeling objective with cross-entropy loss.}}{67}{table.caption.66}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Bootstrapped $95\%$ confidence intervals on the per-frequency band accuracy delta (kNN $-$ baseline), $10{,}000$ resamples over test items ($k=16$, $\tau =3$, sequence-level).}}{69}{table.caption.67}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Mixed-effects logistic regression coefficients (\texttt {correct $\sim $ Frequency * ModelType + (1$\mid $item) + (1$\mid $phenomenon)}; $k=16$, $\tau =3$, sequence-level).}}{69}{table.caption.68}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Mean proportion of the 16 retrieved neighbors containing the target syntactic structure ($k=16$, $\tau =3$, sequence-level retrieval). Structural matches remain particularly sparse for relative clauses in the child-realistic setting.}}{70}{table.caption.69}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces $p$-values for structural-retrieval comparisons in the child-realistic and large-scale models ($k=16$, $\tau =3$, sequence-level retrieval).}}{70}{table.caption.70}%
+\addvspace {10\p@ }
+\contentsline {xchapter}{LLMs and caregiver feedback}{79}{chapter.5}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction.}}{95}{table.caption.99}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. }}{100}{table.caption.102}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical. }}{106}{table.caption.108}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales.}}{109}{table.caption.120}%
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {xchapter}{General Discussion}{113}{chapter.6}%
+\babel@toc {french}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 

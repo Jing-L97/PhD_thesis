@@ -1,106 +1,112 @@
 \relax 
 \providecommand{\transparent@use}[1]{}
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Expressive vocabulary growth in children and LMs}{26}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Expressive vocabulary growth in children and LMs}{30}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{26}{chapter.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{26}{chapter.3}\protected@file@percent }
-\newlabel{chp2_chap}{{3}{26}{Expressive vocabulary growth in children and LMs}{chapter.3}{}}
-\newlabel{chp2_chap@cref}{{[chapter][3][]3}{[1][26][]26}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Introduction}{27}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Related Work}{28}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Developmental Trajectories}{28}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Vocabulary Evaluation}{28}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Calibrated Evaluation Frameworks}{29}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Methods}{29}{section.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf  {Overview of the \textsc  {corpus-CDI}{} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep {cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur–Bates CDI words in child-directed speech (English-CHILDES).}}{29}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:overview}{{3.1}{29}{\textbf {Overview of the \meCDI {} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep {cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur–Bates CDI words in child-directed speech (English-CHILDES)}{figure.caption.33}{}}
-\newlabel{fig:overview@cref}{{[figure][1][3]3.1}{[1][29][]29}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}\textsc  {corpus-CDI}{} Benchmark Overview}{30}{subsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Training Data}{30}{subsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Age-appropriate scaling}{30}{section*.34}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Preprocessing}{30}{section*.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Model Architectures and Training}{30}{subsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Training procedure}{31}{section*.36}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Generation procedure}{31}{section*.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Evaluation Set Construction}{31}{subsection.3.3.4}\protected@file@percent }
-\newlabel{sec:eval_construction}{{3.3.4}{31}{Evaluation Set Construction}{subsection.3.3.4}{}}
-\newlabel{sec:eval_construction@cref}{{[subsection][4][3,3]3.3.4}{[1][31][]31}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Base vocabulary and POS filtering}{31}{section*.38}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Frequency stratification}{31}{section*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Audiobook subset selection}{31}{section*.40}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.5}Evaluation Metrics}{32}{subsection.3.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Type-Token Ratio (TTR)}{32}{section*.41}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Non-word Rate}{32}{section*.42}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\textsc  {corpus-CDI}{} Score}{32}{section*.43}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Results}{32}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Developmental Trajectories}{32}{subsection.3.4.1}\protected@file@percent }
-\newlabel{sec:trajectories}{{3.4.1}{32}{Developmental Trajectories}{subsection.3.4.1}{}}
-\newlabel{sec:trajectories@cref}{{[subsection][1][3,4]3.4.1}{[1][32][]32}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Lexical diversity}{32}{section*.46}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf  {Core metrics comparing child and model vocabulary development across age groups.} Left: Type–token ratio (TTR) measuring lexical diversity. Middle: Non-word type rate indicating the proportion of invalid word forms. Right: \textsc  {corpus-CDI}{} scores tracking vocabulary acquisition (words counted as known if produced $>$60 times). Results are shown for LSTM and Transformer models trained on audiobooks and child-directed speech (CDS), compared with CHILDES child production data. Error bars denote 95\% confidence intervals across disjoint training subsets. For the final months (32–36), outputs are generated from the same model checkpoint and shown with lighter transparency.}}{33}{figure.caption.44}\protected@file@percent }
-\newlabel{fig:core_metric}{{3.2}{33}{\textbf {Core metrics comparing child and model vocabulary development across age groups.} Left: Type–token ratio (TTR) measuring lexical diversity. Middle: Non-word type rate indicating the proportion of invalid word forms. Right: \meCDI {} scores tracking vocabulary acquisition (words counted as known if produced $>$60 times). Results are shown for LSTM and Transformer models trained on audiobooks and child-directed speech (CDS), compared with CHILDES child production data. Error bars denote 95\% confidence intervals across disjoint training subsets. For the final months (32–36), outputs are generated from the same model checkpoint and shown with lighter transparency}{figure.caption.44}{}}
-\newlabel{fig:core_metric@cref}{{[figure][2][3]3.2}{[1][32][]33}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf  {Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score. Points show mean scores across models, with numbers illustrating temperature values.}}{33}{figure.caption.45}\protected@file@percent }
-\newlabel{fig:temp_effect}{{3.3}{33}{\textbf {Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score. Points show mean scores across models, with numbers illustrating temperature values}{figure.caption.45}{}}
-\newlabel{fig:temp_effect@cref}{{[figure][3][3]3.3}{[1][32][]33}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Word form accuracy}{33}{section*.47}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Vocabulary growth}{33}{section*.48}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Temperature Tradeoff}{34}{subsection.3.4.2}\protected@file@percent }
-\newlabel{sec:temperature}{{3.4.2}{34}{Temperature Tradeoff}{subsection.3.4.2}{}}
-\newlabel{sec:temperature@cref}{{[subsection][2][3,4]3.4.2}{[1][34][]34}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{TTR-CDI trade-off}{34}{section*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Non-word-CDI trade-off}{34}{section*.50}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Frequency effect}{35}{subsection.3.4.3}\protected@file@percent }
-\newlabel{sec:frequency}{{3.4.3}{35}{Frequency effect}{subsection.3.4.3}{}}
-\newlabel{sec:frequency@cref}{{[subsection][3][3,4]3.4.3}{[1][35][]35}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf  {Extrapolated months across different datasets for models trained on audiobooks}. x-axis: log frequency per million in training data; y-axis:estimated developmental month at which models reach 80\% mastery for each frequency band. Missing points of the lower frequency bands of temperature =0.3 come from 0 }}{35}{figure.caption.51}\protected@file@percent }
-\newlabel{fig:freq_effect}{{3.4}{35}{\textbf {Extrapolated months across different datasets for models trained on audiobooks}. x-axis: log frequency per million in training data; y-axis:estimated developmental month at which models reach 80\% mastery for each frequency band. Missing points of the lower frequency bands of temperature =0.3 come from 0}{figure.caption.51}{}}
-\newlabel{fig:freq_effect@cref}{{[figure][4][3]3.4}{[1][35][]35}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Divergent frequency sensitivity}{35}{section*.52}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Temperature modulation}{35}{section*.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Long-tail truncation}{36}{section*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Production of Content Words}{36}{subsection.3.4.4}\protected@file@percent }
-\newlabel{sec:content_word}{{3.4.4}{36}{Production of Content Words}{subsection.3.4.4}{}}
-\newlabel{sec:content_word@cref}{{[subsection][4][3,4]3.4.4}{[1][36][]36}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf  {Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while all model configurations maintain stable proportions around 40\% across training stages.}}{36}{figure.caption.55}\protected@file@percent }
-\newlabel{fig:content_prop}{{3.5}{36}{\textbf {Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while all model configurations maintain stable proportions around 40\% across training stages}{figure.caption.55}{}}
-\newlabel{fig:content_prop@cref}{{[figure][5][3]3.5}{[1][36][]36}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Children’s inverse U-shaped trajectory}{36}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Models’ invariant balance}{37}{section*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Discussion}{37}{section.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Limitations}{38}{section.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Ethics Statement}{39}{section.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}Appendix}{40}{section.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.1}Training and generation details}{40}{subsection.3.8.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces \textbf  {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance.}}{40}{table.caption.58}\protected@file@percent }
-\newlabel{tab:train}{{3.1}{40}{\textbf {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance}{table.caption.58}{}}
-\newlabel{tab:train@cref}{{[table][1][3]3.1}{[1][40][]40}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces \textbf  {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales.}}{41}{table.caption.59}\protected@file@percent }
-\newlabel{tab:model}{{3.2}{41}{\textbf {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales}{table.caption.59}{}}
-\newlabel{tab:model@cref}{{[table][2][3]3.2}{[1][40][]41}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.2}Result details}{41}{subsection.3.8.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces \textbf  {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time.}}{42}{table.caption.60}\protected@file@percent }
-\newlabel{tab:speech-metrics}{{3.3}{42}{\textbf {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time}{table.caption.60}{}}
-\newlabel{tab:speech-metrics@cref}{{[table][3][3]3.3}{[1][40][]42}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces \textbf  {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability.}}{43}{table.caption.61}\protected@file@percent }
-\newlabel{tab:generation-examples}{{3.4}{43}{\textbf {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability}{table.caption.61}{}}
-\newlabel{tab:generation-examples@cref}{{[table][4][3]3.4}{[1][41][]43}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf  {Count-based calibration} Comparison of different word frequency thresholds for determining word acquisition. The optimal threshold (60 occurrences) was selected based on alignment with parental vocabulary size reports (red line). Each threshold produces distinct vocabulary growth trajectories, with higher thresholds resulting in more conservative estimates.}}{43}{figure.caption.63}\protected@file@percent }
-\newlabel{fig:threshold}{{3.6}{43}{\textbf {Count-based calibration} Comparison of different word frequency thresholds for determining word acquisition. The optimal threshold (60 occurrences) was selected based on alignment with parental vocabulary size reports (red line). Each threshold produces distinct vocabulary growth trajectories, with higher thresholds resulting in more conservative estimates}{figure.caption.63}{}}
-\newlabel{fig:threshold@cref}{{[figure][6][3]3.6}{[1][41][]43}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Metric scores across different model settings presented in percentages (\%). Mean values are averaged across different months, followed by range across different models. We also reported the score of the 36th month. TTR: Type-token ratio, NWType: Non-word type rate, NWToken: Non-word token rate. CHILDES child production. Best scores for each setting are in \textbf  {bold}.}}{44}{table.caption.62}\protected@file@percent }
-\newlabel{tab:temp_metric}{{3.5}{44}{Metric scores across different model settings presented in percentages (\%). Mean values are averaged across different months, followed by range across different models. We also reported the score of the 36th month. TTR: Type-token ratio, NWType: Non-word type rate, NWToken: Non-word token rate. CHILDES child production. Best scores for each setting are in \textbf {bold}}{table.caption.62}{}}
-\newlabel{tab:temp_metric@cref}{{[table][5][3]3.5}{[1][41][]44}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces \textbf  {Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. Side plot on the bottom show Missing rates as a function of word count in input corpus.}}{44}{figure.caption.64}\protected@file@percent }
-\newlabel{fig:distr}{{3.7}{44}{\textbf {Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. Side plot on the bottom show Missing rates as a function of word count in input corpus}{figure.caption.64}{}}
-\newlabel{fig:distr@cref}{{[figure][7][3]3.7}{[1][42][]44}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces \textbf  {Model vocabulary growth across estimated annual exposure levels.} Comparison of \textsc  {corpus-CDI}{} trajectories for models trained on 100-, 500-, and 1000-hour exposure estimates, alongside CHILDES child production data. Models show roughly linear vocabulary growth that scales modestly with total exposure but remains far below the human developmental curve. }}{45}{figure.caption.65}\protected@file@percent }
-\newlabel{fig:hour}{{3.8}{45}{\textbf {Model vocabulary growth across estimated annual exposure levels.} Comparison of \meCDI {} trajectories for models trained on 100-, 500-, and 1000-hour exposure estimates, alongside CHILDES child production data. Models show roughly linear vocabulary growth that scales modestly with total exposure but remains far below the human developmental curve}{figure.caption.65}{}}
-\newlabel{fig:hour@cref}{{[figure][8][3]3.8}{[1][42][]45}{}{}{}}
+\@writefile{lof}{\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{30}{chapter.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {xchapter}{Expressive vocabulary growth in children and LMs}{30}{chapter.3}\protected@file@percent }
+\newlabel{chp2_chap}{{3}{30}{Expressive vocabulary growth in children and LMs}{chapter.3}{}}
+\newlabel{chp2_chap@cref}{{[chapter][3][]3}{[1][30][]30}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}From lexical knowledge to observed production}{31}{section.3.1}\protected@file@percent }
+\newlabel{sec:ch3:chapter-introduction}{{3.1}{31}{From lexical knowledge to observed production}{section.3.1}{}}
+\newlabel{sec:ch3:chapter-introduction@cref}{{[section][1][3]3.1}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Study rationale}{32}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Related Work}{33}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Developmental Trajectories}{33}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Vocabulary Evaluation}{33}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Calibrated Evaluation Frameworks}{34}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Methods}{34}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}\textsc  {corpus-CDI}{} Benchmark Overview}{34}{subsection.3.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf  {Overview of the \textsc  {corpus-CDI}{} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep {cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur–Bates CDI words in child-directed speech (English-CHILDES).}}{35}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:overview}{{3.1}{35}{\textbf {Overview of the \meCDI {} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep {cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur–Bates CDI words in child-directed speech (English-CHILDES)}{figure.caption.25}{}}
+\newlabel{fig:overview@cref}{{[figure][1][3]3.1}{[1][34][]35}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Training Data}{35}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Age-appropriate scaling}{35}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Preprocessing}{36}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Model Architectures and Training}{36}{subsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Training procedure}{36}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Generation procedure}{36}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Evaluation Set Construction}{36}{subsection.3.4.4}\protected@file@percent }
+\newlabel{sec:eval_construction}{{3.4.4}{36}{Evaluation Set Construction}{subsection.3.4.4}{}}
+\newlabel{sec:eval_construction@cref}{{[subsection][4][3,4]3.4.4}{[1][36][]36}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Base vocabulary and POS filtering}{36}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Frequency stratification}{37}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Audiobook subset selection}{37}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.5}Evaluation Metrics}{37}{subsection.3.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Type-Token Ratio (TTR)}{37}{section*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Non-word Rate}{37}{section*.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\textsc  {corpus-CDI}{} Score}{37}{section*.35}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf  {Core metrics comparing child and model vocabulary development across age groups.} Left: type--token ratio (TTR). Middle: non-word type rate under dictionary matching. Right: \textsc  {corpus-CDI}{} coverage, with words counted when produced at least 60 times. Results are shown for LSTM and Transformer models trained on audiobooks and child-directed speech (CDS), compared with CHILDES child production data. Error bars are reported as 95\% confidence intervals across training subsets. The lighter CDS points after the 30-month-equivalent checkpoint use increasing output budgets without additional training input.}}{38}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:core_metric}{{3.2}{38}{\textbf {Core metrics comparing child and model vocabulary development across age groups.} Left: type--token ratio (TTR). Middle: non-word type rate under dictionary matching. Right: \meCDI {} coverage, with words counted when produced at least 60 times. Results are shown for LSTM and Transformer models trained on audiobooks and child-directed speech (CDS), compared with CHILDES child production data. Error bars are reported as 95\% confidence intervals across training subsets. The lighter CDS points after the 30-month-equivalent checkpoint use increasing output budgets without additional training input}{figure.caption.36}{}}
+\newlabel{fig:core_metric@cref}{{[figure][2][3]3.2}{[1][37][]38}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf  {Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score. Points show mean scores across models, with numbers illustrating temperature values.}}{38}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:temp_effect}{{3.3}{38}{\textbf {Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score. Points show mean scores across models, with numbers illustrating temperature values}{figure.caption.37}{}}
+\newlabel{fig:temp_effect@cref}{{[figure][3][3]3.3}{[1][37][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Results}{38}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Developmental Trajectories}{38}{subsection.3.5.1}\protected@file@percent }
+\newlabel{sec:trajectories}{{3.5.1}{38}{Developmental Trajectories}{subsection.3.5.1}{}}
+\newlabel{sec:trajectories@cref}{{[subsection][1][3,5]3.5.1}{[1][37][]38}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Lexical diversity}{38}{section*.38}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Word form accuracy}{39}{section*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vocabulary growth}{39}{section*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Temperature Tradeoff}{39}{subsection.3.5.2}\protected@file@percent }
+\newlabel{sec:temperature}{{3.5.2}{39}{Temperature Tradeoff}{subsection.3.5.2}{}}
+\newlabel{sec:temperature@cref}{{[subsection][2][3,5]3.5.2}{[1][39][]39}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{TTR-CDI trade-off}{39}{section*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Non-word-CDI trade-off}{39}{section*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Frequency effect}{40}{subsection.3.5.3}\protected@file@percent }
+\newlabel{sec:frequency}{{3.5.3}{40}{Frequency effect}{subsection.3.5.3}{}}
+\newlabel{sec:frequency@cref}{{[subsection][3][3,5]3.5.3}{[1][40][]40}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf  {Fitted criterion-crossing months by frequency band for audiobook-trained models and the child reference.} The horizontal axis gives median log frequency per million; the vertical axis gives the month at which the fitted trajectory reaches 80\% coverage within the band. Values beyond the observed age or exposure range are extrapolations, not observed training requirements. Missing model points indicate that no criterion-crossing estimate is reported for that condition.}}{40}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:freq_effect}{{3.4}{40}{\textbf {Fitted criterion-crossing months by frequency band for audiobook-trained models and the child reference.} The horizontal axis gives median log frequency per million; the vertical axis gives the month at which the fitted trajectory reaches 80\% coverage within the band. Values beyond the observed age or exposure range are extrapolations, not observed training requirements. Missing model points indicate that no criterion-crossing estimate is reported for that condition}{figure.caption.43}{}}
+\newlabel{fig:freq_effect@cref}{{[figure][4][3]3.4}{[1][40][]40}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Divergent frequency sensitivity}{40}{section*.44}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Temperature modulation}{41}{section*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Long-tail truncation}{41}{section*.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.4}Production of Content Words}{41}{subsection.3.5.4}\protected@file@percent }
+\newlabel{sec:content_word}{{3.5.4}{41}{Production of Content Words}{subsection.3.5.4}{}}
+\newlabel{sec:content_word@cref}{{[subsection][4][3,5]3.5.4}{[1][41][]41}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf  {Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while all model configurations maintain stable proportions around 40\% across training stages.}}{41}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:content_prop}{{3.5}{41}{\textbf {Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while all model configurations maintain stable proportions around 40\% across training stages}{figure.caption.47}{}}
+\newlabel{fig:content_prop@cref}{{[figure][5][3]3.5}{[1][41][]41}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Children's inverse U-shaped trajectory}{42}{section*.48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Models' narrower range}{42}{section*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Chapter discussion}{42}{section.3.6}\protected@file@percent }
+\newlabel{sec:ch3:chapter-discussion}{{3.6}{42}{Chapter discussion}{section.3.6}{}}
+\newlabel{sec:ch3:chapter-discussion@cref}{{[section][6][3]3.6}{[1][42][]42}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}What the comparison establishes}{42}{subsection.3.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Measurement, benchmark, and model contributions}{43}{subsection.3.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Frequency and the meaning of data efficiency}{43}{subsection.3.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.4}From a diagnostic discrepancy to a controlled intervention}{44}{subsection.3.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Limitations}{44}{section.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}Ethics Statement}{45}{section.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}Appendix}{46}{section.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.1}Training and generation details}{46}{subsection.3.9.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces \textbf  {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance.}}{46}{table.caption.50}\protected@file@percent }
+\newlabel{tab:train}{{3.1}{46}{\textbf {Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep {cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance}{table.caption.50}{}}
+\newlabel{tab:train@cref}{{[table][1][3]3.1}{[1][46][]46}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces \textbf  {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales.}}{47}{table.caption.51}\protected@file@percent }
+\newlabel{tab:model}{{3.2}{47}{\textbf {Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales}{table.caption.51}{}}
+\newlabel{tab:model@cref}{{[table][2][3]3.2}{[1][46][]47}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.2}Result details}{47}{subsection.3.9.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces \textbf  {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time.}}{48}{table.caption.52}\protected@file@percent }
+\newlabel{tab:speech-metrics}{{3.3}{48}{\textbf {Monthly progression of speech metrics.} Estimated exposure and production rates over developmental time}{table.caption.52}{}}
+\newlabel{tab:speech-metrics@cref}{{[table][3][3]3.3}{[1][46][]48}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces \textbf  {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability.}}{49}{table.caption.53}\protected@file@percent }
+\newlabel{tab:generation-examples}{{3.4}{49}{\textbf {Examples of generated sequences.} Samples are drawn from models trained on different datasets and architectures at a sampling temperature of 1.0. The boundary marker is replaced with blank space for readability}{table.caption.53}{}}
+\newlabel{tab:generation-examples@cref}{{[table][4][3]3.4}{[1][47][]49}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf  {Count-based calibration.} Child corpus vocabulary trajectories obtained with count thresholds of 1, 60, and 500, alongside the caregiver-report reference (red). The selected threshold of 60 is the calibration used in the main analysis. The curves illustrate the sensitivity of coverage and trajectory to the count criterion; their comparison does not by itself validate equivalence to caregiver reports.}}{49}{figure.caption.54}\protected@file@percent }
+\newlabel{fig:threshold}{{3.6}{49}{\textbf {Count-based calibration.} Child corpus vocabulary trajectories obtained with count thresholds of 1, 60, and 500, alongside the caregiver-report reference (red). The selected threshold of 60 is the calibration used in the main analysis. The curves illustrate the sensitivity of coverage and trajectory to the count criterion; their comparison does not by itself validate equivalence to caregiver reports}{figure.caption.54}{}}
+\newlabel{fig:threshold@cref}{{[figure][6][3]3.6}{[1][47][]49}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces \textbf  {Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. Side plot on the bottom show Missing rates as a function of word count in input corpus.}}{50}{figure.caption.55}\protected@file@percent }
+\newlabel{fig:distr}{{3.7}{50}{\textbf {Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. Side plot on the bottom show Missing rates as a function of word count in input corpus}{figure.caption.55}{}}
+\newlabel{fig:distr@cref}{{[figure][7][3]3.7}{[1][47][]50}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces \textbf  {Model vocabulary growth across estimated annual exposure levels.} Comparison of \textsc  {corpus-CDI}{} trajectories for models trained on 100-, 500-, and 1000-hour exposure estimates, alongside CHILDES child production data. Models show roughly linear vocabulary growth that scales modestly with total exposure but remains far below the human developmental curve. }}{50}{figure.caption.56}\protected@file@percent }
+\newlabel{fig:hour}{{3.8}{50}{\textbf {Model vocabulary growth across estimated annual exposure levels.} Comparison of \meCDI {} trajectories for models trained on 100-, 500-, and 1000-hour exposure estimates, alongside CHILDES child production data. Models show roughly linear vocabulary growth that scales modestly with total exposure but remains far below the human developmental curve}{figure.caption.56}{}}
+\newlabel{fig:hour@cref}{{[figure][8][3]3.8}{[1][48][]50}{}{}{}}
 \@setckpt{ch3/ch3_main}{
-\setcounter{page}{46}
+\setcounter{page}{51}
 \setcounter{equation}{0}
 \setcounter{enumi}{7}
 \setcounter{enumii}{0}
@@ -110,13 +116,13 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{3}
-\setcounter{section}{8}
+\setcounter{section}{9}
 \setcounter{subsection}{2}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
 \setcounter{figure}{8}
-\setcounter{table}{5}
+\setcounter{table}{4}
 \setcounter{parentequation}{0}
 \setcounter{caption@flags}{2}
 \setcounter{continuedfloat}{0}
@@ -125,18 +131,18 @@
 \setcounter{svg@param@lastpage}{0}
 \setcounter{svg@param@currpage}{-1}
 \setcounter{float@type}{4}
-\setcounter{mtc}{10}
+\setcounter{mtc}{9}
 \setcounter{minitocdepth}{2}
 \setcounter{ptc}{0}
 \setcounter{parttocdepth}{2}
 \setcounter{lofdepth}{1}
 \setcounter{lotdepth}{1}
-\setcounter{@todonotes@numberoftodonotes}{2}
+\setcounter{@todonotes@numberoftodonotes}{0}
 \setcounter{LT@tables}{4}
 \setcounter{LT@chunks}{5}
 \setcounter{section@level}{2}
-\setcounter{Item}{7}
-\setcounter{Hfootnote}{4}
+\setcounter{Item}{11}
+\setcounter{Hfootnote}{2}
 \setcounter{bookmark@seq@number}{0}
 \setcounter{tabx@nest}{0}
 \setcounter{listtotal}{0}

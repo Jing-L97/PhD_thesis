@@ -13,7 +13,7 @@
 #1
     \end{minipage}
 };
-\node[title] at (box.north west) {\color{curcolor}  Objectifs};
+\node[title] at (box.north west) {\color{curcolor}  \iflanguage{french}{Objectifs}{Objectives}};
 \end{tikzpicture}\bigskip%
 \vspace{.1cm}
 \end{singlespace}
@@ -47,19 +47,31 @@
 
 %%% Macro pour mise en forme de l'abstract et résumé avec mots clés
 \newcommand{\AddResumeAbstract}{
+\begingroup
+\selectlanguage{french}
 \chapter{Résumé}
+\begin{singlespace}
 
 \thefrabstract
 \vskip 2em \noindent\makebox[\linewidth]{\rule{.5\linewidth}{0.4pt}}
 \vfill
 \noindent \textbf{Mots clés :}
 \thefrkeywords
+\end{singlespace}
 
+\clearpage
+\endgroup
+\begingroup
+\selectlanguage{english}
 \chapter{Abstract}
+\begin{singlespace}
 
 \theenabstract
 \vskip 2em \noindent\makebox[\linewidth]{\rule{.5\linewidth}{0.4pt}}
 \vfill
 \noindent\textbf{Keywords :}
 \theenkeywords
+\end{singlespace}
+\clearpage
+\endgroup
 }

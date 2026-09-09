@@ -1,52 +1,89 @@
 % !TeX root = ../main.tex
-\chapter{Introduction}\label{chp1_intro}
-\objectif{Objectif rapide du chapitre \lipsum[30]}
+% General introduction integrated from the current empirical studies, 2026-09-09.
+\providecommand{\meCDI}{\textsc{corpus-CDI}}
+\selectlanguage{english}
+\chapter{General Introduction}\label{chp1_intro}
+\chaptermark{General Introduction}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Quelques conseils d'utilisation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\objectif{Introduce the language-learning problem addressed by the thesis, explain the role of calibrated child--model comparisons, and connect the empirical studies of expressive vocabulary, retrieval-supported syntactic processing, and caregiver interaction.}
 
-\subsection{Organisation du projet}
+\section{From Linguistic Experience to Language Use}
+\label{sec:intro:problem}
 
-\paragraph{Fichier maître à compiler}
-Le fichier \texttt{main.tex} contient tous les sous-fichiers à inclure. C'est l'organisation du document.
+Learning a word involves more than encountering its form. A learner must retain enough of an encounter to recognize the word again, relate it to other knowledge, and eventually use it when a situation calls for it. Learning grammar introduces a related demand: familiar words must become usable in combinations that extend beyond particular previously heard utterances. These changes take place in an uneven environment. Some words and constructions recur throughout everyday conversation, while others occur only occasionally. Children also contribute to this environment through their own productions, which can elicit responses, reformulations, and requests for clarification from caregivers. Understanding how linguistic experience becomes productive language therefore requires an account of the learner, the distribution of experience, and the interaction in which learning occurs \citep{tomasello2003constructing,ambridge2015ubiquity,clark_conversational_2020}.
 
-\paragraph{Configuration}
-Le dossier \texttt{config/} contient les fichiers de parametrage du document, les macros, ainsi que le package pour la couverture PSL (\cref{pslcover}).
+Statistical learning offers one route from experience to knowledge: recurrent patterns can support expectations about which elements occur together and how sequences are organized \citep{saffran1996statistical}. Neural language models make this proposal computationally explicit by learning to predict upcoming linguistic units from preceding context. Their predictions can be evaluated directly, or used to generate language. This makes them useful experimental systems for asking what a specified learning procedure can extract from a specified body of input \citep{dupoux2018cognitive,warstadt2022what}. At the same time, successful prediction leaves open whether the resulting behavior resembles the development of language use in children. A model can assign sensible probabilities to a sentence while rarely producing a particular word, or generate plausible utterances while departing from the dynamics of a conversation.
 
-\paragraph{Chapitres}
-Ils sont situés dans des dossiers indépendants, avec des dossiers de figures associés (\texttt{.../fig/}). L'auto-complétion permet de trouver les figures associées au chapitre voulu : \texttt{ch1/fig/xxxx.jpeg}.
+The cognitive problem motivating this thesis is how learners turn limited and uneven linguistic experience into expressive and grammatical behavior. The thesis approaches this problem through a more specific question: \emph{What do calibrated comparisons between children and language models reveal about the contributions and limits of predictive exposure, access to stored instances, and caregiver-derived feedback?} The studies examine vocabulary production, sensitivity to syntactic contrasts, and child--caregiver interaction. These domains expose different aspects of the relation between what a learner has encountered and what it can subsequently do.
 
-\paragraph{Autres fichiers et pages}
-Les autres fichiers de texte (conclusion, remerciements), et information (info, liste des publications, glossaire) sont situés dans le dossier \texttt{others/}.
+The aim is to use computational models to make parts of the acquisition problem experimentally tractable. Model input can be bounded, access to previously encountered instances can be changed, and particular feedback signals can be isolated. These manipulations provide evidence about the consequences of explicit computational assumptions. Relating that evidence to children requires specifying which aspect of experience or behavior is represented by each experiment. This relation between a substantive learning question and the conditions for interpreting a model comparison provides the organizing thread of the thesis.
 
-\subsection{Couvertures par Pierre Guillou pour PSL}\label{pslcover}
-Seules les couvertures sont imposées par PSL. Le fichier ici a été réalisée par \href{https://pierre.guillou.net/psl-cover/2018/}{Pierre Guillou}\footnote{\url{https://pierre.guillou.net/psl-cover/2018/}} et est disponible sur le site dans les \href{https://collegedoctoral.psl.eu/doctorat-psl/espace-ressources/}{ressources du site de PSL}\footnote{\url{https://collegedoctoral.psl.eu/doctorat-psl/espace-ressources/}} (Version 1.2 - 20 juillet 2019).
-A noter que le président du jury doit être sur la première ligne de la liste du jury.
+\section{Why the Comparison Requires Calibration}
+\label{sec:intro:calibration}
 
-\subsection{Illustrations}
-Overleaf propose l'auto-completion pour les figures de figures, ce qui est assez rapide et efficace.
-Un label est ajouté pour chaque figure afin de la citer après. La figure suivant est référencée par le label \texttt{fig1\_cir} car c'est une figure du chapitre 1. Pour une table du chapitre 1, on pourra utiliser \texttt{tab1\_power}.
-La figure [\cref{fig1_circsystem}a] illustre ce propos, pour plus de détails voir le \cref{chp2_chap}.
+\subsection{Comparable Experience and Comparable Outcomes}
 
-\begin{figure}[H]\centering
-\subcaptionbox{Réseau vasculaire}[.4\linewidth]{\includegraphics[height=4cm]{ch1/fig/Circulatory_System_fr.jpg}}
-\subcaptionbox{Réseau capillaire sanguin}[.55\linewidth]{\includegraphics[height=4cm]{ch1/fig/Blood_vessels.png}}
-\caption{(a) Le réseau vasculaire est composé des réseaux artériel et veineux. (b) Les capillaires sanguins réalisent la jonction entre les deux réseaux. [Wikimedia]}
-\label{fig1_circsystem}
-\end{figure}
+A claim that a model requires more data than a child depends on what counts as input and on which outcome the two learners are expected to reach \citep{frank2023bridging}. Word counts provide a useful description of exposure, but equally sized corpora can differ in register, repetition, conversational organization, and relevance to the learner. Transcribed caregiver speech also differs from the spoken and perceptually grounded events that children encounter. A model trained on a bounded text corpus consequently represents selected properties of a child's learning situation; the dimensions matched by the design need to be stated explicitly.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Une deuxième section}
+The outcome poses a parallel problem. Children's knowledge is inferred through behavior, including comprehension responses, spontaneous productions, and caregiver reports. Models expose probabilities, representations, or generated sequences. A scoring rule must connect these outputs to a construct such as vocabulary knowledge or grammatical sensitivity. The distinction is concrete in expressive vocabulary. The MacArthur--Bates Communicative Development Inventories (CDI) ask caregivers about words a child produces, while a language model can generate a corpus in which the frequency of those word forms is counted \citep{fenson2007macarthur,frank2017wordbank}. Both measures concern production, but repeated generation of a form does not establish the semantic and contextual knowledge that a caregiver may recognize when reporting that a child says a word.
 
-\subsection{Acronymes}
-C'est assez pratique d'utiliser des acronymes, mais il faut les définir avant. \todo[inline]{Ici, un commentaire}
-Ici on va utiliser le \acrshort{gpu} ou la \acrlong{ram}, ou encore \acrfull{ssd}\todo{A faire}.
+This thesis therefore treats input alignment and outcome alignment as separate requirements. Input alignment concerns the experience available to the learner; outcome alignment concerns the behavior elicited and the interpretation of its measurement. The comparison also depends on a \emph{task model}: the threshold, decoding rule, prompt, or evaluator that converts a model's output into an experimental score. Making this component explicit allows an apparent learning difference to be examined rather than attributed immediately to the learner's architecture. Chapter~\ref{chap:litreview} develops this framework and reviews the relevant literature.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quelques citations}
-\subsubsection{Avec la commande Cite}
-On peut citer des références \cite{ueda_tissue_2020,thomas_microbubble_2013} pour appuyer le propos.
-La table des matières est réalisée avec \texttt{biblatex}.
-\subsubsection{En synchronisant Zotero}
-Zotero peut être synchronisé pour faire la gestion de la bibliographie. Il ne suffit que de mettre à jour le \texttt{.bib} de temps en temps.
+\subsection{Learning, Simulation, and Intervention}
+
+Language models serve several scientific roles in the empirical chapters. A model trained from scratch on a controlled corpus can be studied as a learner. An already pretrained model prompted to speak like a child or caregiver serves as a simulator of observable behavior. A model whose access to memory or learning reward is manipulated provides a system for testing the effect of that intervention. These roles support different conclusions. An age-conditioned prompt tests whether an existing model can express age-associated patterns; an exposure manipulation tests what changes when the training material changes.
+
+The distinction also clarifies the value of success and failure. Under sufficiently aligned conditions, success can support a conditional sufficiency claim: the specified information and learning procedure can produce the measured outcome. It does not establish that children use the same internal process. Failure identifies a mismatch to be explained, but may reflect the learning objective, missing input, or the way knowledge is elicited and scored \citep{dupoux2018cognitive,warstadt2022what}. Controlled contrasts make these alternatives more precise. They allow the thesis to ask where a change in available information improves a particular behavior and where the mismatch remains.
+
+\section{From Uneven Input to Memory and Feedback}
+\label{sec:intro:background}
+
+Three empirical issues motivate the studies. The first is the relation between exposure and expressive vocabulary. Developmental vocabulary data provide a rich human reference, yet measuring lexical knowledge through a model's prediction probabilities does not show which words are reliably available in its own productions. Generated vocabulary also depends on the amount of output sampled: a word has more opportunities to appear in a large corpus than in a small one. A production-based comparison consequently requires control over both learning opportunities and observation opportunities. It must also examine change across exposure conditions, since a similar final vocabulary score can conceal different growth patterns.
+
+The second issue is the uneven availability of evidence across lexical items. Frequency effects in model output motivate a question about how past experience is retained and accessed. Parametric models encode information through changes to network weights. Retrieval-augmented models can additionally consult stored instances when making a prediction. The distinction has a useful connection to complementary learning systems accounts, which distinguish rapid access to particular experiences from the gradual extraction of statistical regularities \citep{mcclelland1995there,kumaran2016learning}. A $k$-nearest-neighbor language model offers a tractable intervention: its prediction combines the base model's distribution with evidence retrieved from a datastore \citep{khandelwal2020knnlm}. The question tested here is whether this access reduces lexical-frequency effects in syntactic judgments, and what properties of the retrieved instances make it useful. This tests a computational resource motivated by memory theory without requiring the retrieval algorithm to reproduce a complete human memory system.
+
+The third issue is the role of the learner's own contributions. In child--caregiver interaction, linguistic input is partly responsive to what the child has just said. Caregivers may acknowledge a contribution, request clarification, reuse a structure, continue its topic, or respond with positive affect \citep{demetras_feedback_1986,clark_conversational_2020,fusaroli_caregiver_2023}. Such responses can carry information relevant to learning, but their functions differ. A clarification request may concern intelligibility or intended meaning as well as grammar; a response that continues a topic need not endorse every feature of the child's sentence. Inferring what to change from an utterance-level response therefore presents a credit-assignment problem \citep{marcus_negative_1993}.
+
+Computational work on interaction must address two questions in this setting. One concerns whether simulated interlocutors reproduce the linguistic and conversational properties of natural dialogue. The other concerns whether particular signals associated with caregiver responses can change a learner's subsequent language. The thesis investigates both. Separating them makes it possible to evaluate interaction as a behavioral target while also isolating candidate feedback signals as learning interventions.
+
+\section{Research Questions and Strategy}
+\label{sec:intro:questions}
+
+The empirical work is organized around four questions:
+
+\begin{enumerate}
+  \item \textbf{Expressive vocabulary:} Under explicit exposure, production, and lexical-frequency controls, how do the vocabulary productions of predictive language models compare with those of children, and how do the differences change with exposure and decoding?
+  \item \textbf{Retrieval and syntactic sensitivity:} Does access to stored instances reduce the accuracy gap between high- and low-frequency items in syntactic contrast tests, and which retrieved information and configurations support the effect?
+  \item \textbf{Interaction simulation:} How closely do language models reproduce child and caregiver language at word, utterance, and dialogue levels, and does correspondence in single-turn testing persist during extended interactions?
+  \item \textbf{Feedback learning:} How do different caregiver-derived rewards alter generated grammaticality, and do these changes also appear in controlled grammatical preferences?
+\end{enumerate}
+
+The studies combine diagnostic comparisons with interventions inside computational systems. The vocabulary and dialogue benchmarks characterize correspondence with child-language references. The retrieval and feedback experiments manipulate a resource or learning signal while retaining an appropriate model baseline. Naturalistic English data from CHILDES provide a recurring source of caregiver language, child production, and interaction records \citep{macwhinney2000childes}. The experiments also use audiobook text, bounded-data and large-scale pretraining settings, and controlled syntactic test materials where these serve the relevant comparison.
+
+The measurements span free generation and constrained evaluation. Vocabulary coverage, lexical diversity, and word-form validity describe sampled productions. Syntactic minimal pairs test whether a model favors a grammatical sentence over a minimally different ungrammatical alternative. Dialogue metrics describe selected relations among conversational contributions. In the feedback study, automatic measures of generated grammaticality are compared with BLiMP and Zorro performance. This range of outcomes helps distinguish a shift in what the model tends to say from an improvement that transfers to a different test.
+
+The four studies use different models, input regimes, and experimental timescales. Their relationship is a synthesis of complementary questions arising from the completed work. In particular, the retrieval experiment does not test a remedy for the vocabulary benchmark, and the dialogue simulators do not supply the rewards used in feedback learning. These connections instead motivate hypotheses that could be tested in a future integrated learner. The present strategy preserves the interpretability of each comparison before drawing conclusions across them.
+
+\section{Main Contributions}
+\label{sec:intro:contributions}
+
+The first contribution is \meCDI{}, a count-based benchmark for expressive vocabulary comparison. It makes training exposure, generated output quantity, and the frequency composition of the evaluation vocabulary explicit. Applied to character-level LSTMs and Transformers trained on child-directed transcripts or audiobook text, it identifies differences from the child reference in lexical diversity, word-form trajectories, and vocabulary growth. Low-frequency target words are especially difficult for the models to produce often enough to satisfy the scoring criterion. Varying sampling temperature changes the balance among measures without producing a setting that aligns them jointly. The result concerns expressive availability under the benchmark's generation protocol, and provides a more specific diagnosis than an overall claim about model vocabulary knowledge.
+
+The second contribution is a frequency-stratified test of retrieval augmentation in syntactic processing. Across the tested agreement, wh-question, and relative-clause contrasts, $k$NN augmentation improves low-frequency performance and narrows the high--low accuracy gap in both model settings. The gap remains after retrieval. Analyses of retrieved information show that structurally relevant instances are particularly useful, while semantic similarity alone does not reliably reproduce the gains. Retrieval configuration also matters. These findings establish that explicit instance access can selectively compensate for frequency-sensitive predictions in the tested systems, while identifying conditions that constrain the compensation.
+
+The third contribution is a benchmark that evaluates both sides of child--caregiver interaction across linguistic levels and conversational settings. The study compares single-turn responses and multi-turn simulations, with and without conversational examples. Models approximate some word- and utterance-level properties, and the few-shot prompting conditions improve several aspects of their productions. Persistent discrepancies appear in dialogue organization: simulated caregivers display higher semantic alignment and lower semantic diversity than the human reference under the study's measures. Extended interactions reveal additional differences that are less apparent in isolated responses. The contribution is therefore both an evaluation procedure and evidence that local resemblance alone is insufficient to assess an interaction simulator.
+
+The fourth contribution is a controlled comparison of caregiver-derived feedback signals through reinforcement learning. Small language models pretrained on caregiver input are fine-tuned with rewards predicting structural alignment, communicative feedback, semantic contingency, or affective feedback. Structural alignment yields the clearest improvement in generated grammaticality; communicative feedback has smaller effects, with more consistent benefits from clarification requests than acknowledgments. Semantic and affective rewards generally reduce grammaticality under the evaluations used. The empirical rewards do not consistently improve BLiMP or Zorro performance. The study thus demonstrates differentiated effects on production and leaves the extent of grammatical generalization unresolved.
+
+Together, the findings give empirical substance to the calibration framework. Frequency-sensitive production and syntactic preferences expose limitations under uneven evidence; retrieval provides partial compensation; and feedback changes production in ways that depend on the signal and evaluation. Behavioral resemblance, intervention effects, and developmental explanations remain distinct levels of inference. This separation makes the computational results useful for cognitive science by specifying which learning assumptions they support and which further comparisons are needed.
+
+\section{Organization of the Thesis}
+\label{sec:intro:organization}
+
+Chapter~\ref{chap:litreview} reviews the conditions under which child--model comparisons support inference about language development. It introduces input and outcome alignment, examines task models and developmental trajectories, and discusses measurement uncertainty and the accounting of linguistic experience. This framework supplies the interpretive basis for the empirical chapters.
+
+Chapter~\ref{chp2_chap} introduces \meCDI{} and applies it to expressive vocabulary growth. It establishes the production-based comparison and examines the roles of exposure, decoding, lexical frequency, and word category. Chapter~\ref{chp3_chap} then investigates frequency sensitivity through a different outcome, syntactic minimal-pair judgments, and tests whether retrieval of stored instances can reduce it. The link between these chapters is the availability of low-frequency evidence across distinct language behaviors.
+
+Chapter~\ref{chp4_chap} turns to child--caregiver interaction. Its first study evaluates language models as dialogue simulators; its second isolates the learning effects of caregiver-derived rewards. The chapter's discussion brings these contributions together while distinguishing the fidelity of an interaction from the effect of a signal on learning.
+
+Chapter~\ref{chap:general-discussion} synthesizes the results across vocabulary, syntax, and interaction. It considers the complementary roles of predictive learning, instance access, and feedback; examines the limits imposed by input and evaluation choices; and develops directions for longitudinal, multimodal, and interactive modeling. The synthesis returns to the central learning problem with a set of experimentally grounded conclusions about which resources support which measured behaviors.

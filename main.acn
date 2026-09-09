@@ -1,3 +1,13 @@
-\glossaryentry{GPU?\glossentry{gpu}|setentrycounter[]{page}"\glsnumberformat}{3}
-\glossaryentry{RAM?\glossentry{ram}|setentrycounter[]{page}"\glsnumberformat}{3}
-\glossaryentry{SSD?\glossentry{ssd}|setentrycounter[]{page}"\glsnumberformat}{3}
+\glossaryentry{CDI?\glossentry{cdi}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{CHILDES?\glossentry{childes}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{CDS?\glossentry{cds}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{LM?\glossentry{lm}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{LLM?\glossentry{llm}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{LSTM?\glossentry{lstm}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{kNN?\glossentry{knn}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{TTR?\glossentry{ttr}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{POS?\glossentry{pos}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{PPO?\glossentry{ppo}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{RLHF?\glossentry{rlhf}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{GEC?\glossentry{gec}|setentrycounter[]{page}"\glsnumberformat}{xii}
+\glossaryentry{BLiMP?\glossentry{blimp}|setentrycounter[]{page}"\glsnumberformat}{xii}
