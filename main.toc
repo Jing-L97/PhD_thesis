@@ -6,119 +6,119 @@
 \contentsline {chapter}{Liste des figures}{vii}{chapter*.7}%
 \contentsline {chapter}{Liste des tableaux}{xi}{chapter*.9}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Quelques conseils d'utilisation}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Organisation du projet}{3}{subsection.1.1.1}%
-\contentsline {paragraph}{Fichier maître à compiler}{3}{section*.10}%
-\contentsline {paragraph}{Configuration}{3}{section*.11}%
-\contentsline {paragraph}{Chapitres}{3}{section*.12}%
-\contentsline {paragraph}{Autres fichiers et pages}{3}{section*.13}%
-\contentsline {subsection}{\numberline {1.1.2}Couvertures par Pierre Guillou pour PSL}{3}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Illustrations}{3}{subsection.1.1.3}%
-\contentsline {section}{\numberline {1.2}Une deuxième section}{4}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Acronymes}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Quelques citations}{4}{subsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.2.1}Avec la commande Cite}{4}{subsubsection.1.2.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2.2}En synchronisant Zotero}{4}{subsubsection.1.2.2.2}%
-\contentsline {chapter}{\numberline {2}Expressive vocabulary growth in children and LMs}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Related Work}{7}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Developmental Trajectories}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Vocabulary Evaluation}{7}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Calibrated Evaluation Frameworks}{7}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Methods}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}\textsc {corpus-CDI}{} Benchmark Overview}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Training Data}{9}{subsection.2.3.2}%
-\contentsline {paragraph}{Age-appropriate scaling}{9}{section*.18}%
-\contentsline {paragraph}{Preprocessing}{9}{section*.19}%
-\contentsline {subsection}{\numberline {2.3.3}Model Architectures and Training}{9}{subsection.2.3.3}%
-\contentsline {paragraph}{Training procedure}{9}{section*.20}%
-\contentsline {paragraph}{Generation procedure}{10}{section*.21}%
-\contentsline {subsection}{\numberline {2.3.4}Evaluation Set Construction}{10}{subsection.2.3.4}%
-\contentsline {paragraph}{Base vocabulary and POS filtering}{10}{section*.22}%
-\contentsline {paragraph}{Frequency stratification}{10}{section*.23}%
-\contentsline {paragraph}{Audiobook subset selection}{10}{section*.24}%
-\contentsline {subsection}{\numberline {2.3.5}Evaluation Metrics}{10}{subsection.2.3.5}%
-\contentsline {paragraph}{Type-Token Ratio (TTR)}{10}{section*.25}%
-\contentsline {paragraph}{Non-word Rate}{11}{section*.26}%
-\contentsline {paragraph}{\textsc {corpus-CDI}{} Score}{11}{section*.27}%
-\contentsline {section}{\numberline {2.4}Results}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Developmental Trajectories}{11}{subsection.2.4.1}%
-\contentsline {paragraph}{Lexical diversity}{12}{section*.30}%
-\contentsline {paragraph}{Word form accuracy}{12}{section*.31}%
-\contentsline {paragraph}{Vocabulary growth}{12}{section*.32}%
-\contentsline {subsection}{\numberline {2.4.2}Temperature Tradeoff}{13}{subsection.2.4.2}%
-\contentsline {paragraph}{TTR-CDI trade-off}{13}{section*.33}%
-\contentsline {paragraph}{Non-word-CDI trade-off}{13}{section*.34}%
-\contentsline {subsection}{\numberline {2.4.3}Frequency effect}{13}{subsection.2.4.3}%
-\contentsline {paragraph}{Divergent frequency sensitivity}{14}{section*.36}%
-\contentsline {paragraph}{Temperature modulation}{14}{section*.37}%
-\contentsline {paragraph}{Long-tail truncation}{14}{section*.38}%
-\contentsline {subsection}{\numberline {2.4.4}Production of Content Words}{15}{subsection.2.4.4}%
-\contentsline {paragraph}{Children’s inverse U-shaped trajectory}{15}{section*.40}%
-\contentsline {paragraph}{Models’ invariant balance}{15}{section*.41}%
-\contentsline {section}{\numberline {2.5}Discussion}{16}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Limitations}{17}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Ethics Statement}{18}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Appendix}{19}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Training and generation details}{19}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Result details}{20}{subsection.2.8.2}%
-\contentsline {chapter}{\numberline {3}Episodic memory and the lexical frequency gap}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{26}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Related Work}{27}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Method}{28}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Models and Training}{28}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Evaluation Task}{29}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Retrieval Procedure}{29}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Results}{30}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Retrieval Benefits Syntactic Contrasts}{30}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Frequency Gap is Narrowed but not Fully Closed}{30}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Analysis}{31}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Importance of Structural vs. Semantic Information}{31}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Effects of Retrieval Configuration}{32}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Discussion}{36}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Conclusion}{37}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Appendix}{37}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Pretrained models and datasets}{37}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}Evaluation set construction}{38}{subsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.2.1}Source benchmarks}{38}{subsubsection.3.8.2.1}%
-\contentsline {subsection}{\numberline {3.8.3}Statistical analyses}{39}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}Structural match analysis}{40}{subsection.3.8.4}%
-\contentsline {subsection}{\numberline {3.8.5}Additional Retrieval Configuration Results}{41}{subsection.3.8.5}%
-\contentsline {chapter}{\numberline {4}LLMs and caregiver feedback}{50}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Benchmarking LLMs for mimicking child-caregiver language in interaction}{51}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Introduction}{51}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Related Work and novelty}{52}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Method}{53}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Data}{53}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}Models}{53}{subsubsection.4.1.3.2}%
-\contentsline {paragraph}{Fine-tuned model}{53}{section*.73}%
-\contentsline {subsubsection}{\numberline {4.1.3.3}Benchmarking}{54}{subsubsection.4.1.3.3}%
-\contentsline {paragraph}{Single-turn testing}{54}{section*.74}%
-\contentsline {paragraph}{Multi-turn testing}{54}{section*.75}%
-\contentsline {paragraph}{Zero vs. Few-shot settings}{54}{section*.78}%
-\contentsline {subsubsection}{\numberline {4.1.3.4}Metrics}{54}{subsubsection.4.1.3.4}%
-\contentsline {subsection}{\numberline {4.1.4}Results and Discussion}{56}{subsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.4.1}Single-turn testing}{56}{subsubsection.4.1.4.1}%
-\contentsline {paragraph}{Child-LLM}{56}{section*.81}%
-\contentsline {paragraph}{Caregiver-LLM}{57}{section*.82}%
-\contentsline {subsubsection}{\numberline {4.1.4.2}Multi-turn testing}{57}{subsubsection.4.1.4.2}%
-\contentsline {paragraph}{Child-LLM}{57}{section*.83}%
-\contentsline {paragraph}{Caregiver-LLM}{58}{section*.84}%
-\contentsline {subsection}{\numberline {4.1.5}Conclusion}{59}{subsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.1.6}Limitations}{60}{subsection.4.1.6}%
-\contentsline {subsection}{\numberline {4.1.7}Ethics statement}{61}{subsection.4.1.7}%
-\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{62}{section*.87}%
-\contentsline {paragraph}{The zero-shot prompt template for the child}{62}{section*.88}%
-\contentsline {paragraph}{The few-shot prompt template for the caregiver}{62}{section*.89}%
-\contentsline {paragraph}{The few-shot prompt template for the child}{62}{section*.90}%
-\contentsline {section}{\numberline {4.2}Which forms of caregiver feedback support grammar learning?}{65}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Introduction}{65}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Methods}{66}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}Evaluation}{68}{subsubsection.4.2.2.1}%
-\contentsline {subsection}{\numberline {4.2.3}Results}{68}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Discussion and Conclusions}{69}{subsection.4.2.4}%
-\contentsline {chapter}{Conclusion et perspectives}{79}{chapter*.116}%
-\contentsline {section}{\numberline {5.1}Conclusions de l'étude}{79}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Ouverture et perspectives}{79}{section.5.2}%
-\contentsline {chapter}{Liste des publications}{80}{chapter*.118}%
-\contentsline {chapter}{Bibliographie}{81}{chapter*.122}%
+\contentsline {section}{\numberline {1.1}Quelques conseils d'utilisation}{2}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Organisation du projet}{2}{subsection.1.1.1}%
+\contentsline {paragraph}{Fichier maître à compiler}{2}{section*.10}%
+\contentsline {paragraph}{Configuration}{2}{section*.11}%
+\contentsline {paragraph}{Chapitres}{2}{section*.12}%
+\contentsline {paragraph}{Autres fichiers et pages}{2}{section*.13}%
+\contentsline {subsection}{\numberline {1.1.2}Couvertures par Pierre Guillou pour PSL}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Illustrations}{2}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Une deuxième section}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Acronymes}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Quelques citations}{3}{subsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}Avec la commande Cite}{3}{subsubsection.1.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}En synchronisant Zotero}{3}{subsubsection.1.2.2.2}%
+\contentsline {chapter}{\numberline {2}Expressive vocabulary growth in children and LMs}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Related Work}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Developmental Trajectories}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Vocabulary Evaluation}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Calibrated Evaluation Frameworks}{6}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Methods}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}\textsc {corpus-CDI}{} Benchmark Overview}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Training Data}{8}{subsection.2.3.2}%
+\contentsline {paragraph}{Age-appropriate scaling}{8}{section*.18}%
+\contentsline {paragraph}{Preprocessing}{8}{section*.19}%
+\contentsline {subsection}{\numberline {2.3.3}Model Architectures and Training}{8}{subsection.2.3.3}%
+\contentsline {paragraph}{Training procedure}{8}{section*.20}%
+\contentsline {paragraph}{Generation procedure}{9}{section*.21}%
+\contentsline {subsection}{\numberline {2.3.4}Evaluation Set Construction}{9}{subsection.2.3.4}%
+\contentsline {paragraph}{Base vocabulary and POS filtering}{9}{section*.22}%
+\contentsline {paragraph}{Frequency stratification}{9}{section*.23}%
+\contentsline {paragraph}{Audiobook subset selection}{9}{section*.24}%
+\contentsline {subsection}{\numberline {2.3.5}Evaluation Metrics}{9}{subsection.2.3.5}%
+\contentsline {paragraph}{Type-Token Ratio (TTR)}{9}{section*.25}%
+\contentsline {paragraph}{Non-word Rate}{10}{section*.26}%
+\contentsline {paragraph}{\textsc {corpus-CDI}{} Score}{10}{section*.27}%
+\contentsline {section}{\numberline {2.4}Results}{10}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Developmental Trajectories}{10}{subsection.2.4.1}%
+\contentsline {paragraph}{Lexical diversity}{11}{section*.30}%
+\contentsline {paragraph}{Word form accuracy}{11}{section*.31}%
+\contentsline {paragraph}{Vocabulary growth}{11}{section*.32}%
+\contentsline {subsection}{\numberline {2.4.2}Temperature Tradeoff}{12}{subsection.2.4.2}%
+\contentsline {paragraph}{TTR-CDI trade-off}{12}{section*.33}%
+\contentsline {paragraph}{Non-word-CDI trade-off}{12}{section*.34}%
+\contentsline {subsection}{\numberline {2.4.3}Frequency effect}{12}{subsection.2.4.3}%
+\contentsline {paragraph}{Divergent frequency sensitivity}{13}{section*.36}%
+\contentsline {paragraph}{Temperature modulation}{13}{section*.37}%
+\contentsline {paragraph}{Long-tail truncation}{13}{section*.38}%
+\contentsline {subsection}{\numberline {2.4.4}Production of Content Words}{14}{subsection.2.4.4}%
+\contentsline {paragraph}{Children’s inverse U-shaped trajectory}{14}{section*.40}%
+\contentsline {paragraph}{Models’ invariant balance}{14}{section*.41}%
+\contentsline {section}{\numberline {2.5}Discussion}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Limitations}{16}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Ethics Statement}{17}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Appendix}{18}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Training and generation details}{18}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Result details}{19}{subsection.2.8.2}%
+\contentsline {chapter}{\numberline {3}Episodic memory and the lexical frequency gap}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Related Work}{26}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Method}{27}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Models and Training}{27}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Evaluation Task}{28}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Retrieval Procedure}{28}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Results}{29}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Retrieval Benefits Syntactic Contrasts}{29}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Frequency Gap is Narrowed but not Fully Closed}{29}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Analysis}{30}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Importance of Structural vs. Semantic Information}{30}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Effects of Retrieval Configuration}{31}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}Discussion}{35}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Conclusion}{36}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Appendix}{36}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Pretrained models and datasets}{36}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Evaluation set construction}{37}{subsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.2.1}Source benchmarks}{37}{subsubsection.3.8.2.1}%
+\contentsline {subsection}{\numberline {3.8.3}Statistical analyses}{38}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Structural match analysis}{39}{subsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.8.5}Additional Retrieval Configuration Results}{40}{subsection.3.8.5}%
+\contentsline {chapter}{\numberline {4}LLMs and caregiver feedback}{49}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Benchmarking LLMs for mimicking child-caregiver language in interaction}{50}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Introduction}{50}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Related Work and novelty}{51}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Method}{52}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Data}{52}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Models}{52}{subsubsection.4.1.3.2}%
+\contentsline {paragraph}{Fine-tuned model}{52}{section*.73}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}Benchmarking}{53}{subsubsection.4.1.3.3}%
+\contentsline {paragraph}{Single-turn testing}{53}{section*.74}%
+\contentsline {paragraph}{Multi-turn testing}{53}{section*.75}%
+\contentsline {paragraph}{Zero vs. Few-shot settings}{53}{section*.78}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}Metrics}{53}{subsubsection.4.1.3.4}%
+\contentsline {subsection}{\numberline {4.1.4}Results and Discussion}{55}{subsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.1}Single-turn testing}{55}{subsubsection.4.1.4.1}%
+\contentsline {paragraph}{Child-LLM}{55}{section*.81}%
+\contentsline {paragraph}{Caregiver-LLM}{56}{section*.82}%
+\contentsline {subsubsection}{\numberline {4.1.4.2}Multi-turn testing}{56}{subsubsection.4.1.4.2}%
+\contentsline {paragraph}{Child-LLM}{56}{section*.83}%
+\contentsline {paragraph}{Caregiver-LLM}{57}{section*.84}%
+\contentsline {subsection}{\numberline {4.1.5}Conclusion}{58}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Limitations}{59}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}Ethics statement}{60}{subsection.4.1.7}%
+\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{61}{section*.87}%
+\contentsline {paragraph}{The zero-shot prompt template for the child}{61}{section*.88}%
+\contentsline {paragraph}{The few-shot prompt template for the caregiver}{61}{section*.89}%
+\contentsline {paragraph}{The few-shot prompt template for the child}{61}{section*.90}%
+\contentsline {section}{\numberline {4.2}Which forms of caregiver feedback support grammar learning?}{64}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Introduction}{64}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Methods}{65}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Evaluation}{67}{subsubsection.4.2.2.1}%
+\contentsline {subsection}{\numberline {4.2.3}Results}{67}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Discussion and Conclusions}{68}{subsection.4.2.4}%
+\contentsline {chapter}{Conclusion et perspectives}{78}{chapter*.116}%
+\contentsline {section}{\numberline {5.1}Conclusions de l'étude}{78}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Ouverture et perspectives}{78}{section.5.2}%
+\contentsline {chapter}{Liste des publications}{79}{chapter*.118}%
+\contentsline {chapter}{Bibliographie}{80}{chapter*.122}%

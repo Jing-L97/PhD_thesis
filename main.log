@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.25)  8 SEP 2026 23:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.5.25)  8 SEP 2026 23:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2035,6 +2035,62 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                agrawal2026scaffolding
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                bensaid2021cstc
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                bensaid2021fairytailor
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                chan2022transformers
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                lau2017grammaticality
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                lison2016opensubtitles
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                schoneberger2010three
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                stolcke2000dialogue
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                thomas_microbubble_2013
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -2230,19 +2286,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\openout4 = `main.mtc'.
 
-\openout4 = `main.mtc'.
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 2.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2.
- (./main.mtc8
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-)
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -2254,20 +2298,12 @@ l.2 ...if{Objectif rapide du chapitre \lipsum[30]}
 
 
 ]
-
-Package cleveref Info: loaded `french' language definitions on input line 2.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2 ...if{Objectif rapide du chapitre \lipsum[30]}
-                                                   [2]
-<ch1/fig/Circulatory_System_fr.jpg, id=551, 589.4522pt x 880.79062pt>
+<ch1/fig/Circulatory_System_fr.jpg, id=526, 589.4522pt x 880.79062pt>
 File: ch1/fig/Circulatory_System_fr.jpg Graphic file (type jpg)
 <use ch1/fig/Circulatory_System_fr.jpg>
 Package pdftex.def Info: ch1/fig/Circulatory_System_fr.jpg  used on input line 32.
 (pdftex.def)             Requested size: 76.16377pt x 113.81102pt.
-<ch1/fig/Blood_vessels.png, id=552, 722.7pt x 497.86pt>
+<ch1/fig/Blood_vessels.png, id=527, 722.7pt x 497.86pt>
 File: ch1/fig/Blood_vessels.png Graphic file (type png)
 <use ch1/fig/Blood_vessels.png>
 Package pdftex.def Info: ch1/fig/Blood_vessels.png  used on input line 33.
@@ -2276,17 +2312,22 @@ Package hyperref Info: bookmark level for unknown todo defaults to 0 on input li
 
 
 Package cleveref Info: loaded `french' language definitions on input line 42.
-[3 <./ch1/fig/Circulatory_System_fr.jpg> <./ch1/fig/Blood_vessels.png>]
 
-LaTeX Warning: Citation 'ueda_tissue_2020' on page 4 undefined on input line 48.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.42 ... avant. \todo[inline]{Ici, un commentaire}
+                                                   [2 <./ch1/fig/Circulatory_System_fr.jpg> <./ch1/fig/Blood_vessels.png>]
+
+LaTeX Warning: Citation 'ueda_tissue_2020' on page 3 undefined on input line 48.
 
 
-LaTeX Warning: Citation 'thomas_microbubble_2013' on page 4 undefined on input line 48.
+LaTeX Warning: Citation 'thomas_microbubble_2013' on page 3 undefined on input line 48.
 
 )
 
 Package cleveref Info: loaded `french' language definitions on input line 36.
-[4]
+[3]
 \openout2 = `ch2/ch2_main.aux'.
 
  (./ch2/ch2_main.tex
@@ -2294,13 +2335,9 @@ Chapitre 2.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/24.88'.
 (microtype)             Ignoring protrusion settings for this character.
-\openout4 = `main.mtc'.
 
-\openout4 = `main.mtc'.
 
-(./main.mtc9)
-
-[5
+[4
 
 
 
@@ -2308,11 +2345,11 @@ Package microtype Info: Character `029' is missing
 ] (./ch2/papers/exp_vocab/main.tex Excluding 'comment' comment. Excluding 'comment' comment.
 
 Package cleveref Info: loaded `french' language definitions on input line 85.
-[6]
+[5]
 
 Package cleveref Info: loaded `french' language definitions on input line 100.
-[7]
-<ch2/papers/exp_vocab/fig/overview.pdf, id=705, 845.04686pt x 597.50786pt>
+[6]
+<ch2/papers/exp_vocab/fig/overview.pdf, id=659, 845.04686pt x 597.50786pt>
 File: ch2/papers/exp_vocab/fig/overview.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/overview.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/overview.pdf  used on input line 112.
@@ -2320,39 +2357,39 @@ Package pdftex.def Info: ch2/papers/exp_vocab/fig/overview.pdf  used on input li
 
 
 Package cleveref Info: loaded `french' language definitions on input line 126.
-[8 <./ch2/papers/exp_vocab/fig/overview.pdf>]
+[7 <./ch2/papers/exp_vocab/fig/overview.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 152.
-[9]
+[8]
 
 Package cleveref Info: loaded `french' language definitions on input line 176.
-[10]
-<ch2/papers/exp_vocab/fig/ttr_500_1.pdf, id=801, 557.42941pt x 435.6206pt>
+[9]
+<ch2/papers/exp_vocab/fig/ttr_500_1.pdf, id=754, 557.42941pt x 435.6206pt>
 File: ch2/papers/exp_vocab/fig/ttr_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/ttr_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/ttr_500_1.pdf  used on input line 192.
 (pdftex.def)             Requested size: 122.91785pt x 96.05617pt.
-<ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf, id=802, 557.42941pt x 435.6206pt>
+<ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf, id=755, 557.42941pt x 435.6206pt>
 File: ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf  used on input line 194.
 (pdftex.def)             Requested size: 122.91785pt x 96.05617pt.
-<ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf, id=803, 571.43173pt x 435.6206pt>
+<ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf, id=756, 571.43173pt x 435.6206pt>
 File: ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf  used on input line 196.
 (pdftex.def)             Requested size: 122.91785pt x 93.70313pt.
-<ch2/papers/exp_vocab/fig/legend.png, id=804, 255.95625pt x 351.3125pt>
+<ch2/papers/exp_vocab/fig/legend.png, id=757, 255.95625pt x 351.3125pt>
 File: ch2/papers/exp_vocab/fig/legend.png Graphic file (type png)
 <use ch2/papers/exp_vocab/fig/legend.png>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/legend.png  used on input line 198.
 (pdftex.def)             Requested size: 59.18394pt x 81.22902pt.
-<ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf, id=805, 557.28465pt x 429.75871pt>
+<ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf, id=758, 557.28465pt x 429.75871pt>
 File: ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf  used on input line 209.
 (pdftex.def)             Requested size: 159.33821pt x 122.87596pt.
-<ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf, id=806, 557.28465pt x 429.75871pt>
+<ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf, id=759, 557.28465pt x 429.75871pt>
 File: ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf  used on input line 211.
@@ -2364,11 +2401,11 @@ Package pdftex.def Info: ch2/papers/exp_vocab/fig/legend.png  used on input line
 
 
 Package cleveref Info: loaded `french' language definitions on input line 230.
-[11 <./ch2/papers/exp_vocab/fig/ttr_500_1.pdf> <./ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf> <./ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf> <./ch2/papers/exp_vocab/fig/legend.png>]
+[10 <./ch2/papers/exp_vocab/fig/ttr_500_1.pdf> <./ch2/papers/exp_vocab/fig/Nonword Rate_500_1.pdf> <./ch2/papers/exp_vocab/fig/Corpus-CDI score_500_1.pdf> <./ch2/papers/exp_vocab/fig/legend.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 239.
-[12 <./ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf> <./ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf>]
-<ch2/papers/exp_vocab/fig/freq_stela.pdf, id=981, 845.04686pt x 597.50786pt>
+[11 <./ch2/papers/exp_vocab/fig/temp_ttr_500_1.pdf> <./ch2/papers/exp_vocab/fig/temp_Nonword Rate_500_1.pdf>]
+<ch2/papers/exp_vocab/fig/freq_stela.pdf, id=935, 845.04686pt x 597.50786pt>
 File: ch2/papers/exp_vocab/fig/freq_stela.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/freq_stela.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/freq_stela.pdf  used on input line 263.
@@ -2380,11 +2417,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package cleveref Info: loaded `french' language definitions on input line 270.
-[13]
+[12]
 
 Package cleveref Info: loaded `french' language definitions on input line 282.
-[14 <./ch2/papers/exp_vocab/fig/freq_stela.pdf>]
-<ch2/papers/exp_vocab/fig/content_500_1.pdf, id=1006, 571.43173pt x 429.59329pt>
+[13 <./ch2/papers/exp_vocab/fig/freq_stela.pdf>]
+<ch2/papers/exp_vocab/fig/content_500_1.pdf, id=959, 571.43173pt x 429.59329pt>
 File: ch2/papers/exp_vocab/fig/content_500_1.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/content_500_1.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/content_500_1.pdf  used on input line 290.
@@ -2392,28 +2429,33 @@ Package pdftex.def Info: ch2/papers/exp_vocab/fig/content_500_1.pdf  used on inp
 
 
 Package cleveref Info: loaded `french' language definitions on input line 305.
-[15 <./ch2/papers/exp_vocab/fig/content_500_1.pdf>]
+[14 <./ch2/papers/exp_vocab/fig/content_500_1.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 323.
-[16]
+[15]
 
 Package cleveref Info: loaded `french' language definitions on input line 340.
-[17]
+[16]
 
 Package cleveref Info: loaded `french' language definitions on input line 356.
-[18]
+[17]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 370.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 370.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 490.
-[19]
+[18]
 Overfull \hbox (67.87286pt too wide) in paragraph at lines 534--567
  [][] 
  []
 
-<ch2/papers/exp_vocab/fig/threshold.pdf, id=1103, 571.43173pt x 426.90993pt>
+<ch2/papers/exp_vocab/fig/threshold.pdf, id=1057, 571.43173pt x 426.90993pt>
 File: ch2/papers/exp_vocab/fig/threshold.pdf Graphic file (type pdf)
 <use ch2/papers/exp_vocab/fig/threshold.pdf>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/threshold.pdf  used on input line 576.
@@ -2421,23 +2463,23 @@ Package pdftex.def Info: ch2/papers/exp_vocab/fig/threshold.pdf  used on input l
 
 
 Package cleveref Info: loaded `french' language definitions on input line 583.
-[20]
-<ch2/papers/exp_vocab/fig/distr_LSTM_400.png, id=1109, 530.2209pt x 522.9939pt>
+[19]
+<ch2/papers/exp_vocab/fig/distr_LSTM_400.png, id=1063, 530.2209pt x 522.9939pt>
 File: ch2/papers/exp_vocab/fig/distr_LSTM_400.png Graphic file (type png)
 <use ch2/papers/exp_vocab/fig/distr_LSTM_400.png>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/distr_LSTM_400.png  used on input line 587.
 (pdftex.def)             Requested size: 136.57462pt x 134.70634pt.
-<ch2/papers/exp_vocab/fig/distr_cap.png, id=1110, 65.7657pt x 53.4798pt>
+<ch2/papers/exp_vocab/fig/distr_cap.png, id=1064, 65.7657pt x 53.4798pt>
 File: ch2/papers/exp_vocab/fig/distr_cap.png Graphic file (type png)
 <use ch2/papers/exp_vocab/fig/distr_cap.png>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/distr_cap.png  used on input line 589.
 (pdftex.def)             Requested size: 45.52718pt x 37.0235pt.
-<ch2/papers/exp_vocab/fig/hour.png, id=1111, 456.0237pt x 349.5459pt>
+<ch2/papers/exp_vocab/fig/hour.png, id=1065, 456.0237pt x 349.5459pt>
 File: ch2/papers/exp_vocab/fig/hour.png Graphic file (type png)
 <use ch2/papers/exp_vocab/fig/hour.png>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/hour.png  used on input line 599.
 (pdftex.def)             Requested size: 159.33821pt x 122.13487pt.
-<ch2/papers/exp_vocab/fig/hour_legend.png, id=1112, 223.3143pt x 342.3189pt>
+<ch2/papers/exp_vocab/fig/hour_legend.png, id=1066, 223.3143pt x 342.3189pt>
 File: ch2/papers/exp_vocab/fig/hour_legend.png Graphic file (type png)
 <use ch2/papers/exp_vocab/fig/hour_legend.png>
 Package pdftex.def Info: ch2/papers/exp_vocab/fig/hour_legend.png  used on input line 600.
@@ -2445,64 +2487,60 @@ Package pdftex.def Info: ch2/papers/exp_vocab/fig/hour_legend.png  used on input
 ))
 
 Package cleveref Info: loaded `french' language definitions on input line 37.
-[21]
+[20]
 
 Package cleveref Info: loaded `french' language definitions on input line 37.
-[22 <./ch2/papers/exp_vocab/fig/threshold.pdf>]
+[21 <./ch2/papers/exp_vocab/fig/threshold.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 37.
-[23 <./ch2/papers/exp_vocab/fig/distr_LSTM_400.png> <./ch2/papers/exp_vocab/fig/distr_cap.png>]
+[22 <./ch2/papers/exp_vocab/fig/distr_LSTM_400.png> <./ch2/papers/exp_vocab/fig/distr_cap.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 37.
-[24 <./ch2/papers/exp_vocab/fig/hour.png> <./ch2/papers/exp_vocab/fig/hour_legend.png>]
+[23 <./ch2/papers/exp_vocab/fig/hour.png> <./ch2/papers/exp_vocab/fig/hour_legend.png>]
 \openout2 = `ch3/ch3_main.aux'.
 
  (./ch3/ch3_main.tex
 Chapitre 3.
-\openout4 = `main.mtc'.
 
-\openout4 = `main.mtc'.
 
-(./main.mtc10)
-
-[25
+[24
 
 
 
 
 ] (./ch3/papers/RAG/main.tex
 
-LaTeX Warning: Citation 'lau2017grammaticality' on page 26 undefined on input line 12.
+LaTeX Warning: Citation 'lau2017grammaticality' on page 25 undefined on input line 12.
 
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting on input line 21.
 
-LaTeX Warning: Citation 'chan2022transformers' on page 26 undefined on input line 21.
+LaTeX Warning: Citation 'chan2022transformers' on page 25 undefined on input line 21.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 25.
-[26]
+[25]
 
-LaTeX Warning: Citation 'chan2022transformers' on page 27 undefined on input line 42.
+LaTeX Warning: Citation 'chan2022transformers' on page 26 undefined on input line 42.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 43.
-[27]
+[26]
 LaTeX Font Info:    Trying to load font information for U+bbm on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 
 Package cleveref Info: loaded `french' language definitions on input line 76.
-[28{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[27{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
 Package wrapfig Warning: Stationary wraptable forced to float on input line 104.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 116.
-[29]
+[28]
 Underfull \hbox (badness 1189) in paragraph at lines 162--163
 [][]\T1/lmr/m/n/10.95 (+20) Next, we exa-mine whe-ther re-trie-
  []
@@ -2515,37 +2553,37 @@ Underfull \hbox (badness 1460) in paragraph at lines 162--163
 
 
 Package cleveref Info: loaded `french' language definitions on input line 165.
-[30]
+[29]
 Overfull \hbox (42.04713pt too wide) in paragraph at lines 166--167
 \T1/lmr/m/n/10.95 (-20) ba-se-line mo-del as re-fe-rence le-vels (\T1/lmtt/m/n/10.95 correct $\OMS/lmsy/m/n/10.95 ^^X$ \T1/lmtt/m/n/10.95 Frequency * ModelType + (1$\OMS/lmsy/m/n/10.95 j$\T1/lmtt/m/n/10.95 item) + (1$\OMS/lmsy/m/n/10.95 j$\T1/lmtt/m/n/10.95 phenomenon)\T1/lmr/m/n/10.95 (-20) )
  []
 
-<ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf, id=1320, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf, id=1260, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf  used on input line 197.
 (pdftex.def)             Requested size: 145.68144pt x 96.23466pt.
-<ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf, id=1321, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf, id=1261, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf  used on input line 202.
 (pdftex.def)             Requested size: 145.68144pt x 96.23466pt.
-<ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf, id=1322, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf, id=1262, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf  used on input line 207.
 (pdftex.def)             Requested size: 145.68144pt x 96.23466pt.
-<ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf, id=1323, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf, id=1263, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf  used on input line 216.
 (pdftex.def)             Requested size: 145.68144pt x 96.23466pt.
-<ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf, id=1324, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf, id=1264, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf  used on input line 222.
 (pdftex.def)             Requested size: 145.68144pt x 96.23466pt.
-<ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf, id=1325, 426.48457pt x 281.71938pt>
+<ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf, id=1265, 426.48457pt x 281.71938pt>
 File: ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf  used on input line 228.
@@ -2553,93 +2591,93 @@ Package pdftex.def Info: ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf  us
 
 
 Package cleveref Info: loaded `french' language definitions on input line 242.
-[31]
-<ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf, id=1334, 426.48457pt x 280.83493pt>
+[30]
+<ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf, id=1274, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf  used on input line 251.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf, id=1335, 426.48457pt x 280.83493pt>
+<ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf, id=1275, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf  used on input line 257.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf, id=1336, 426.48457pt x 280.83493pt>
+<ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf, id=1276, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf  used on input line 263.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf, id=1337, 426.48457pt x 280.83493pt>
+<ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf, id=1277, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf  used on input line 272.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf, id=1338, 426.48457pt x 280.83493pt>
+<ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf, id=1278, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf  used on input line 278.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf, id=1339, 426.48457pt x 280.83493pt>
+<ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf, id=1279, 426.48457pt x 280.83493pt>
 File: ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf  used on input line 284.
 (pdftex.def)             Requested size: 145.68144pt x 95.93254pt.
-<ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf, id=1341, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf, id=1281, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf  used on input line 312.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf, id=1342, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf, id=1282, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf  used on input line 318.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf, id=1343, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf, id=1283, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf  used on input line 324.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf, id=1344, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf, id=1284, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf  used on input line 333.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf, id=1345, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf, id=1285, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf  used on input line 339.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf, id=1346, 426.48457pt x 281.63939pt>
+<ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf, id=1286, 426.48457pt x 281.63939pt>
 File: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf  used on input line 345.
 (pdftex.def)             Requested size: 145.68144pt x 96.20735pt.
-<ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf, id=1348, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf, id=1288, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf  used on input line 366.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf, id=1349, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf, id=1289, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf  used on input line 371.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf, id=1350, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf, id=1290, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf  used on input line 376.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf, id=1351, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf, id=1291, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf  used on input line 384.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf, id=1352, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf, id=1292, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf  used on input line 391.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf, id=1353, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf, id=1293, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf  used on input line 398.
@@ -2647,33 +2685,33 @@ Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs
 
 
 Package cleveref Info: loaded `french' language definitions on input line 412.
-[32 <./ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf>]
-<ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf, id=1413, 426.48457pt x 282.28177pt>
+[31 <./ch3/papers/RAG/figs/paper/vector/Child-R_SV_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Child-R_Wh_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Child-R_RC_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_SV_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_Wh_seq.pdf> <./ch3/papers/RAG/figs/paper/vector/Large-S_RC_seq.pdf>]
+<ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf, id=1354, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf  used on input line 429.
 (pdftex.def)             Requested size: 145.68144pt x 96.42679pt.
-<ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf, id=1414, 426.48457pt x 282.28177pt>
+<ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf, id=1355, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf  used on input line 435.
 (pdftex.def)             Requested size: 145.68144pt x 96.42679pt.
-<ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf, id=1415, 426.48457pt x 282.28177pt>
+<ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf, id=1356, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf  used on input line 441.
 (pdftex.def)             Requested size: 145.68144pt x 96.42679pt.
-<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf, id=1416, 426.48457pt x 282.28177pt>
+<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf, id=1357, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf  used on input line 450.
 (pdftex.def)             Requested size: 145.68144pt x 96.42679pt.
-<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf, id=1417, 426.48457pt x 282.28177pt>
+<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf, id=1358, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf  used on input line 458.
 (pdftex.def)             Requested size: 145.68144pt x 96.42679pt.
-<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf, id=1418, 426.48457pt x 282.28177pt>
+<ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf, id=1359, 426.48457pt x 282.28177pt>
 File: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf  used on input line 466.
@@ -2681,44 +2719,41 @@ Package pdftex.def Info: ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs
 
 
 Package cleveref Info: loaded `french' language definitions on input line 488.
-[33 <./ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf> <./ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf> <./ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf>]
+[32 <./ch3/papers/RAG/figs/paper/datastore/Child_SV.pdf> <./ch3/papers/RAG/figs/paper/datastore/Child_Wh.pdf> <./ch3/papers/RAG/figs/paper/datastore/Child_RC.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_SV.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_Wh.pdf> <./ch3/papers/RAG/figs/paper/datastore/Large_RC.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 488.
-[34 <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf>]
+[33 <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/granularity/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/granularity/Large-scale_GPT-2_XL_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig4/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig4/Large-scale_GPT-2_XL_RCs.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 488.
-[35 <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf>]
+[34 <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_SV.pdf> <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig5/Child-realistic_RCs.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_SV.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_Wh.pdf> <./ch3/papers/RAG/figs/paper/fig5/Large-scale_GPT-2_XL_RCs.pdf>]
 
-LaTeX Warning: Reference `tab:structural_overlap_with_struc' on page 36 undefined on input line 493.
+LaTeX Warning: Reference `tab:structural_overlap_with_struc' on page 35 undefined on input line 493.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 506.
-[36
+[35
 
 ]
 
-LaTeX Warning: Citation 'godfrey1992switchboard' on page 37 undefined on input line 530.
+LaTeX Warning: Citation 'stolcke2000dialogue' on page 36 undefined on input line 530.
 
 
-LaTeX Warning: Citation 'stolcke2000dialogue' on page 37 undefined on input line 530.
+LaTeX Warning: Citation 'bensaid2021cstc' on page 36 undefined on input line 530.
 
 
-LaTeX Warning: Citation 'bensaid2021cstc' on page 37 undefined on input line 530.
+LaTeX Warning: Citation 'bensaid2021fairytailor' on page 36 undefined on input line 530.
 
 
-LaTeX Warning: Citation 'bensaid2021fairytailor' on page 37 undefined on input line 530.
-
-
-LaTeX Warning: Citation 'lison2016opensubtitles' on page 37 undefined on input line 530.
+LaTeX Warning: Citation 'lison2016opensubtitles' on page 36 undefined on input line 530.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 586.
-[37]
+[36]
 
 Package cleveref Info: loaded `french' language definitions on input line 625.
-[38]
+[37]
 Overfull \hbox (1.25183pt too wide) in paragraph at lines 630--631
 \T1/lmr/m/n/10.95 (-20) prepositional-phrase, noun-plus-prepositional-phrase-and-adverb, Gulordava-nonce, and frequency-
  []
@@ -2726,369 +2761,369 @@ Overfull \hbox (1.25183pt too wide) in paragraph at lines 630--631
 
 
 Package cleveref Info: loaded `french' language definitions on input line 663.
-[39]
+[38]
 
 Package cleveref Info: loaded `french' language definitions on input line 698.
-[40]
+[39]
 
 Package cleveref Info: loaded `french' language definitions on input line 773.
-[41]
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf, id=1844, 426.48457pt x 281.75546pt>
+[40]
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf, id=1785, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf  used on input line 789.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf, id=1845, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf, id=1786, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf  used on input line 794.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf, id=1846, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf, id=1787, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf  used on input line 799.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf, id=1847, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf, id=1788, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf  used on input line 805.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf, id=1848, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf, id=1789, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf  used on input line 810.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf, id=1849, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf, id=1790, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf  used on input line 815.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf, id=1850, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf, id=1791, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf  used on input line 821.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf, id=1851, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf, id=1792, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf  used on input line 826.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf, id=1852, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf, id=1793, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf  used on input line 831.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf, id=1853, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf, id=1794, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf  used on input line 843.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf, id=1854, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf, id=1795, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf  used on input line 848.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf, id=1855, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf, id=1796, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf  used on input line 853.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf, id=1856, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf, id=1797, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf  used on input line 859.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf, id=1857, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf, id=1798, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf  used on input line 864.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf, id=1858, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf, id=1799, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf  used on input line 869.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf, id=1859, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf, id=1800, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf  used on input line 875.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf, id=1860, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf, id=1801, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf  used on input line 880.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf, id=1861, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf, id=1802, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf  used on input line 885.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf, id=1862, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf, id=1803, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf  used on input line 897.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf, id=1863, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf, id=1804, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf  used on input line 902.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf, id=1864, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf, id=1805, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf  used on input line 907.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf, id=1865, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf, id=1806, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf  used on input line 913.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf, id=1866, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf, id=1807, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf  used on input line 918.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf, id=1867, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf, id=1808, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf  used on input line 923.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf, id=1868, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf, id=1809, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf  used on input line 929.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf, id=1869, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf, id=1810, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf  used on input line 934.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf, id=1870, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf, id=1811, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf  used on input line 939.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf, id=1871, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf, id=1812, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf  used on input line 951.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf, id=1872, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf, id=1813, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf  used on input line 956.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf, id=1873, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf, id=1814, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf  used on input line 961.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf, id=1874, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf, id=1815, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf  used on input line 967.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf, id=1875, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf, id=1816, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf  used on input line 972.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf, id=1876, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf, id=1817, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf  used on input line 977.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf, id=1877, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf, id=1818, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf  used on input line 983.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf, id=1878, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf, id=1819, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf  used on input line 988.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf, id=1879, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf, id=1820, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf  used on input line 993.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf, id=1880, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf, id=1821, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf  used on input line 1005.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf, id=1881, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf, id=1822, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf  used on input line 1010.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf, id=1882, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf, id=1823, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf  used on input line 1015.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf, id=1883, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf, id=1824, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf  used on input line 1021.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf, id=1884, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf, id=1825, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf  used on input line 1026.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf, id=1885, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf, id=1826, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf  used on input line 1031.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf, id=1886, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf, id=1827, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf  used on input line 1037.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf, id=1887, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf, id=1828, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf  used on input line 1042.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf, id=1888, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf, id=1829, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf  used on input line 1047.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf, id=1889, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf, id=1830, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf, id=1890, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf, id=1831, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf  used on input line 1064.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf, id=1891, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf, id=1832, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf  used on input line 1069.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf, id=1892, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf, id=1833, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf  used on input line 1075.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf, id=1893, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf, id=1834, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf  used on input line 1080.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf, id=1894, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf, id=1835, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf  used on input line 1085.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf, id=1895, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf, id=1836, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf  used on input line 1091.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf, id=1896, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf, id=1837, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf  used on input line 1096.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf, id=1897, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf, id=1838, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf  used on input line 1101.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf, id=1898, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf, id=1839, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf  used on input line 1113.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf, id=1899, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf, id=1840, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf  used on input line 1118.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf, id=1900, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf, id=1841, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf, id=1901, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf, id=1842, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf  used on input line 1129.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf, id=1902, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf, id=1843, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf  used on input line 1134.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf, id=1903, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf, id=1844, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf  used on input line 1139.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf, id=1904, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf, id=1845, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf  used on input line 1145.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf, id=1905, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf, id=1846, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf  used on input line 1150.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf, id=1906, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf, id=1847, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf  used on input line 1155.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf, id=1907, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf, id=1848, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf  used on input line 1167.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf, id=1908, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf, id=1849, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf  used on input line 1172.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf, id=1909, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf, id=1850, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf  used on input line 1177.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf, id=1910, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf, id=1851, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf  used on input line 1183.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf, id=1911, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf, id=1852, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf  used on input line 1188.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf, id=1912, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf, id=1853, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf  used on input line 1193.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf, id=1913, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf, id=1854, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf  used on input line 1199.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf, id=1914, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf, id=1855, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf  used on input line 1204.
 (pdftex.def)             Requested size: 145.68144pt x 96.247pt.
-<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf, id=1915, 426.48457pt x 281.75546pt>
+<ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf, id=1856, 426.48457pt x 281.75546pt>
 File: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf Graphic file (type pdf)
 <use ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf>
 Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf  used on input line 1209.
@@ -3096,39 +3131,35 @@ Package pdftex.def Info: ch3/papers/RAG/figs/paper/neighbor/Context10_child-real
 ))
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[42 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf>]
+[41 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_gpt2-xl_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[43 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf>]
+[42 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_gpt2-xl_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[44 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf>]
+[43 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1_child-realistic_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[45 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf>]
+[44 <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/context_window/Neighbor1024_child-realistic_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[46 <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf>]
+[45 <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_gpt2-xl_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[47 <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf>]
+[46 <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_gpt2-xl_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[48 <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf>]
+[47 <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context1_child-realistic_RCs_Clause.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 38.
-[49 <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf>]
+[48 <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_SV_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_Wh_Clause.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_token.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Phrase.pdf> <./ch3/papers/RAG/figs/paper/neighbor/Context10_child-realistic_RCs_Clause.pdf>]
 \openout2 = `ch4/ch4_main.aux'.
 
  (./ch4/ch4_main.tex
 Chapitre 4.
-\openout4 = `main.mtc'.
 
-\openout4 = `main.mtc'.
 
-(./main.mtc11)
-
-[50
+[49
 
 
 
@@ -3136,19 +3167,19 @@ Chapitre 4.
 ] (./ch4/papers/LLM_benchmark/main.tex
 
 Package cleveref Info: loaded `french' language definitions on input line 24.
-[51]
+[50]
 
 Package cleveref Info: loaded `french' language definitions on input line 39.
-[52]
+[51]
 
 Package cleveref Info: loaded `french' language definitions on input line 107.
-[53]
-<ch4/papers/LLM_benchmark/fig/child_single.png, id=2673, 3613.5pt x 1806.75pt>
+[52]
+<ch4/papers/LLM_benchmark/fig/child_single.png, id=2613, 3613.5pt x 1806.75pt>
 File: ch4/papers/LLM_benchmark/fig/child_single.png Graphic file (type png)
 <use ch4/papers/LLM_benchmark/fig/child_single.png>
 Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/child_single.png  used on input line 125.
 (pdftex.def)             Requested size: 455.24411pt x 227.60759pt.
-<ch4/papers/LLM_benchmark/fig/caregiver_single.png, id=2674, 3613.5pt x 1806.75pt>
+<ch4/papers/LLM_benchmark/fig/caregiver_single.png, id=2614, 3613.5pt x 1806.75pt>
 File: ch4/papers/LLM_benchmark/fig/caregiver_single.png Graphic file (type png)
 <use ch4/papers/LLM_benchmark/fig/caregiver_single.png>
 Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/caregiver_single.png  used on input line 133.
@@ -3156,13 +3187,13 @@ Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/caregiver_single.png  used
 
 
 Package cleveref Info: loaded `french' language definitions on input line 157.
-[54]
-<ch4/papers/LLM_benchmark/fig/child_multi.png, id=2695, 3161.8125pt x 1806.75pt>
+[53]
+<ch4/papers/LLM_benchmark/fig/child_multi.png, id=2636, 3161.8125pt x 1806.75pt>
 File: ch4/papers/LLM_benchmark/fig/child_multi.png Graphic file (type png)
 <use ch4/papers/LLM_benchmark/fig/child_multi.png>
 Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/child_multi.png  used on input line 170.
 (pdftex.def)             Requested size: 455.24411pt x 260.13872pt.
-<ch4/papers/LLM_benchmark/fig/caregiver_multi.png, id=2696, 3161.8125pt x 1806.75pt>
+<ch4/papers/LLM_benchmark/fig/caregiver_multi.png, id=2637, 3161.8125pt x 1806.75pt>
 File: ch4/papers/LLM_benchmark/fig/caregiver_multi.png Graphic file (type png)
 <use ch4/papers/LLM_benchmark/fig/caregiver_multi.png>
 Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/caregiver_multi.png  used on input line 178.
@@ -3170,28 +3201,28 @@ Package pdftex.def Info: ch4/papers/LLM_benchmark/fig/caregiver_multi.png  used 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 189.
-[55 <./ch4/papers/LLM_benchmark/fig/child_single.png>]
+[54 <./ch4/papers/LLM_benchmark/fig/child_single.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 201.
-[56 <./ch4/papers/LLM_benchmark/fig/caregiver_single.png>]
+[55 <./ch4/papers/LLM_benchmark/fig/caregiver_single.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 214.
-[57 <./ch4/papers/LLM_benchmark/fig/child_multi.png>]
+[56 <./ch4/papers/LLM_benchmark/fig/child_multi.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 221.
-[58 <./ch4/papers/LLM_benchmark/fig/caregiver_multi.png>]
+[57 <./ch4/papers/LLM_benchmark/fig/caregiver_multi.png>]
 
 Package cleveref Info: loaded `french' language definitions on input line 240.
-[59]
+[58]
 
 Package cleveref Info: loaded `french' language definitions on input line 253.
-[60]
+[59]
 
 Package cleveref Info: loaded `french' language definitions on input line 276.
-[61]
+[60]
 
 Package cleveref Info: loaded `french' language definitions on input line 320.
-[62
+[61
 
 ]
 Overfull \hbox (4.76555pt too wide) in paragraph at lines 332--368
@@ -3204,39 +3235,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 )
 
 Package cleveref Info: loaded `french' language definitions on input line 27.
-[63]
+[62]
 
 Package cleveref Info: loaded `french' language definitions on input line 27.
-[64] (./ch4/papers/RLHF/main.tex
+[63] (./ch4/papers/RLHF/main.tex
 
-LaTeX Warning: Citation 'schoneberger2010three' on page 65 undefined on input line 13.
-
-
-LaTeX Warning: Citation 'nikolaus_communicative_2022' on page 65 undefined on input line 15.
+LaTeX Warning: Citation 'schoneberger2010three' on page 64 undefined on input line 13.
 
 
-LaTeX Warning: Citation 'agrawal_automatic_2024' on page 65 undefined on input line 17.
-
-
-LaTeX Warning: Citation 'agrawal2026scaffolding' on page 65 undefined on input line 17.
-
-
-LaTeX Warning: Citation 'misiek_development_2020' on page 65 undefined on input line 20.
+LaTeX Warning: Citation 'agrawal2026scaffolding' on page 64 undefined on input line 17.
 
 
 
 Package cleveref Info: loaded `french' language definitions on input line 25.
-[65
+[64
 
 ]
 
-LaTeX Warning: Citation 'nikolaus_modeling_2021' on page 66 undefined on input line 28.
-
-
-
 Package cleveref Info: loaded `french' language definitions on input line 54.
-[66]
-<ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf, id=2861, 490.83376pt x 244.915pt>
+[65]
+<ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf, id=2808, 490.83376pt x 244.915pt>
 File: ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf Graphic file (type pdf)
 <use ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf>
 Package pdftex.def Info: ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf  used on input line 64.
@@ -3244,20 +3262,20 @@ Package pdftex.def Info: ch4/papers/RLHF/figures/figureC_generation_scale_trajec
 
 
 Package cleveref Info: loaded `french' language definitions on input line 98.
-[67 <./ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf>]
+[66 <./ch4/papers/RLHF/figures/figureC_generation_scale_trajectories.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 127.
-[68]
+[67]
 
 Package cleveref Info: loaded `french' language definitions on input line 176.
-[69]
+[68]
 
 Package cleveref Info: loaded `french' language definitions on input line 198.
-[70]
+[69]
 
 Package cleveref Info: loaded `french' language definitions on input line 377.
-[71]
-<ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf, id=2938, 289.08pt x 289.08pt>
+[70]
+<ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf, id=2885, 289.08pt x 289.08pt>
 File: ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf Graphic file (type pdf)
 <use ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf>
 Package pdftex.def Info: ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf  used on input line 382.
@@ -3268,12 +3286,12 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 386.
 See the caption package documentation for explanation.
 
-<ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf, id=2939, 490.83376pt x 244.915pt>
+<ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf, id=2886, 490.83376pt x 244.915pt>
 File: ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf Graphic file (type pdf)
 <use ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf>
 Package pdftex.def Info: ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf  used on input line 392.
 (pdftex.def)             Requested size: 455.24411pt x 227.16316pt.
-<ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf, id=2940, 490.83376pt x 361.35pt>
+<ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf, id=2887, 490.83376pt x 361.35pt>
 File: ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf Graphic file (type pdf)
 <use ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf>
 Package pdftex.def Info: ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf  used on input line 405.
@@ -3281,15 +3299,15 @@ Package pdftex.def Info: ch4/papers/RLHF/figures/figureD_covariates_scale_trajec
 
 
 Package cleveref Info: loaded `french' language definitions on input line 414.
-[72
+[71
 
  <./ch4/papers/RLHF/figures/figureA_baseline_topline_scale_mixed_sources_new.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 414.
-[73 <./ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf>]
+[72 <./ch4/papers/RLHF/figures/figureB_benchmark_scale_trajectories.pdf>]
 
 Package cleveref Info: loaded `french' language definitions on input line 414.
-[74 <./ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf>]
+[73 <./ch4/papers/RLHF/figures/figureD_covariates_scale_trajectories.pdf>]
 Overfull \hbox (12.06586pt too wide) in paragraph at lines 535--536
 []|[]| 
  []
@@ -3302,24 +3320,24 @@ Overfull \hbox (10.59935pt too wide) in paragraph at lines 536--536
 
 
 Package cleveref Info: loaded `french' language definitions on input line 585.
-[75]
+[74]
 
 Package cleveref Info: loaded `french' language definitions on input line 643.
-[76
+[75
 
 
 ]
 
 Package cleveref Info: loaded `french' language definitions on input line 719.
-[77]))
+[76]))
 
 Package cleveref Info: loaded `french' language definitions on input line 39.
-[78]
+[77]
 \openout2 = `others/conclusion.aux'.
 
  (./others/conclusion.tex)
 
-[79
+[78
 
 
 
@@ -3330,7 +3348,7 @@ Package cleveref Info: loaded `french' language definitions on input line 39.
 
  (./others/liste_publi.tex)
 
-[80
+[79
 
 
 
@@ -3341,11 +3359,14 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 
-[81
+[80
 
 
 
 ]
+
+Package cleveref Info: loaded `french' language definitions on input line 48.
+[81]
 
 Package cleveref Info: loaded `french' language definitions on input line 48.
 [82]
@@ -3361,9 +3382,6 @@ Package cleveref Info: loaded `french' language definitions on input line 48.
 
 Package cleveref Info: loaded `french' language definitions on input line 48.
 [86]
-
-Package cleveref Info: loaded `french' language definitions on input line 48.
-[87]
 Overfull \hbox (10.7744pt too wide) in paragraph at lines 48--48
 \T1/lmr/m/n/9 (-20) Ti-mo-thée []\T1/lmr/m/sc/9 (-20) Lacroix []\T1/lmr/m/n/9 (-20) et al. ^^S   Llama: Open and ef-fi-cient foun-da-tion lan-guage mo-dels ^^T. \T1/lmr/m/it/9 (-20) arXiv pre-print arXiv:2302.13971
  []
@@ -3371,7 +3389,7 @@ Overfull \hbox (10.7744pt too wide) in paragraph at lines 48--48
 
 
 Package cleveref Info: loaded `french' language definitions on input line 48.
-[88]
+[87]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the main.maf file.
@@ -3380,8 +3398,13 @@ Package minitoc Info: I0009
 
 
 Package cleveref Info: loaded `french' language definitions on input line 51.
-[89]
-<config/psl-cover/back-bg.png, id=3323, 556.0775pt x 715.67375pt>
+[88]
+
+[89
+
+
+]
+<config/psl-cover/back-bg.png, id=3276, 556.0775pt x 715.67375pt>
 File: config/psl-cover/back-bg.png Graphic file (type png)
 <use config/psl-cover/back-bg.png>
 Package pdftex.def Info: config/psl-cover/back-bg.png  used on input line 51.
@@ -3423,10 +3446,7 @@ Overfull \hbox (1.42065pt too wide) in paragraph at lines 51--51
 
 
 
-[90
-
-
- <./config/psl-cover/back-bg.png>] (./main.aux
+[90 <./config/psl-cover/back-bg.png>] (./main.aux
 Package cleveref Info: loaded `french' language definitions on input line 23.
  (./others/remerciements.aux) (./ch1/ch1_main.aux) (./ch2/ch2_main.aux) (./ch3/ch3_main.aux) (./ch4/ch4_main.aux) (./others/conclusion.aux) (./others/liste_publi.aux))
  ***********
@@ -3444,21 +3464,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60909 strings out of 473190
- 1300037 string characters out of 5715800
- 2274325 words of memory out of 5000000
- 81960 multiletter control sequences out of 15000+600000
- 805035 words of font info for 536 fonts, out of 8000000 for 9000
+ 60901 strings out of 473190
+ 1300251 string characters out of 5715800
+ 2281015 words of memory out of 5000000
+ 81961 multiletter control sequences out of 15000+600000
+ 802132 words of font info for 534 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,96p,2445b,4022s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -3471,10 +3486,10 @@ pdfTeX warning (dest): name{glo:ram} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{glo:gpu} has been referenced but does not exist, replaced by a fixed one
 
  </Users/jliu/Library/texlive/2025/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.657pk></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (104 pages, 6174692 bytes).
+Output written on main.pdf (104 pages, 6171382 bytes).
 PDF statistics:
- 3836 PDF objects out of 4296 (max. 8388607)
- 2889 compressed objects within 29 object streams
- 487 named destinations out of 1000 (max. 500000)
- 112970 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 3789 PDF objects out of 4296 (max. 8388607)
+ 2842 compressed objects within 29 object streams
+ 488 named destinations out of 1000 (max. 500000)
+ 110922 words of extra memory for PDF output out of 128383 (max. 10000000)
 

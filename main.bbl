@@ -91,6 +91,89 @@
       \field{title}{Gpt-4 technical report}
       \field{year}{2023}
     \endentry
+    \entry{agrawal_automatic_2024}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=631c7a28987a8ae178b158422de2e85f}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6db8d9f9765bc340b3232f63273bed91}{%
+           family={Nikolaus},
+           familyi={N\bibinitperiod},
+           given={Mitja},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e7a3b754032c076ec8b687daa960046c}{%
+           family={Favre},
+           familyi={F\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=045d992c8b2acc57859aff433efd128f}{%
+           family={Fourtassi},
+           familyi={F\bibinitperiod},
+           given={Abdellah},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{6}{}{%
+        {{hash=c341e33a4b6ea903f6c723a46650c1be}{%
+           family={Calzolari},
+           familyi={C\bibinitperiod},
+           given={Nicoletta},
+           giveni={N\bibinitperiod}}}%
+        {{hash=549f49a0f40722c52169e0083730d12f}{%
+           family={Kan},
+           familyi={K\bibinitperiod},
+           given={Min-Yen},
+           giveni={M\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=a2552991b1433efe99cce9b2a665aae7}{%
+           family={Hoste},
+           familyi={H\bibinitperiod},
+           given={Veronique},
+           giveni={V\bibinitperiod}}}%
+        {{hash=5ca65e378c2b71d06107979d273315ed}{%
+           family={Lenci},
+           familyi={L\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8f51dd1b39e7ef8aa830c97a98536583}{%
+           family={Sakti},
+           familyi={S\bibinitperiod},
+           given={Sakriani},
+           giveni={S\bibinitperiod}}}%
+        {{hash=47c3156f10dfabf6842e8caf450fda15}{%
+           family={Xue},
+           familyi={X\bibinitperiod},
+           given={Nianwen},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Torino, Italia}%
+      }
+      \strng{namehash}{d0ab5e9a528b2bcead5d8a39206ddce9}
+      \strng{fullhash}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{fullhashraw}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{bibnamehash}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{authorbibnamehash}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{authornamehash}{d0ab5e9a528b2bcead5d8a39206ddce9}
+      \strng{authorfullhash}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{authorfullhashraw}{b59fc82e5ecb3f310edf2b1df3f8aa9a}
+      \strng{editorbibnamehash}{67cc341797d15e0b10b5e05c259573e8}
+      \strng{editornamehash}{c0f71bf98493a021e0ad741a5193b2ff}
+      \strng{editorfullhash}{67cc341797d15e0b10b5e05c259573e8}
+      \strng{editorfullhashraw}{67cc341797d15e0b10b5e05c259573e8}
+      \field{labelalpha}{Agrawal,\addhighpenspace2024}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{One of the most important communicative skills children have to learn is to engage in meaningful conversations with people around them. At the heart of this learning lies the mastery of contingency, i.e., the ability to contribute to an ongoing exchange in a relevant fashion (e.g., by staying on topic). Current research on this question relies on the manual annotation of a small sample of children, which limits our ability to draw general conclusions about development. Here, we propose to mitigate the limitations of manual labor by relying on automatic tools for contingency judgment in children's early natural interactions with caregivers. Drawing inspiration from the field of dialogue systems evaluation, we built and compared several automatic classifiers. We found that a Transformer-based pre-trained language model – when fine-tuned on a relatively small set of data we annotated manually (around 3,500 turns) – provided the best predictions. We used this model to automatically annotate, new and large-scale data, almost two orders of magnitude larger than our fine-tuning set. It was able to replicate existing results and generate new data-driven hypotheses. The broad impact of the work is to provide resources that can help the language development community study communicative development at scale, leading to more robust theories.}
+      \field{booktitle}{Proceedings of the 2024 {Joint} {International} {Conference} on {Computational} {Linguistics}, {Language} {Resources} and {Evaluation} ({LREC}-{COLING} 2024)}
+      \field{month}{5}
+      \field{title}{Automatic {Coding} of {Contingency} in {Child}-{Caregiver} {Conversations}}
+      \field{year}{2024}
+      \field{pages}{1856\bibrangedash 1870}
+      \range{pages}{15}
+    \endentry
     \entry{ambridge2011child}{book}{}{}
       \name{author}{2}{}{%
         {{hash=73bcdb5f52b2665a8cdf4a78e2394b93}{%
@@ -845,69 +928,6 @@
       \field{year}{2024}
       \field{pages}{54\bibrangedash 64}
       \range{pages}{11}
-    \endentry
-    \entry{chan2022data}{article}{}{}
-      \name{author}{8}{}{%
-        {{hash=ef3f55ed4b0437cd7e037b4527db3a88}{%
-           family={Chan},
-           familyi={C\bibinitperiod},
-           given={Stephanie},
-           giveni={S\bibinitperiod}}}%
-        {{hash=0b3e9682fc5db39420c22d4267683326}{%
-           family={Santoro},
-           familyi={S\bibinitperiod},
-           given={Adam},
-           giveni={A\bibinitperiod}}}%
-        {{hash=5a6992cb7343d0d41d546043d208c905}{%
-           family={Lampinen},
-           familyi={L\bibinitperiod},
-           given={Andrew},
-           giveni={A\bibinitperiod}}}%
-        {{hash=0b79858d9e6fb235b6a3b92e709bda0d}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Jane},
-           giveni={J\bibinitperiod}}}%
-        {{hash=3f3a905d16e64c5f11efab25a0da6255}{%
-           family={Singh},
-           familyi={S\bibinitperiod},
-           given={Aaditya},
-           giveni={A\bibinitperiod}}}%
-        {{hash=535cce7dcfc009a18b779fe06581d894}{%
-           family={Richemond},
-           familyi={R\bibinitperiod},
-           given={Pierre},
-           giveni={P\bibinitperiod}}}%
-        {{hash=0fcdaf72d468af2c3f4ecc80fd7d2b3f}{%
-           family={McClelland},
-           familyi={M\bibinitperiod},
-           given={James},
-           giveni={J\bibinitperiod}}}%
-        {{hash=b0e56d87bc44e497c3ed1a2546f53283}{%
-           family={Hill},
-           familyi={H\bibinitperiod},
-           given={Felix},
-           giveni={F\bibinitperiod}}}%
-      }
-      \strng{namehash}{ab4a0232ac02ca174d325777270d97c3}
-      \strng{fullhash}{117b9c46c24367420fb1eeb755bf5b9c}
-      \strng{fullhashraw}{117b9c46c24367420fb1eeb755bf5b9c}
-      \strng{bibnamehash}{bbba62adfdb1455fa9671a8ac0bb0843}
-      \strng{authorbibnamehash}{bbba62adfdb1455fa9671a8ac0bb0843}
-      \strng{authornamehash}{ab4a0232ac02ca174d325777270d97c3}
-      \strng{authorfullhash}{117b9c46c24367420fb1eeb755bf5b9c}
-      \strng{authorfullhashraw}{117b9c46c24367420fb1eeb755bf5b9c}
-      \field{labelalpha}{Chan,\addhighpenspace2022}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Advances in neural information processing systems}
-      \field{title}{Data distributional properties drive emergent in-context learning in transformers}
-      \field{volume}{35}
-      \field{year}{2022}
-      \field{pages}{18878\bibrangedash 18891}
-      \range{pages}{14}
     \endentry
     \entry{chang2006dual}{article}{}{}
       \name{author}{3}{}{%
@@ -2243,6 +2263,47 @@
       \field{year}{2017}
       \field{pages}{248\bibrangedash 265}
       \range{pages}{18}
+    \endentry
+    \entry{godfrey1992switchboard}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=ec6bb849d6cd28b8c1df42920fa28c4f}{%
+           family={Godfrey},
+           familyi={G\bibinitperiod},
+           given={John\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ac6fe45d8cb4faf8cf8ab71d29d0160f}{%
+           family={Holliman},
+           familyi={H\bibinitperiod},
+           given={Edward\bibnamedelima C},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=34a1b35cc033c2148f4ca4192755ef87}{%
+           family={McDaniel},
+           familyi={M\bibinitperiod},
+           given={Jane},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{d81e10a0da12e7608a3b0cd9df7a1422}
+      \strng{fullhash}{284b7f08be98e73276d378e604f47ac4}
+      \strng{fullhashraw}{284b7f08be98e73276d378e604f47ac4}
+      \strng{bibnamehash}{284b7f08be98e73276d378e604f47ac4}
+      \strng{authorbibnamehash}{284b7f08be98e73276d378e604f47ac4}
+      \strng{authornamehash}{d81e10a0da12e7608a3b0cd9df7a1422}
+      \strng{authorfullhash}{284b7f08be98e73276d378e604f47ac4}
+      \strng{authorfullhashraw}{284b7f08be98e73276d378e604f47ac4}
+      \field{labelalpha}{Godfrey,\addhighpenspace1992}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Acoustics, speech, and signal processing, ieee international conference on}
+      \field{title}{SWITCHBOARD: Telephone speech corpus for research and development}
+      \field{volume}{1}
+      \field{year}{1992}
+      \field{pages}{517\bibrangedash 520}
+      \range{pages}{4}
     \endentry
     \entry{goldstein2003social}{article}{}{}
       \name{author}{3}{}{%
@@ -3995,7 +4056,6 @@
       \field{labelalpha}{Marcus,\addhighpenspace1993}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Whether children require “negative evidence” (i.e., information about which strings of words are not grammatical sentences) to eliminate their ungrammatical utterances is a central question in language acquisition because, lacking negative evidence, a child would require internal mechanisms to unlearn grammatical errors. Several recent studies argue that parents provide noisy feedback, that is, certain discourse patterns that differ in frequency depending on the grammaticality of children's utterances. However, no one has explicitly discussed how children could use noisy feedback, and I show that noisy feedback is unlikely to be necessary for language learning because (a) if noisy feedback exists it is too weak: a child would have to repeat a given sentence verbatim at least 85 times to decide with reasonable certainty that it is ungrammatical; (b) no kind of noisy feedback is provided to all children at all ages for all types of errors; and (c) noisy feedback may be an artifact of defining parental reply categories relative to the child's utterance. For example, because nearly all parental speech is grammatical, exact repetitions (verbatim repetitions of child utterances) necessarily follow more of children's grammatical utterances than their ungrammatical utterances. There is no evidence that noisy feedback is required for language learning, or even that noisy feedback exists. Thus internal mechanisms are necessary to account for the unlearning of ungrammatical utterances.}
@@ -4014,46 +4074,6 @@
       \verb{doi}
       \verb 10.1016/0010-0277(93)90022-N
       \endverb
-    \endentry
-    \entry{marcus1993building}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=ec853a25808fcef936838291b7e77573}{%
-           family={Marcus},
-           familyi={M\bibinitperiod},
-           given={Mitch},
-           giveni={M\bibinitperiod}}}%
-        {{hash=1a6b1a60e440837f7e64b04d28996d76}{%
-           family={Santorini},
-           familyi={S\bibinitperiod},
-           given={Beatrice},
-           giveni={B\bibinitperiod}}}%
-        {{hash=faf1e27f83290036810677b223d115ac}{%
-           family={Marcinkiewicz},
-           familyi={M\bibinitperiod},
-           given={Mary\bibnamedelima Ann},
-           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \strng{namehash}{f6bf6970e22596f7914ee185c2513686}
-      \strng{fullhash}{07bd759303baa19156c8b2790545d744}
-      \strng{fullhashraw}{07bd759303baa19156c8b2790545d744}
-      \strng{bibnamehash}{07bd759303baa19156c8b2790545d744}
-      \strng{authorbibnamehash}{07bd759303baa19156c8b2790545d744}
-      \strng{authornamehash}{f6bf6970e22596f7914ee185c2513686}
-      \strng{authorfullhash}{07bd759303baa19156c8b2790545d744}
-      \strng{authorfullhashraw}{07bd759303baa19156c8b2790545d744}
-      \field{labelalpha}{Marcus,\addhighpenspace1993}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extraalpha}{2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computational linguistics}
-      \field{number}{2}
-      \field{title}{Building a large annotated corpus of English: The Penn Treebank}
-      \field{volume}{19}
-      \field{year}{1993}
-      \field{pages}{313\bibrangedash 330}
-      \range{pages}{18}
     \endentry
     \entry{markson1997evidence}{article}{}{}
       \name{author}{2}{}{%
@@ -4425,6 +4445,67 @@
       \field{pages}{905789}
       \range{pages}{1}
     \endentry
+    \entry{misiek_development_2020}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=7e3ec6f9bc65c284bfbef58a76369c22}{%
+           family={Misiek},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e7a3b754032c076ec8b687daa960046c}{%
+           family={Favre},
+           familyi={F\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=045d992c8b2acc57859aff433efd128f}{%
+           family={Fourtassi},
+           familyi={F\bibinitperiod},
+           given={Abdellah},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Online}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{e5fd20a0f548101229d7d7f5872e55fa}
+      \strng{fullhash}{390a09061d39b4a368746c35930e4435}
+      \strng{fullhashraw}{390a09061d39b4a368746c35930e4435}
+      \strng{bibnamehash}{390a09061d39b4a368746c35930e4435}
+      \strng{authorbibnamehash}{390a09061d39b4a368746c35930e4435}
+      \strng{authornamehash}{e5fd20a0f548101229d7d7f5872e55fa}
+      \strng{authorfullhash}{390a09061d39b4a368746c35930e4435}
+      \strng{authorfullhashraw}{390a09061d39b4a368746c35930e4435}
+      \field{extraname}{1}
+      \field{labelalpha}{Misiek,\addhighpenspace2020}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Interactive alignment is a major mechanism of linguistic coordination. Here we study the way this mechanism emerges in development across the lexical, syntactic, and conceptual levels. We leverage NLP tools to analyze a large-scale corpus of child-adult conversations between 2 and 5 years old. We found that, across development, children align consistently to adults above chance and that adults align consistently more to children than vice versa (even controlling for language production abilities). Besides these consistencies, we found a diversity of developmental trajectories across linguistic levels. These corpus-based findings provide strong support for an early onset of multi-level linguistic alignment in children and invites new experimental work.}
+      \field{booktitle}{Proceedings of the {Workshop} on {Cognitive} {Modeling} and {Computational} {Linguistics}}
+      \field{month}{11}
+      \field{title}{Development of {Multi}-level {Linguistic} {Alignment} in {Child}-adult {Conversations}}
+      \field{urlday}{3}
+      \field{urlmonth}{2}
+      \field{urlyear}{2022}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{54\bibrangedash 58}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.18653/v1/2020.cmcl-1.7
+      \endverb
+      \verb{urlraw}
+      \verb https://aclanthology.org/2020.cmcl-1.7
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2020.cmcl-1.7
+      \endverb
+      \keyw{alignment,social learning}
+    \endentry
     \entry{misiek2020development}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=7e3ec6f9bc65c284bfbef58a76369c22}{%
@@ -4451,9 +4532,11 @@
       \strng{authornamehash}{e5fd20a0f548101229d7d7f5872e55fa}
       \strng{authorfullhash}{390a09061d39b4a368746c35930e4435}
       \strng{authorfullhashraw}{390a09061d39b4a368746c35930e4435}
+      \field{extraname}{2}
       \field{labelalpha}{Misiek,\addhighpenspace2020}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the workshop on cognitive modeling and computational linguistics}
@@ -4781,7 +4864,7 @@
       \field{pages}{200\bibrangedash 210}
       \range{pages}{11}
     \endentry
-    \entry{nikolaus2021modeling}{inproceedings}{}{}
+    \entry{nikolaus_modeling_2021}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=6db8d9f9765bc340b3232f63273bed91}{%
            family={Nikolaus},
@@ -4807,6 +4890,44 @@
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Children learn the meaning of words and sentences in their native language at an impressive speed and from highly ambiguous input. To account for this learning, previous computational modeling has focused mainly on the study of perception-based mechanisms like cross-situational learning. However, children do not learn only by exposure to the input. As soon as they start to talk, they practice their knowledge in social interactions and they receive feedback from their caregivers. In this work, we propose a model integrating both perception- and production-based learning using artificial neural networks which we train on a large corpus of crowd-sourced images with corresponding descriptions. We found that production-based learning improves performance above and beyond perception-based learning across a wide range of semantic tasks including both word- and sentence-level semantics. In addition, we documented a synergy between these two mechanisms, where their alternation allows the model to converge on more balanced semantic knowledge. The broader impact of this work is to highlight the importance of modeling language learning in the context of social interactions where children are not only understood as passively absorbing the input, but also as actively participating in the construction of their linguistic knowledge.}
+      \field{booktitle}{Proceedings of the 25th {Conference} on {Computational} {Natural} {Language} {Learning} ({CoNLL})}
+      \field{title}{Modeling the {Interaction} {Between} {Perception}-{Based} and {Production}-{Based} {Learning} in {Children}'s {Early} {Acquisition} of {Semantic} {Knowledge}}
+      \field{year}{2021}
+      \field{pages}{391\bibrangedash 407}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.18653/v1/2021.conll-1.31
+      \endverb
+    \endentry
+    \entry{nikolaus2021modeling}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=6db8d9f9765bc340b3232f63273bed91}{%
+           family={Nikolaus},
+           familyi={N\bibinitperiod},
+           given={Mitja},
+           giveni={M\bibinitperiod}}}%
+        {{hash=045d992c8b2acc57859aff433efd128f}{%
+           family={Fourtassi},
+           familyi={F\bibinitperiod},
+           given={Abdellah},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{16e65046cdcd2715c1cd76e9453ac71a}
+      \strng{fullhash}{f7337eb641850d1de46aaba8f16eb0c8}
+      \strng{fullhashraw}{f7337eb641850d1de46aaba8f16eb0c8}
+      \strng{bibnamehash}{f7337eb641850d1de46aaba8f16eb0c8}
+      \strng{authorbibnamehash}{f7337eb641850d1de46aaba8f16eb0c8}
+      \strng{authornamehash}{16e65046cdcd2715c1cd76e9453ac71a}
+      \strng{authorfullhash}{f7337eb641850d1de46aaba8f16eb0c8}
+      \strng{authorfullhashraw}{f7337eb641850d1de46aaba8f16eb0c8}
+      \field{extraname}{5}
+      \field{labelalpha}{Nikolaus,\addhighpenspace2021}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extraalpha}{3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 25th Conference on computational natural language learning}
@@ -4839,7 +4960,7 @@
       \strng{authornamehash}{16e65046cdcd2715c1cd76e9453ac71a}
       \strng{authorfullhash}{f7337eb641850d1de46aaba8f16eb0c8}
       \strng{authorfullhashraw}{f7337eb641850d1de46aaba8f16eb0c8}
-      \field{extraname}{5}
+      \field{extraname}{6}
       \field{labelalpha}{Nikolaus,\addhighpenspace2023}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
@@ -4879,7 +5000,7 @@
       \strng{authornamehash}{16e65046cdcd2715c1cd76e9453ac71a}
       \strng{authorfullhash}{f7337eb641850d1de46aaba8f16eb0c8}
       \strng{authorfullhashraw}{f7337eb641850d1de46aaba8f16eb0c8}
-      \field{extraname}{6}
+      \field{extraname}{7}
       \field{labelalpha}{Nikolaus,\addhighpenspace2023}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
@@ -4892,6 +5013,50 @@
       \field{year}{2023}
       \field{pages}{100985}
       \range{pages}{1}
+    \endentry
+    \entry{nikolaus_communicative_2022}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=6db8d9f9765bc340b3232f63273bed91}{%
+           family={Nikolaus},
+           familyi={N\bibinitperiod},
+           given={Mitja},
+           giveni={M\bibinitperiod}}}%
+        {{hash=427b7a5645aaca032dffb31db94ab009}{%
+           family={Prévot},
+           familyi={P\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=045d992c8b2acc57859aff433efd128f}{%
+           family={Fourtassi},
+           familyi={F\bibinitperiod},
+           given={Abdellah},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en-us}%
+      }
+      \strng{namehash}{16e65046cdcd2715c1cd76e9453ac71a}
+      \strng{fullhash}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \strng{fullhashraw}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \strng{bibnamehash}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \strng{authorbibnamehash}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \strng{authornamehash}{16e65046cdcd2715c1cd76e9453ac71a}
+      \strng{authorfullhash}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \strng{authorfullhashraw}{ebf492ce5f70afe41533de7e49aaa9b7}
+      \field{extraname}{8}
+      \field{labelalpha}{Nikolaus,\addhighpenspace2022}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Children start to communicate and use language in social interactions from the very early stages in development. This allows them to experiment with their current linguistic knowledge and receive valuable feedback from their interlocutors. We conducted a large-scale corpus study to examine the quality of positive and negative Communicative Feedback signals that caregivers provide in terms of time-contingent responses and clarification requests. We found evidence for the effect of such feedback in supporting children’s production of intelligible speech. The broad impact of this paper is to highlight how general social feedback mechanisms that govern human communication can also support child language acquisition.}
+      \field{booktitle}{Proceedings of the 44th {Annual} {Meeting} of the {Cognitive} {Science} {Society}}
+      \field{title}{Communicative {Feedback} as a {Mechanism} {Supporting} the {Production} of {Intelligible} {Speech} in {Early} {Childhood}}
+      \field{year}{2022}
+      \verb{doi}
+      \verb DOI: 10.31234/osf.io/sg5mv
+      \endverb
+      \keyw{Developmental Psychology,Language Aquisition,Social and Behavioral Sciences}
     \endentry
     \entry{nikolaus_communicative_2023a}{inproceedings}{}{}
       \name{author}{3}{}{%
@@ -4919,7 +5084,7 @@
       \strng{authornamehash}{16e65046cdcd2715c1cd76e9453ac71a}
       \strng{authorfullhash}{ebf492ce5f70afe41533de7e49aaa9b7}
       \strng{authorfullhashraw}{ebf492ce5f70afe41533de7e49aaa9b7}
-      \field{extraname}{7}
+      \field{extraname}{9}
       \field{labelalpha}{Nikolaus,\addhighpenspace2023}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
@@ -5033,43 +5198,6 @@
       \field{journaltitle}{arXiv:2503.22426}
       \field{title}{Long-Tail Crisis in Nearest Neighbor Language Models}
       \field{year}{2025}
-    \endentry
-    \entry{o1994hippocampal}{article}{}{}
-      \name{author}{2}{}{%
-        {{hash=44522215103e170f9715ea2a41223e04}{%
-           family={O'Reilly},
-           familyi={O\bibinitperiod},
-           given={Randall\bibnamedelima C},
-           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=fa623109668f355db4430ccca298f768}{%
-           family={McClelland},
-           familyi={M\bibinitperiod},
-           given={James\bibnamedelima L},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley Online Library}%
-      }
-      \strng{namehash}{8de31727ce937e746f6a4e2d6cba5b43}
-      \strng{fullhash}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \strng{fullhashraw}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \strng{bibnamehash}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \strng{authorbibnamehash}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \strng{authornamehash}{8de31727ce937e746f6a4e2d6cba5b43}
-      \strng{authorfullhash}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \strng{authorfullhashraw}{772754bfcda76a4c05ab3e5830d0aa3b}
-      \field{labelalpha}{OReilly,\addhighpenspace1994}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Hippocampus}
-      \field{number}{6}
-      \field{title}{Hippocampal conjunctive encoding, storage, and recall: Avoiding a trade-off}
-      \field{volume}{4}
-      \field{year}{1994}
-      \field{pages}{661\bibrangedash 682}
-      \range{pages}{22}
     \endentry
     \entry{o2012multi}{article}{}{}
       \name{author}{3}{}{%
@@ -6029,53 +6157,6 @@
       \range{pages}{22}
       \verb{doi}
       \verb 10.1017/S0142716405050228
-      \endverb
-    \endentry
-    \entry{schapiro2017complementary}{article}{}{}
-      \name{author}{4}{}{%
-        {{hash=e4670f2843e82db1b58585a1ed2af468}{%
-           family={Schapiro},
-           familyi={S\bibinitperiod},
-           given={Anna\bibnamedelima C},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=599b4070431d95b30ec9da55bd7f128f}{%
-           family={Turk-Browne},
-           familyi={T\bibinithyphendelim B\bibinitperiod},
-           given={Nicholas\bibnamedelima B},
-           giveni={N\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-        {{hash=cb26a61e230d172a60ade11b9f69bdba}{%
-           family={Botvinick},
-           familyi={B\bibinitperiod},
-           given={Matthew\bibnamedelima M},
-           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=d3a6b7f13d2f9bb6bc7577613dd7bee6}{%
-           family={Norman},
-           familyi={N\bibinitperiod},
-           given={Kenneth\bibnamedelima A},
-           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \strng{namehash}{d7169ea5b02808e4920f8b2c5e9e4531}
-      \strng{fullhash}{9cc16933024e3354aed33e976724c2b5}
-      \strng{fullhashraw}{9cc16933024e3354aed33e976724c2b5}
-      \strng{bibnamehash}{9cc16933024e3354aed33e976724c2b5}
-      \strng{authorbibnamehash}{9cc16933024e3354aed33e976724c2b5}
-      \strng{authornamehash}{d7169ea5b02808e4920f8b2c5e9e4531}
-      \strng{authorfullhash}{9cc16933024e3354aed33e976724c2b5}
-      \strng{authorfullhashraw}{9cc16933024e3354aed33e976724c2b5}
-      \field{labelalpha}{Schapiro,\addhighpenspace2017}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Philosophical Transactions of the Royal Society B: Biological Sciences}
-      \field{number}{1711}
-      \field{title}{Complementary learning systems within the hippocampus: a neural network modelling approach to reconciling episodic memory with statistical learning}
-      \field{volume}{372}
-      \field{year}{2017}
-      \field{pages}{20160049}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1098/rstb.2016.0049
       \endverb
     \endentry
     \entry{schulman_proximal_2017}{misc}{}{}
@@ -7714,6 +7795,14 @@
       \field{year}{2016}
     \endentry
   \enddatalist
+  \missing{agrawal2026scaffolding}
+  \missing{bensaid2021cstc}
+  \missing{bensaid2021fairytailor}
+  \missing{chan2022transformers}
+  \missing{lau2017grammaticality}
+  \missing{lison2016opensubtitles}
+  \missing{schoneberger2010three}
+  \missing{stolcke2000dialogue}
   \missing{thomas_microbubble_2013}
   \missing{ueda_tissue_2020}
 \endrefsection
