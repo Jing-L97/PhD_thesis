@@ -18,9 +18,8 @@
 \pslcover{} % création des couvertures, avec résumé/abstract
 
 \frontmatter
-% Template-only material excluded; original source retained.
-% \include{others/remerciements}
 \AddResumeAbstract % macro pour résumé et abstract
+\include{others/remerciements}
 \include{others/publications_contributions}
 
 \begin{singlespace} % réduction de l'interligne pour condenser
@@ -49,7 +48,7 @@
 \include{ch5/ch5_main}
 \include{ch6/ch6_main}
 %%%%%%%%%%%%%%%% AUTRES PAGES %%%%%%%%%%%%%%%%%%
-\backmatter
+% Keep chapter numbering active for the lettered appendices after the bibliography.
 % Template-only material excluded; original source retained.
 % \include{others/conclusion}
 % Template-only material excluded; original source retained.
@@ -59,5 +58,14 @@
 \setlength\labelalphawidth{0em}
 \small\printbibliography[heading=bibintoc,title=Bibliographie]
 \end{singlespace}
+
+\appendix
+\crefalias{chapter}{appendix}
+\crefname{appendix}{appendix}{appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+\include{appendices/appendix_a_vocabulary}
+\include{appendices/appendix_b_retrieval}
+\include{appendices/appendix_c_dialogue}
+\include{appendices/appendix_d_feedback}
 
 \end{document}

@@ -100,7 +100,7 @@ While numerous LLMs are currently available, testing all of them across multiple
 
 \subsubsection{Fine-tuned model}  
 
-In addition to the LLMs described above, which we adapt to child-caregiver interaction via prompting, we also evaluated a smaller---and computationally more manageable—pre-trained conventional model that we directly fine-tuned on child-caregiver data. Specifically, we fine-tuned the distilled encoder-decoder BlenderBot model \citep{roller2020recipes} on conversation data from the CHILDES corpus. \footnote{See Section~\ref{sec:benchmark_finetuning} for fine-tuning details.} This approach allowed us to compare prompt-based adaptation of large, general-purpose models with traditional fine-tuning approaches targeting child-caregiver interaction patterns.
+In addition to the LLMs described above, which we adapt to child-caregiver interaction via prompting, we also evaluated a smaller---and computationally more manageable—pre-trained conventional model that we directly fine-tuned on child-caregiver data. Specifically, we fine-tuned the distilled encoder-decoder BlenderBot model \citep{roller2020recipes} on conversation data from the CHILDES corpus. \footnote{See Appendix~\ref{sec:benchmark_finetuning} for fine-tuning details.} This approach allowed us to compare prompt-based adaptation of large, general-purpose models with traditional fine-tuning approaches targeting child-caregiver interaction patterns.
 
 
 
@@ -137,7 +137,7 @@ Single-turn testing evaluated the linguistic properties of model responses to in
 
 We tested the initial built-in capabilities and biases of the LLMs in a \textbf{zero-shot} setting where LLMs received only the utterance(s) they were expected to respond to, with no additional examples from the CHILDES dataset. In addition, to test our metrics' ability to capture improvement, we tested the same models again in a \textbf{few-shot setting} where the models were given the first three child-caregiver pairs of turns in each conversation, allowing the model to observe examples of both the linguistic structure and interactive dynamics for the same participants. 
 
-Both conditions specified the interlocutor role and the child's age. The supplied few-shot templates additionally instructed caregivers to use at most 50 words and children to use at most 6 words (Section~\ref{sec:prompts}). The zero-shot/few-shot comparison therefore measures the combined effect of demonstrations and length instructions, rather than isolating either component.
+Both conditions specified the interlocutor role and the child's age. The supplied few-shot templates additionally instructed caregivers to use at most 50 words and children to use at most 6 words (Appendix~\ref{sec:prompts}). The zero-shot/few-shot comparison therefore measures the combined effect of demonstrations and length instructions, rather than isolating either component.
 
 
 
@@ -240,7 +240,7 @@ In conclusion, we explored a multi-level benchmarking approach for assessing LLM
 
 
 \section{Limitations}
-The supplied few-shot templates combine conversational demonstrations with explicit output-length instructions (Section~\ref{sec:prompts}). Differences from zero-shot prompting therefore reflect this combined change, and cannot isolate the effect of examples on length or complexity.
+The supplied few-shot templates combine conversational demonstrations with explicit output-length instructions (Appendix~\ref{sec:prompts}). Differences from zero-shot prompting therefore reflect this combined change, and cannot isolate the effect of examples on length or complexity.
 
 
 While our explorative work has led to some initial insights, it also has several limitations and raises questions for future research.
@@ -256,110 +256,4 @@ Finally, we reported that the few-shot prompting condition improved caregiver-LL
 All data used in this study is already publicly available.
 This work focuses on model benchmarking and improvement using offline child-caregiver data and internal simulations, aiming to advance fundamental research in this area. We do not consider this testing sufficient for deployment; any future real-life applications should undergo rigorous validation in child-safe environments with appropriate human oversight, such as by teachers or parents.
 
-
-
-% Optional: adjust page style for appendix
-\setlength{\parskip}{6pt}
-
-% Start new page for appendix
-\clearpage
-
-% Appendix title
-
-
-\section{Supplementary materials: prompt templates}
-\label{sec:prompts}
-% \subsection{Prompt templates}
-% AUTHOR CHECK: the caregiver templates below say "response to parent input" despite the caregiver role. Verify the executed prompts before correcting these verbatim templates.
-We provide prompt templates in different conditions. These are templates for the multi-turn testing. The templates for the single-turn testing are the same, except there is no conversation history.
-
-
-\paragraph{The zero-shot prompt template for the caregiver}
-
-
-[\textbf{Conversation history} ADULT: \textless Utterance\textgreater, CHI: \textless Utterance\textgreater ...]
-You are the parent of a \textless Month\textgreater-month-old English-speaking child. Now, you are having a conversation with your child. \texttt{<SILENCE>} indicates silence in the previous turn; \texttt{<UNINTELLIGIBLE>} indicates unintelligible speech. Based on the given conversation history above, give your response to parent input as ADULT. Do not output the speaker label. 
-
-
-
-\paragraph{The zero-shot prompt template for the child}
-
-
-[\textbf{Conversation history} CHI: \textless Utterance\textgreater, ADULT: \textless Utterance\textgreater ...]
-You are a \textless Month\textgreater-month-old English-speaking child. Now, you are having a conversation with your parent. \texttt{<SILENCE>} indicates silence in the previous turn; \texttt{<UNINTELLIGIBLE>} indicates unintelligible speech. Based on the given conversation history above, give your response to parent input as CHI. Do not output the speaker label. 
-
-
-
-\paragraph{The few-shot prompt template for the caregiver}
-
-
-[\textbf{Conversation history} ADULT: \textless Utterance\textgreater, CHI: \textless Utterance\textgreater ...]
-You are the parent of a \textless Month\textgreater-month-old English-speaking child. Now, you are having a conversation with your child. \texttt{<SILENCE>} indicates silence in the previous turn; \texttt{<UNINTELLIGIBLE>} indicates unintelligible speech. Ensure your response is no longer than 50 words regardless of the prompt. Here are some example interactions: CHI: \textless Utterance\textgreater, ADULT: \textless Utterance\textgreater ... Follow the example interactions. Based on the given conversation history above, give your response to parent input as ADULT. Do not output the speaker label. 
-
-
-
-\paragraph{The few-shot prompt template for the child}
-
-[\textbf{Conversation history} CHI: \textless Utterance\textgreater, ADULT: \textless Utterance\textgreater ...]
-You are a \textless Month\textgreater-month-old English-speaking child. Now, you are having a conversation with your parent. \texttt{<SILENCE>} indicates silence in the previous turn; \texttt{<UNINTELLIGIBLE>} indicates unintelligible speech. Ensure your response is no longer than 6 words regardless of the prompt. Here are some example interactions: CHI: \textless Utterance\textgreater, ADULT: \textless Utterance\textgreater ... Follow the example interactions. Based on the given conversation history above, give your response to parent input as CHI. Do not output the speaker label. 
-
-
-
-\section{Supplementary materials: fine-tuning details}
-\label{sec:benchmark_finetuning}
-We fine-tuned the Blenderbot model, a 400M parameter architecture comprising: a retriever for dialogue history; a Seq2Seq generator with 2 encoder layers, 24 decoder layers, 2560-dimensional embeddings, and 32 attention heads; retrieve-and-refine architectures combining dialogue and knowledge retrieval. The parameters were optimized through preliminary experiments, resulting in a batch size of 16 and a learning rate of 0.0001 maintained over 4 epochs. The fine-tuning data consisted of 2.6M interaction pairs with 15.8M total word tokens (4.4M child tokens and 11.4M adult tokens) restructured from CHILDES dataset \citep{macwhinney2000childes}.
-
-\section{Supplementary materials: example generations}
-\label{sec:benchmark_examples}
-
-
-We present sample generations in Table~\ref{tab:samples}. It shows child-caregiver conversations (CHILDES corpus) and GPT-4o generations in a multi-turn setting where the child and caregiver are two instances of GPT-4o. All conversations start from the same child turn (here, all conversations start from a child outputting ``silence''). To extract features, we preprocessed all samples by removing non-verbal behavioral annotations (e.g., \textit{giggles}) and lower-casing words to focus exclusively on verbal content. 
-
-\begin{table*}[h]
-    \small
-    \centering
-    \caption{Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o under the few-shot condition with three interaction examples and output-length instructions.}
-    \label{tab:samples}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabularx}{\textwidth}{l l X}
-    \toprule
-    \textbf{Source} & \textbf{Role} & \textbf{Utterance} \\
-    \midrule
-    \multirow{8}{*}{\shortstack[l]{CHILDES\\(Human)}} 
-    & C & \textit{SILENCE} \\
-    & A & wanna play catch \\
-    & C & let's play catch \\
-    & A & okay almost \\
-    & C & yeah \\
-    & A & try it again put your hands in like this \\
-    & C & almost \\
-    & A & you wanna hit it \\
-    \midrule
-    \multirow{8}{*}{\shortstack[l]{GPT-4o\\(Zero-shot)}} 
-    & C & \textit{SILENCE} \\
-    & A & I see you're still thinking about cherries. It's okay to feel upset. Would you like a hug while we figure out something else yummy to eat? \\
-    & C & \textit{SILENCE} \\
-    & A & I know you're feeling quiet right now. I'm here when you're ready. Would you like to hold the banana and see if it feels fun to peel? \\
-    & C & Banana! Peel it? \\
-    & A & Yes, let's peel the banana! Can you help me pull the peel down? Then we can eat it together. Yum! \\
-    & C & Banana! Peel! Eat! \\
-    & A & Yes! Let’s peel the banana together. Peel, peel! Now take a bite—yum! Is it tasty? \\
-    \midrule
-    \multirow{8}{*}{\shortstack[l]{GPT-4o\\(Few-shot)}} 
-    & C & \textit{SILENCE} \\
-    & A & Do you love your big red truck? \\
-    & C & Big red truck! My truck! \\
-    & A & Is it your big red truck? Where will you drive it? \\
-    & C & Drive to park! Big red truck! \\
-    & A & Are we driving your big red truck to the park? That sounds so fun! \\
-    & C & My truck drive park! \\
-    & A & Yes, your big red truck! We can drive it to the park! \\
-    
-    \bottomrule
-    \end{tabularx}
-    
-    \vspace{1mm}
-    \raggedright
-    \footnotesize
-    \textbf{Notes:} A = Adult, C = Child. All model-generated responses were obtained using default sampling parameters (temperature = 1.0). \textit{SILENCE} marks an empty turn. Human dialogues are from the CHILDES corpus \citep{macwhinney2000childes}.
-\end{table*}
+Prompt templates, fine-tuning details, and example generations are provided in Appendix~\ref{app:dialogue}.
