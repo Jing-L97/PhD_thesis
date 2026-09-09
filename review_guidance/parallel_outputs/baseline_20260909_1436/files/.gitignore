@@ -1,0 +1,31 @@
+# macOS folder metadata
+.DS_Store
+
+# LaTeX auxiliary files, including chapter-level builds
+*.aux
+*.fdb_latexmk
+*.fls
+
+# Generated files for the thesis entry point
+/main.acn
+/main.acr
+/main.alg
+/main.bbl
+/main.bcf
+/main.blg
+/main.glg
+/main.glo
+/main.gls
+/main.ist
+/main.lof
+/main.log
+/main.lot
+/main.maf
+/main.mtc*
+/main.out
+/main.run.xml
+/main.synctex.gz
+/main.toc
+
+# Editor backups
+*.bak

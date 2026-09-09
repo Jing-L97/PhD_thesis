@@ -1,0 +1,122 @@
+{
+  "main.pdf": {
+    "sha256": "931b6b16ce15a6256d09840ee41c7fe233b22b9d7e86ea174b157ed778af8b38",
+    "bytes": 6560135
+  },
+  "mabiblio.bib": {
+    "sha256": "53f723f78b82ce556aa9615854ed5bbd497d70d4278aadfe013bb6c07f56da65",
+    "bytes": 1372147
+  },
+  "main.tex": {
+    "sha256": "6b6aa0a6c5019e42f0760475384609d506313098cd1b0dc7435d2a30f3e843ce",
+    "bytes": 1943
+  },
+  ".gitignore": {
+    "sha256": "c279b274d7385f1ad42b5bdd36c75e47efc1db196431324f815128d821eccdec",
+    "bytes": 389
+  },
+  "main.log": {
+    "sha256": "a5b75080fe0caff314627a24d8a0916bd576370206531ddc89670637baed28cd",
+    "bytes": 235505
+  },
+  "ch1/ch1_main.tex": {
+    "sha256": "f27408fad7331da61047cdfded3333efcd8aabf37ad3f244f84d08a0e3b38827",
+    "bytes": 3591
+  },
+  "ch6/ch6_main.tex": {
+    "sha256": "a1ea509575460293d3e5e46bf1d67c2d120c0160388bcda91f39b6db597ebd37",
+    "bytes": 51075
+  },
+  "ch6/thesis/general_discussion.tex": {
+    "sha256": "a1ea509575460293d3e5e46bf1d67c2d120c0160388bcda91f39b6db597ebd37",
+    "bytes": 51075
+  },
+  "config/macro.tex": {
+    "sha256": "0bb9f98d41b6c64660ed57163b3a0f98b0934bf3216438cccbf426ae94e06fd2",
+    "bytes": 1701
+  },
+  "config/parameters.tex": {
+    "sha256": "c73eda8846304574745573848f84c4ac40a9aec2d41c2eed601767ec01ab5720",
+    "bytes": 8216
+  },
+  "config/psl-cover/README.md": {
+    "sha256": "b6202ad8e07d1ca312e6141b5b84e96474768b6d41a069416779190e84ba6150",
+    "bytes": 11388
+  },
+  "config/psl-cover/psl-cover.sty": {
+    "sha256": "be883bd82121e1b99e7bd67b7843cc4676b4389826f8ae906673404c2583eace",
+    "bytes": 12189
+  },
+  "others/liste_publi.tex": {
+    "sha256": "2a99509b7bec578b94de83a194d0a81cf69d4b18035cb3426c84ad8826dd42cc",
+    "bytes": 903
+  },
+  "others/conclusion.tex": {
+    "sha256": "b3fb769fa8d719bb16c569043b3266f70fdf1115588dcd6c88f13c95373229ae",
+    "bytes": 236
+  },
+  "others/remerciements.tex": {
+    "sha256": "03d52db33590a3ffd65b4ff925e405fecc558b9e63d050b6a7e1d6e1dfcd5b71",
+    "bytes": 36
+  },
+  "others/info.tex": {
+    "sha256": "188de0d849060f4677f3580b6df77a21b300e11cb09143e43eaba1a490565ce4",
+    "bytes": 1333
+  },
+  "others/glossaire.tex": {
+    "sha256": "3976f7e9e9dc11f44c7a86c5642241524d3cf59bd7df0bb6ef30848d5296e642",
+    "bytes": 431
+  },
+  "ch3/ch3_main.tex": {
+    "sha256": "c8796adbbd4195ebae9fc107578663f316dd4a051d7692e65b70f261c2b903a2",
+    "bytes": 676
+  },
+  "ch3/papers/exp_vocab/main.tex": {
+    "sha256": "fa94f8114c0bfa74d1e9a0aee56e56912cc98c5630d9f7e9b48af86fa9e44ae5",
+    "bytes": 60709
+  },
+  "ch4/ch4_main.tex": {
+    "sha256": "e2b416b7286fc719bb17c0fdce641e4c8fbc9dc5845e3e75d359cd98db00c0ff",
+    "bytes": 592
+  },
+  "ch4/papers/RAG/main.tex": {
+    "sha256": "778aec33e8963d94ce3a606c44064ce33ea10b1b302e51711b475e2358c0ea93",
+    "bytes": 77596
+  },
+  "ch5/ch5_main.tex": {
+    "sha256": "d3b3598a6fdb8e853ef4eb808e4f42533ba76a82a556d40051813ef2b153ea72",
+    "bytes": 1804
+  },
+  "ch5/papers/RLHF/main.tex": {
+    "sha256": "7d308df02ca7c728519eaf612934d1078b341f8e1c0e91a3f353d706516f1bdc",
+    "bytes": 66526
+  },
+  "ch5/papers/LLM_benchmark/main.tex": {
+    "sha256": "341ce4693bd2b58c8a2970a8af01005a858e84f3761928159611575155e5601e",
+    "bytes": 43436
+  },
+  "ch5/papers/LLM_benchmark/acl.sty": {
+    "sha256": "b0f6266fd9c1bda760d4d86ff0e2c4bc32bc8a2764111b12f999ba2aad8d58f5",
+    "bytes": 11927
+  },
+  "ch5/papers/LLM_benchmark/custom.bib": {
+    "sha256": "6a4d129cb51972cef76dcd3c9759dd56735b9fc4a459d0103bfcab20a280c48f",
+    "bytes": 20053
+  },
+  "ch5/thesis/intro.tex": {
+    "sha256": "dbf6c05a6d61d696fe2df106d05a4ea6186c6f0a75c887c72f9c0571d74bc856",
+    "bytes": 4968
+  },
+  "ch5/thesis/discussion.tex": {
+    "sha256": "4a9282906d3994b8aaf74272957df8d9dc2fd51c7ce9142f598d6c7336c7e93e",
+    "bytes": 10564
+  },
+  "ch2/main.tex": {
+    "sha256": "a79dc7ebc69bdbb6d1dec09d766be2aeb1ea370bafd9e7adbbb53fbc8b34f274",
+    "bytes": 68244
+  },
+  "ch2/ch2_main.tex": {
+    "sha256": "aabfe196cd903594b2c4d43915ad7fc8a34732b6a477b449f3937531e7d0e52a",
+    "bytes": 490
+  }
+}

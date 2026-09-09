@@ -1,0 +1,47 @@
+% !TeX root = ../main.tex
+\chapter[LLMs and caregiver feedback]{Modeling child-caregiver interactions: benchmarking and reinforcement-learning studies}\label{chp4_chap}
+\chaptermark{LLMs and caregiver feedback}
+
+\objectif{Two complementary studies of how language models capture child-caregiver interaction: first, a benchmark of how state-of-the-art LLMs simulate child-directed dialogue; second, a reinforcement-learning study isolating which forms of caregiver feedback support grammar acquisition in child-like LMs.}
+
+% Each included paper uses \section/\subsection/\subsubsection at the article
+% level. Inside this chapter we want them demoted by one level so the paper
+% appears as a single numbered section. \let is used in reverse order to avoid
+% cascading demotion.
+\newcommand{\demotesectioning}{%
+  \let\oldsection\section
+  \let\oldsubsection\subsection
+  \let\oldsubsubsection\subsubsection
+  \let\section\oldsubsection
+  \let\subsection\oldsubsubsection
+  \let\subsubsection\paragraph
+}
+
+% --- Intro ------------------------------------------------------------
+\section{Introduction}
+\begingroup
+\demotesectioning
+\input{ch5/thesis/intro.tex}
+\endgroup
+
+
+% --- Study 1 ------------------------------------------------------------
+\section{Benchmarking LLMs for mimicking child-caregiver language in interaction}
+\begingroup
+\demotesectioning
+\input{ch5/papers/LLM_benchmark/main.tex}
+\endgroup
+
+% --- Study 2 -------------------------------------------------------------
+\section{Which forms of caregiver feedback support grammar learning?}
+\begingroup
+\demotesectioning
+\input{ch5/papers/RLHF/main.tex}
+\endgroup
+
+% --- Discussion ------------------------------------------------------------
+\section{Discussion}
+\begingroup
+\demotesectioning
+\input{ch5/thesis/discussion.tex}
+\endgroup
