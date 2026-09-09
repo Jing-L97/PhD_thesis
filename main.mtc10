@@ -24,13 +24,18 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.5}Conclusion}{\reset@font\mtcSSfont 59}{subsection.4.2.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.6}Limitations}{\reset@font\mtcSSfont 60}{subsection.4.2.6}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.7}Ethics statement}{\reset@font\mtcSSfont 61}{subsection.4.2.7}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the caregiver}{\reset@font\mtcPfont 63}{section*.87}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the child}{\reset@font\mtcPfont 63}{section*.88}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the caregiver}{\reset@font\mtcPfont 63}{section*.89}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the child}{\reset@font\mtcPfont 63}{section*.90}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Which forms of caregiver feedback support grammar learning?}{\reset@font\mtcSfont 66}{section.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Introduction}{\reset@font\mtcSSfont 66}{subsection.4.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Methods}{\reset@font\mtcSSfont 67}{subsection.4.3.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.3.2.1}Evaluation}{\reset@font\mtcSSSfont 69}{subsubsection.4.3.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Results}{\reset@font\mtcSSfont 69}{subsection.4.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.4}Discussion and Conclusions}{\reset@font\mtcSSfont 70}{subsection.4.3.4}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the caregiver}{\reset@font\mtcPfont 62}{section*.86}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the child}{\reset@font\mtcPfont 62}{section*.87}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the caregiver}{\reset@font\mtcPfont 62}{section*.88}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the child}{\reset@font\mtcPfont 62}{section*.89}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Which forms of caregiver feedback support grammar learning?}{\reset@font\mtcSfont 65}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Introduction}{\reset@font\mtcSSfont 65}{subsection.4.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Methods}{\reset@font\mtcSSfont 66}{subsection.4.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.3.2.1}Evaluation}{\reset@font\mtcSSSfont 68}{subsubsection.4.3.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Results}{\reset@font\mtcSSfont 68}{subsection.4.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.4}Discussion and Conclusions}{\reset@font\mtcSSfont 69}{subsection.4.3.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Discussion}{\reset@font\mtcSfont 78}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Simulation Fidelity and Learning Effects: Distinct Contributions}{\reset@font\mtcSSfont 79}{subsection.4.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Implications for Computational Models of Language Acquisition}{\reset@font\mtcSSfont 79}{subsection.4.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.3}Limitations and Directions toward Integrated Interaction-and-Learning Models}{\reset@font\mtcSSfont 80}{subsection.4.4.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.4.3.1}Chapter Conclusions}{\reset@font\mtcSSSfont 81}{subsubsection.4.4.3.1}}
