@@ -8,86 +8,92 @@
 \@writefile{lot}{\contentsline {xchapter}{LLMs and caregiver feedback}{49}{chapter.4}\protected@file@percent }
 \newlabel{chp4_chap}{{4}{49}{LLMs and caregiver feedback}{chapter.4}{}}
 \newlabel{chp4_chap@cref}{{[chapter][4][]4}{[1][49][]49}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Benchmarking LLMs for mimicking child-caregiver language in interaction}{50}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Introduction}{50}{subsection.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Related Work and novelty}{51}{subsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Method}{52}{subsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3.1}Data}{52}{subsubsection.4.1.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3.2}Models}{52}{subsubsection.4.1.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Fine-tuned model}{52}{section*.73}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3.3}Benchmarking}{53}{subsubsection.4.1.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Single-turn testing}{53}{section*.74}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Multi-turn testing}{53}{section*.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Zero vs. Few-shot settings}{53}{section*.78}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3.4}Metrics}{53}{subsubsection.4.1.3.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Developmental trajectories of six linguistic/conversational features in children and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}}{54}{figure.caption.76}\protected@file@percent }
-\newlabel{fig:child_single}{{4.1}{54}{Developmental trajectories of six linguistic/conversational features in children and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals}{figure.caption.76}{}}
-\newlabel{fig:child_single@cref}{{[figure][1][4]4.1}{[1][53][]54}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Developmental trajectories of six linguistic/conversational features in caregivers and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}}{55}{figure.caption.77}\protected@file@percent }
-\newlabel{fig:caregiver_single}{{4.2}{55}{Developmental trajectories of six linguistic/conversational features in caregivers and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals}{figure.caption.77}{}}
-\newlabel{fig:caregiver_single@cref}{{[figure][2][4]4.2}{[1][53][]55}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Results and Discussion}{55}{subsection.4.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4.1}Single-turn testing}{55}{subsubsection.4.1.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Child-LLM}{55}{section*.81}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Comparison of linguistic/conversational features across the single-turn and multi-turn testing for children. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. ``BB\_tuned'' which stands for the BlenderBot model fine-tuned on a subset of CHILDES. Finally, for CHILDES, the data for single-turn and multi-turn is the same.}}{56}{figure.caption.79}\protected@file@percent }
-\newlabel{fig:child_multi}{{4.3}{56}{Comparison of linguistic/conversational features across the single-turn and multi-turn testing for children. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. ``BB\_tuned'' which stands for the BlenderBot model fine-tuned on a subset of CHILDES. Finally, for CHILDES, the data for single-turn and multi-turn is the same}{figure.caption.79}{}}
-\newlabel{fig:child_multi@cref}{{[figure][3][4]4.3}{[1][54][]56}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Caregiver-LLM}{56}{section*.82}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4.2}Multi-turn testing}{56}{subsubsection.4.1.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Child-LLM}{56}{section*.83}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Comparison of linguistic/conversational features across the single-turn and multi-turn testing for caregivers. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Finally, for CHILDES, the data for single-turn and multi-turn is the same.}}{57}{figure.caption.80}\protected@file@percent }
-\newlabel{fig:caregiver_multi}{{4.4}{57}{Comparison of linguistic/conversational features across the single-turn and multi-turn testing for caregivers. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Finally, for CHILDES, the data for single-turn and multi-turn is the same}{figure.caption.80}{}}
-\newlabel{fig:caregiver_multi@cref}{{[figure][4][4]4.4}{[1][54][]57}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Caregiver-LLM}{57}{section*.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.5}Conclusion}{58}{subsection.4.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.6}Limitations}{59}{subsection.4.1.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.7}Ethics statement}{60}{subsection.4.1.7}\protected@file@percent }
-\newlabel{sec:prompts}{{4.1.7}{61}{Appendix A: Prompt templates}{section*.86}{}}
-\newlabel{sec:prompts@cref}{{[subsection][7][4,1]4.1.7}{[1][61][]61}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{61}{section*.87}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The zero-shot prompt template for the child}{61}{section*.88}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The few-shot prompt template for the caregiver}{61}{section*.89}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{The few-shot prompt template for the child}{61}{section*.90}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction.}}{63}{table.caption.93}\protected@file@percent }
-\newlabel{tab:samples}{{4.1}{63}{Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction}{table.caption.93}{}}
-\newlabel{tab:samples@cref}{{[table][1][4]4.1}{[1][62][]63}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Which forms of caregiver feedback support grammar learning?}{64}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Introduction}{64}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Methods}{65}{subsection.4.2.2}\protected@file@percent }
-\newlabel{sec:methods}{{4.2.2}{65}{Methods}{subsection.4.2.2}{}}
-\newlabel{sec:methods@cref}{{[subsection][2][4,2]4.2.2}{[1][65][]65}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces  Generated-utterance grammaticality across pretraining scales for each reward. The top row shows results from the CHILDES-adapted ChildCG classifier, while the bottom row shows results using a standard GEC-based metric. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable. Means are computed over training seeds units after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across training seeds. }}{66}{figure.caption.95}\protected@file@percent }
-\newlabel{fig:generation_reward_scale}{{4.5}{66}{Generated-utterance grammaticality across pretraining scales for each reward. The top row shows results from the CHILDES-adapted ChildCG classifier, while the bottom row shows results using a standard GEC-based metric. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable. Means are computed over training seeds units after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across training seeds}{figure.caption.95}{}}
-\newlabel{fig:generation_reward_scale@cref}{{[figure][5][4]4.5}{[1][66][]66}{}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}Evaluation}{67}{subsubsection.4.2.2.1}\protected@file@percent }
-\newlabel{sec:eval}{{4.2.2.1}{67}{Evaluation}{subsubsection.4.2.2.1}{}}
-\newlabel{sec:eval@cref}{{[subsubsection][1][4,2,2]4.2.2.1}{[1][66][]67}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Results}{67}{subsection.4.2.3}\protected@file@percent }
-\newlabel{sec:results}{{4.2.3}{67}{Results}{subsection.4.2.3}{}}
-\newlabel{sec:results@cref}{{[subsection][3][4,2]4.2.3}{[1][67][]67}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. }}{68}{table.caption.96}\protected@file@percent }
-\newlabel{tab:grammar_reward_effects}{{4.2}{68}{Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$}{table.caption.96}{}}
-\newlabel{tab:grammar_reward_effects@cref}{{[table][2][4]4.2}{[1][68][]68}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Discussion and Conclusions}{68}{subsection.4.2.4}\protected@file@percent }
-\newlabel{app:analyses}{{4.2.4}{71}{Appendix 1: Supplementary Analyses}{section*.99}{}}
-\newlabel{app:analyses@cref}{{[subsection][4][4,2]4.2.4}{[1][71][]71}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces  Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across trainings seeds (after averaging over generation seeds). Error bars show ±1 standard deviation across these independent units. }}{71}{figure.4.6}\protected@file@percent }
-\newlabel{fig:topline}{{4.6}{71}{Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across trainings seeds (after averaging over generation seeds). Error bars show ±1 standard deviation across these independent units}{figure.4.6}{}}
-\newlabel{fig:topline@cref}{{[figure][6][4]4.6}{[1][71][]71}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces  Benchmark performance across pretraining scales for each reward family. Rows show Zorro and BLiMP minimal-pair accuracy; columns show the four empirical reward families. Within each panel, the baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. Means are computed over training seeds, after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across independent units. }}{72}{figure.caption.100}\protected@file@percent }
-\newlabel{fig:benchmark_reward_scale}{{4.7}{72}{Benchmark performance across pretraining scales for each reward family. Rows show Zorro and BLiMP minimal-pair accuracy; columns show the four empirical reward families. Within each panel, the baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. Means are computed over training seeds, after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across independent units}{figure.caption.100}{}}
-\newlabel{fig:benchmark_reward_scale@cref}{{[figure][7][4]4.7}{[1][71][]72}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces  Properties of generated utterances: Sentence length, pooled lexical entropy, function-word density, and rate of non-words. Points show means for each reward across training seeds, with error bars indicating $\pm 1$ standard deviation across these seeds. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. }}{73}{figure.caption.101}\protected@file@percent }
-\newlabel{fig:covariates_reward_scale}{{4.8}{73}{Properties of generated utterances: Sentence length, pooled lexical entropy, function-word density, and rate of non-words. Points show means for each reward across training seeds, with error bars indicating $\pm 1$ standard deviation across these seeds. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale}{figure.caption.101}{}}
-\newlabel{fig:covariates_reward_scale@cref}{{[figure][8][4]4.8}{[1][71][]73}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical. }}{74}{table.caption.102}\protected@file@percent }
-\newlabel{tab:sampled_childcg_examples}{{4.3}{74}{Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical}{table.caption.102}{}}
-\newlabel{tab:sampled_childcg_examples@cref}{{[table][3][4]4.3}{[1][74][]74}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales.}}{77}{table.caption.114}\protected@file@percent }
-\newlabel{tab:ppo-hparams}{{4.4}{77}{PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales}{table.caption.114}{}}
-\newlabel{tab:ppo-hparams@cref}{{[table][4][4]4.4}{[1][77][]77}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction}{50}{section.4.1}\protected@file@percent }
+\newlabel{sec:ch4_introduction}{{4.1}{50}{Introduction}{section.4.1}{}}
+\newlabel{sec:ch4_introduction@cref}{{[section][1][4]4.1}{[1][50][]50}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Child--Caregiver Interaction in Language Acquisition}{50}{subsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Research Questions}{50}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Chapter Overview}{51}{subsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Benchmarking LLMs for mimicking child-caregiver language in interaction}{51}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Introduction}{51}{subsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Related Work and novelty}{53}{subsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Method}{53}{subsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.1}Data}{53}{subsubsection.4.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.2}Models}{54}{subsubsection.4.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fine-tuned model}{54}{section*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.3}Benchmarking}{54}{subsubsection.4.2.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Single-turn testing}{54}{section*.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multi-turn testing}{54}{section*.75}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Developmental trajectories of six linguistic/conversational features in children and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}}{55}{figure.caption.76}\protected@file@percent }
+\newlabel{fig:child_single}{{4.1}{55}{Developmental trajectories of six linguistic/conversational features in children and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals}{figure.caption.76}{}}
+\newlabel{fig:child_single@cref}{{[figure][1][4]4.1}{[1][55][]55}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Zero vs. Few-shot settings}{55}{section*.78}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3.4}Metrics}{55}{subsubsection.4.2.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Developmental trajectories of six linguistic/conversational features in caregivers and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}}{56}{figure.caption.77}\protected@file@percent }
+\newlabel{fig:caregiver_single}{{4.2}{56}{Developmental trajectories of six linguistic/conversational features in caregivers and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals}{figure.caption.77}{}}
+\newlabel{fig:caregiver_single@cref}{{[figure][2][4]4.2}{[1][55][]56}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Comparison of linguistic/conversational features across the single-turn and multi-turn testing for children. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. ``BB\_tuned'' which stands for the BlenderBot model fine-tuned on a subset of CHILDES. Finally, for CHILDES, the data for single-turn and multi-turn is the same.}}{57}{figure.caption.79}\protected@file@percent }
+\newlabel{fig:child_multi}{{4.3}{57}{Comparison of linguistic/conversational features across the single-turn and multi-turn testing for children. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. ``BB\_tuned'' which stands for the BlenderBot model fine-tuned on a subset of CHILDES. Finally, for CHILDES, the data for single-turn and multi-turn is the same}{figure.caption.79}{}}
+\newlabel{fig:child_multi@cref}{{[figure][3][4]4.3}{[1][56][]57}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Results and Discussion}{57}{subsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}Single-turn testing}{57}{subsubsection.4.2.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Child-LLM}{57}{section*.81}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Comparison of linguistic/conversational features across the single-turn and multi-turn testing for caregivers. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Finally, for CHILDES, the data for single-turn and multi-turn is the same.}}{58}{figure.caption.80}\protected@file@percent }
+\newlabel{fig:caregiver_multi}{{4.4}{58}{Comparison of linguistic/conversational features across the single-turn and multi-turn testing for caregivers. The bars show the averages across age groups. The points show variability across conversations (40 in total). Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Finally, for CHILDES, the data for single-turn and multi-turn is the same}{figure.caption.80}{}}
+\newlabel{fig:caregiver_multi@cref}{{[figure][4][4]4.4}{[1][56][]58}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Caregiver-LLM}{58}{section*.82}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.2}Multi-turn testing}{58}{subsubsection.4.2.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Child-LLM}{59}{section*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Caregiver-LLM}{59}{section*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Conclusion}{59}{subsection.4.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Limitations}{60}{subsection.4.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Ethics statement}{61}{subsection.4.2.7}\protected@file@percent }
+\newlabel{sec:prompts}{{4.2.7}{63}{Appendix A: Prompt templates}{section*.86}{}}
+\newlabel{sec:prompts@cref}{{[subsection][7][4,2]4.2.7}{[1][63][]63}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{63}{section*.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The zero-shot prompt template for the child}{63}{section*.88}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The few-shot prompt template for the caregiver}{63}{section*.89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The few-shot prompt template for the child}{63}{section*.90}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction.}}{65}{table.caption.93}\protected@file@percent }
+\newlabel{tab:samples}{{4.1}{65}{Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction}{table.caption.93}{}}
+\newlabel{tab:samples@cref}{{[table][1][4]4.1}{[1][64][]65}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Which forms of caregiver feedback support grammar learning?}{66}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Introduction}{66}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Methods}{67}{subsection.4.3.2}\protected@file@percent }
+\newlabel{sec:methods}{{4.3.2}{67}{Methods}{subsection.4.3.2}{}}
+\newlabel{sec:methods@cref}{{[subsection][2][4,3]4.3.2}{[1][67][]67}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces  Generated-utterance grammaticality across pretraining scales for each reward. The top row shows results from the CHILDES-adapted ChildCG classifier, while the bottom row shows results using a standard GEC-based metric. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable. Means are computed over training seeds units after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across training seeds. }}{68}{figure.caption.95}\protected@file@percent }
+\newlabel{fig:generation_reward_scale}{{4.5}{68}{Generated-utterance grammaticality across pretraining scales for each reward. The top row shows results from the CHILDES-adapted ChildCG classifier, while the bottom row shows results using a standard GEC-based metric. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable. Means are computed over training seeds units after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across training seeds}{figure.caption.95}{}}
+\newlabel{fig:generation_reward_scale@cref}{{[figure][5][4]4.5}{[1][68][]68}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2.1}Evaluation}{69}{subsubsection.4.3.2.1}\protected@file@percent }
+\newlabel{sec:eval}{{4.3.2.1}{69}{Evaluation}{subsubsection.4.3.2.1}{}}
+\newlabel{sec:eval@cref}{{[subsubsection][1][4,3,2]4.3.2.1}{[1][68][]69}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Results}{69}{subsection.4.3.3}\protected@file@percent }
+\newlabel{sec:results}{{4.3.3}{69}{Results}{subsection.4.3.3}{}}
+\newlabel{sec:results@cref}{{[subsection][3][4,3]4.3.3}{[1][69][]69}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. }}{70}{table.caption.96}\protected@file@percent }
+\newlabel{tab:grammar_reward_effects}{{4.2}{70}{Model-estimated change in grammaticality probability relative to baseline, using the ChildCG metric at the 1M and 10M pretraining scales. $\dagger p<.10$, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$}{table.caption.96}{}}
+\newlabel{tab:grammar_reward_effects@cref}{{[table][2][4]4.2}{[1][70][]70}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.4}Discussion and Conclusions}{70}{subsection.4.3.4}\protected@file@percent }
+\newlabel{app:analyses}{{4.3.4}{73}{Appendix 1: Supplementary Analyses}{section*.99}{}}
+\newlabel{app:analyses@cref}{{[subsection][4][4,3]4.3.4}{[1][73][]73}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces  Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across trainings seeds (after averaging over generation seeds). Error bars show ±1 standard deviation across these independent units. }}{73}{figure.4.6}\protected@file@percent }
+\newlabel{fig:topline}{{4.6}{73}{Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across trainings seeds (after averaging over generation seeds). Error bars show ±1 standard deviation across these independent units}{figure.4.6}{}}
+\newlabel{fig:topline@cref}{{[figure][6][4]4.6}{[1][73][]73}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces  Benchmark performance across pretraining scales for each reward family. Rows show Zorro and BLiMP minimal-pair accuracy; columns show the four empirical reward families. Within each panel, the baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. Means are computed over training seeds, after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across independent units. }}{74}{figure.caption.100}\protected@file@percent }
+\newlabel{fig:benchmark_reward_scale}{{4.7}{74}{Benchmark performance across pretraining scales for each reward family. Rows show Zorro and BLiMP minimal-pair accuracy; columns show the four empirical reward families. Within each panel, the baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. Means are computed over training seeds, after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across independent units}{figure.caption.100}{}}
+\newlabel{fig:benchmark_reward_scale@cref}{{[figure][7][4]4.7}{[1][73][]74}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces  Properties of generated utterances: Sentence length, pooled lexical entropy, function-word density, and rate of non-words. Points show means for each reward across training seeds, with error bars indicating $\pm 1$ standard deviation across these seeds. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale. }}{75}{figure.caption.101}\protected@file@percent }
+\newlabel{fig:covariates_reward_scale}{{4.8}{75}{Properties of generated utterances: Sentence length, pooled lexical entropy, function-word density, and rate of non-words. Points show means for each reward across training seeds, with error bars indicating $\pm 1$ standard deviation across these seeds. Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale}{figure.caption.101}{}}
+\newlabel{fig:covariates_reward_scale@cref}{{[figure][8][4]4.8}{[1][73][]75}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical. }}{76}{table.caption.102}\protected@file@percent }
+\newlabel{tab:sampled_childcg_examples}{{4.3}{76}{Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (generation was qualitatively similar at the 1M-word scale). Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical}{table.caption.102}{}}
+\newlabel{tab:sampled_childcg_examples@cref}{{[table][3][4]4.3}{[1][76][]76}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales.}}{79}{table.caption.114}\protected@file@percent }
+\newlabel{tab:ppo-hparams}{{4.4}{79}{PPO fine-tuning hyper-parameters, shared across the four caregiver-feedback rewards, the grammar topline, and all pretraining scales}{table.caption.114}{}}
+\newlabel{tab:ppo-hparams@cref}{{[table][4][4]4.4}{[1][79][]79}{}{}{}}
 \@setckpt{ch4/ch4_main}{
-\setcounter{page}{78}
+\setcounter{page}{80}
 \setcounter{equation}{0}
 \setcounter{enumi}{4}
 \setcounter{enumii}{0}
@@ -97,7 +103,7 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{2}
+\setcounter{section}{3}
 \setcounter{subsection}{4}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
@@ -134,7 +140,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{282}
+\setcounter{instcount}{289}
 \setcounter{maxnames}{1}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{3}
