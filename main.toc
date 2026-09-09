@@ -111,18 +111,18 @@
 \contentsline {subsection}{\numberline {4.2.5}Conclusion}{59}{subsection.4.2.5}%
 \contentsline {subsection}{\numberline {4.2.6}Limitations}{60}{subsection.4.2.6}%
 \contentsline {subsection}{\numberline {4.2.7}Ethics statement}{61}{subsection.4.2.7}%
-\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{63}{section*.87}%
-\contentsline {paragraph}{The zero-shot prompt template for the child}{63}{section*.88}%
-\contentsline {paragraph}{The few-shot prompt template for the caregiver}{63}{section*.89}%
-\contentsline {paragraph}{The few-shot prompt template for the child}{63}{section*.90}%
-\contentsline {section}{\numberline {4.3}Which forms of caregiver feedback support grammar learning?}{66}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Introduction}{66}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Methods}{67}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}Evaluation}{69}{subsubsection.4.3.2.1}%
-\contentsline {subsection}{\numberline {4.3.3}Results}{69}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Discussion and Conclusions}{70}{subsection.4.3.4}%
-\contentsline {chapter}{Conclusion et perspectives}{80}{chapter*.116}%
-\contentsline {section}{\numberline {5.1}Conclusions de l'étude}{80}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Ouverture et perspectives}{80}{section.5.2}%
-\contentsline {chapter}{Liste des publications}{81}{chapter*.118}%
-\contentsline {chapter}{Bibliographie}{82}{chapter*.122}%
+\contentsline {paragraph}{The zero-shot prompt template for the caregiver}{62}{section*.86}%
+\contentsline {paragraph}{The zero-shot prompt template for the child}{62}{section*.87}%
+\contentsline {paragraph}{The few-shot prompt template for the caregiver}{62}{section*.88}%
+\contentsline {paragraph}{The few-shot prompt template for the child}{62}{section*.89}%
+\contentsline {section}{\numberline {4.3}Which forms of caregiver feedback support grammar learning?}{65}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Introduction}{65}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Methods}{66}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Evaluation}{68}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Results}{68}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Discussion and Conclusions}{69}{subsection.4.3.4}%
+\contentsline {chapter}{Conclusion et perspectives}{79}{chapter*.115}%
+\contentsline {section}{\numberline {5.1}Conclusions de l'étude}{79}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Ouverture et perspectives}{79}{section.5.2}%
+\contentsline {chapter}{Liste des publications}{80}{chapter*.117}%
+\contentsline {chapter}{Bibliographie}{81}{chapter*.121}%
