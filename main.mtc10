@@ -1,41 +1,25 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Introduction}{\reset@font\mtcSfont 80}{section.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.1}Child--Caregiver Interaction in Language Acquisition}{\reset@font\mtcSSfont 80}{subsection.5.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.2}Research Questions}{\reset@font\mtcSSfont 80}{subsection.5.1.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.3}Chapter Overview}{\reset@font\mtcSSfont 81}{subsection.5.1.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Benchmarking LLMs for mimicking child-caregiver language in interaction}{\reset@font\mtcSfont 81}{section.5.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Introduction}{\reset@font\mtcSSfont 81}{subsection.5.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Related Work and novelty}{\reset@font\mtcSSfont 83}{subsection.5.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.3}Method}{\reset@font\mtcSSfont 83}{subsection.5.2.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.3.1}Data}{\reset@font\mtcSSSfont 83}{subsubsection.5.2.3.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.3.2}Models}{\reset@font\mtcSSSfont 84}{subsubsection.5.2.3.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Fine-tuned model}{\reset@font\mtcPfont 84}{section*.80}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.3.3}Benchmarking}{\reset@font\mtcSSSfont 84}{subsubsection.5.2.3.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Single-turn testing}{\reset@font\mtcPfont 84}{section*.81}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Multi-turn testing}{\reset@font\mtcPfont 84}{section*.82}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Zero vs. Few-shot settings}{\reset@font\mtcPfont 85}{section*.85}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.3.4}Metrics}{\reset@font\mtcSSSfont 86}{subsubsection.5.2.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.4}Results and Discussion}{\reset@font\mtcSSfont 87}{subsection.5.2.4}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.4.1}Single-turn testing}{\reset@font\mtcSSSfont 87}{subsubsection.5.2.4.1}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Child-LLM}{\reset@font\mtcPfont 87}{section*.88}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Caregiver-LLM}{\reset@font\mtcPfont 88}{section*.89}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.2.4.2}Multi-turn testing}{\reset@font\mtcSSSfont 88}{subsubsection.5.2.4.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Child-LLM}{\reset@font\mtcPfont 89}{section*.90}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Caregiver-LLM}{\reset@font\mtcPfont 89}{section*.91}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.5}Conclusion}{\reset@font\mtcSSfont 89}{subsection.5.2.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.6}Limitations}{\reset@font\mtcSSfont 91}{subsection.5.2.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.7}Ethics statement}{\reset@font\mtcSSfont 92}{subsection.5.2.7}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the caregiver}{\reset@font\mtcPfont 93}{section*.93}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The zero-shot prompt template for the child}{\reset@font\mtcPfont 93}{section*.94}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the caregiver}{\reset@font\mtcPfont 93}{section*.95}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The few-shot prompt template for the child}{\reset@font\mtcPfont 93}{section*.96}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Which forms of caregiver feedback support grammar learning?}{\reset@font\mtcSfont 96}{section.5.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Introduction}{\reset@font\mtcSSfont 96}{subsection.5.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Methods}{\reset@font\mtcSSfont 97}{subsection.5.3.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {5.3.2.1}Evaluation}{\reset@font\mtcSSSfont 98}{subsubsection.5.3.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Results}{\reset@font\mtcSSfont 99}{subsection.5.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.4}Discussion and Conclusions}{\reset@font\mtcSSfont 100}{subsection.5.3.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Discussion}{\reset@font\mtcSfont 109}{section.5.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Simulation Fidelity and Learning Effects: Distinct Contributions}{\reset@font\mtcSSfont 110}{subsection.5.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Implications for Computational Models of Language Acquisition}{\reset@font\mtcSSfont 110}{subsection.5.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Limitations and Directions toward Integrated Interaction-and-Learning Models}{\reset@font\mtcSSfont 111}{subsection.5.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.4}Chapter Conclusions}{\reset@font\mtcSSfont 112}{subsection.5.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}From sparse lexical experience to retrievable evidence}{\reset@font\mtcSfont 51}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Study rationale}{\reset@font\mtcSfont 52}{section.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Related Work}{\reset@font\mtcSfont 53}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Method}{\reset@font\mtcSfont 55}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Models and Training}{\reset@font\mtcSSfont 55}{subsection.4.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Evaluation Task}{\reset@font\mtcSSfont 55}{subsection.4.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.3}Retrieval Procedure}{\reset@font\mtcSSfont 56}{subsection.4.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Results}{\reset@font\mtcSfont 57}{section.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Retrieval Benefits Syntactic Contrasts}{\reset@font\mtcSSfont 57}{subsection.4.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Frequency Gap is Narrowed but not Fully Closed}{\reset@font\mtcSSfont 57}{subsection.4.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Analysis}{\reset@font\mtcSfont 58}{section.4.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.1}Representation and Structural-Content Analyses}{\reset@font\mtcSSfont 58}{subsection.4.6.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.2}Effects of Retrieval Configuration}{\reset@font\mtcSSfont 59}{subsection.4.6.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.7}What retrieval contributes to learning from sparse evidence}{\reset@font\mtcSfont 63}{section.4.7}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.7.1}Selective compensation at inference time}{\reset@font\mtcSSfont 63}{subsection.4.7.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.7.2}The usefulness of memory depends on its contents and representation}{\reset@font\mtcSSfont 63}{subsection.4.7.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.7.3}Cognitive and methodological implications}{\reset@font\mtcSSfont 64}{subsection.4.7.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.7.4}Targeted next steps}{\reset@font\mtcSSfont 65}{subsection.4.7.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.8}Appendix}{\reset@font\mtcSfont 66}{section.4.8}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.8.1}Pretrained models and datasets}{\reset@font\mtcSSfont 66}{subsection.4.8.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.8.2}Evaluation set construction}{\reset@font\mtcSSfont 66}{subsection.4.8.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.8.2.1}Source benchmarks}{\reset@font\mtcSSSfont 67}{subsubsection.4.8.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.8.3}Statistical analyses}{\reset@font\mtcSSfont 68}{subsection.4.8.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.8.4}Structural match analysis}{\reset@font\mtcSSfont 69}{subsection.4.8.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.8.5}Additional Retrieval Configuration Results}{\reset@font\mtcSSfont 70}{subsection.4.8.5}}

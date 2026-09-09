@@ -9,21 +9,17 @@
 
 \section{Study rationale}
 
-Large language models (LLMs) have shown that a general-purpose architecture trained on large text corpora can acquire rich syntactic and semantic knowledge \citep{brown2020language, devlin2019bert, touvron2023llama}. Beyond their impact on NLP applications \citep{bommasani2021opportunities}, LLMs provide scalable tools for testing theories of early language acquisition \citep{dupoux2018cognitive, evanson2023language, lavechin2022reverse, apidianaki2024language, hu2025language}. In particular, they offer a controlled way to investigate the long-standing hypothesis that children bootstrap into language learning by accumulating statistics from linguistic input \citep{saffran1996statistical}.
-
-A central challenge when applying LLMs as models of the early language learner is establishing valid \emph{quantitative} comparisons between the learning trajectories of real children and those of LLMs fed with comparable data. For instance, it has been claimed that LLMs require significantly more input data than children to reach the same level of performance \citep{frank2023bridging}. But measuring this 'data gap' depends critically on developing sound metrics that can be applied consistently to both human learners and computational models.  
-
-
-We focus on measures of vocabulary, as there is a wealth of developmental data that provides human side of the comparison. Previous work has primarily explored two approaches for evaluating vocabulary in models: (i) \textbf{familiarity metrics}, which exploit LLMs' probabilistic outputs (e.g., surprisal or word–pseudoword preference) to probe lexical knowledge \citep{chang2022word, ma2025babysit, lavechin2025simulating}; and (ii) \textbf{cross-modal matching}, which assesses word–referent grounding using multimodal training and behavioral benchmarks \citep{vong2024grounded, tan2024devbench, nikolaus2021modeling}, analogous to looking-while-listening paradigms in children \citep{swingley2011looking}. While informative, familiarity metrics often rely on limited behavioral data, and cross-modal methods require multimodal input unavailable to unimodal language models. Also, neither of them has focused on expressive vocabulary. 
 
 
 
-To overcome these limitations and enable large-scale, quantitative comparison with child vocabulary, we introduce \meCDI{}, a benchmark that aligns model generations with children's expressive vocabulary. \meCDI{} calibrates three key dimensions: (1) training exposure, scaled from 6 to 36 months based on daylong recordings \citep{cristia2019child}; (2) cumulative generated word count, matched to children’s monthly word production rates; and (3) evaluation vocabulary, matched in part-of-speech categories and frequency distribution to the CDI word list \citep{frank2017wordbank}.
+Existing model vocabulary evaluations primarily target two outcomes: \textbf{familiarity}, using surprisal or word--pseudoword preference \citep{chang2022word,ma2025babysit,lavechin2025simulating}; and \textbf{cross-modal matching}, using word--referent tasks \citep{vong2024grounded,tan2024devbench,nikolaus2021modeling} analogous to looking-while-listening paradigms \citep{swingley2011looking}. These outcomes provide evidence about lexical prediction or grounding, but do not directly quantify which words are repeatedly available in spontaneous model production. A production benchmark adds this complementary outcome and can be applied to unimodal language models.
 
 
 
-Using \meCDI{}, we evaluate character-level LSTMs and Transformers trained on child-directed speech (CDS) and audiobook transcripts.
-We assess vocabulary acquisition across three complementary dimensions: lexical diversity (type-token ratio), word-form validity (non-word rate), and target-word coverage (\meCDI{} score). The evaluated models do not jointly reproduce the child reference patterns. Coverage increases with input size but does not match the accelerated middle portion of the child corpus trajectory. Lexical diversity and non-word rates vary with architecture and corpus: audiobook-trained models have especially high TTR, whereas some CDS-trained conditions approach children's TTR or show substantial reductions in non-word rate. Frequency analyses identify a further discrepancy in the availability of lower-frequency target words under the production criterion.
+\meCDI{} combines that production outcome with a developmental comparison. Its contribution is the joint control of the training corpus, sampled output quantity, and evaluation vocabulary, followed by tests of how the result changes with architecture, register, temperature, and lexical frequency. The related work below locates these choices in previous modeling approaches; the methods specify the calibration and its operational limits.
+
+
+
 
 % These results suggest that optimizing for optimizing for next-word prediction alone is insufficient to reproduce the structure and dynamics of early lexical development. Instead, successful modeling of human vocabulary growth likely requires inductive biases and learning signals that more closely reflect the multimodal, social, and cognitively constrained nature of child learning.
 
@@ -82,28 +78,27 @@ With \meCDI{}, we evaluate character-level LSTMs and Transformers trained on two
 % \subsection{Developmental Trajectories Across Linguistic Levels}
 \subsection{Developmental Trajectories}
 
-Prior work has examined the alignment between language model learning and child language development across multiple linguistic levels. A key challenge is mapping model training onto corresponding developmental milestones. Early studies used training checkpoints as proxies for age, tracking when models acquire words \citep{chang2022word} or syntactic structures \citep{evanson2023language}. However, these approaches repeatedly expose models to identical input batches, unlike children who encounter increasingly varied linguistic input. To address this, \citet{lavechin2023babyslm} varied input size to model developmental trajectories, improving zero-shot lexical accuracy with increased exposure. Beyond vocabulary, studies have investigated phonological development via word segmentation \citep{goriely2024babble}, morphological acquisition through overregularization patterns \citep{haga2024modeling}, and syntactic learning \citep{evanson2023language}. Most prior work, however, calibrates only input quantity, leaving output production and evaluation frequency uncontrolled. In contrast, our framework aligns training exposure, generation quantity, and evaluation timing to enable direct comparison between models' and children's expressive vocabulary.
+Prior work has examined the alignment between language model learning and child language development across multiple linguistic levels. A key challenge is mapping model training onto corresponding developmental milestones. Early studies used training checkpoints as proxies for age, tracking when models acquire words \citep{chang2022word} or syntactic structures \citep{evanson2023language}. A checkpoint index alone does not specify exposure: its interpretation also depends on the training stream, repeated presentations, and the order of examples. To address this, \citet{lavechin2023babyslm} varied input size to model developmental trajectories, improving zero-shot lexical accuracy with increased exposure. Beyond vocabulary, studies have investigated phonological development via word segmentation \citep{goriely2024babble}, morphological acquisition through overregularization patterns \citep{haga2024modeling}, and syntactic learning \citep{evanson2023language}. For production-based evaluation, two additional choices require explicit control: the amount of text sampled and the frequency composition of the target vocabulary. These choices determine the opportunity for a word to appear in the measured output.
 
 \subsection{Vocabulary Evaluation}
 
-Evaluating vocabulary acquisition in models has followed two main strategies: developing developmentally inspired metrics or applying existing metrics to child-relevant tasks \citep{kosoy2023comparing,nikolaus2021evaluating,jiang2023mewl}. Notably, \citet{chang2022word} first introduced the MacArthur-Bates Communicative Development Inventory (CDI) to evaluate when models acquire individual words during training. Their findings highlight that models rely disproportionately on input frequency, with more variance in acquisition timing than child age-of-acquisition norms. While children also benefit from Zipfian distributions, the challenge for models is primarily learning words in the \emph{long tail} of the distribution\citep{wolters2024zipfian,lavi2023zipfian,lavi2022learnability}. This partially explains the gap between model and human acquisition patterns, particularly for low-frequency words. 
+Evaluating vocabulary acquisition in models has followed two main strategies: developing developmentally inspired metrics or applying existing metrics to child-relevant tasks \citep{kosoy2023comparing,nikolaus2021evaluating,jiang2023mewl}. Notably, \citet{chang2022word} used the MacArthur--Bates Communicative Development Inventories (CDI) to evaluate when models acquire individual words during training. Their findings highlight that models rely disproportionately on input frequency, with more variance in acquisition timing than child age-of-acquisition norms. While children also benefit from Zipfian distributions, the challenge for models is primarily learning words in the \emph{long tail} of the distribution\citep{wolters2024zipfian,lavi2023zipfian,lavi2022learnability}. This partially explains the gap between model and human acquisition patterns, particularly for low-frequency words.
 
 %This frequency dependence aligns with extensive developmental evidence showing frequency effects across all linguistic levels \citep{ambridge2015ubiquity}, though children also leverage cross-situational learning and social-pragmatic cues unavailable to text-only models. 
 
-Cross-linguistic analyses show that contextual surprisal predicts age of acquisition for function words and predicates, but not nouns \citep{portelance2023predicting}, suggesting distributional learning mechanisms affect lexical categories differently. To address this, our evaluation sets are frequency-matched \emph{and} controlled for part-of-speech categories to ensure that differences are not confounded by lexical class or frequency effects.
+Cross-linguistic analyses show that contextual surprisal predicts age of acquisition for function words and predicates, but not nouns \citep{portelance2023predicting}, suggesting distributional learning mechanisms affect lexical categories differently. To address this, our evaluation sets are frequency-matched \emph{and} controlled for part-of-speech categories to reduce differences in lexical-class composition and frequency between the evaluation sets. This matching does not make the words or their contextual distributions identical across corpora.
 
 
 
 \subsection{Calibrated Evaluation Frameworks}
 
-Direct comparisons between models and children require alignment across training data, learning objectives, and evaluation tasks\citep{warstadt2022what}. The BabyLM Challenge \citep{warstadt2023findings,hu2024findings,charpentier2025findings} established shared tasks by restricting model training to 10M or 100M words to approximate child exposure at ages 2 and 13. Despite these constraints, findings remain mixed: some studies report benefits from child-directed speech \citep{feng2024child}, whereas others observe that Wikipedia training outperforms CHILDES-based input \citep{padovani2025child}.
+Direct comparisons between models and children require alignment across training data, learning objectives, and evaluation tasks\citep{warstadt2022what}. The BabyLM Challenge \citep{warstadt2023findings,hu2024findings,charpentier2025findings} established shared tasks by restricting model training to 10M or 100M words to support comparisons under explicit, restricted input budgets. Despite these constraints, findings remain mixed: some studies report benefits from child-directed speech \citep{feng2024child}, whereas others observe that Wikipedia training outperforms CHILDES-based input \citep{padovani2025child}.
 
 Input representation is another consideration: most models use BPE tokens \citep{huebner2021babyberta,evanson2023language}, whereas infants perceive continuous acoustic speech \citep{dupoux2018cognitive}. We use character-level input, requiring models to generate word forms from character sequences rather than a pretrained subword vocabulary \citep{bunzeck2024graphemes,goriely2024babble}. Spaces and punctuation remain available as orthographic boundary cues. This simplifies aspects of the input relative to speech, but does not establish a quantitative upper bound for speech-based learning.
 
 
 Finally, production metrics such as lexical diversity often use the type-token ratio (TTR), which is sample-size dependent \citep{richards1987type} and requires fixed-size windows for comparability \citep{mckee2022measurement}. Sampling temperature introduces tradeoffs between diversity and quality, with no single setting optimizing both \citep{verine2025improving}. 
 
-Our framework addresses these challenges through three calibrations: (1) age-appropriate training exposure derived from daylong recordings \citep{cristia2019child}, (2) production quantity matched to children’s monthly output, and (3) frequency- and POS-matched evaluation sets reflecting child-directed speech patterns. Together, these enable a developmentally grounded evaluation of expressive vocabulary.
 
 \section{Methods}
 
@@ -111,7 +106,7 @@ Our framework addresses these challenges through three calibrations: (1) age-app
 \begin{figure}[!h]
 \centering
 {\includegraphics[width=0.5\textwidth]{fig/overview.pdf}}
-\caption{\textbf{Overview of the \meCDI{} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep{cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur–Bates CDI words in child-directed speech (English-CHILDES).}
+\caption{\textbf{Overview of the \meCDI{} benchmark framework.} (a) Training and generation sizes are aligned with age-appropriate estimates of linguistic exposure and production from 6–36 months \citep{cristia2019child}. (b) Evaluation sets match the frequency distribution of MacArthur--Bates CDI words in child-directed speech (English-CHILDES).}
 \label{fig:overview}
 \end{figure}
 
@@ -128,7 +123,7 @@ The \meCDI{} benchmark enables direct comparison between language model generati
 
 \noindent\textbf{(3) Frequency-matched evaluation words:} The evaluation vocabulary is drawn from the MacArthur–Bates Communicative Development Inventory \citep{fenson2007macarthur} and frequency matched to words in English CHILDES corpora.  
 
-We evaluate models on three dimensions: \textit{lexical diversity} (type–token ratio), \textit{word form accuracy} (non-word rate), and \textit{expressive vocabulary size} (\meCDI{} score).
+We evaluate models on three dimensions: \textit{lexical diversity} (type–token ratio), \textit{word-form validity} (non-word rate), and \textit{target-word coverage} (\meCDI{} score).
 
 
 \subsection{Training Data}
@@ -138,7 +133,7 @@ We construct two training corpora representing different linguistic environments
 \noindent\textbf{Audiobook corpus:} English audiobook transcripts from LibriVox \citep{kearns2014librivox}, representing narrative-rich, syntactically complex adult-directed language. \noindent\textbf{Child-directed speech (CDS) corpus:} English CHILDES transcripts \citep{macwhinney2000childes}, representing the naturalistic register of early child input.
 
 
-\paragraph{Age-appropriate scaling} Following \citet{cristia2019child}, we estimate exposure from 250 hours at 6 months to 1,500 hours at 36 months of age. This corresponds to approximately 500 hours of speech input per year, representing a mid-range estimate of children's linguistic environments. Converting speech hours to words using a standard rate of 3 words per second yields training sets ranging from 2.89M words (6 months) to 17.35M words (36 months). Developmental datasets are constructed every 6 months by randomly sampling the target quantity from each corpus (see Table~\ref{tab:train}). Given English CHILDES contains a total of 15.6M words of caregiver inputs, the available data is equivalent to those at the 30-month level, which thus serves as the maximum training input. We emphasize that this scaling controls for \emph{total input quantity} rather than assuming uniform structure of children’s linguistic environments across months.
+\paragraph{Age-appropriate scaling} Following \citet{cristia2019child}, we estimate exposure from 250 hours at 6 months to 1,500 hours at 36 months of age. This corresponds to approximately 500 hours of speech input per year, representing a mid-range estimate of children's linguistic environments. The reported training budgets range from 2.89M words (6-month equivalent) to 17.35M words (36-month equivalent; Table~\ref{tab:train}).\footnote{The reported word budgets are not numerically identical to the originally reported conversion of three words per second. The conversion must be reconciled with the training records before these age-equivalent labels are used for precise estimates of developmental data efficiency.} Developmental datasets are constructed every 6 months by randomly sampling the target quantity from each corpus (see Table~\ref{tab:train}). Given English CHILDES contains a total of 15.6M words of caregiver inputs, the available data is equivalent to those at the 30-month level, which thus serves as the maximum training input. We emphasize that this scaling controls \emph{training-corpus size} rather than assuming uniform structure of children’s linguistic environments across months.
 
 
 
@@ -152,12 +147,12 @@ We train character-level autoregressive models under two architectures: \textbf{
 \paragraph{Training procedure} Models are trained to minimize cross-entropy loss using the Adam optimizer (learning rate 0.0001, $\beta_1=0.9$, $\beta_2=0.98$) with inverse square root learning rate decay and 10,000 warmup steps. We train until validation perplexity converges. For each age-corpus pair, two models are trained with same random seeds and non-overlapping data subsets. Training details are provided in Table~\ref{tab:model}.
 
 
-\paragraph{Generation procedure} At inference time, we generate text using temperature sampling with $T \in \{0.3, 0.6, 1.0, 1.5\}$. Generation begins with a beginning-of-sequence (BOS) token and continues until reaching the target word count corresponding to children's estimated monthly production at that developmental stage (see Table~\ref{tab:speech-metrics} in Appendix). Character sequences are segmented into words using space and punctuation boundaries. For months 31–36, outputs are generated from the same model checkpoints. Because the CDS corpus contains a total of 15.6M words of caregiver input, this limits the age-appropriate training to the 30-month equivalent. For months 31–36, we generate outputs using the same 30-month checkpoint, scaling generation lengths according to children’s estimated production, while noting that the training exposure does not increase beyond 30 months. This ensures a consistent comparison across developmental stages while respecting the corpus limitations.
+\paragraph{Generation procedure} At inference time, we generate text using temperature sampling with $T \in \{0.3, 0.6, 1.0, 1.5\}$. Generation begins with a beginning-of-sequence (BOS) token and continues until reaching the target word count corresponding to children's estimated monthly production at that developmental stage (see Table~\ref{tab:speech-metrics} in Appendix). Character sequences are segmented into words using space and punctuation boundaries. Because the CDS corpus contains a total of 15.6M words of caregiver input, this limits the age-appropriate training to the 30-month equivalent. In the CDS conditions, for months 31–36 we generate outputs using the same 30-month checkpoint, scaling generation lengths according to children’s estimated production, while noting that the training exposure does not increase beyond 30 months. These later points change the observation budget without adding training material; they therefore cannot be interpreted as further learning from additional input.
 % AUTHOR CHECK: confirm whether checkpoint reuse after month 30 applies to every corpus or only CDS, and specify checkpoint assignment between six-month training targets.
 
 
 \subsection{Evaluation Set Construction} \label{sec:eval_construction}
-\paragraph{Base vocabulary and POS filtering} We start with the MacArthur-Bates Communicative Development Inventory (CDI) \citep{fenson2007macarthur}, a standardized checklist of 680 English words with normative age-of-production data. To control for lexical class effects, we apply POS tagging using a RoBERTa-based SpaCy pipeline. For each word, POS labels are aggregated across contexts and majority voting is applied separately in each corpus. Function words (articles, pronouns, prepositions, auxiliaries) are excluded, retaining nouns, verbs, adjectives, and adverbs.
+\paragraph{Base vocabulary and POS filtering} We start with the MacArthur--Bates Communicative Development Inventories (CDI) \citep{fenson2007macarthur}, a standardized checklist of 680 English words with normative age-of-production data. To control for lexical class effects, we apply POS tagging using a RoBERTa-based SpaCy pipeline. For each word, POS labels are aggregated across contexts and majority voting is applied separately in each corpus. Function words (articles, pronouns, prepositions, auxiliaries) are excluded, retaining nouns, verbs, adjectives, and adverbs.
 
 \paragraph{Frequency stratification} Filtered CDI words are divided into six frequency bands based on their occurrence in child-directed speech (adult input in English CHILDES), with an equal number of words per band. 
 
@@ -169,7 +164,7 @@ For a comparable evaluation, we construct a matched audiobook subset using the s
 
 \subsection{Evaluation Metrics}
 
-We assess model performance using three complementary metrics capturing lexical diversity, form accuracy, and expressive vocabulary.
+We assess model performance using three complementary metrics capturing lexical diversity, word-form validity, and target-word coverage.
 
 
 \paragraph{Type-Token Ratio (TTR)} Measures lexical diversity as the ratio of unique word types to total word tokens. Following \citet{rasanen2024age}, we compute TTR over fixed-size chunks of 3,500 words to control for sample size effects, then average across all chunks.
@@ -180,7 +175,7 @@ We assess model performance using three complementary metrics capturing lexical 
 
 \paragraph{\meCDI{} Score} Adapts the human CDI vocabulary assessment to observed productions through a count-based criterion. A word meets the production criterion if it appears at least $\tau$ times in the evaluated output. To determine $\tau$, we compare vocabulary growth curves derived from CHILDES child productions with the empirical CDI trajectory. We use $\tau = 60$, selected on the basis of the reported slope comparison. This is a calibration rule linking corpus counts to caregiver reports, rather than an independent test of lexical knowledge. The \meCDI{} score is computed as:
 $$
-\text{CDI} = \frac{|\{w \in \text{eval set} : \text{count}(w) \geq \tau\}|}{|\text{eval set}|}
+\text{\meCDI{}} = \frac{|\{w \in \text{eval set} : \text{count}(w) \geq \tau\}|}{|\text{eval set}|}
 $$
 where the evaluation set contains 420 target words. The value represents the proportion of that set reaching the count criterion under the specified production budget. Sensitivity analyses for alternative thresholds ($\tau \in \{1, 500\}$) are shown in Figure~\ref{fig:threshold}.
 % AUTHOR CHECK: specify whether counts are monthly or cumulative across months, how child transcripts are pooled, the calibration objective, and whether calibration and final evaluation are independent.
@@ -217,7 +212,7 @@ where the evaluation set contains 420 target words. The value represents the pro
 \hspace{2pt}
 \hspace{2pt}
 \subfloat{\includegraphics[width=0.13\textwidth]{fig/legend.png}}
-\caption{\textbf{Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score.  Points show mean scores across models, with numbers illustrating temperature values.}
+\caption{\textbf{Temperature trade-off across different metrics; temperature settings (0.3-1.5)} Left: Trade-off between type-token ratio and CDI score. Right: Relationship between non-word rate and CDI score.  Each point averages across the evaluated exposure stages for one architecture, corpus, and temperature; numbers identify the temperature.}
 \label{fig:temp_effect}
 \end{figure*}
 
@@ -234,7 +229,7 @@ Figure~\ref{fig:core_metric} presents three production measures against developm
 \paragraph{Lexical diversity} Audiobook-trained models exhibit higher type-token ratios than the child reference across the plotted stages. CDS-trained models are closer to the child values at several stages, with differences depending on architecture and input scale. The child TTR rises overall, whereas model curves show condition-specific fluctuations rather than a common developmental trend. Thus lexical diversity distinguishes input registers and model conditions, but does not imply that every model consistently exceeds the child reference.
 
 
-\paragraph{Word form accuracy} The proportion of child word types absent from the reference dictionaries decreases markedly with age. Model trajectories vary: several are relatively flat, whereas the CDS-trained LSTM shows a substantial decline. No single model curve reproduces the full child pattern across the plotted range. Because this measure is computed from written forms, it cannot identify the contribution of children's articulatory or phonological development separately from transcription and dictionary coverage.
+\paragraph{Word-form validity} The proportion of child word types absent from the reference dictionaries decreases markedly with age. Model trajectories vary: several are relatively flat, whereas the CDS-trained LSTM shows a substantial decline. No single model curve reproduces the full child pattern across the plotted range. Because this measure is computed from written forms, it cannot identify the contribution of children's articulatory or phonological development separately from transcription and dictionary coverage.
 
 
 
@@ -295,7 +290,7 @@ Evidence from child word learning motivates possible additional sources of suppo
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.48\textwidth]{fig/content_500_1.pdf}
-\caption{\textbf{Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while all model configurations maintain stable proportions around 40\% across training stages.}
+\caption{\textbf{Proportion of content words in generated text across development.} Children show an inverse U-shaped trajectory, while model proportions occupy a narrower range, generally around 40\%, with some variation across training stages.}
 \label{fig:content_prop}
 \end{figure}
 
@@ -355,7 +350,7 @@ The study uses existing CHILDES child-language data, LibriVox audiobook transcri
 
 Table~\ref{tab:train} summarizes the age-appropriate scaling of training data across three exposure scenarios. Linguistic exposure estimates are based on daylong recording studies \citep{cristia2019child}, which document substantial variability in the amount of speech heard by children across environments. Annual exposure ranges from approximately 100 hours in low-input households to 1000 hours in high-input ones, with 500 hours per year representing a mid-range estimate.
 
-Cumulative exposure thus increases from 50–500 hours at 6 months to 300–3000 hours by 36 months. Assuming a standard speech rate of three words per second, this corresponds to training sets ranging from 0.58M words (6 months, low exposure) to 34.71M words (36 months, high exposure).
+Cumulative exposure thus increases from 50–500 hours at 6 months to 300–3000 hours by 36 months. The reported word budgets range from 0.58M words (6 months, low exposure) to 34.71M words (36 months, high exposure).
 
 
 \begin{table}[ht]
@@ -363,7 +358,7 @@ Cumulative exposure thus increases from 50–500 hours at 6 months to 300–3000
 \small
 \begin{tabular}{l c c c c}
 \toprule
-\textbf{Age} & \textbf{Hours} & \textbf{Words} & \textbf{Characters} & \textbf{Utterances} \\
+\textbf{Age (mo.)} & \textbf{Hours} & \textbf{Words (M)} & \textbf{Chars. (M)} & \textbf{Utts. (k)} \\
 
 \midrule
 \multicolumn{5}{l}{\textit{Low exposure scenario (100 hours/year)}} \\
@@ -394,12 +389,12 @@ Cumulative exposure thus increases from 50–500 hours at 6 months to 300–3000
 36  & 3000 & 34.71 & 176.70 & 3471 \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep{cristia2019child}. Word counts assume 3 words/second; character counts assume 5.1 characters/word; utterance counts assume 10 words/utterance.}
+\caption{\textbf{Age-appropriate scaling of training datasets across three exposure scenarios.} Estimates are derived from three exposure scenarios (100h, 500h, 1000h per year), reflecting observed variability in children’s linguistic environments \citep{cristia2019child}. Word budgets are reported in millions, character counts in millions, and utterance counts in thousands. Character counts use 5.1 characters/word and utterance counts use 10 words/utterance. The hours-to-words conversion requires reconciliation with the training records, as noted in the main methods.}
 \label{tab:train}
 \end{table}
 
 
-Model training employed carefully tuned hyperparameters (Table~\ref{tab:model}), selected through systematic validation experiments to ensure training stability and computational efficiency across different data scales.
+Table~\ref{tab:model} records the reported optimization and architecture settings. The prose describes the Transformer dimension as a hidden-state size, whereas the table labels it as an intermediate dimension; the run configuration is needed to resolve that distinction.
 
 
 \begin{table}[ht]
@@ -432,7 +427,7 @@ Attention heads & 12 \\
 Attention dropout & 0.05 \\
 \hline
 \end{tabular}
-\caption{\textbf{Language model training hyperparameters.} Configurations balance model capacity, stability, and efficiency across training scales.}
+\caption{\textbf{Language model training hyperparameters.} Reported optimization and architecture settings; the Transformer dimension label requires verification against the run configuration.}
 \label{tab:model}
 \end{table}
 
@@ -577,7 +572,7 @@ To establish reliable vocabulary acquisition metrics, we conducted systematic an
 \end{figure}
 
 
-Notably, the frequency effects observed in the Machine CDI are evaluated on a selected subset matched with the human-CDI set. It is unclear whether this effect is influenced by the randomness of sampling. Also, the selected words are typically in the median frequency bands, making it unknown whether such an effect stems from the limited generation size. To address this concern, we expanded our analysis of the model generations using the same and larger sampling sets. Figure~\ref{fig:distr} shows the word frequency distributions of the training and generated datasets by the LSTM model trained on 3.4M words, with different generation sizes. Expanding the generation set mitigates some truncation effects, as more high-frequency words are generated, but low-frequency words remain underrepresented. This pattern reflects the model’s limited ability to reproduce realistic word distributions, especially for rare words, even with larger sampling sizes.
+The frequency-matched evaluation list and the finite generation budget introduce distinct sampling choices. Figure~\ref{fig:distr} examines the second choice beyond the selected list by comparing training and generation word counts for an LSTM trained on 3.4M words, with generation volumes of 1, 10, and 100 times the reference amount. Larger output samples reduce the proportion of training words that are never generated, including in the lower-frequency range, but some rare words remain absent. The bottom panel therefore shows how observed absence changes as the sampling budget increases for a fixed trained model by the model. Absolute generated counts also rise mechanically with sample size, so movement in the scatter plot cannot alone be interpreted as improved learning or better-normalized word frequencies.
 
 
 \begin{figure}[ht]
@@ -585,7 +580,7 @@ Notably, the frequency effects observed in the Machine CDI are evaluated on a se
 \subfloat{\includegraphics[width=0.3\textwidth]{fig/distr_LSTM_400.png}}
 \hspace{1 pt}
 \subfloat{\includegraphics[width=0.1\textwidth]{fig/distr_cap.png}}
-\caption{\textbf{Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. Side plot on the bottom show Missing rates as a function of word count in input corpus.}
+\caption{\textbf{Word count distribution(temperature = 1.0)}.Word frequency relationships between training and generation sets under different sampling conditions (1x, 10x, 100x generation volume). x-axis: word frequency in the training set; y-axis: word frequency in the generation set. The bottom panel shows the proportion of training word types absent from generated output as a function of their training count.}
 \label{fig:distr}
 \end{figure}
 

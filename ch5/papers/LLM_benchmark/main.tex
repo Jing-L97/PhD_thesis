@@ -19,11 +19,11 @@ As argued above, benchmarking LLMs for effectively mimicking child-caregiver int
 
 In particular, it is important to note that a comprehensive benchmarking would require evaluating both the semantic content of interactions (\textit{To what extent was the semantic content of the caregiver-like response appropriate to the child-like utterance?}) and linguistic form (\textit{To what extent was this content linguistically framed in an age-appropriate manner?}). The current work focuses primarily on the latter, using data from spontaneous child-caregiver dialogues as a reference (CHILDES dataset)\cite{macwhinney2000childes}.
 
-Specifically, we quantify the extent to which two widely used LLMs (GPT-4o and Llama 3) approximate child-caregiver interactions along \textit{structural} metrics at word, utterance, and dialogue levels. These metrics were selected based on insights from previous research \citep{valentini2023automatic, rasanen2024age, french2024aligning}. This previous research focused on a few isolated aspects of child-directed dialogue. Here, we aimed to provide a more synthetic view, capitalizing on insights from these studies.
+Specifically, we quantify the extent to which two widely used LLMs (GPT-4o and Llama 3) approximate child-caregiver interactions using linguistic-form and embedding-based metrics at word, utterance, and dialogue levels. These metrics were selected based on insights from previous research \citep{valentini2023automatic, rasanen2024age, french2024aligning}. This previous research focused on a few isolated aspects of child-directed dialogue. Here, we aimed to provide a more synthetic view, capitalizing on insights from these studies.
 
 Furthermore, a major novelty in this work is that we compared two benchmarking approaches: single- and multi-turn testing. In single-turn testing (the most common approach), models receive a child utterance from the CHILDES dataset and generate a caregiver-like response, or conversely, receive a caregiver's utterance and generate a child-like response. For multi-turn testing, we observe free interactions, over multiple turns, between a "child"-LLM and a "caregiver"-LLM, prompted to communicate like a child and a caregiver, respectively. The resulting dialogues are then compared, on average, to actual conversations from CHILDES dataset.
 
-Finally, both benchmarking approaches were implemented under zero-shot and few-shot conditions with two objectives: a) for the zero-shot condition, the goal is to characterize the baseline capabilities of LLMs without specific guidance (revealing their initial biases), and b) for the few-shot condition, the goal is to measure LLMs' ability to improve (relative to the zero-shot baseline) when provided with examples and, in fact, test the sensitivity of the metrics we used to mquantify any such improvement.
+Finally, both benchmarking approaches were implemented under zero-shot and few-shot conditions with two objectives: a) for the zero-shot condition, the goal is to characterize the baseline behavior of role- and age-prompted LLMs without conversational demonstrations, and b) for the few-shot condition, the goal is to measure LLMs' ability to improve (relative to the zero-shot baseline) under a combined intervention consisting of conversational examples and output-length instructions, and to test the sensitivity of the metrics to these changes.
 
 \section{Related Work and novelty}
 
@@ -90,7 +90,7 @@ We used the CHILDES public dataset \citep{macwhinney2000childes} for benchmarkin
 
 From this dataset, we selected 40 conversations (approximately 300 turns each) evenly distributed across the target age groups—specifically, i.e., 10 conversations at 2, 3, 4, and 5 years. 
 
-To prepare the data for analysis and generation, we restructured these conversations into utterance-response pairs.  When consecutive turns came from the same speaker (which is often the case with caregivers), we decomposed these into multiple utterance-response pairs and inserted \texttt{<SILENCE>} tokens to mark the positions where the non-speaking interlocutor did not contribute. This preprocessing step preserved the temporal structure of the interactions while creating a format suitable for our analytical framework. The resulting benchmarking dataset comprised 6,600 interaction pairs containing a total of 73,300 word tokens. This corpus was further characterized by an asymmetric distribution between participant types, with 26,300 tokens produced by children and 47,000 tokens produced by caregivers.
+To prepare the data for analysis and generation, we restructured these conversations into utterance-response pairs.  When consecutive turns came from the same speaker (which is often the case with caregivers), we decomposed these into multiple utterance-response pairs and inserted \texttt{<SILENCE>} tokens to mark the positions where the non-speaking interlocutor did not contribute. This preprocessing step preserved the sequence of recorded contributions while creating an alternating format for generation. An inserted \texttt{<SILENCE>} marks the absence of a recorded contribution at that position; it is not a measurement of pause duration or evidence of a deliberate silent response. The resulting benchmarking dataset comprised 6,600 interaction pairs containing a total of 73,300 word tokens. This corpus was further characterized by an asymmetric distribution between participant types, with 26,300 tokens produced by children and 47,000 tokens produced by caregivers.
 
 
 
@@ -100,14 +100,14 @@ While numerous LLMs are currently available, testing all of them across multiple
 
 \subsubsection{Fine-tuned model}  
 
-In addition to the LLMs described above, which we adapt to child-caregiver interaction via prompting, we also evaluated a smaller---and computationally more manageable—pre-trained conventional model that we directly fine-tuned on child-caregiver data. Specifically, we fine-tuned the distilled encoder-decoder BlenderBot model \citep{roller2020recipes} on conversation data from the CHILDES corpus. \footnote{See appendix for fine-tuning details.} This approach allowed us to compare prompt-based adaptation of large, general-purpose models with traditional fine-tuning approaches targeting child-caregiver interaction patterns.
+In addition to the LLMs described above, which we adapt to child-caregiver interaction via prompting, we also evaluated a smaller---and computationally more manageable—pre-trained conventional model that we directly fine-tuned on child-caregiver data. Specifically, we fine-tuned the distilled encoder-decoder BlenderBot model \citep{roller2020recipes} on conversation data from the CHILDES corpus. \footnote{See Section~\ref{sec:benchmark_finetuning} for fine-tuning details.} This approach allowed us to compare prompt-based adaptation of large, general-purpose models with traditional fine-tuning approaches targeting child-caregiver interaction patterns.
 
 
 
 \subsection{Benchmarking}  
 \paragraph{Single-turn testing} 
 
-The single-turn testing evaluated LLM's ability to generate contextually appropriate responses to individual utterances. For each conversation in our benchmarking dataset, we implemented two complementary procedures: a) \textbf{Child-to-caregiver direction}: We extracted each child utterance and used it to prompt the LLMs to generate a caregiver-like response. The actual caregiver response from the CHILDES corpus served as the reference against which we evaluated the LLM-generated output. b) \textbf{Caregiver-to-child direction}: Conversely, we extracted each caregiver utterance and used it to prompt the LLMs to generate a child-like response. The actual child response from the corpus served as the reference for evaluation. This single-turn setting allows a direct, controlled comparison between the caregiver-LLMs' response and the caregiver's or child's actual response to the \textit{same} utterance/prompt.
+Single-turn testing evaluated the linguistic properties of model responses to individual human utterances. Contextual appropriateness was not directly scored by a separate human judgment or task-success measure. For each conversation in our benchmarking dataset, we implemented two complementary procedures: a) \textbf{Child-to-caregiver direction}: We extracted each child utterance and used it to prompt the LLMs to generate a caregiver-like response. The actual caregiver response from the CHILDES corpus served as the reference against which we evaluated the LLM-generated output. b) \textbf{Caregiver-to-child direction}: Conversely, we extracted each caregiver utterance and used it to prompt the LLMs to generate a child-like response. The actual child response from the corpus served as the reference for evaluation. This single-turn setting allows a direct, controlled comparison between the model response and the caregiver's or child's actual response to the \textit{same} utterance/prompt.
 
 
 \paragraph{Multi-turn testing}  While single-turn testing enables controlled comparisons with actual responses, it cannot capture the dynamics of extended dialogue interactions. Therefore, we implemented multi-turn testing protocol to evaluate sustained conversational capabilities. To this end, we simulated complete dialogues using two distinct instances of the same LLM: one prompted to behave as a child (hereafter \textit{child-LLM}) and another prompted to behave as a caregiver (hereafter, \textit{caregiver-LLM}). To initiate these simulated conversations, we used the first utterance from each reference conversation in our dataset as a conversation starter. While the outcome is not as controlled as in the single-turn case, the metrics still allow comparisons to the human reference on average, as will be clear next.
@@ -120,7 +120,7 @@ The single-turn testing evaluated LLM's ability to generate contextually appropr
 
 \begin{figure*}[t]
 \includegraphics[width=1\textwidth]{fig/child_single.png}
-\caption{Developmental trajectories of six linguistic/conversational features in children and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}
+\caption{Age-group profiles of six linguistic/conversational features in children and age-prompted LLMs in single-turn testing. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a child. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}
 \label{fig:child_single}
 \end{figure*}
 
@@ -128,7 +128,7 @@ The single-turn testing evaluated LLM's ability to generate contextually appropr
 
 \begin{figure*}[t]
 \includegraphics[width=1\textwidth]{fig/caregiver_single.png}
-\caption{Developmental trajectories of six linguistic/conversational features in caregivers and LLMs. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}
+\caption{Age-group profiles of six linguistic/conversational features in caregivers and age-prompted LLMs in single-turn testing. We compare actual human data from the child-caregiver dataset CHILDES vs. LLMs playing a caregiver. Models include two LLMs (GPT-4o, Llama 3) in zero-shot and 3-shot settings. Points represent averages across all utterances and conversations, and ranges represent 95\% confidence intervals.}
 \label{fig:caregiver_single}
 \end{figure*}
 
@@ -137,8 +137,7 @@ The single-turn testing evaluated LLM's ability to generate contextually appropr
 
 We tested the initial built-in capabilities and biases of the LLMs in a \textbf{zero-shot} setting where LLMs received only the utterance(s) they were expected to respond to, with no additional examples from the CHILDES dataset. In addition, to test our metrics' ability to capture improvement, we tested the same models again in a \textbf{few-shot setting} where the models were given the first three child-caregiver pairs of turns in each conversation, allowing the model to observe examples of both the linguistic structure and interactive dynamics for the same participants. 
 
-In both conditions, we maintained consistent and minimal instructional prompts to avoid introducing confounding variables. For example, when prompting for caregiver responses, we used instructions such as: ``\textit{You are the parent of a X-year-old English-speaking child. Now, you are having a conversation
-with your child. Based on the conversation history above, give your response to the child input.}'') (see the prompt templates in Appendix~\ref{sec:prompts}).
+Both conditions specified the interlocutor role and the child's age. The supplied few-shot templates additionally instructed caregivers to use at most 50 words and children to use at most 6 words (Section~\ref{sec:prompts}). The zero-shot/few-shot comparison therefore measures the combined effect of demonstrations and length instructions, rather than isolating either component.
 
 
 
@@ -150,7 +149,7 @@ with your child. Based on the conversation history above, give your response to 
 We aim to provide a comprehensive benchmarking evaluating key properties at the word-, utterance-, and dialogue levels.  
 
 
-At the \textit{word} level, we followed \citet{dawson2021features} to quantify the \textit{Word concreteness} using human ratings from \citet{brysbaert2014concreteness}. This measure was computed as the average concreteness rating of all content words in each utterance. We also used \textit{Word density}---defined as the proportion of content (vs. function) words in each utterance. This metric reflects the information load and was calculated using the established list of function words by \citet{o2012multi}.
+At the \textit{word} level, we followed \citet{dawson2021features} to quantify the \textit{Word concreteness} using human ratings from \citet{brysbaert2014concreteness}. This measure was computed as the average concreteness rating of all content words in each utterance. We also used \textit{Word density}---defined as the proportion of content (vs. function) words in each utterance. This metric describes lexical composition and was calculated using the established list of function words by \citet{o2012multi}.
 
 
 At the \textbf{utterance} level, we adopted measures from \citet{rasanen2024age} to capture structural complexity: a) \textit{Utterance length}: the number of words per utterance; b) \textit{Syntactic complexity}: the mean dependency tree depth for each utterance using the Spacy toolkit (v3.7) with its dependency parser based on RoBERTa transformers.\footnote{The dependency parsing implementation provides a structural representation of syntactic relationships between words in an utterance.} \citep{liu2008dependency}, where deeper trees indicate more complex structures. 
@@ -188,14 +187,14 @@ Figure \ref{fig:child_single} and Figure \ref{fig:caregiver_single} show the res
 
 The age-conditioned child-LLMs recover several trends in the CHILDES reference, including under zero-shot prompting without conversational demonstrations. This evaluates the simulation of age-associated patterns by already pretrained models; it does not show that those models acquired language through the corresponding developmental stages.
 
-Specifically, the models capture decreasing concreteness and lexical density over time (children use more abstract words and function words as they grow older), increasing utterance length and syntactic complexity, and decreasing dialog alignment alongside increasing dialog diversity (as children become able to contribute new information instead of just repeating caregivers' inputs). 
+In the human reference, older age groups generally show lower concreteness and content-word density, longer utterances and deeper dependency structures, and lower semantic alignment with greater within-speaker semantic diversity. The models reproduce these directions to different extents. Matching a direction does not imply matching its level or slope: for example, few-shot Llama 3 produces a relatively flat length profile across age groups. The embedding measures describe semantic similarity and dispersion; they do not directly measure how much new information a child contributes.
 
 
-When comparing model performance, GPT-4o more accurately mimicked children than Llama 3, achieving closer alignment with CHILDES reference values across most metrics in the zero-shot condition. The introduction of few-shot examples (three interaction pairs) primarily benefited Llama 3, improving its alignment with CHILDES across several measures, though not consistently across all metrics. Despite these improvements, GPT-4o maintained better overall performance following few-shot prompting.
+The comparison between models depends on the metric. Under zero-shot prompting, GPT-4o is closer to the CHILDES reference on concreteness and utterance length, whereas Llama 3 is closer on semantic alignment. The few-shot condition reduces Llama 3's utterance length and syntactic complexity and brings its semantic alignment closer to the human reference, but does not improve every measure. Because the benchmark reports separate metrics without a combined score, these results support a profile of strengths and discrepancies rather than a single overall model ranking.
 
 
 
-\paragraph{Caregiver-LLM} In simulating caregiver language, zero-shot GPT-4o more closely approximated CHILDES values for utterance-level measures, while Llama 3 achieved better alignment with word-level and dialogue-level metrics. The few-shot prompting condition improved both models' performance, with Llama 3 ultimately achieving better overall alignment with CHILDES reference values than GPT-4o after exposure to exemplars. Notably, both models continued to diverge from human data at the dialogue level, exhibiting higher semantic alignment and lower semantic diversity than actual caregivers in the CHILDES corpus. Overall, there were no clear developmental patterns in CHILDES caregivers' behaviors. 
+\paragraph{Caregiver-LLM} In simulating caregiver language, zero-shot GPT-4o more closely approximated CHILDES values for utterance-level measures, while Llama 3 achieved better alignment with word-level and dialogue-level metrics. The few-shot condition brought several properties closer to CHILDES, especially utterance length and semantic diversity, while other properties remained discrepant. For example, GPT-4o's semantic alignment increased further above the human reference. The direction and size of improvement therefore depend on the metric. Notably, both models continued to diverge from human data at the dialogue level, exhibiting higher semantic alignment and lower semantic diversity than actual caregivers in the CHILDES corpus. Overall, there were no clear developmental patterns in CHILDES caregivers' behaviors.
 
 
 
@@ -209,16 +208,17 @@ Figure \ref{fig:child_multi} and \ref{fig:caregiver_multi} show the results of m
 \paragraph{Child-LLM} In zero-shot settings, we observed marked differences between single-turn and multi-turn testing across multiple metrics. Most notably, utterance length, syntactic complexity, and semantic alignment all increased considerably, becoming less comparable to children in CHILDES. 
 
 
-After few-shot prompting, we observed minor to moderate improvements, such as reductions in utterance length \footnote{Note that length could not be reduced further, even when we experimented with explicitly setting an upper bound on children's utterance in our instructions to the LLM.} and (slight) decreases in both syntactic complexity and semantic alignment. \footnote{In addition to using LLMs instructed to play a child, we also used model fine-tuning. To this end, we considered a pre-trained encoder-decoder model- Blenderbot fine-tuned on a subset of caregiver(encoder)-child(decoder) dialogues in CHILDES. We also explored an alternative approach using model fine-tuning rather than prompting. Specifically, we fine-tuned a pre-trained encoder-decoder Blenderbot model on a subset of caregiver (encoder) to child (decoder) dialogues from CHILDES. However, while showing reasonable performance in single-turn testing, this fine-tuned model was erratic and highly repetitive in the multi-turn interactions, also making it unsuitable for evaluating caregiver-LLMs.}
+After few-shot prompting, we observed minor to moderate improvements, such as reductions in utterance length \footnote{Note that length could not be reduced further, even when we experimented with explicitly setting an upper bound on children's utterance in our instructions to the LLM.} and (slight) decreases in both syntactic complexity and semantic alignment. \footnote{The fine-tuned BlenderBot comparison in Figure~\ref{fig:child_multi} provides an additional test of the interaction setting. Its semantic diversity fell sharply in multi-turn generation, consistent with highly repetitive output; this limited its usefulness as a simulated child for evaluating caregiver models.}
 
 
-\paragraph{Caregiver-LLM} Multi-turn testing resulted in a general increase across most metrics compared to single-turn testing (with exceptions in dialog diversity, which decreased, and concreteness, which remained constant). These changes made the multi-turn behavior generally less comparable to human data in CHILDES. Under few-shot prompting, we observed a significant improvement in multi-turn behavior, especially in terms of length and complexity, which became much more comparable to CHILDES. However, we observed only moderate improvement in dialog-level measures. 
+\paragraph{Caregiver-LLM} Multi-turn testing resulted in a general increase across most metrics compared to single-turn testing (with exceptions in dialog diversity, which decreased, and concreteness, which remained constant). These changes made the multi-turn behavior generally less comparable to human data in CHILDES. Under few-shot prompting, we observed a marked improvement in multi-turn behavior, especially in terms of length and complexity, which became much more comparable to CHILDES. However, we observed only moderate improvement in dialog-level measures.
 
 
 While LLMs successfully approximated human references for word-level and sentence-level properties under certain conditions, we identified systematic discrepancies in interactive measures for caregiver-LLMs across all experimental configurations. As illustrated in Figure \ref{fig:caregiver_multi}, in both dialog alignment and diversity, LLMs exhibited higher alignment and lower diversity than caregiver data in CHILDES across LLM type (GPT-4o  LLama 3), prompting strategy (zero- vs few-shot) and benchmarking approach (Single- vs. multi-turn). 
 
 
-To verify this qualitative observation statistically, we ran, for each of the two interactive measures (Dialog\_alignment and Dialog\_diversity), linear regressions comparing models' output to the CHILDES reference, testing all configurations: 2 LLMs x 2 prompting strategies x 2 benchmarking approach. All 16 comparison models (8 for each measure) revealed highly statistically significant differences between LLM-generated and human caregiver language, suggesting that interactive caregiver properties are potentially more challenging to mimic for LLM. 
+To verify this qualitative observation statistically, we ran, for each of the two interactive measures (Dialog\_alignment and Dialog\_diversity), linear regressions comparing models' output to the CHILDES reference, testing all configurations: 2 LLMs x 2 prompting strategies x 2 benchmarking approach. The reported regressions found statistically significant differences in all 16 comparisons (8 for each measure), consistent with the descriptive discrepancies in Figure~\ref{fig:caregiver_multi}. These tests concern the two selected embedding measures and do not establish a general difference in all aspects of interaction.
+% AUTHOR CHECK: report the regression formula, observation unit, clustering, effect sizes, intervals, and multiplicity handling before interpreting the precision of these tests.
 
 
 \section{Conclusion}
@@ -240,16 +240,16 @@ In conclusion, we explored a multi-level benchmarking approach for assessing LLM
 
 
 \section{Limitations}
-The supplied few-shot templates combine conversational demonstrations with explicit output-length instructions (Appendix A). Differences from zero-shot prompting therefore reflect this combined change, and cannot isolate the effect of examples on length or complexity.
+The supplied few-shot templates combine conversational demonstrations with explicit output-length instructions (Section~\ref{sec:prompts}). Differences from zero-shot prompting therefore reflect this combined change, and cannot isolate the effect of examples on length or complexity.
 
 
 While our explorative work has led to some initial insights, it also has several limitations and raises questions for future research.
 
-A primary constraint concerns our selection of evaluation metrics. We relied on established measures from previous research to assess LLMs at word, sentence, and dialogue levels. For children's language production, these metrics successfully captured developmental trajectories, enabling age-specific benchmarking of LLMs (Figure 1). However, when applied to caregiver language, these same metrics failed to reveal clear developmental patterns (Figure 2), thereby limiting the precision of our assessment. This asymmetry highlights the need for developing more refined metrics that can better capture the subtle adaptations in caregiver speech across different stages of child development. 
+A primary constraint concerns our selection of evaluation metrics. We relied on established measures from previous research to assess LLMs at word, sentence, and dialogue levels. For children's language production, these metrics successfully captured developmental trajectories, enabling age-specific benchmarking of LLMs (Figure~\ref{fig:child_single}). However, when applied to caregiver language, these same metrics failed to reveal clear developmental patterns (Figure~\ref{fig:caregiver_single}), thereby limiting the precision of our assessment. This asymmetry highlights the need for developing more refined metrics that can better capture the subtle adaptations in caregiver speech across different stages of child development.
 
 While evaluating LLMs in the single-turn scenario---comparing answers to a reference---is rather straightforward and aligns with the way LLMs are typically benchmarked, a multi-turn approach is also necessary in our context since the ultimate goal behind benchmarking is for these models to be used in an extended interactive context. However, the multi-turn approach is inherently less controlled as it involves two instances of LLMs interacting, each playing the role of an interlocutor. However, since neither instance perfectly models the interlocutor, extended interaction can amplify artifacts, leading the systems to adapt to each other’s quirks rather than approximating genuine child–caregiver interaction. Thus, a multi-turn benchmarking approach can under-estimate the models' true capabilities to interact with an actual human (child or caregiver). That said, the fact that multi-turn testing was, at least qualitatively, in agreement with single-turn testing (e.g., both of them point to LLMs' ability to adapt more easily to properties of words and sentences and less easily to properties of the dialog) is a testimony to the multi-turn's potential as a valid method of evaluation in this context, though, of course, future research is needed to thoroughly investigate this question.
 
-Finally, we reported that few-shot learning improved caregiver-LLM performance in terms of utterance length and syntactic complexity, but had less impact on alignment and diversity. While this finding was, overall, robust across configurations in our setup, it should be taken with a grain of salt, given that we did not systematically test it in a comprehensive set of experiments. Indeed, our main goal in this paper, as we stated above, was not to improve the LLMs' performance, but to demonstrate, in a simple case, the ability of the benchmarking metrics to identify gaps and track improvement. For example, it is possible that a larger, more systematic exploration of the prompting strategies (which is computationally expensive, and thus, could not be done here in combination with the other experiments we did) could yield improvements across the dialog dimensions as well.
+Finally, we reported that the few-shot prompting condition improved caregiver-LLM performance in terms of utterance length and syntactic complexity, but had less impact on alignment and diversity. While this finding was, overall, robust across configurations in our setup, it should be taken with a grain of salt, given that we did not systematically test it in a comprehensive set of experiments. Indeed, our main goal in this paper, as we stated above, was not to improve the LLMs' performance, but to demonstrate, in a simple case, the ability of the benchmarking metrics to identify gaps and track improvement. For example, it is possible that a larger, more systematic exploration of the prompting strategies (which is computationally expensive, and thus, could not be done here in combination with the other experiments we did) could yield improvements across the dialog dimensions as well.
 
 
 \section{Ethics statement}
@@ -267,9 +267,10 @@ This work focuses on model benchmarking and improvement using offline child-care
 % Appendix title
 
 
-\section*{Appendix A: Prompt templates}
+\section{Supplementary materials: prompt templates}
 \label{sec:prompts}
 % \subsection{Prompt templates}
+% AUTHOR CHECK: the caregiver templates below say "response to parent input" despite the caregiver role. Verify the executed prompts before correcting these verbatim templates.
 We provide prompt templates in different conditions. These are templates for the multi-turn testing. The templates for the single-turn testing are the same, except there is no conversation history.
 
 
@@ -304,10 +305,12 @@ You are a \textless Month\textgreater-month-old English-speaking child. Now, you
 
 
 
-\section*{Appendix B: Finetuning details}
+\section{Supplementary materials: fine-tuning details}
+\label{sec:benchmark_finetuning}
 We fine-tuned the Blenderbot model, a 400M parameter architecture comprising: a retriever for dialogue history; a Seq2Seq generator with 2 encoder layers, 24 decoder layers, 2560-dimensional embeddings, and 32 attention heads; retrieve-and-refine architectures combining dialogue and knowledge retrieval. The parameters were optimized through preliminary experiments, resulting in a batch size of 16 and a learning rate of 0.0001 maintained over 4 epochs. The fine-tuning data consisted of 2.6M interaction pairs with 15.8M total word tokens (4.4M child tokens and 11.4M adult tokens) restructured from CHILDES dataset \citep{macwhinney2000childes}.
 
-\section*{Appendix C: Example generations}
+\section{Supplementary materials: example generations}
+\label{sec:benchmark_examples}
 
 
 We present sample generations in Table~\ref{tab:samples}. It shows child-caregiver conversations (CHILDES corpus) and GPT-4o generations in a multi-turn setting where the child and caregiver are two instances of GPT-4o. All conversations start from the same child turn (here, all conversations start from a child outputting ``silence''). To extract features, we preprocessed all samples by removing non-verbal behavioral annotations (e.g., \textit{giggles}) and lower-casing words to focus exclusively on verbal content. 
@@ -315,7 +318,7 @@ We present sample generations in Table~\ref{tab:samples}. It shows child-caregiv
 \begin{table*}[h]
     \small
     \centering
-    \caption{Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o after being shown three previous examples in the child-caregiver interaction.}
+    \caption{Comparison of real and LLM-generated child-caregiver dialogue exchanges. The LLM generation here is from a multi-turn setting, where two instances of GPT-4o (i.e., a child-LLM and a caregiver-LLM) interact. The table shows three dialogue samples: (1) a real interaction from the CHILDES corpus, (2) a zero-shot generation by GPT-4o given only the initial turn, and (3) a few-shot generation by GPT-4o under the few-shot condition with three interaction examples and output-length instructions.}
     \label{tab:samples}
     \setlength{\tabcolsep}{4pt}
     \begin{tabularx}{\textwidth}{l l X}

@@ -1,5 +1,5 @@
 % !TeX root = ../../../main.tex
-% Body of paper at ch4/papers/RLHF/main.tex
+% Body of paper at ch5/papers/RLHF/main.tex
 % Standalone preamble stripped; \input from the chapter wrapper.
 \graphicspath{{ch5/papers/RLHF/}}
 
@@ -18,7 +18,7 @@ The developmental literature has documented several forms of caregiver response 
 A second relevant class is \textit{semantic contingency}, or the extent to which caregiver responses remain responsive to the child's topic and intended meaning  \cite{hoff-ginsberg_topic_1987, che2018assessing, hirsh2015contribution, agrawal_automatic_2024}. In the present model, this degree of contingency defines a reward target. Low contingency may reflect semantic or conversational misalignment, but does not by itself identify a grammatical error in the child's utterance.
 
 
-There are other forms of caregiver feedback that also provide such valenced signals, even if they have not traditionally been associated with this learning framework. Perhaps most directly relevant to grammar learning is \textit{structural alignment} \cite{fusaroli_caregiver_2023, dale_unraveling_2006, fernandez_quantifying_2014, misiek_development_2020}, whereby caregivers respond by reusing the child's syntactic frame while potentially introducing different lexical content (e.g., child: “I eat” (Pronoun-Verb) → caregiver: “Mommy eats too”). Here, the feedback valence is reflected in whether such alignment occurs, signaling support for the child’s use of that syntactic frame.
+There are other forms of caregiver feedback that also provide such valenced signals, even if they have not traditionally been associated with this learning framework. Perhaps most directly relevant to grammar learning is \textit{structural alignment} \cite{fusaroli_caregiver_2023, dale_unraveling_2006, fernandez_quantifying_2014, misiek_development_2020}, whereby caregivers respond by reusing the child's syntactic frame while potentially introducing different lexical content (e.g., child: “I eat” (Pronoun-Verb) → caregiver: “You eat too”). In this study, caregiver reuse of POS bigrams defines the structural-alignment target. This is a local measure of shared grammatical categories, rather than a test of complete syntactic-frame identity or an explicit caregiver judgment of correctness.
 
 A final type of feedback is \textit{affective feedback}, such as whether caregivers respond with positive affect (e.g., "that's amazing!") versus a more emotionally neutral response \cite{rivero2023relations}.
  
@@ -41,22 +41,24 @@ Existing RLHF-based studies of naturally occurring caregiver feedback have focus
 \section{Methods}  
 \label{sec:methods}
 
-Our method uses a two-stage learning setup designed to separate learning from linguistic exposure from learning driven by caregiver-feedback rewards.
+Our method uses a two-stage learning setup designed to compare an input-only baseline with additional optimization of caregiver-feedback rewards.
 %\footnote{Unless otherwise stated, and for reproducibility, we follow the original methodology and publicly available implementation as closely as possible.} 
 In a first step, a small causal language model is pretrained on child-directed language (excluding children's production), providing an \emph{input-only} baseline that quantifies learning gains from linguistic exposure. In a second step, the model is fine-tuned via RL, using a reward model trained on the target caregiver's feedback valence. 
 %This design allows us to test each reward type separately, thereby isolating their specific causal effects on learning independently of the other rewards.
 
 %We adopt the LM + RLHF framework of \citet{nikolaus2026modelling}, by extending it from a single feedback signal (clarification requests) to four theoretically motivated reward types.
 
-\noindent \textbf{Pre-training baselines}  We use a customized version of GPT-2 (2 layers, hidden size 512, 8 attention heads), pre-trained on CHILDES \citep{macwhinney2000childes}, using three pre-training scales (0.1M, 1M, and 10M words, see Appendix 4).
+\noindent \textbf{Pre-training baselines}  We use a customized version of GPT-2 (2 layers, hidden size 512, 8 attention heads), pre-trained on CHILDES \citep{macwhinney2000childes}, using three pre-training scales (0.1M, 1M, and 10M words; see Section~\ref{sec:rlhf_training}).
 
-\noindent \textbf{Empirical Reward Models} For each feedback type, we trained reward models to capture naturally occurring patterns of caregiver feedback in child--caregiver interactions (using CHILDES dataset). Each reward model is trained to map children's utterances to a scalar, representing the valence of the target feedback (see Appendix 4). %Specifically, we fine-tuned a pre-trained DeBERTa model to predict the valence of the target feedback from children’s utterances. 
-The valence values themselves were annotated prior to reward-model training using a range of automatic annotation tools (see below, and Appendix 3).
+\noindent \textbf{Empirical Reward Models} For each feedback type, we trained reward models to capture naturally occurring patterns of caregiver feedback in child--caregiver interactions (using CHILDES dataset). Each reward model is trained to map children's utterances to a scalar, representing the valence of the target feedback (see Section~\ref{sec:rlhf_training}). %Specifically, we fine-tuned a pre-trained DeBERTa model to predict the valence of the target feedback from children’s utterances.
+The valence values themselves were annotated prior to reward-model training using a range of automatic annotation tools (see Section~\ref{sec:rlhf_annotation}).
 
-\noindent \textbf{Topline Reward Model}: we use a grammar-targeted reward as a reference condition for what direct grammatical supervision can achieve in this framework. It is trained on labeled BLiMP and Zorro materials (Appendix 4), rather than on observed caregiver feedback. It is therefore not a formal upper bound or an independent test of developmental sufficiency.
+\noindent \textbf{Topline Reward Model}: we use a grammar-targeted reward as a reference condition for what direct grammatical supervision can achieve in this framework. It is trained on labeled BLiMP and Zorro materials (Section~\ref{sec:rlhf_training}), rather than on observed caregiver feedback. It is therefore not a formal upper bound or an independent test of developmental sufficiency.
 %assigns a scalar score to model-generated utterances according to the target feedback dimension. The reward models were based on DeBERTa-style classifiers for different feedback types. 
 
-\noindent \textbf{RL fine-tuning} For each feedback/reward, the pre-trained models were fine-tuned using the corresponding reward models, using Proximal Policy Optimization \citep[PPO;][]{schulman_proximal_2017}. We included several safeguards to mitigate potential language drift (see Appendix 5).
+\noindent \textbf{RL fine-tuning} For each feedback/reward, the pre-trained models were fine-tuned using the corresponding reward models, using Proximal Policy Optimization \citep[PPO;][]{schulman_proximal_2017}. We included several safeguards to mitigate potential language drift (see Section~\ref{sec:rlhf_ppo}).
+
+The reward-learning pipeline separates three operations: a caregiver response is first annotated in a recorded child--caregiver pair; a reward model then learns to predict that annotation from the child utterance alone; finally, the fixed predictor scores learner-generated utterances during PPO. The learner therefore optimizes predicted feedback without receiving the corresponding caregiver response as new conversational input. PPO generation uses short caregiver-utterance prefixes, while the free-generation evaluation below uses a BOS prompt (Section~\ref{sec:rlhf_ppo}).
 
 \noindent \textbf{Training seeds and variability} To account for stochastic variability, we used, for each training scale, a fully crossed $3 \times 3 \times 3$ design over pretraining seeds, fine-tuning seeds, and generation seeds.
 
@@ -67,12 +69,13 @@ The valence values themselves were annotated prior to reward-model training usin
     Generated-utterance grammaticality across pretraining scales for each reward.
     The top row shows results from the CHILDES-adapted ChildCG classifier, while the bottom row shows results using a standard GEC-based metric.
     Within each panel, baseline and topline trajectories are repeated to make the reward trajectory directly comparable.
-    Means are computed over training seeds units after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across training seeds.
+    Means are computed across training runs after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across those training runs.
     }
     \label{fig:generation_reward_scale}
 \end{figure*}
 
-\noindent \textbf{Annotation of the reward signals}  We considered the four classes of caregiver feedback mentioned in the introduction: communicative feedback, semantic contingency, structural alignment and affective feedback. For each type of feedback, we annotated the CHILDES child-caregiver conversations for the corresponding valence (See Appendix 3).
+\noindent \textbf{Annotation of the reward signals}  We considered the four families of caregiver feedback mentioned in the introduction: communicative feedback, semantic contingency, structural alignment and affective feedback. For each family, we annotated CHILDES child--caregiver conversations for the corresponding targets (Section~\ref{sec:rlhf_annotation}). The communicative family includes acknowledgment and clarification-request conditions, which are also reported separately in Table~\ref{tab:grammar_reward_effects}.
+% AUTHOR CHECK: specify the annotation-to-reward transformations, especially the sign of clarification-request rewards, and the pooling of constituent conditions in each family-level plot.
 %\citep{nikolaus2023modeling,clark2018conversation}. 
 
 % Each reward signal was designed to capture a different way in which caregivers may respond contingently to children’s utterances.
@@ -96,7 +99,7 @@ The valence values themselves were annotated prior to reward-model training usin
 
 We use two complementary evaluations that capture different aspects of grammatical behavior. 
 
-\noindent  \textbf{Minimal-pair benchmarks}: we use Blimp \cite{warstadt2020blimp} and its CHILDES-adapted version Zorro \cite{huebner_babyberta_2021}. They test whether a model assigns higher probability to a grammatical sentence than to a minimally differing ungrammatical one. 
+\noindent  \textbf{Minimal-pair benchmarks}: we use BLiMP \cite{warstadt2020blimp} and its CHILDES-adapted version Zorro \cite{huebner_babyberta_2021}. They test whether a model assigns higher probability to a grammatical sentence than to a minimally differing ungrammatical one.
 %\paragraph{Comprehension benchmarks} We evaluate models on BLiMP \citep{warstadt2020blimp} and Zorro \citep{huebner2021babyberta}, two minimal-pair benchmarks that test whether a model assigns higher probability to a grammatical sentence than to a minimally differing ungrammatical one. Following prior work\citep{nikolaus2026modelling}, we filtered out sentence pairs containing words that do not appear in the model’s training data. This evaluation measures whether reinforcement learning improves the model’s preference for grammatical over ungrammatical forms in controlled benchmark settings.
 
 \noindent \textbf{Grammaticality of generated utterances} Free generations were scored using Child Conversational Grammaticality  \cite[ChildCG, ][]{nikolaus_automatic_2024}, a model adapted to CHILDES and its conversational context. In addition, we used a measure based on an off-the-shelf Grammatical Error Correction model \cite[e.g.,][]{rothe_simple_2021}. For each run and generation seed, we sampled up to 10,000 utterances using the Beginning-Of-Sentence (BOS) token as a prompt.
@@ -115,16 +118,16 @@ Both evaluation methods are broadly connected to child-language methodologies fo
 \section{Results}
 \label{sec:results}
 
-First, we compared the input-only baseline models with the same models fine-tuned using the grammar-targeted reference reward (Figure~\ref{fig:topline} in Appendix). This condition improves minimal-pair performance and generated grammaticality relative to pretraining alone. Because its reward model is trained on BLiMP and Zorro materials, the benchmark gains demonstrate the effect of direct grammar-targeted supervision within this setup; independent generalization would require documented separation of reward-training and evaluation items.
+First, we compared the input-only baseline models with the same models fine-tuned using the grammar-targeted reference reward (Figure~\ref{fig:topline} in the supplementary analyses). This condition improves minimal-pair performance and generated grammaticality relative to pretraining alone. Because its reward model is trained on BLiMP and Zorro materials, the benchmark gains demonstrate the effect of direct grammar-targeted supervision within this setup; independent generalization would require documented separation of reward-training and evaluation items.
 %However, gains on the Zorro and BLiMP benchmarks remain relatively small compared to generated-utterance grammaticality.
 
-Moving to the empirical reward models, we found no consistent improvement on the minimal-pair benchmarks (Figure~\ref{fig:benchmark_reward_scale} in Appendix). Across Zorro and BLiMP, none of the reward types reliably improved over the baseline. This echoes a broader pattern in recent studies showing
-that interactive strategies  struggle to improve performance on these benchmarks (see also Limitations). In contrast, the generation results showed measurable effects on grammaticality (Figure \ref{fig:generation_reward_scale}). Across both ChildCG and GEC, the overall trends were largely consistent. Structural alignment produced the strongest and most consistent improvement across scales and metrics. Communicative feedback showed an overall positive effect, especially under ChildCG, but the gains were smaller. In contrast, semantic contingency and affective feedback generally reduced grammaticality below the baseline. 
+Moving to the empirical reward models, we found no consistent improvement on the minimal-pair benchmarks (Figure~\ref{fig:benchmark_reward_scale} in the supplementary analyses). Across Zorro and BLiMP, none of the reward types reliably improved over the baseline. This echoes a broader pattern in recent studies showing
+that interactive strategies  struggle to improve performance on these benchmarks (see also Limitations). In contrast, the generation results showed measurable effects on grammaticality (Figure \ref{fig:generation_reward_scale}). Structural alignment produced the strongest and most consistent improvement across scales and both generation metrics. Communicative feedback showed smaller gains, with little change from baseline under GEC at 10M. Affective feedback reduced grammaticality under both metrics. Semantic contingency showed a more qualified pattern: ChildCG scores were below baseline at 1M and 10M, while GEC scores were close to baseline at those scales and above baseline at 0.1M. Thus, the direction of the semantic-contingency effect depends on the metric and pretraining scale.
 
-Regarding the effect of pre-training size, the low-resource condition at 0.1M was visibly noisier, with larger variability across runs, excessively high non-word rates (Figure ~\ref{fig:covariates_reward_scale} in Appendix, bottom row), and overall low grammaticality scores. The effects became much more consistent from 1M words onward,
-suggesting that a minimum amount of pre-training data is needed before reward-specific effects can emerge robustly.
+Regarding pretraining size, the 0.1M baseline had lower generated grammaticality, and several conditions showed higher non-word rates or greater variability than at 1M and 10M (Figure~\ref{fig:covariates_reward_scale}, bottom row). These patterns motivate caution in interpreting the lowest-resource condition, but do not identify a general minimum input threshold: structural alignment already improved generated grammaticality at 0.1M.
 
-We tested these qualitative patterns statistically using a mixed-effect logistic model. Predictors included reward type, pretraining scale, and their interaction. We additionally added the following predictors as controls \uline{a) utterance length}, since longer utterances may naturally provide more opportunities for errors, and \uline{b) rate of non-words generated}, since out-of-dictionary forms may be penalized by grammaticality classifiers for reasons that are not strictly grammatical.  Finally, we included a random intercept for generation run to account for the fact that sampled utterances from the same seeds are not independent.
+We tested these qualitative patterns statistically using a mixed-effect logistic model. Predictors included reward type, pretraining scale, and their interaction. We additionally added the following predictors as controls \uline{a) utterance length}, since longer utterances may naturally provide more opportunities for errors, and \uline{b) rate of non-words generated}, since out-of-dictionary forms may be penalized by grammaticality classifiers for reasons that are not strictly grammatical.  Finally, we included a random intercept for generation run to account for dependence among utterances from the same run. Because length and non-word rate can themselves change under reward fine-tuning, the adjusted reward contrasts are conditional comparisons, not estimates of the total effect mediated through all changes in production.
+% AUTHOR CHECK: give the fitted formula and clarify how pretrained checkpoints, PPO runs, reward variants, and generation seeds enter the grouping structure.
 
 
 \begin{table}[t]
@@ -164,13 +167,12 @@ The main finding was that structural-alignment rewards systematically improve ge
 Communicative Feedback also improved grammaticality, though to a lesser extent. The improvement is consistent with prior work, especially on clarification requests \cite{nikolaus_fourtassi_2026, clark_conversational_2020}. 
 %However, by comparison, its effect was smaller than that of structural alignment. %and was not uniform across its two components: clarification requests and acknowledgements.
 
-As for Semantic Contingency and Affective Feedback, they  \textit{reduced} grammaticality. We did not anticipate this outcome; however, it can be understood in the broader context of development.
+Affective feedback reduced generated grammaticality, while semantic contingency reduced ChildCG scores at the larger scales without producing the same decline under GEC. These results should be interpreted alongside changes in the output distribution.
 %This should not be interpreted as evidence that these rewards are unimportant for development. Rather, it suggests that different 
-Based on the supplementary analyses in Figure \ref{fig:covariates_reward_scale}, and models' generation samples in Table \ref{tab:sampled_childcg_examples} (Appendix), Affective Feedback increased utterance length, suggesting a role in eliciting
-longer vocalization \cite[see also][]{goldstein2003social}. Semantic Contingency increased the use of content words and preserved greater lexical diversity, in line with findings in lexical development \cite{che2018assessing}.
+Figure~\ref{fig:covariates_reward_scale} shows that affective feedback favored longer utterances, especially at 1M and 10M. Semantic contingency lowered function-word density, corresponding to a higher content-word proportion. Both families retained higher pooled lexical entropy than the structural-alignment, communicative-feedback, and grammar-reference conditions, but remained below the input-only baseline. These are changes in generated language, not direct evidence of improved vocal participation or lexical development in children. The examples in Table~\ref{tab:sampled_childcg_examples} illustrate the outputs and the classifier's decisions; they are not an independent validation of grammaticality.
 %Thus, semantic contingency and affective feedback may support important dimensions of language and socio-cognitive development, without being ideally conducive to grammar learning specifically. 
 
-To conclude, different types of feedback push generation in different directions: some improve grammaticality, while others encourage other properties of language learning and use. 
+To conclude, different types of feedback push generation in different directions: some improve grammaticality, while others alter length and lexical composition without consistent grammaticality gains.
 %Although we focused on grammar, this is only one dimension of development. Rewards such as semantic contingency and affective feedback may be less useful for grammar directly, but still important for semantic coherence, engagement, pragmatic appropriateness, lexical development, or children’s willingness to participate in interaction. 
 Future work should adopt a broader framework, investigating how these feedback types may support \textit{complementary} aspects of language learning beyond grammar.
 
@@ -193,9 +195,9 @@ Nevertheless, a model that becomes more grammatical in free generation does not 
 %across lexical items and sentence constructions.
 Minimal-pair benchmarks---though not perfect \cite{martinez2023evaluating}---are useful precisely because they intend to test this stronger criterion for learning. Our null results on BLiMP/Zorro (Figure \ref{fig:benchmark_reward_scale}) therefore matter. They suggest that the empirical rewards did not produce grammatical generalization---at least, not of the kind captured by these benchmarks.
 
-That said, while this conclusion may be partly correct, it would be premature to draw it too strongly here without further research. Existing minimal-pair benchmarks do not exhaust the space of possible grammatical generalizations. In particular, even child-adapted benchmarks such as Zorro primarily target classic grammatical phenomena, but do not directly target some of the errors that are especially common in child language \textit{production} and may therefore also be reproduced in our generated data---including missing subjects, objects, auxiliaries, or determiners, among others \cite{saxton2005prompt, hiller_data-driven_2016, nikolaus_automatic_2024}. This is important because, in an RL fine-tuning setting,  errors that are sampled in the model's productions are the ones that receive direct corrective pressure from the reward signal.
+That said, while this conclusion may be partly correct, it would be premature to draw it too strongly here without further research. Existing minimal-pair benchmarks do not exhaust the space of possible grammatical generalizations. In particular, even child-adapted benchmarks such as Zorro primarily target classic grammatical phenomena, but do not directly target some of the errors that are especially common in child language \textit{production} and may therefore also be reproduced in our generated data---including missing subjects, objects, auxiliaries, or determiners, among others \cite{saxton2005prompt, hiller_data-driven_2016, nikolaus_automatic_2024}. This is important because, in an RL fine-tuning setting,  errors that are sampled in the model's productions are the ones that receive reward-mediated selection pressure. For empirical rewards, this pressure is indirect and does not explicitly label the grammatical error.
 
-Another concern is that reward fine-tuning may narrow the model’s production distribution, reducing diversity and potentially harming generalization. However, while this may be partly true, some narrowing may still be compatible with grammatical learning, and perhaps even expected if the model moves away from noisy or ill-formed productions. For instance, in our analyses, the grammar topline was relatively the least lexically diverse condition (Figure~\ref{fig:covariates_reward_scale}, Lexical Entropy, Appendix), yet it produced the clearest gains on the minimal-pair benchmarks (Figure~\ref{fig:topline}, Appendix). Thus, reduced lexical diversity did not prevent improvement on these benchmark scores. Because the topline reward used BLiMP and Zorro training materials, this comparison does not independently establish grammatical generalization. The more central question is whether reward-induced changes target grammatical phenomena that can generalize beyond the sampled utterances themselves.
+Another concern is that reward fine-tuning may narrow the model’s production distribution, reducing diversity and potentially harming generalization. However, while this may be partly true, some narrowing may still be compatible with grammatical learning, and perhaps even expected if the model moves away from noisy or ill-formed productions. For instance, in our analyses, the grammar topline was relatively the least lexically diverse condition (Figure~\ref{fig:covariates_reward_scale}, Lexical Entropy, supplementary analyses), yet it produced the clearest gains on the minimal-pair benchmarks (Figure~\ref{fig:topline}, supplementary analyses). Thus, reduced lexical diversity did not prevent improvement on these benchmark scores. Because the topline reward used BLiMP and Zorro training materials, this comparison does not independently establish grammatical generalization. The more central question is whether reward-induced changes target grammatical phenomena that can generalize beyond the sampled utterances themselves.
 
 Testing this stronger learning claim, thus, remains an important direction for future work. It requires conducting large scale corpus exploration of the grammatical errors found in both child and model productions, and to use these bottom-up insights to build targeted tests around the relevant phenomena. This would help determine whether the reward-induced gains observed here reflect merely local shifts in surface production patterns or more abstract grammatical generalizations.
 
@@ -367,14 +369,14 @@ Overall, the results show that caregiver-derived rewards do not have uniform eff
 
 
 \clearpage
-\section*{Appendix 1: Supplementary Analyses}
+\section{Supplementary materials: additional analyses}
 \label{app:analyses}
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{figures/figureA_baseline_topline_scale_mixed_sources_new.pdf}
 
 \captionof{figure}{
-Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across trainings seeds (after averaging over generation seeds). Error bars show ±1 standard deviation across these independent units.
+Baseline and Topline performance across pretraining scales. The top row reports minimal-pair benchmark accuracy for Zorro and BLiMP. The bottom row reports grammaticality of generated utterances, using the ChildCG or GEC-based metric. Points show means across training runs (after averaging generation-based measures over generation seeds). Error bars show $\pm 1$ standard deviation across those runs.
 }
 \label{fig:topline}
 \end{center}
@@ -386,7 +388,7 @@ Baseline and Topline performance across pretraining scales. The top row reports 
     Benchmark performance across pretraining scales for each reward family.
     Rows show Zorro and BLiMP minimal-pair accuracy; columns show the four empirical reward families.
     Within each panel, the baseline and topline trajectories are repeated to make the reward trajectory directly comparable at each scale.
-    Means are computed over training seeds, after averaging over generation seeds. Error bars show $\pm 1$ standard deviation across independent units.
+    Means are computed across training runs. Error bars show $\pm 1$ standard deviation across those runs; generation seeds do not provide independent model replications for fixed minimal-pair evaluation.
     }
     \label{fig:benchmark_reward_scale}
 \end{figure*}
@@ -406,8 +408,9 @@ Baseline and Topline performance across pretraining scales. The top row reports 
 \clearpage
 
 
-\begin{table*}[t]
-\section*{Appendix 2: Examples of Model-Generated Utterances}
+\section{Supplementary materials: example generations}
+\label{sec:rlhf_examples}
+\begin{table}[H]
 \vspace{1em}
 \centering
 \scriptsize
@@ -421,7 +424,7 @@ p{0.30\textwidth}
 >{\columncolor{gray!15}}p{0.38\textwidth}
 }
 \toprule
-Reward type &  & ChildCG = 1 (grammatical) & ChildCG = 0 (ungrammatical) \\
+Reward type &  & ChildCG = 1 (classified grammatical) & ChildCG = 0 (classified ungrammatical) \\
 \midrule
 
 \textbf{Baseline} &  &
@@ -570,14 +573,15 @@ Examples of utterances generated by RL-fine-tuned models at the 10M-word scale (
 Examples are organized by reward types. Unshaded cells show utterances that were classified as grammatical by ChildCG, while shaded cells show utterances classified as ungrammatical.
 }
 \label{tab:sampled_childcg_examples}
-\end{table*}
+\end{table}
 
 
 
 \clearpage
-\section*{Appendix 3: Automatic labeling of rewards}
+\section{Supplementary materials: automatic labeling of rewards}
+\label{sec:rlhf_annotation}
 
-We automatically annotated caregiver feedback signals in child-caregiver conversations and used these annotations to supervise reward model training (see Appendix 4). 
+We automatically annotated caregiver feedback signals in child-caregiver conversations and used these annotations to supervise reward model training (see Section~\ref{sec:rlhf_training}).
 
 \subsection*{Communicative feedback}
 
@@ -591,7 +595,7 @@ Clarification requests were identified using a DeBERTa-v3-xsmall classifier fine
 
 %Structural alignment  and semantic contingency. We annotated child--caregiver alignment using a dedicated pipeline applied to cleaned child utterances and immediately following caregiver responses. 
 
-Following previous research \cite{dale_unraveling_2006, fernandez_quantifying_2014}, a child structure was defined as a POS bigram. We used spaCy (\texttt{en\_core\_web\_sm})\footnote{\url{https://huggingface.co/spacy/en_core_web_sm}} to tag each child utterance and caregiver response for part-of-speech (POS), excluding punctuation and empty tokens. Caregiver alignment was computed as a normalized score of bigram re-use, corresponding to the size of the intersection between the child and caregiver POS-bigram sets, divided by the size of the larger set.
+Following previous research \cite{dale_unraveling_2006, fernandez_quantifying_2014}, a child structure was defined as a POS bigram. We used spaCy (\texttt{en\_core\_web\_sm})\footnote{\url{https://huggingface.co/spacy/en_core_web_sm}} to tag each child utterance and caregiver response for part-of-speech (POS), excluding punctuation and empty tokens. Caregiver alignment was computed as a normalized score of bigram reuse: the size of the intersection between the child and caregiver POS-bigram sets divided by the size of the larger set. This overlap is symmetric in the two sets; the child-to-caregiver direction comes from their order in the recorded exchange. It does not distinguish a caregiver recast from other responses containing the same POS bigrams.
 
 \iffalse
 \[
@@ -619,7 +623,7 @@ This semantic similarity score was used as the semantic contingency reward. The 
 
 \subsection*{Affective feedback}
 
-We annotated affective properties of caregiver responses using \texttt{roberta-base-go\_emotions}.\footnote{\url{https://huggingface.co/SamLowe/roberta-base-go_emotions}} The model was applied to adult responses only. For each caregiver utterance, the classifier returned a probability distribution over several labels. We used the probabilities for emotions related to supportiveness, approval, and warmth.
+We annotated affective properties of caregiver responses using \texttt{roberta-base-go\_emotions}.\footnote{\url{https://huggingface.co/SamLowe/roberta-base-go_emotions}} The model was applied to adult responses only. For each caregiver utterance, the classifier returned scores for several emotion labels. We used the probabilities for emotions related to supportiveness, approval, and warmth.
 
 %was computed as the mean of admiration, approval, caring, optimism, and pride; engagement as the mean of curiosity, excitement, amusement, and desire and warmth as the mean of caring, love, gratitude, and joy. We additionally retained individual probabilities for approval, curiosity, and caring. Empty or missing caregiver responses were assigned zero scores for all affective dimensions. 
 
@@ -628,14 +632,15 @@ We annotated affective properties of caregiver responses using \texttt{roberta-b
 
 
 
-\section*{Appendix 4: Baseline and Reward model training}
+\section{Supplementary materials: baseline and reward-model training}
+\label{sec:rlhf_training}
 
 \subsection*{Baseline models}
 For the input-based baselines, we trained a small GPT-2-style causal language model on caregiver utterances only. The model used 2 hidden layers, 8 attention heads, and a hidden size of 512. We trained a word-level tokenizer on the training data, retaining words that appeared at least twice and capping the vocabulary at 5,000 types. Models were optimized with the standard GPT-2 causal language-modeling objective using AdamW and a batch size of 256. For each data scale, we held out 10\% of the data for validation and used validation loss for early stopping and checkpoint selection. To assess the effect of input size, we trained models on three amounts of caregiver language: 0.1M, 1M, and 10M words. Each condition was run with three different random seeds.
 
 \subsection*{Reward models}
 
-For each of the four caregiver feedback dimensions above, we train a reward model that maps a child utterance to the corresponding valence of the caregiver response, as annotated using the procedures described in Appendix 3.
+For each of the four caregiver feedback dimensions above, we train a reward model that maps a child utterance to the corresponding valence of the caregiver response, as annotated using the procedures described in Section~\ref{sec:rlhf_annotation}.
 
 %The grammaticality topline is trained in the same way, using the ChildCG annotations of \citet{nikolaus_automatic_2024} as target labels.
 
@@ -655,7 +660,7 @@ target valence $y(u) \in [0,1]$:
 We deliberately use a regression objective rather than a pairwise preference loss, because the underlying caregiver-behavior annotations are intrinsically scalar (e.g.\ POS-bigram overlap, sentence-similarity, or emotion-classifier probabilities) rather than preference comparisons.
 \fi
 
-All reward models are trained on the CHILDES child--caregiver conversation pairs (one row per child utterance with the immediately following caregiver response), the same pre-processed  pipeline above. 
+The empirical reward models are trained on CHILDES child--caregiver conversation pairs, with one row per child utterance and its immediately following caregiver response. The grammar-targeted reference instead uses BLiMP and Zorro labels, as described below.
 We split the data into 90\% training and 10\% held-out evaluation with a fixed random seed.  
 We used the AdamW optimizer with an initial learning rate of $1.41 \times 10^{-5}$, a batch size of 128, and early stopping based on MSE on the held-out validation set.
 %Each reward type is associated with one annotation column and a transformation $\tau(\cdot)$ that maps the raw annotation into the $[0,1]$ valence target.
@@ -701,7 +706,8 @@ Random seeds                   & \{1, 2, 3\} \\
 
 The topline reward model was obtained using the same procedure, except that instead of learning the mapping between child utterances and the feedback valence, it was trained on the controlled minimal-pair datasets used in Zorro and BLiMP. More specifically, the model was trained to classify sentences from these datasets according to their labels (i.e., grammatical or ungrammatical).
 
-\section*{Appendix 5: RL Fine-tuning Details}
+\section{Supplementary materials: RL fine-tuning details}
+\label{sec:rlhf_ppo}
 
 After pretraining on child-directed CHILDES utterances, we fine-tune each language model with Proximal Policy Optimization \citep[PPO;][]{schulman_proximal_2017}, implemented using Hugging Face’s TRL library.
 For each fine-tuning step, we (a) sample utterances from the current language model, (b) compute the corresponding rewards using the reward model, and (c) update the model weights using PPO.
@@ -709,7 +715,7 @@ For each fine-tuning step, we (a) sample utterances from the current language mo
 To obtain a diverse set of generated utterances, we randomly prompted the model with short utterance prefixes (the first one or two tokens) sampled from the pretraining data, namely the caregiver utterances used to train the input-based baseline model.
 We additionally included an entropy regularization term (0.001) in the loss. 
 
-The models were fine-tuned for a maximum of 6,000 steps, and the best checkpoint was selected based on mean reward. To discourage excessively short or long utterances, we applied rejection sampling by assigning a reward of $-1$ to generated utterances that were shorter than three tokens or failed to produce an end-of-sequence token within 20 tokens.
+The models were fine-tuned for a maximum of 6,000 steps, and the best checkpoint was selected based on mean reward. To discourage excessively short or long utterances, we applied a reward penalty of $-1$ to generated utterances that were shorter than three tokens or failed to produce an end-of-sequence token within 20 tokens.
 
 To mitigate language drift, a known issue in Reinforcement Learning (RL) fine-tuning, we also added a small language-modeling regularization term (weight = 0.001). We used the TRL default optimizer and learning rate. Other Hyperparameters are shown in Table \ref{tab:ppo-hparams}. All other PPO hyperparameters were not changed from the default values as implemented in the Huggingface TRL library.
 

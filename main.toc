@@ -4,10 +4,13 @@
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Abstract}{ii}{chapter*.2}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Publications}{iii}{chapter*.3}%
 \babel@toc {french}{}\relax 
-\contentsline {chapter}{Table des matières}{iii}{section*.3}%
-\contentsline {chapter}{Liste des figures}{vii}{chapter*.6}%
-\contentsline {chapter}{Liste des tableaux}{xi}{chapter*.8}%
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Table des matières}{iv}{section*.4}%
+\contentsline {chapter}{Liste des figures}{viii}{chapter*.7}%
+\contentsline {chapter}{Liste des tableaux}{xii}{chapter*.9}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}General Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}From Linguistic Experience to Language Use}{2}{section.1.1}%
@@ -23,104 +26,104 @@
 \contentsline {section}{\numberline {2.1}Scope and inferential framework}{9}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Outcome alignment}{10}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Task affordances across linguistic domains}{10}{subsection.2.2.1}%
-\contentsline {paragraph}{Phonological knowledge.}{11}{section*.9}%
-\contentsline {paragraph}{Morphological knowledge.}{12}{section*.10}%
-\contentsline {paragraph}{Word forms and lexical production.}{12}{section*.11}%
-\contentsline {paragraph}{Word meaning.}{13}{section*.12}%
-\contentsline {paragraph}{Syntactic structure.}{13}{section*.13}%
-\contentsline {paragraph}{Sentence meaning.}{14}{section*.14}%
-\contentsline {paragraph}{Pragmatic inference.}{14}{section*.15}%
+\contentsline {paragraph}{Phonological knowledge.}{11}{section*.10}%
+\contentsline {paragraph}{Morphological knowledge.}{12}{section*.11}%
+\contentsline {paragraph}{Word forms and lexical production.}{12}{section*.12}%
+\contentsline {paragraph}{Word meaning.}{13}{section*.13}%
+\contentsline {paragraph}{Syntactic structure.}{13}{section*.14}%
+\contentsline {paragraph}{Sentence meaning.}{14}{section*.15}%
+\contentsline {paragraph}{Pragmatic inference.}{14}{section*.16}%
 \contentsline {subsection}{\numberline {2.2.2}Selected empirical coverage}{15}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Thresholded evidence and graded performance}{17}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Developmental trajectories}{19}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Measurement uncertainty}{20}{subsection.2.2.5}%
 \contentsline {section}{\numberline {2.3}Input alignment}{21}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Quality, register, modality, and interaction}{21}{subsection.2.3.1}%
-\contentsline {paragraph}{Language-only text.}{21}{section*.18}%
-\contentsline {paragraph}{Language-only audio.}{22}{section*.19}%
-\contentsline {paragraph}{Language with vision.}{23}{section*.20}%
-\contentsline {paragraph}{Language, vision, and social interaction.}{23}{section*.21}%
+\contentsline {paragraph}{Language-only text.}{21}{section*.19}%
+\contentsline {paragraph}{Language-only audio.}{22}{section*.20}%
+\contentsline {paragraph}{Language with vision.}{23}{section*.21}%
+\contentsline {paragraph}{Language, vision, and social interaction.}{23}{section*.22}%
 \contentsline {subsection}{\numberline {2.3.2}Quantity and temporal organization}{24}{subsection.2.3.2}%
-\contentsline {paragraph}{Fixed-corpus trajectories.}{25}{section*.22}%
-\contentsline {paragraph}{Successive scaling.}{25}{section*.23}%
-\contentsline {paragraph}{Curriculum and continual learning.}{25}{section*.24}%
+\contentsline {paragraph}{Fixed-corpus trajectories.}{25}{section*.23}%
+\contentsline {paragraph}{Successive scaling.}{25}{section*.24}%
+\contentsline {paragraph}{Curriculum and continual learning.}{25}{section*.25}%
 \contentsline {section}{\numberline {2.4}Implications, reporting standards, and thesis research gaps}{26}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}What a calibrated comparison licenses}{26}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Minimum reporting for interpretable evidence}{27}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Research gaps addressed in this thesis}{27}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}Research gaps addressed in this thesis}{28}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Limits of the framework}{28}{subsection.2.4.4}%
 \contentsline {section}{\numberline {2.5}Chapter summary}{29}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Expressive vocabulary growth in children and LMs}{30}{chapter.3}%
 \contentsline {section}{\numberline {3.1}From lexical knowledge to observed production}{31}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Study rationale}{32}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Related Work}{33}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Developmental Trajectories}{33}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}Related Work}{32}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Developmental Trajectories}{32}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Vocabulary Evaluation}{33}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Calibrated Evaluation Frameworks}{34}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.3}Calibrated Evaluation Frameworks}{33}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Methods}{34}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}\textsc {corpus-CDI}{} Benchmark Overview}{34}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Training Data}{35}{subsection.3.4.2}%
-\contentsline {paragraph}{Age-appropriate scaling}{35}{section*.26}%
-\contentsline {paragraph}{Preprocessing}{36}{section*.27}%
-\contentsline {subsection}{\numberline {3.4.3}Model Architectures and Training}{36}{subsection.3.4.3}%
-\contentsline {paragraph}{Training procedure}{36}{section*.28}%
-\contentsline {paragraph}{Generation procedure}{36}{section*.29}%
+\contentsline {subsection}{\numberline {3.4.2}Training Data}{34}{subsection.3.4.2}%
+\contentsline {paragraph}{Age-appropriate scaling}{35}{section*.27}%
+\contentsline {paragraph}{Preprocessing}{35}{section*.28}%
+\contentsline {subsection}{\numberline {3.4.3}Model Architectures and Training}{35}{subsection.3.4.3}%
+\contentsline {paragraph}{Training procedure}{35}{section*.29}%
+\contentsline {paragraph}{Generation procedure}{35}{section*.30}%
 \contentsline {subsection}{\numberline {3.4.4}Evaluation Set Construction}{36}{subsection.3.4.4}%
-\contentsline {paragraph}{Base vocabulary and POS filtering}{36}{section*.30}%
-\contentsline {paragraph}{Frequency stratification}{37}{section*.31}%
-\contentsline {paragraph}{Audiobook subset selection}{37}{section*.32}%
-\contentsline {subsection}{\numberline {3.4.5}Evaluation Metrics}{37}{subsection.3.4.5}%
-\contentsline {paragraph}{Type-Token Ratio (TTR)}{37}{section*.33}%
-\contentsline {paragraph}{Non-word Rate}{37}{section*.34}%
-\contentsline {paragraph}{\textsc {corpus-CDI}{} Score}{37}{section*.35}%
-\contentsline {section}{\numberline {3.5}Results}{38}{section.3.5}%
+\contentsline {paragraph}{Base vocabulary and POS filtering}{36}{section*.31}%
+\contentsline {paragraph}{Frequency stratification}{36}{section*.32}%
+\contentsline {paragraph}{Audiobook subset selection}{36}{section*.33}%
+\contentsline {subsection}{\numberline {3.4.5}Evaluation Metrics}{36}{subsection.3.4.5}%
+\contentsline {paragraph}{Type-Token Ratio (TTR)}{36}{section*.34}%
+\contentsline {paragraph}{Non-word Rate}{36}{section*.35}%
+\contentsline {paragraph}{\textsc {corpus-CDI}{} Score}{37}{section*.36}%
+\contentsline {section}{\numberline {3.5}Results}{37}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Developmental Trajectories}{38}{subsection.3.5.1}%
-\contentsline {paragraph}{Lexical diversity}{38}{section*.38}%
-\contentsline {paragraph}{Word form accuracy}{39}{section*.39}%
-\contentsline {paragraph}{Vocabulary growth}{39}{section*.40}%
-\contentsline {subsection}{\numberline {3.5.2}Temperature Tradeoff}{39}{subsection.3.5.2}%
-\contentsline {paragraph}{TTR-CDI trade-off}{39}{section*.41}%
-\contentsline {paragraph}{Non-word-CDI trade-off}{39}{section*.42}%
-\contentsline {subsection}{\numberline {3.5.3}Frequency effect}{40}{subsection.3.5.3}%
-\contentsline {paragraph}{Divergent frequency sensitivity}{40}{section*.44}%
-\contentsline {paragraph}{Temperature modulation}{41}{section*.45}%
-\contentsline {paragraph}{Long-tail truncation}{41}{section*.46}%
-\contentsline {subsection}{\numberline {3.5.4}Production of Content Words}{41}{subsection.3.5.4}%
-\contentsline {paragraph}{Children's inverse U-shaped trajectory}{42}{section*.48}%
-\contentsline {paragraph}{Models' narrower range}{42}{section*.49}%
-\contentsline {section}{\numberline {3.6}Chapter discussion}{42}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}What the comparison establishes}{42}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Measurement, benchmark, and model contributions}{43}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Frequency and the meaning of data efficiency}{43}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}From a diagnostic discrepancy to a controlled intervention}{44}{subsection.3.6.4}%
+\contentsline {paragraph}{Lexical diversity}{38}{section*.39}%
+\contentsline {paragraph}{Word-form validity}{38}{section*.40}%
+\contentsline {paragraph}{Vocabulary growth}{38}{section*.41}%
+\contentsline {subsection}{\numberline {3.5.2}Temperature Tradeoff}{38}{subsection.3.5.2}%
+\contentsline {paragraph}{TTR-CDI trade-off}{39}{section*.42}%
+\contentsline {paragraph}{Non-word-CDI trade-off}{39}{section*.43}%
+\contentsline {subsection}{\numberline {3.5.3}Frequency effect}{39}{subsection.3.5.3}%
+\contentsline {paragraph}{Divergent frequency sensitivity}{40}{section*.45}%
+\contentsline {paragraph}{Temperature modulation}{40}{section*.46}%
+\contentsline {paragraph}{Long-tail truncation}{40}{section*.47}%
+\contentsline {subsection}{\numberline {3.5.4}Production of Content Words}{40}{subsection.3.5.4}%
+\contentsline {paragraph}{Children's inverse U-shaped trajectory}{40}{section*.49}%
+\contentsline {paragraph}{Models' narrower range}{41}{section*.50}%
+\contentsline {section}{\numberline {3.6}Chapter discussion}{41}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}What the comparison establishes}{41}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Measurement, benchmark, and model contributions}{42}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Frequency and the meaning of data efficiency}{42}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}From a diagnostic discrepancy to a controlled intervention}{43}{subsection.3.6.4}%
 \contentsline {section}{\numberline {3.7}Limitations}{44}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Ethics Statement}{45}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Appendix}{46}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Training and generation details}{46}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Result details}{47}{subsection.3.9.2}%
-\contentsline {chapter}{\numberline {4}Episodic memory and the lexical frequency gap}{51}{chapter.4}%
-\contentsline {section}{\numberline {4.1}From sparse lexical experience to retrievable evidence}{52}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Study rationale}{53}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Related Work}{54}{section.4.3}%
+\contentsline {section}{\numberline {3.8}Ethics Statement}{44}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Appendix}{45}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}Training and generation details}{45}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}Result details}{46}{subsection.3.9.2}%
+\contentsline {chapter}{\numberline {4}Episodic memory and the lexical frequency gap}{50}{chapter.4}%
+\contentsline {section}{\numberline {4.1}From sparse lexical experience to retrievable evidence}{51}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Study rationale}{52}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Related Work}{53}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Method}{55}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Models and Training}{56}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Evaluation Task}{56}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Retrieval Procedure}{57}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.1}Models and Training}{55}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Evaluation Task}{55}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Retrieval Procedure}{56}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Results}{57}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Retrieval Benefits Syntactic Contrasts}{57}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Frequency Gap is Narrowed but not Fully Closed}{58}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Analysis}{59}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Importance of Structural vs. Semantic Information}{59}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Effects of Retrieval Configuration}{61}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.5.2}Frequency Gap is Narrowed but not Fully Closed}{57}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Analysis}{58}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Representation and Structural-Content Analyses}{58}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Effects of Retrieval Configuration}{59}{subsection.4.6.2}%
 \contentsline {section}{\numberline {4.7}What retrieval contributes to learning from sparse evidence}{63}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Selective compensation at inference time}{63}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}The usefulness of memory depends on its contents and representation}{64}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.2}The usefulness of memory depends on its contents and representation}{63}{subsection.4.7.2}%
 \contentsline {subsection}{\numberline {4.7.3}Cognitive and methodological implications}{64}{subsection.4.7.3}%
 \contentsline {subsection}{\numberline {4.7.4}Targeted next steps}{65}{subsection.4.7.4}%
 \contentsline {section}{\numberline {4.8}Appendix}{66}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Pretrained models and datasets}{66}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Evaluation set construction}{67}{subsection.4.8.2}%
-\contentsline {subsubsection}{\numberline {4.8.2.1}Source benchmarks}{68}{subsubsection.4.8.2.1}%
+\contentsline {subsection}{\numberline {4.8.2}Evaluation set construction}{66}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}Source benchmarks}{67}{subsubsection.4.8.2.1}%
 \contentsline {subsection}{\numberline {4.8.3}Statistical analyses}{68}{subsection.4.8.3}%
 \contentsline {subsection}{\numberline {4.8.4}Structural match analysis}{69}{subsection.4.8.4}%
 \contentsline {subsection}{\numberline {4.8.5}Additional Retrieval Configuration Results}{70}{subsection.4.8.5}%
@@ -135,72 +138,80 @@
 \contentsline {subsection}{\numberline {5.2.3}Method}{83}{subsection.5.2.3}%
 \contentsline {subsubsection}{\numberline {5.2.3.1}Data}{83}{subsubsection.5.2.3.1}%
 \contentsline {subsubsection}{\numberline {5.2.3.2}Models}{84}{subsubsection.5.2.3.2}%
-\contentsline {paragraph}{Fine-tuned model}{84}{section*.80}%
+\contentsline {paragraph}{Fine-tuned model}{84}{section*.81}%
 \contentsline {subsubsection}{\numberline {5.2.3.3}Benchmarking}{84}{subsubsection.5.2.3.3}%
-\contentsline {paragraph}{Single-turn testing}{84}{section*.81}%
-\contentsline {paragraph}{Multi-turn testing}{84}{section*.82}%
-\contentsline {paragraph}{Zero vs. Few-shot settings}{85}{section*.85}%
+\contentsline {paragraph}{Single-turn testing}{84}{section*.82}%
+\contentsline {paragraph}{Multi-turn testing}{85}{section*.83}%
+\contentsline {paragraph}{Zero vs. Few-shot settings}{85}{section*.86}%
 \contentsline {subsubsection}{\numberline {5.2.3.4}Metrics}{86}{subsubsection.5.2.3.4}%
 \contentsline {subsection}{\numberline {5.2.4}Results and Discussion}{87}{subsection.5.2.4}%
 \contentsline {subsubsection}{\numberline {5.2.4.1}Single-turn testing}{87}{subsubsection.5.2.4.1}%
-\contentsline {paragraph}{Child-LLM}{87}{section*.88}%
-\contentsline {paragraph}{Caregiver-LLM}{88}{section*.89}%
-\contentsline {subsubsection}{\numberline {5.2.4.2}Multi-turn testing}{88}{subsubsection.5.2.4.2}%
-\contentsline {paragraph}{Child-LLM}{89}{section*.90}%
-\contentsline {paragraph}{Caregiver-LLM}{89}{section*.91}%
-\contentsline {subsection}{\numberline {5.2.5}Conclusion}{89}{subsection.5.2.5}%
+\contentsline {paragraph}{Child-LLM}{87}{section*.89}%
+\contentsline {paragraph}{Caregiver-LLM}{88}{section*.90}%
+\contentsline {subsubsection}{\numberline {5.2.4.2}Multi-turn testing}{89}{subsubsection.5.2.4.2}%
+\contentsline {paragraph}{Child-LLM}{89}{section*.91}%
+\contentsline {paragraph}{Caregiver-LLM}{89}{section*.92}%
+\contentsline {subsection}{\numberline {5.2.5}Conclusion}{90}{subsection.5.2.5}%
 \contentsline {subsection}{\numberline {5.2.6}Limitations}{91}{subsection.5.2.6}%
 \contentsline {subsection}{\numberline {5.2.7}Ethics statement}{92}{subsection.5.2.7}%
+\contentsline {subsection}{\numberline {5.2.8}Supplementary materials: prompt templates}{93}{subsection.5.2.8}%
 \contentsline {paragraph}{The zero-shot prompt template for the caregiver}{93}{section*.93}%
 \contentsline {paragraph}{The zero-shot prompt template for the child}{93}{section*.94}%
 \contentsline {paragraph}{The few-shot prompt template for the caregiver}{93}{section*.95}%
 \contentsline {paragraph}{The few-shot prompt template for the child}{93}{section*.96}%
+\contentsline {subsection}{\numberline {5.2.9}Supplementary materials: fine-tuning details}{93}{subsection.5.2.9}%
+\contentsline {subsection}{\numberline {5.2.10}Supplementary materials: example generations}{94}{subsection.5.2.10}%
 \contentsline {section}{\numberline {5.3}Which forms of caregiver feedback support grammar learning?}{96}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Introduction}{96}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Methods}{97}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.2}Methods}{98}{subsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.2.1}Evaluation}{98}{subsubsection.5.3.2.1}%
 \contentsline {subsection}{\numberline {5.3.3}Results}{99}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Discussion and Conclusions}{100}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}Discussion}{109}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Simulation Fidelity and Learning Effects: Distinct Contributions}{110}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Implications for Computational Models of Language Acquisition}{110}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Limitations and Directions toward Integrated Interaction-and-Learning Models}{111}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Chapter Conclusions}{112}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.3.4}Discussion and Conclusions}{101}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Supplementary materials: additional analyses}{104}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Supplementary materials: example generations}{107}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}Supplementary materials: automatic labeling of rewards}{108}{subsection.5.3.7}%
+\contentsline {subsection}{\numberline {5.3.8}Supplementary materials: baseline and reward-model training}{109}{subsection.5.3.8}%
+\contentsline {subsection}{\numberline {5.3.9}Supplementary materials: RL fine-tuning details}{109}{subsection.5.3.9}%
+\contentsline {section}{\numberline {5.4}Discussion}{110}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Simulation Fidelity and Learning Effects: Distinct Contributions}{111}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Implications for Computational Models of Language Acquisition}{111}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Limitations and Directions toward Integrated Interaction-and-Learning Models}{112}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Chapter Conclusions}{113}{subsection.5.4.4}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {6}General Discussion}{113}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Revisiting the Central Question}{114}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Methodological and Computational Contributions}{115}{section.6.2}%
-\contentsline {section}{\numberline {6.3}From Model Performance to Developmental Evidence}{116}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Calibrating the Learner's Experience}{116}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Specifying the Learner and the Intervention}{117}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Aligning Outcomes and Task Models}{117}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}What Success and Failure License}{118}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Learning from Sparse Evidence}{118}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Frequency Sensitivity in Expressive Production}{119}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Retrieval as Selective Compensation}{120}{subsection.6.4.2}%
-\contentsline {section}{\numberline {6.5}Competence Depends on How It Is Measured}{121}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Endpoints and Trajectories Answer Different Questions}{121}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Free Generation and Controlled Preferences Expose Different Capacities}{122}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}Uncertainty Includes Sampling and Measurement Choice}{122}{subsection.6.5.3}%
-\contentsline {section}{\numberline {6.6}From Static Input to Social Interaction}{123}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Interaction as an Object of Simulation}{123}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}From Caregiver Responses to Reward Signals}{124}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Production Gains and Grammatical Generalization}{125}{subsection.6.6.3}%
-\contentsline {section}{\numberline {6.7}Theoretical Implications for Language Acquisition}{125}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Complementary Sources of Support}{126}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Feedback Is Not a Unitary Developmental Resource}{126}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}From Computational Effects to Developmental Claims}{127}{subsection.6.7.3}%
-\contentsline {section}{\numberline {6.8}Thesis-wide Limitations}{127}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Textual Input and Missing Grounding}{127}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Automatic Measures and Validation Data}{127}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}Information Budgets and Population Generalizability}{128}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}Toward Integrated Developmental Models}{128}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Longitudinal and Multimodal Experience}{128}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}Adaptive Episodic Memory}{129}{subsection.6.9.2}%
-\contentsline {subsection}{\numberline {6.9.3}A Contingent Caregiver}{129}{subsection.6.9.3}%
-\contentsline {subsection}{\numberline {6.9.4}Held-out, Multi-outcome Evaluation}{129}{subsection.6.9.4}%
-\contentsline {subsection}{\numberline {6.9.5}Cross-linguistic and Individual-level Validation}{130}{subsection.6.9.5}%
-\contentsline {section}{\numberline {6.10}General Conclusion}{130}{section.6.10}%
+\contentsline {chapter}{\numberline {6}General Discussion}{114}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Revisiting the Central Question}{115}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Methodological and Computational Contributions}{116}{section.6.2}%
+\contentsline {section}{\numberline {6.3}From Model Performance to Developmental Evidence}{117}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Calibrating the Learner's Experience}{117}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Specifying the Learner and the Intervention}{118}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Aligning Outcomes and Task Models}{118}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}What Success and Failure License}{119}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Learning from Sparse Evidence}{119}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Frequency Sensitivity in Expressive Production}{120}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Retrieval as Selective Compensation}{121}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Competence Depends on How It Is Measured}{122}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Endpoints and Trajectories Answer Different Questions}{122}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Free Generation and Controlled Preferences Expose Different Capacities}{123}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Uncertainty Includes Sampling and Measurement Choice}{123}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}From Static Input to Social Interaction}{124}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Interaction as an Object of Simulation}{124}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}From Caregiver Responses to Reward Signals}{125}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Production Gains and Grammatical Generalization}{126}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}Theoretical Implications for Language Acquisition}{126}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Complementary Sources of Support}{127}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Feedback Is Not a Unitary Developmental Resource}{127}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}From Computational Effects to Developmental Claims}{128}{subsection.6.7.3}%
+\contentsline {section}{\numberline {6.8}Thesis-wide Limitations}{128}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Textual Input and Missing Grounding}{128}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Automatic Measures and Validation Data}{128}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}Information Budgets and Population Generalizability}{129}{subsection.6.8.3}%
+\contentsline {section}{\numberline {6.9}Toward Integrated Developmental Models}{129}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Longitudinal and Multimodal Experience}{129}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}Adaptive Episodic Memory}{130}{subsection.6.9.2}%
+\contentsline {subsection}{\numberline {6.9.3}A Contingent Caregiver}{130}{subsection.6.9.3}%
+\contentsline {subsection}{\numberline {6.9.4}Held-out, Multi-outcome Evaluation}{130}{subsection.6.9.4}%
+\contentsline {subsection}{\numberline {6.9.5}Cross-linguistic and Individual-level Validation}{131}{subsection.6.9.5}%
+\contentsline {section}{\numberline {6.10}General Conclusion}{131}{section.6.10}%
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 

@@ -1,47 +1,30 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}From lexical knowledge to observed production}{\reset@font\mtcSfont 31}{section.3.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Study rationale}{\reset@font\mtcSfont 32}{section.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Related Work}{\reset@font\mtcSfont 33}{section.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.1}Developmental Trajectories}{\reset@font\mtcSSfont 33}{subsection.3.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.2}Vocabulary Evaluation}{\reset@font\mtcSSfont 33}{subsection.3.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.3}Calibrated Evaluation Frameworks}{\reset@font\mtcSSfont 34}{subsection.3.3.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Methods}{\reset@font\mtcSfont 34}{section.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.1}\textsc {corpus-CDI}{} Benchmark Overview}{\reset@font\mtcSSfont 34}{subsection.3.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.2}Training Data}{\reset@font\mtcSSfont 35}{subsection.3.4.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Age-appropriate scaling}{\reset@font\mtcPfont 35}{section*.26}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Preprocessing}{\reset@font\mtcPfont 36}{section*.27}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.3}Model Architectures and Training}{\reset@font\mtcSSfont 36}{subsection.3.4.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Training procedure}{\reset@font\mtcPfont 36}{section*.28}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Generation procedure}{\reset@font\mtcPfont 36}{section*.29}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.4}Evaluation Set Construction}{\reset@font\mtcSSfont 36}{subsection.3.4.4}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Base vocabulary and POS filtering}{\reset@font\mtcPfont 36}{section*.30}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Frequency stratification}{\reset@font\mtcPfont 37}{section*.31}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Audiobook subset selection}{\reset@font\mtcPfont 37}{section*.32}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.5}Evaluation Metrics}{\reset@font\mtcSSfont 37}{subsection.3.4.5}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Type-Token Ratio (TTR)}{\reset@font\mtcPfont 37}{section*.33}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Non-word Rate}{\reset@font\mtcPfont 37}{section*.34}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode \textsc {corpus-CDI}{} Score}{\reset@font\mtcPfont 37}{section*.35}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.5}Results}{\reset@font\mtcSfont 38}{section.3.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.1}Developmental Trajectories}{\reset@font\mtcSSfont 38}{subsection.3.5.1}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Lexical diversity}{\reset@font\mtcPfont 38}{section*.38}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Word form accuracy}{\reset@font\mtcPfont 39}{section*.39}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Vocabulary growth}{\reset@font\mtcPfont 39}{section*.40}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.2}Temperature Tradeoff}{\reset@font\mtcSSfont 39}{subsection.3.5.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode TTR-CDI trade-off}{\reset@font\mtcPfont 39}{section*.41}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Non-word-CDI trade-off}{\reset@font\mtcPfont 39}{section*.42}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.3}Frequency effect}{\reset@font\mtcSSfont 40}{subsection.3.5.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Divergent frequency sensitivity}{\reset@font\mtcPfont 40}{section*.44}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Temperature modulation}{\reset@font\mtcPfont 41}{section*.45}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Long-tail truncation}{\reset@font\mtcPfont 41}{section*.46}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.4}Production of Content Words}{\reset@font\mtcSSfont 41}{subsection.3.5.4}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Children's inverse U-shaped trajectory}{\reset@font\mtcPfont 42}{section*.48}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Models' narrower range}{\reset@font\mtcPfont 42}{section*.49}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Chapter discussion}{\reset@font\mtcSfont 42}{section.3.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.1}What the comparison establishes}{\reset@font\mtcSSfont 42}{subsection.3.6.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.2}Measurement, benchmark, and model contributions}{\reset@font\mtcSSfont 43}{subsection.3.6.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.3}Frequency and the meaning of data efficiency}{\reset@font\mtcSSfont 43}{subsection.3.6.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.4}From a diagnostic discrepancy to a controlled intervention}{\reset@font\mtcSSfont 44}{subsection.3.6.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.7}Limitations}{\reset@font\mtcSfont 44}{section.3.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.8}Ethics Statement}{\reset@font\mtcSfont 45}{section.3.8}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.9}Appendix}{\reset@font\mtcSfont 46}{section.3.9}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.9.1}Training and generation details}{\reset@font\mtcSSfont 46}{subsection.3.9.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.9.2}Result details}{\reset@font\mtcSSfont 47}{subsection.3.9.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Scope and inferential framework}{\reset@font\mtcSfont 9}{section.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Outcome alignment}{\reset@font\mtcSfont 10}{section.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Task affordances across linguistic domains}{\reset@font\mtcSSfont 10}{subsection.2.2.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Phonological knowledge.}{\reset@font\mtcPfont 11}{section*.10}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Morphological knowledge.}{\reset@font\mtcPfont 12}{section*.11}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Word forms and lexical production.}{\reset@font\mtcPfont 12}{section*.12}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Word meaning.}{\reset@font\mtcPfont 13}{section*.13}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Syntactic structure.}{\reset@font\mtcPfont 13}{section*.14}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Sentence meaning.}{\reset@font\mtcPfont 14}{section*.15}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Pragmatic inference.}{\reset@font\mtcPfont 14}{section*.16}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Selected empirical coverage}{\reset@font\mtcSSfont 15}{subsection.2.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Thresholded evidence and graded performance}{\reset@font\mtcSSfont 17}{subsection.2.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Developmental trajectories}{\reset@font\mtcSSfont 19}{subsection.2.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.5}Measurement uncertainty}{\reset@font\mtcSSfont 20}{subsection.2.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Input alignment}{\reset@font\mtcSfont 21}{section.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Quality, register, modality, and interaction}{\reset@font\mtcSSfont 21}{subsection.2.3.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Language-only text.}{\reset@font\mtcPfont 21}{section*.19}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Language-only audio.}{\reset@font\mtcPfont 22}{section*.20}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Language with vision.}{\reset@font\mtcPfont 23}{section*.21}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Language, vision, and social interaction.}{\reset@font\mtcPfont 23}{section*.22}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.2}Quantity and temporal organization}{\reset@font\mtcSSfont 24}{subsection.2.3.2}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Fixed-corpus trajectories.}{\reset@font\mtcPfont 25}{section*.23}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Successive scaling.}{\reset@font\mtcPfont 25}{section*.24}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Curriculum and continual learning.}{\reset@font\mtcPfont 25}{section*.25}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Implications, reporting standards, and thesis research gaps}{\reset@font\mtcSfont 26}{section.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}What a calibrated comparison licenses}{\reset@font\mtcSSfont 26}{subsection.2.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Minimum reporting for interpretable evidence}{\reset@font\mtcSSfont 27}{subsection.2.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Research gaps addressed in this thesis}{\reset@font\mtcSSfont 28}{subsection.2.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.4}Limits of the framework}{\reset@font\mtcSSfont 28}{subsection.2.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Chapter summary}{\reset@font\mtcSfont 29}{section.2.5}}
