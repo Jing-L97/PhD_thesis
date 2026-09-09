@@ -1,0 +1,118 @@
+final_key	disposition	source_key	match_basis	year	doi	title
+ahamat2025shared	add	ahamat2025shared	no_match_after_three_passes	2025		The Shared Book Reading Corpus: An audiovisual collection of 44 multimodal caregiver-infant interactions
+anh2024morphology	add	anh2024morphology	no_match_after_three_passes	2024		Morphology matters: Probing the cross-linguistic morphological generalization abilities of large language models through a wug test
+Aslin1998	add	Aslin1998	no_match_after_three_passes	1998		Computation of conditional probability statistics by 8-month-old infants
+aslin2007s	add	aslin2007s	no_match_after_three_passes	2007		What's in a look?
+barbir2023rapid	add	barbir2023rapid	no_match_after_three_passes	2023		Rapid infant learning of syntactic--semantic links
+Bergelson2017	add	Bergelson2017	no_match_after_three_passes	2017	10.1177/0956797617703430	Semantic Specificity in One‑Year‑Olds' Word Comprehension
+bergelson2023everyday	add	bergelson2023everyday	no_match_after_three_passes	2023		Everyday language input and production in 1,001 children from six continents
+bergelson_at_2012	reuse	BergelsonSwingley2012	doi	2012	10.1073/pnas.1113380109	At 6–9 months, human infants know the meanings of many common nouns
+BerkoGleason1958	add	BerkoGleason1958	no_match_after_three_passes	1958	10.1080/00437956.1958.11659661	The Child's Learning of {E}nglish Morphology
+Best1988	add	Best1988	no_match_after_three_passes	1988		Examination of perceptual reorganization for nonnative speech contrasts: Zulu click discrimination by English-speaking adults and infants
+bodur_chico_2021	reuse	bodur2021chico	title+first_author+year	2021	10.1145/3461615.3485399	{ChiCo}: {A} {Multimodal} {Corpus} for the {Study} of {Child} {Conversation}
+brown2020language	reuse	Brown2020	title+first_author+year	2020		Language models are few-shot learners
+buck2014n	add	buck2014n	no_match_after_three_passes	2014		N-gram Counts and Language Models from the Common Crawl.
+byers2022six	add	byers2022six	no_match_after_three_passes	2022		Six solutions for more reliable infant research
+chang2022word	reuse	Chang2022	title+first_author+year	2022		Word acquisition in neural language models
+chater2006probabilistic	add	Chater2008	manual_metadata_repair_after_no_strict_match	2006	10.1016/j.tics.2006.05.006	Probabilistic models of language processing and acquisition
+Cotterell2017	add	Cotterell2017	no_match_after_three_passes	2017		Paradigm Completion for Derivational Morphology
+cristia2020accuracy	add	cristia2020accuracy	no_match_after_three_passes	2020		Accuracy of the language environment analysis system segmentation and metrics: A systematic review
+Csibra2009	add	Csibra2009	no_match_after_three_passes	2009		Natural pedagogy
+DeBolt2020	add	DeBolt2020	no_match_after_three_passes	2020		Robust data and power in infant research: A case study of the effect of number of infants and number of trials in visual preference procedures
+dodge2020fine	add	dodge2020fine	no_match_after_three_passes	2020		Fine-tuning pretrained language models: Weight initializations, data orders, and early stopping
+Dunbar2017	add	Dunbar2017	no_match_after_three_passes	2017		The zero resource speech challenge 2017
+dunbar2021zero	add	dunbar2021zero	no_match_after_three_passes	2021		The Zero Resource Speech Challenge 2021: Spoken language modelling
+dupoux2018cognitive	reuse	dupoux2018cognitive	exact_key	2018		Cognitive science in the era of artificial intelligence: A roadmap for reverse-engineering the infant language-learner
+Eimas1971	add	Eimas1971	no_match_after_three_passes	1971		Speech Perception in Infants
+Elman1990	add	Elman1990	no_match_after_three_passes	1990	10.1207/s15516709cog1402_1	Finding structure in time
+Elman1991	add	Elman1991	no_match_after_three_passes	1991		Distributed representations, simple recurrent networks, and grammatical structure
+engelmann2019input	add	ENGELMANN201930	manual_metadata_repair_after_no_strict_match	2019	10.1016/j.cogpsych.2019.02.001	How the input shapes the acquisition of verb morphology: Elicited production and computational modelling in two highly inflected languages
+evanson2023language	reuse	Evanson2023	title+first_author+year	2023		Language acquisition: do children and language models follow similar learning stages?
+feng2024child	reuse	feng2024child	exact_key	2024		Is child-directed speech effective training data for language models?
+fenson1994variability	reuse	fenson1994variability	exact_key	1994		Variability in early communicative development
+ficarra2025distributional	add	ficarra2025distributional	no_match_after_three_passes	2025		A distributional perspective on word learning in neural language models
+frank2015erp	add	frank2015erp	no_match_after_three_passes	2015		The ERP response to the amount of information conveyed by words in sentences
+frank2023baby	reuse	Frank2023	title+first_author+year	2023		Baby steps in evaluating the capacities of large language models
+friedrich2006early	add	friedrich2006early	no_match_after_three_passes	2006		Early N400 development and later language acquisition
+gervain2012binding	add	berent2012binding	manual_metadata_repair_after_no_strict_match	2012	10.1162/jocn_a_00157	Binding at birth: The newborn brain detects identity relations and sequential position in speech
+goumri_chica_2024	reuse	goumri2024chica	title+first_author+year	2024		{CHICA}: {A} {Developmental} {Corpus} of {Child}-{Caregiver}'s {Face}-to-face vs. {Video} {Call} {Conversations} in {Middle} {Childhood}
+grafestes2013prosody	add	GrafEstes2012	manual_metadata_repair_after_no_strict_match	2013	10.1111/infa.12006	Infant-directed prosody helps infants map sounds to meanings
+gu2025ecolang	add	gu2025ecolang	no_match_after_three_passes	2025		The ECOLANG Multimodal Corpus of adult-child and adult-adult Language
+haga2024babylm	add	haga2024babylm	no_match_after_three_passes	2024		BabyLM challenge: Exploring the effect of variation sets on language model training efficiency
+hale2001probabilistic	add	hale2001probabilistic	no_match_after_three_passes	2001		A probabilistic Earley parser as a psycholinguistic model
+hart1992american	add	hart1992american	no_match_after_three_passes	1992		American parenting of language-learning children: Persisting differences in family-child interactions observed in natural home environments.
+houston2004distinguishing	add	houston2004distinguishing	no_match_after_three_passes	2004		Distinguishing novelty and familiarity effects in infant preference procedures
+Hu2020	add	Hu2020	no_match_after_three_passes	2020		A systematic assessment of syntactic generalization in neural language models
+hu2024findings	reuse	Choshen2024; Hu2024	title+first_author+year	2024		Findings of the Second BabyLM Challenge: Sample-Efficient Pretraining on Developmentally Plausible Corpora
+huebner2021babyberta	reuse	Huebner2021	title+first_author+year	2021		BabyBERTa: Learning more grammar with small-scale child-directed language
+hunter1988multifactor	add	hunter1988multifactor	no_match_after_three_passes	1988		A multifactor model of infant preferences for novel and familiar stimuli.
+Kaplan2020	add	Kaplan2020	no_match_after_three_passes	2020	10.48550/arXiv.2001.08361	Scaling Laws for Neural Language Models
+kauf2023event	add	kauf2023event	no_match_after_three_passes	2023		Event knowledge in large language models: the gap between the impossible and the unlikely
+kim2021morphology	add	Seidl2021	manual_metadata_repair_after_no_strict_match	2021	10.1111/desc.13089	{6}-month-olds are sensitive to English morphology
+kosinski2024evaluating	add	Kosinski2023; Kosinski2023b	manual_metadata_repair_after_no_strict_match	2024	10.1073/pnas.2405460121	Evaluating large language models in theory of mind tasks
+kucharsky2024habituation	add	kucharsky2024habituation	no_match_after_three_passes	2024		Habituation, part II. Rethinking the habituation paradigm
+Kuhl1992	add	Kuhl1992	no_match_after_three_passes	1992		Linguistic experience alters phonetic perception in infants by 6 months of age
+Kuhl2006	add	Kuhl2006	no_match_after_three_passes	2006		Infants show a facilitation effect for native language phonetic perception between 6 and 12 months
+Lany2011	add	Lany2011	no_match_after_three_passes	2011	10.1080/15475441.2011.579840	Interactions between Statistical and Semantic Information in Infant Word Learning
+lavechin2023babyslm	reuse	Lavechin2023BabySLM	title+first_author+year	2023		BabySLM: language-acquisition-friendly benchmark of self-supervised spoken language models
+lavechin2024modeling	reuse	lavechin2024modeling	exact_key	2024		Modeling early phonetic acquisition from child-centered audio data
+Lenci2022	add	Lenci2022	no_match_after_three_passes	2022	10.1007/s10579-021-09575-z	A Comparative Evaluation and Analysis of Semantic Relation Classification Tasks for Distributional Models
+Lewis2001	add	Lewis2001	no_match_after_three_passes	2001		Learnability and the statistical structure of language: Poverty of stimulus arguments revisited
+lin_microsoft_2014	reuse	lin2014microsoft	title+first_author+year	2014		Microsoft {COCO}: {Common} {Objects} in {Context}
+linzen2016assessing	add	linzen2016assessing	no_match_after_three_passes	2016		Assessing the ability of LSTMs to learn syntax-sensitive dependencies
+Linzen2021	add	Linzen2021	no_match_after_three_passes	2021		Syntactic structure from deep learning
+liu2024benchmarking	reuse	LiuFourtassi2024	title+first_author+year	2024		Benchmarking llms for mimicking child-caregiver language in interaction
+Long2024	add	Long2024	no_match_after_three_passes	2024		The {B}aby{V}iew dataset: High-resolution egocentric videos of infants' and young children's everyday experiences
+lozano2025development	add	lozano2025development	no_match_after_three_passes	2025		The development of semantic integration in bilingual toddlers measured by N400
+ma2025babysit	reuse	Ma2024	manual_version_resolution	2025	10.18653/v1/2025.naacl-long.46	Babysit a language model from scratch: Interactive language learning by trials and demonstrations
+macwhinney_childes_2000	reuse	macwhinney_childes_2000	exact_key	2000		The {CHILDES} {Project}: {Tools} for analyzing talk. transcription format and programs
+Mahowald2024	add	Mahowald2024	no_match_after_three_passes	2024	10.1016/j.tics.2024.01.011	Dissociating language and thought in large language models
+ManyBabies2020	add	ManyBabies2020	no_match_after_three_passes	2020		Quantifying sources of variability in infancy research using the infant-directed-speech preference
+Marcus1999	add	Marcus1999	no_match_after_three_passes	1999		Rule learning by seven-month-old infants
+marcus_overregularization_1992	reuse	Marcus1992	title+first_author+year	1992	10.2307/1166115	Overregularization in {Language} {Acquisition}
+Margoni2023	add	Margoni2023	no_match_after_three_passes	2023	10.1037/rev0000450	The Violation‑of‑Expectation Paradigm: A Conceptual Overview
+marr_vision_1982	reuse	Marr1982	title+first_author+year	1982		Vision: {A} {Computational} {Investigation} into the {Human} {Representation} and {Processing} of {Visual} {Information}
+marvin2018targeted	add	marvin2018targeted	no_match_after_three_passes	2018		Targeted syntactic evaluation of language models
+matusevych2023infant	add	matusevych2023infant	no_match_after_three_passes	2023		Infant phonetic learning as perceptual space learning: A crosslinguistic evaluation of computational models
+mccloskey1989catastrophic	reuse	mccloskey1989catastrophic	exact_key	1989		Catastrophic interference in connectionist networks: The sequential learning problem
+michaelov2024strong	add	michaelov2024strong	no_match_after_three_passes	2024		Strong prediction: Language model surprisal explains multiple N400 effects
+michaly2025development	add	michaly2025development	no_match_after_three_passes	2025	10.1017/S0305000924000126	Development of derivational morphological knowledge in monolingual and bilingual children: Effects of modality and lexicality
+Mitchell2022	add	Mitchell2022	no_match_after_three_passes	2022		Developmental noise is an overlooked contributor to innate variation in psychological traits
+Monroy2021	add	Monroy2021	no_match_after_three_passes	2021		Understanding the causes and consequences of variability in infant {ERP} editing practices
+nguyen2022word	reuse	nguyen2022word	exact_key	2022		Are word boundaries useful for unsupervised language learning?
+PearlSprouse2013	add	PearlSprouse2013	no_match_after_three_passes	2013		Syntactic islands and learning biases: Combining experimental syntax and computational modeling to investigate the language acquisition problem
+Pelucchi2009	add	Pelucchi2009	no_match_after_three_passes	2009	10.1111/j.1467-8624.2009.01290.x	Statistical learning in a natural language by 8-month-old infants
+Perfors2011	add	Perfors2011	no_match_after_three_passes	2011		The learnability of abstract syntactic principles
+poli2024modeling	add	poli2024modeling	no_match_after_three_passes	2024		Modeling the initial state of early phonetic learning in infants
+raffel2020exploring	add	raffel2020exploring	no_match_after_three_passes	2020		Exploring the limits of transfer learning with a unified text-to-text transformer
+Reali2004	add	Reali2004	no_match_after_three_passes	2004		Structure dependence in language acquisition: Uncovering the statistical richness of the stimulus
+rumelhart_learning_1986	reuse	RumelhartMcClelland1986	title+first_author+year	1986		On learning the past tenses of {English} verbs
+saffran1996statistical	reuse	Saffran1996	title+first_author+year	1996		Statistical learning by 8-month-old infants
+salazar_masked_2020	reuse	Salazar2020	title+first_author+year	2020	10.18653/v1/2020.acl-main.240	Masked {Language} {Model} {Scoring}
+Schatz2013	add	Schatz2013	no_match_after_three_passes	2013		Evaluating speech features with the minimal-pair {ABX} task: Analysis of the classical {MFC/PLP} pipeline
+Schatz2014	add	Schatz2014	no_match_after_three_passes	2014		Evaluating speech features with the minimal-pair {ABX} task ({II}): Resistance to noise
+schatz2021early	add	schatz2021early	no_match_after_three_passes	2021		Early phonetic learning without phonetic categories: Insights from large-scale simulations on realistic input
+schreiner2024limited	add	schreiner2024limited	no_match_after_three_passes	2024		Limited evidence of test-retest reliability in infant-directed speech preference in a large preregistered infant experiment
+schuhmann2022laion	add	schuhmann2022laion	no_match_after_three_passes	2022		Laion-5b: An open large-scale dataset for training next generation image-text models
+SmithLevy2013	add	SmithLevy2013	no_match_after_three_passes	2013		The role of surprisal in human sentence processing: Evidence from reading times and comprehension
+srivastava_dropout_2014	reuse	Srivastava2014	title+first_author+year	2014		Dropout: a simple way to prevent neural networks from overfitting
+Strachan2024	add	Strachan2024	no_match_after_three_passes	2024	10.1038/s41562-024-01882-z	Testing theory of mind in large language models and humans
+sullivan_saycam_2022	reuse	sullivan2021saycam	manual_version_resolution	2021	10.1162/opmi_a_00039	{SAYCam}: {A} {Large}, {Longitudinal} {Audiovisual} {Dataset} {Recorded} {From} the {Infant}’s {Perspective}
+summers2021nondeterminism	add	summers2021nondeterminism	no_match_after_three_passes	2021		Nondeterminism and instability in neural network optimization
+Sundara2018	add	Sundara2018	no_match_after_three_passes	2018		Young infants' discrimination of subtle phonetic contrasts
+Tomasello1995	add	Tomasello1995	no_match_after_three_passes	1995		Joint attention as social cognition
+tomasello2003constructing	reuse	Tomasello2003	title+first_author+year	2003		Constructing a language: A usage-based theory of language acquisition
+tsuji2014perceptual	add	tsuji2014perceptual	no_match_after_three_passes	2014		Perceptual attunement in vowels: A meta-analysis
+vong2024grounded	reuse	Vong2024	title+first_author+year	2024		Grounded language acquisition through the eyes and ears of a single child
+vong2025robustness	add	Portelance2024	manual_metadata_repair_after_no_strict_match	2025	10.48550/arXiv.2507.14749	On the robustness of modeling grounded word learning through a child's egocentric input
+Wang2025	add	Wang2025	no_match_after_three_passes	2025		{B}aby{VLM}: Data-Efficient Pretraining of {VLM}s Inspired by Infant Learning
+warstadt2020blimp	reuse	warstadt2020blimp	exact_key	2020	10.1162/tacl_a_00321	BLiMP: The benchmark of linguistic minimal pairs for English
+warstadt2020learning	add	warstadt2020learning	no_match_after_three_passes	2020		Learning which features matter: RoBERTa acquires a preference for linguistic generalizations (eventually)
+warstadt2022what	reuse	Warstadt2022	title+first_author+year	2022		What Artificial Neural Networks Can Tell Us About Human Language Acquisition
+warstadt2023findings	reuse	Warstadt2023	title+first_author+year	2023		Findings of the BabyLM Challenge: Sample-efficient pretraining on developmentally plausible corpora
+WeislederFernald2013	add	WeislederFernald2013	no_match_after_three_passes	2013	10.1177/0956797613488145	Talking to Children Matters: Early Language Experience Strengthens Processing and Builds Vocabulary
+weissweiler2023counting	add	weissweiler2023counting	no_match_after_three_passes	2023		Counting the bugs in ChatGPT’s wugs: A multilingual investigation into the morphological capabilities of a large language model
+Wellman2001	add	Wellman2001	no_match_after_three_passes	2001		Meta-analysis of theory-of-mind development: The truth about false belief
+Werker1984	add	Werker1984	no_match_after_three_passes	1984		Cross-language speech perception: Evidence for perceptual reorganization during the first year of life
+wilcox2023testing	add	wilcox2023testing	no_match_after_three_passes	2023		Testing the predictions of surprisal theory in 11 languages
+WimmerPerner1983	add	WimmerPerner1983	no_match_after_three_passes	1983		Beliefs about beliefs: Representation and constraining function of wrong beliefs in young children’s understanding of deception
